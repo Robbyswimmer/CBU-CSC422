@@ -260,146 +260,335 @@ By course completion, you'll demonstrate mastery across these key areas:
 
 ## 📅 Your Learning Journey
 
-### 🚀 **Weeks 1-3: Foundation Building**
+> **Transform from curious beginner to confident AI practitioner in 14 weeks!**
 
-<details>
-<summary><strong>Week 1 - 🏠 Housing Price Prediction</strong></summary>
+<div align="center">
 
-**🎯 Assignment 1** *(CLO 5)*
-- Build your first linear regression model
-- Predict housing prices with Python
-- Discover how ML differs from traditional programming
-- **Skills:** Python basics, regression fundamentals
+### 🛤️ **The Path Ahead**
 
-</details>
+```mermaid
+graph LR
+    A[🚀 Foundation] --> B[🔬 Advanced Tech] --> C[🧠 Deep Learning] --> D[🎓 Mastery]
+    
+    style A fill:#FFE6E6
+    style B fill:#E6F3FF
+    style C fill:#E6FFE6
+    style D fill:#FFF0E6
+```
 
-<details>
-<summary><strong>Week 3 - 🎯 Classification Showdown</strong></summary>
+*Click each phase below to explore your adventure!*
 
-**🎯 Assignment 2** *(CLO 1)*
-- Train logistic regression vs decision trees
-- Compare accuracy and interpretability
-- Work with real labeled datasets
-- **Skills:** Classification, model evaluation
+</div>
 
-</details>
+---
 
-### 🔬 **Weeks 4-6: Advanced Techniques**
+## 🌟 **Phase 1: Foundation Building**
+*Weeks 1-3: Build Your ML Foundation*
 
-<details>
-<summary><strong>Week 4 - ⚖️ Bias-Variance Battle</strong></summary>
+<table>
+<tr>
+<td width="15%" align="center">
+<h3>🏠</h3>
+<strong>Week 1</strong>
+</td>
+<td width="85%">
 
-**🎯 Assignment 3** *(CLOs 2, 3)*
-- Master cross-validation techniques
-- Visualize overfitting vs underfitting
-- Optimize model performance
-- **Skills:** Model validation, visualization
+### **Housing Price Prediction** *(CLO 5)*
 
-</details>
+**🎯 Your Mission:** Build your very first machine learning model!
 
-<details>
-<summary><strong>Week 5 - 🔍 Unsupervised Discovery</strong></summary>
+**What You'll Create:**
+- Linear regression model from scratch (no libraries!)
+- Real housing price predictor using Python
+- Comparison between your code and professional ML libraries
 
-**🎯 Assignment 4** *(CLOs 2, 3)*
-- Apply k-means clustering to unlabeled data
-- Reduce dimensions with PCA
-- Analyze cluster quality
-- **Skills:** Clustering, dimensionality reduction
+**Skills Unlocked:** 🐍 Python fundamentals, 📊 Regression basics, 🧮 Mathematical thinking
 
-</details>
+**Victory Condition:** Successfully predict house prices and understand how ML differs from traditional programming
 
-<details>
-<summary><strong>Week 6 - 🧠 Neural Network Genesis + 🎯 Midterm Project</strong></summary>
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🎯</h3>
+<strong>Week 3</strong>
+</td>
+<td width="85%">
 
-**🎯 Assignment 5 + Midterm** *(CLOs 2, 4)*
-- Build neural networks from scratch with NumPy
-- Launch your midterm ML project
-- Apply shallow learning to real problems
-- **Skills:** Neural networks, project management
+### **Classification Showdown** *(CLO 1)*
 
-</details>
+**🎯 Your Mission:** Master the art of classification!
 
-### 🚀 **Weeks 7-9: Deep Learning Revolution**
+**What You'll Create:**
+- Logistic regression vs Decision tree battle
+- Model accuracy comparison dashboard
+- Real-world labeled dataset analysis
 
-<details>
-<summary><strong>Week 7 - 👁️ Computer Vision Mastery</strong></summary>
+**Skills Unlocked:** 🔍 Classification techniques, 📈 Model evaluation, 📊 Data interpretation
 
-**🎯 Assignment 6** *(CLO 4)*
-- Train CNNs on MNIST/CIFAR-10
-- Visualize learned filters
-- Master TensorFlow/PyTorch
-- **Skills:** CNNs, computer vision
+**Victory Condition:** Train competing models and determine which performs better on your dataset
 
-</details>
+</td>
+</tr>
+</table>
 
-<details>
-<summary><strong>Week 8 - 📝 Sequential Data Magic</strong></summary>
+---
 
-**🎯 Assignment 7** *(CLO 4)*
-- Build RNNs/LSTMs for text and time series
-- Analyze temporal dependencies
-- Understand hidden states
-- **Skills:** RNNs, sequence modeling
+## 🔬 **Phase 2: Advanced Techniques**
+*Weeks 4-6: Level Up Your Skills*
 
-</details>
+<table>
+<tr>
+<td width="15%" align="center">
+<h3>⚖️</h3>
+<strong>Week 4</strong>
+</td>
+<td width="85%">
 
-<details>
-<summary><strong>Week 9 - 🎨 Creative AI with GANs</strong></summary>
+### **Bias-Variance Battle** *(CLOs 2, 3)*
 
-**🎯 Assignment 8** *(CLO 4)*
-- Train GANs to generate new images
-- Evaluate with FID metrics
-- Create artificial data
-- **Skills:** GANs, generative modeling
+**🎯 Your Mission:** Conquer overfitting and underfitting!
 
-</details>
+**What You'll Create:**
+- Cross-validation testing framework
+- Interactive bias-variance visualization
+- Model optimization strategies
 
-### 🎓 **Weeks 10-14: Advanced Topics & Capstone**
+**Skills Unlocked:** 🎨 Advanced visualization, 🔧 Model tuning, 📊 Performance analysis
 
-<details>
-<summary><strong>Week 10 - 🤖 Transformer Deep Dive</strong></summary>
+**Victory Condition:** Create models that generalize well to unseen data
 
-**📚 Reading Week**
-- Study transformer architectures
-- Explore fine-tuning methods
-- Understand attention mechanisms
-- **Focus:** Theory and discussion
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🔍</h3>
+<strong>Week 5</strong>
+</td>
+<td width="85%">
 
-</details>
+### **Unsupervised Discovery** *(CLOs 2, 3)*
 
-<details>
-<summary><strong>Week 11 - 🎮 Reinforcement Learning</strong></summary>
+**🎯 Your Mission:** Find hidden patterns in unlabeled data!
 
-**🎯 Assignment 9** *(CLO 4)*
-- Implement Q-learning in Gridworld
-- Experiment with reward shaping
-- Master policy evaluation
-- **Skills:** Reinforcement learning, game AI
+**What You'll Create:**
+- K-means clustering algorithm
+- PCA dimensionality reduction
+- Cluster quality assessment tools
 
-</details>
+**Skills Unlocked:** 🕵️ Pattern recognition, 📐 Dimensionality reduction, 🎯 Cluster analysis
 
-<details>
-<summary><strong>Week 12 - 🔬 Project Progress Showcase</strong></summary>
+**Victory Condition:** Discover meaningful groups in data without any labels
 
-**🎯 Assignment 10** *(CLOs 2–5)*
-- Submit project progress notebook
-- Demonstrate dataset preparation
-- Show baseline results and future plans
-- **Skills:** Project documentation, planning
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🧠⭐</h3>
+<strong>Week 6</strong>
+</td>
+<td width="85%">
 
-</details>
+### **Neural Network Genesis + Midterm Launch** *(CLOs 2, 4)*
 
-<details>
-<summary><strong>Week 14 - 🏆 Final Project Presentation</strong></summary>
+**🎯 Your Mission:** Enter the world of neural networks!
 
-**🎯 Final Deliverables** *(CLOs 2–5)*
-- Complete deep learning project
-- Deliver comprehensive report
-- Present to class
-- Apply advanced ML/DL to novel problems
-- **Skills:** Research, presentation, advanced ML
+**What You'll Create:**
+- Multi-layer perceptron from scratch (NumPy only!)
+- Midterm project proposal and initial implementation
+- Neural network visualization tools
 
-</details>
+**Skills Unlocked:** 🧠 Neural network fundamentals, 🚀 Project management, 🔬 Research skills
+
+**Victory Condition:** Build working neural networks and launch your midterm research project
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 **Phase 3: Deep Learning Revolution**
+*Weeks 7-9: Master Advanced Neural Networks*
+
+<table>
+<tr>
+<td width="15%" align="center">
+<h3>👁️</h3>
+<strong>Week 7</strong>
+</td>
+<td width="85%">
+
+### **Computer Vision Mastery** *(CLO 4)*
+
+**🎯 Your Mission:** Teach computers to see!
+
+**What You'll Create:**
+- Convolutional Neural Networks (CNNs)
+- Image classifier for MNIST/CIFAR-10
+- Filter visualization dashboard
+
+**Skills Unlocked:** 🖼️ Computer vision, 🔧 TensorFlow/PyTorch, 🎨 Feature visualization
+
+**Victory Condition:** Build CNNs that can recognize handwritten digits and everyday objects
+
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>📝</h3>
+<strong>Week 8</strong>
+</td>
+<td width="85%">
+
+### **Sequential Data Magic** *(CLO 4)*
+
+**🎯 Your Mission:** Master time and language!
+
+**What You'll Create:**
+- Recurrent Neural Networks (RNNs/LSTMs)
+- Text and time series prediction models
+- Hidden state analysis tools
+
+**Skills Unlocked:** ⏰ Sequence modeling, 💬 Natural language processing, 📈 Time series analysis
+
+**Victory Condition:** Create models that understand temporal patterns and generate text
+
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🎨</h3>
+<strong>Week 9</strong>
+</td>
+<td width="85%">
+
+### **Creative AI with GANs** *(CLO 4)*
+
+**🎯 Your Mission:** Generate entirely new data!
+
+**What You'll Create:**
+- Generative Adversarial Network (GAN)
+- Image generation system
+- Quality evaluation metrics (FID)
+
+**Skills Unlocked:** 🎭 Generative modeling, ⚡ Adversarial training, 🎪 Creative AI
+
+**Victory Condition:** Train networks that can create realistic new images from random noise
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎓 **Phase 4: Mastery & Innovation**
+*Weeks 10-14: Become an AI Expert*
+
+<table>
+<tr>
+<td width="15%" align="center">
+<h3>🤖</h3>
+<strong>Week 10</strong>
+</td>
+<td width="85%">
+
+### **Transformer Deep Dive** *(Theory Focus)*
+
+**🎯 Your Mission:** Understand the architecture powering ChatGPT!
+
+**What You'll Study:**
+- Transformer architecture fundamentals
+- Attention mechanisms and self-attention
+- Fine-tuning strategies for large language models
+
+**Skills Unlocked:** 🧠 Advanced architectures, 💡 Attention theory, 🔬 Cutting-edge research
+
+**Victory Condition:** Deeply understand the technology behind modern AI breakthroughs
+
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🎮</h3>
+<strong>Week 11</strong>
+</td>
+<td width="85%">
+
+### **Reinforcement Learning** *(CLO 4)*
+
+**🎯 Your Mission:** Create AI that learns through trial and error!
+
+**What You'll Create:**
+- Q-learning agent for Gridworld
+- Reward shaping experiments
+- Policy evaluation systems
+
+**Skills Unlocked:** 🎯 Decision making, 🎮 Game AI, 🏆 Reward optimization
+
+**Victory Condition:** Train agents that can navigate environments and maximize rewards
+
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🔬</h3>
+<strong>Week 12</strong>
+</td>
+<td width="85%">
+
+### **Project Progress Showcase** *(CLOs 2–5)*
+
+**🎯 Your Mission:** Demonstrate your research progress!
+
+**What You'll Submit:**
+- Comprehensive project notebook
+- Dataset preparation documentation
+- Baseline model results and analysis
+
+**Skills Unlocked:** 📊 Project documentation, 📈 Progress tracking, 🎯 Milestone management
+
+**Victory Condition:** Clear demonstration of project progress with solid baseline results
+
+</td>
+</tr>
+<tr>
+<td width="15%" align="center">
+<h3>🏆</h3>
+<strong>Week 14</strong>
+</td>
+<td width="85%">
+
+### **Final Project Presentation** *(CLOs 2–5)*
+
+**🎯 Your Mission:** Showcase your AI mastery!
+
+**What You'll Deliver:**
+- Complete deep learning research project
+- Professional presentation to the class
+- Comprehensive technical report
+
+**Skills Unlocked:** 🎤 Technical presentation, 📝 Research writing, 🌟 AI innovation
+
+**Victory Condition:** Successfully apply advanced ML/DL techniques to solve a novel problem
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+### 🎯 **Your Progress Tracker**
+
+As you complete each phase, you'll unlock new capabilities:
+
+**🚀 Foundation** → **🔬 Advanced Tech** → **🧠 Deep Learning** → **🎓 AI Mastery**
+
+*Ready to begin your transformation into an AI practitioner?*
+
+</div>
 
 ---
 
