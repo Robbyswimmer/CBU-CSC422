@@ -63,75 +63,118 @@ Before diving into machine learning, you'll need a solid foundation in these are
 </tr>
 </table>
 
-### 🛠️ **Required Tools & Resources**
+### **Co-requisites**
+None
 
-#### **💻 Development Environment**
+---
 
-<details>
-<summary><strong>🐍 Python Setup</strong></summary>
+## 🛠️ **Mandatory Text and Resources**
 
-<br>
+The following online resources are **required** to be purchased/accessed:
 
-**Required:** Python 3.11+ with enhanced library support for deep learning
+### **📚 Required Materials**
 
-📥 **Download:** [python.org/downloads](https://www.python.org/downloads/)
-💻 **Code Editor:** [VS Code](https://code.visualstudio.com/) - Recommended IDE
+<table>
+<tr>
+<td width="70%">
 
-**Key Libraries We'll Use:**
+**1. 📖 Zybook: Machine Learning and Deep Learning**
+- **Platform:** Zybooks Interactive Learning
+- **Access:** [learn.zybooks.com/library](https://learn.zybooks.com/library)
+- **Code:** `CALBAPTISTCSC422MoseleyFall2025`
+
+</td>
+<td width="30%" align="center">
+
+**💰 Purchase Required**
+
+</td>
+</tr>
+</table>
+
+### **💻 Development Environment (Required)**
+
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Download Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔧 <strong>VS Code</strong></td>
+<td>IDE for coding assignments</td>
+<td><a href="https://code.visualstudio.com/">code.visualstudio.com</a></td>
+</tr>
+<tr>
+<td>🐍 <strong>Python 3.11+</strong></td>
+<td>Primary programming language<br/><em>(Enhanced library support for DL)</em></td>
+<td><a href="https://www.python.org/downloads/">python.org/downloads</a></td>
+</tr>
+</tbody>
+</table>
+
+**Key Python Libraries We'll Use:**
 - TensorFlow/PyTorch for deep learning
 - NumPy, Pandas for data manipulation  
 - Matplotlib, Seaborn for visualization
 - Scikit-learn for traditional ML
 
-</details>
+---
 
-#### **📖 Learning Resources**
+## 📖 **Extra Text and Resources (Optional)**
+
+Enhance your learning with these additional resources:
+
+### **📚 Supplementary Reading**
 
 <details>
-<summary><strong>📚 Required Online Courses</strong></summary>
+<summary><strong>🧠 Understanding Deep Learning</strong></summary>
 
 <br>
 
-**1. 🧠 Deep Learning Specialization**
-- **Platform:** Coursera (Andrew Ng)
-- **Access:** [coursera.org/specializations/deep-learning](https://www.coursera.org/specializations/deep-learning)
-- **Library Code:** `CALBAPTISTCSC422MoseleyFall2025`
-
-**2. 💻 Coding Assignments**  
-- **Platform:** Custom coding platform
-- **Access:** [code.visualstudio.com](https://code.visualstudio.com/)
+**📖 Free Online Textbook**
+- **Author:** Simon J.D. Prince
+- **Access:** [udlbook.github.io/udlbook](https://udlbook.github.io/udlbook/?utm_source=chatgpt.com)
+- **Focus:** Comprehensive theoretical foundation
+- **Best For:** Deep mathematical understanding
 
 </details>
 
 <details>
-<summary><strong>🎥 Recommended Video Resources</strong></summary>
+<summary><strong>🎓 Machine Learning Resources</strong></summary>
 
 <br>
 
-**1. 📈 Understanding Deep Learning**
-- Comprehensive theoretical foundation
-- Visual explanations of complex concepts
+**📚 Curated Learning Collection**
+- **Platform:** GitHub Repository
+- **Access:** [github.com/azminewasi/online-ml-university](https://github.com/azminewasi/online-ml-university?utm_source=chatgpt.com)
+- **Focus:** Practical ML applications and tutorials
+- **Best For:** Hands-on learning and project ideas
 
-**2. 🤖 Machine Learning Resources**
-- **Platform:** Coursera
-- **Focus:** Practical ML applications
-- **Access:** [coursera.org/learn/machine-learning-ml-university](https://www.coursera.org/learn/machine-learning-ml-university)
+</details>
 
-**3. 🎯 3Blue1Brown Math Videos**
-- **Platform:** YouTube
-- **Focus:** Mathematical intuition behind ML
+### **🎥 Video Resources**
+
+<details>
+<summary><strong>🎯 3Blue1Brown Math Videos</strong></summary>
+
+<br>
+
+**📺 Visual Mathematics**
+- **Creator:** Grant Sanderson
 - **Access:** [3blue1brown.com](https://www.3blue1brown.com/)
+- **Focus:** Mathematical intuition behind ML algorithms
+- **Best For:** Understanding complex concepts visually
+
+**Recommended Series:**
+- Linear Algebra Essence
+- Calculus Essence  
+- Neural Networks Series
 
 </details>
-
-#### **📱 Development Tools**
-
-| Tool | Purpose | Access |
-|------|---------|--------|
-| 🐍 **Python 3.11+** | Primary programming language | [python.org](https://www.python.org) |
-| 📓 **Jupyter Notebooks** | Interactive development | Included with Python |
-| ☁️ **Google Colab** | Cloud-based ML environment | [colab.research.google.com](https://colab.research.google.com) |
-| 🔧 **VS Code** | Code editor | [code.visualstudio.com](https://code.visualstudio.com) |
 
 ---
 
