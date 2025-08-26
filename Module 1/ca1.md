@@ -53,10 +53,10 @@ This assignment is divided into four progressive parts, designed to build your u
 - Required libraries: `numpy`, `matplotlib`, `pandas`, `scikit-learn`
 
 ### Dataset
-You will work with the **Boston Housing Dataset** (or similar housing price data), which includes:
-- **Features:** Number of rooms, crime rate, property tax, etc.
-- **Target:** Median home values
-- **Size:** ~500 samples with 13 features
+You will work with the **California Housing Dataset**, which includes:
+- **Features:** Median income, house age, average rooms, population, occupancy, latitude/longitude
+- **Target:** Median home values (in $100K units)
+- **Size:** ~20,640 samples with 8 features
 
 ## Deliverables
 
