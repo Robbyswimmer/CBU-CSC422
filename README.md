@@ -35,6 +35,106 @@
 
 ---
 
+## 📋 Prerequisites & Resources
+
+### 📚 **Prerequisites (Required)**
+
+Before diving into machine learning, you'll need a solid foundation in these areas:
+
+<table>
+<tr>
+<td width="50%">
+
+**🖥️ Programming Foundation**
+- **EGR121** (Intro to Computer Programming in C++) **OR**
+- **EGR120** (Computer Programming Languages - Python)
+
+</td>
+<td width="50%">
+
+**🔢 Mathematical Foundation**
+- **EGR130** (Mathematical Statistics I) **OR** 
+- **EGR305** (Engineering Stats) **OR** 
+- **MAT353** (Probability & Statistics) **OR** 
+- **STA144** (Intro to Statistics) **OR** 
+- Other suitable stats course
+
+</td>
+</tr>
+</table>
+
+### 🛠️ **Required Tools & Resources**
+
+#### **💻 Development Environment**
+
+<details>
+<summary><strong>🐍 Python Setup</strong></summary>
+
+<br>
+
+**Required:** Python 3.11+ with enhanced library support for deep learning
+
+📥 **Download:** [python.org/downloads](https://www.python.org/downloads/)
+💻 **Code Editor:** [VS Code](https://code.visualstudio.com/) - Recommended IDE
+
+**Key Libraries We'll Use:**
+- TensorFlow/PyTorch for deep learning
+- NumPy, Pandas for data manipulation  
+- Matplotlib, Seaborn for visualization
+- Scikit-learn for traditional ML
+
+</details>
+
+#### **📖 Learning Resources**
+
+<details>
+<summary><strong>📚 Required Online Courses</strong></summary>
+
+<br>
+
+**1. 🧠 Deep Learning Specialization**
+- **Platform:** Coursera (Andrew Ng)
+- **Access:** [coursera.org/specializations/deep-learning](https://www.coursera.org/specializations/deep-learning)
+- **Library Code:** `CALBAPTISTCSC422MoseleyFall2025`
+
+**2. 💻 Coding Assignments**  
+- **Platform:** Custom coding platform
+- **Access:** [code.visualstudio.com](https://code.visualstudio.com/)
+
+</details>
+
+<details>
+<summary><strong>🎥 Recommended Video Resources</strong></summary>
+
+<br>
+
+**1. 📈 Understanding Deep Learning**
+- Comprehensive theoretical foundation
+- Visual explanations of complex concepts
+
+**2. 🤖 Machine Learning Resources**
+- **Platform:** Coursera
+- **Focus:** Practical ML applications
+- **Access:** [coursera.org/learn/machine-learning-ml-university](https://www.coursera.org/learn/machine-learning-ml-university)
+
+**3. 🎯 3Blue1Brown Math Videos**
+- **Platform:** YouTube
+- **Focus:** Mathematical intuition behind ML
+- **Access:** [3blue1brown.com](https://www.3blue1brown.com/)
+
+</details>
+
+#### **📱 Development Tools**
+
+| Tool | Purpose | Access |
+|------|---------|--------|
+| 🐍 **Python 3.11+** | Primary programming language | [python.org](https://www.python.org) |
+| 📓 **Jupyter Notebooks** | Interactive development | Included with Python |
+| ☁️ **Google Colab** | Cloud-based ML environment | [colab.research.google.com](https://colab.research.google.com) |
+| 🔧 **VS Code** | Code editor | [code.visualstudio.com](https://code.visualstudio.com) |
+
+---
+
 ## 🎯 What You'll Master
 
 > **Transform from coding novice to AI practitioner in one semester!**
