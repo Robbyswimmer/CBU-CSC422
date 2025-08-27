@@ -48,6 +48,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - add_to_readme.md
+  - _site/
 
 # Site navigation
 navigation:
