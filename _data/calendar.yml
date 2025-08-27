@@ -30,16 +30,16 @@ assignments:
 # Weekly Schedule
 weekly_schedule:
   - day: "Monday"
-    time: "2:00 PM - 3:15 PM"
+    time: "8:15 AM - 9:15 AM"
     location: "EGR 104"
     type: "lecture"
     
   - day: "Wednesday" 
-    time: "2:00 PM - 3:15 PM"
+    time: "8:15 AM - 9:15 AM"
     location: "EGR 104"
     type: "lecture"
     
   - day: "Friday"
-    time: "2:00 PM - 3:15 PM"
+    time: "8:15 AM - 9:15 AM"
     location: "EGR 104"
-    type: "lab"
+    type: "lecture"
