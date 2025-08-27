@@ -1,0 +1,23 @@
+# Jekyll Configuration for CSC 422 Course Site
+title: "CSC 422: Machine and Deep Learning"
+description: "California Baptist University - Machine Learning Course"
+baseurl: "/CBU-CSC422" # Repository name
+url: "https://robbyswimmer.github.io" # GitHub Pages URL
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
