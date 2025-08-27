@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Linear Regression | CSC 422: Machine and Deep Learning</title>
+    <meta name="description" content="Build and understand linear regression from mathematical foundations to real-world applications using Python.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CBU-CSC422/assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/CBU-CSC422/assets/css/main.css">
+    
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Introduction to Linear Regression | CSC 422: Machine and Deep Learning</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Introduction to Linear Regression" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Build and understand linear regression from mathematical foundations to real-world applications using Python." />
+<meta property="og:description" content="Build and understand linear regression from mathematical foundations to real-world applications using Python." />
+<link rel="canonical" href="http://0.0.0.0:4000/CBU-CSC422/assignments/ca1/" />
+<meta property="og:url" content="http://0.0.0.0:4000/CBU-CSC422/assignments/ca1/" />
+<meta property="og:site_name" content="CSC 422: Machine and Deep Learning" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-27T11:27:13-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Introduction to Linear Regression" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-27T11:27:13-07:00","datePublished":"2025-08-27T11:27:13-07:00","description":"Build and understand linear regression from mathematical foundations to real-world applications using Python.","headline":"Introduction to Linear Regression","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/CBU-CSC422/assignments/ca1/"},"url":"http://0.0.0.0:4000/CBU-CSC422/assignments/ca1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+    <header class="site-header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">CSC 422</span>
+                    <span class="brand-subtitle">Fall 2025</span>
+                </a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <!-- Navigation links -->
+            <div class="nav-links" id="navLinks">
+                
+                <a href="/CBU-CSC422/" class="nav-link ">
+                    Home
+                </a>
+                
+                <a href="/CBU-CSC422/assignments/" class="nav-link ">
+                    Assignments
+                </a>
+                
+                <a href="/CBU-CSC422/syllabus/" class="nav-link ">
+                    Syllabus
+                </a>
+                
+                <a href="/CBU-CSC422/resources/" class="nav-link ">
+                    Resources
+                </a>
+                
+                
+                <!-- Quick actions -->
+                <div class="nav-actions">
+                    <a href="https://github.com/Robbyswimmer/CBU-CSC422" class="action-btn github-btn" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:rmoseley@calbaptist.edu" class="action-btn contact-btn">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <main class="main-content">
+        <div class="assignment-page">
+    <div class="assignment-header">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / 
+            <a href="/assignments/">Assignments</a> / 
+            <span>Introduction to Linear Regression</span>
+        </div>
+        
+        <div class="assignment-meta">
+            <div class="meta-grid">
+                
+                <div class="meta-item">
+                    <span class="meta-label">Module</span>
+                    <span class="meta-value">Module 1</span>
+                </div>
+                
+                
+                
+                <div class="meta-item">
+                    <span class="meta-label">Week</span>
+                    <span class="meta-value">1</span>
+                </div>
+                
+                
+                
+                <div class="meta-item">
+                    <span class="meta-label">Due Date</span>
+                    <span class="meta-value">TBD</span>
+                </div>
+                
+                
+                
+                <div class="meta-item">
+                    <span class="meta-label">Points</span>
+                    <span class="meta-value">100</span>
+                </div>
+                
+                
+                
+                <div class="meta-item">
+                    <span class="meta-label">Time Estimate</span>
+                    <span class="meta-value">2 hours</span>
+                </div>
+                
+                
+                
+                <div class="meta-item">
+                    <span class="meta-label">Difficulty</span>
+                    <span class="meta-value difficulty-beginner">Beginner</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        <h1 class="assignment-title">Introduction to Linear Regression</h1>
+        
+        
+        <p class="assignment-description">Build and understand linear regression from mathematical foundations to real-world applications using Python.</p>
+        
+        
+        
+        <div class="learning-objectives">
+            <h3>Learning Objectives</h3>
+            <ul>
+                
+                <li>Understand the fundamentals of linear regression from a mathematical perspective</li>
+                
+                <li>Implement linear regression from scratch using only basic Python and NumPy</li>
+                
+                <li>Apply linear regression using modern ML libraries (scikit-learn)</li>
+                
+                <li>Analyze and visualize regression results and model performance</li>
+                
+                <li>Reflect critically on how machine learning differs from traditional programming approaches</li>
+                
+            </ul>
+        </div>
+        
+        
+        
+        <div class="assignment-files">
+            <h3>Assignment Materials</h3>
+            <div class="file-grid">
+                
+                <a href="/CBU-CSC422/Assignments/Module%201/ca1.ipynb" class="file-card notebook">
+                    <div class="file-icon">
+                        📓
+                        
+                    </div>
+                    <div class="file-info">
+                        <span class="file-name">ca1.ipynb</span>
+                        <span class="file-description">Interactive Jupyter notebook with guided implementation</span>
+                    </div>
+                </a>
+                
+                <a href="/CBU-CSC422/Assignments/Module%201/ca1.md" class="file-card markdown">
+                    <div class="file-icon">
+                        📝
+                        
+                    </div>
+                    <div class="file-info">
+                        <span class="file-name">Assignment Instructions</span>
+                        <span class="file-description">Detailed assignment description and requirements</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="assignment-content">
+        <h2 id="assignment-overview">Assignment Overview</h2>
+
+<p>This hands-on coding assignment introduces you to <strong>linear regression</strong>, the cornerstone of machine learning. You’ll build understanding from mathematical foundations to practical implementation, working with real housing data to predict prices.</p>
+
+<p><strong>Week:</strong> 1<br />
+<strong>Course Learning Objective:</strong> CLO 5 - Research, analyze and present cutting-edge machine learning topics<br />
+<strong>Estimated Time:</strong> 2 hours<br />
+<strong>Due Date:</strong> [To be determined by instructor]</p>
+
+<h2 id="learning-goals">Learning Goals</h2>
+
+<p>By completing this assignment, you will:</p>
+
+<ol>
+  <li><strong>Understand the fundamentals</strong> of linear regression from a mathematical perspective</li>
+  <li><strong>Implement linear regression from scratch</strong> using only basic Python and NumPy</li>
+  <li><strong>Apply linear regression</strong> using modern ML libraries (scikit-learn)</li>
+  <li><strong>Analyze and visualize</strong> regression results and model performance</li>
+  <li><strong>Reflect critically</strong> on how machine learning differs from traditional programming approaches</li>
+</ol>
+
+<h2 id="assignment-structure">Assignment Structure</h2>
+
+<p>This assignment is divided into four progressive parts, designed to build your understanding from mathematical foundations to practical application:</p>
+
+<h3 id="part-1-mathematical-foundation-30-minutes">Part 1: Mathematical Foundation (30 minutes)</h3>
+<ul>
+  <li>Understand the linear regression equation: y = mx + b</li>
+  <li>Learn about the cost function (Mean Squared Error)</li>
+  <li>Explore gradient descent optimization</li>
+  <li>Implement basic mathematical operations</li>
+</ul>
+
+<h3 id="part-2-from-scratch-implementation-45-minutes">Part 2: From-Scratch Implementation (45 minutes)</h3>
+<ul>
+  <li>Build a linear regression class using only Python and NumPy</li>
+  <li>Implement gradient descent algorithm</li>
+  <li>Create prediction and cost calculation functions</li>
+  <li>Test your implementation on synthetic data</li>
+</ul>
+
+<h3 id="part-3-real-world-application-30-minutes">Part 3: Real-World Application (30 minutes)</h3>
+<ul>
+  <li>Load and explore a housing price dataset</li>
+  <li>Preprocess data for machine learning</li>
+  <li>Apply your from-scratch implementation</li>
+  <li>Compare with scikit-learn’s implementation</li>
+  <li>Visualize results and model fit</li>
+</ul>
+
+<h3 id="part-4-critical-reflection-15-minutes">Part 4: Critical Reflection (15 minutes)</h3>
+<ul>
+  <li>Compare ML approach vs. traditional programming</li>
+  <li>Analyze strengths and limitations of linear regression</li>
+  <li>Discuss when to use ML vs. deterministic programming</li>
+</ul>
+
+<h2 id="technical-requirements">Technical Requirements</h2>
+
+<h3 id="software-requirements">Software Requirements</h3>
+<ul>
+  <li>Python 3.11+</li>
+  <li>Jupyter Notebook or Google Colab</li>
+  <li>Required libraries: <code class="language-plaintext highlighter-rouge">numpy</code>, <code class="language-plaintext highlighter-rouge">matplotlib</code>, <code class="language-plaintext highlighter-rouge">pandas</code>, <code class="language-plaintext highlighter-rouge">scikit-learn</code></li>
+</ul>
+
+<h3 id="dataset">Dataset</h3>
+<p>You will work with the <strong>California Housing Dataset</strong>, which includes:</p>
+<ul>
+  <li><strong>Features:</strong> Median income, house age, average rooms, population, occupancy, latitude/longitude</li>
+  <li><strong>Target:</strong> Median home values (in $100K units)</li>
+  <li><strong>Size:</strong> ~20,640 samples with 8 features</li>
+</ul>
+
+<h2 id="deliverables">Deliverables</h2>
+
+<h3 id="1-jupyter-notebook-ca1ipynb">1. Jupyter Notebook (<code class="language-plaintext highlighter-rouge">ca1.ipynb</code>)</h3>
+<p>Complete the provided notebook template with:</p>
+<ul>
+  <li>All code cells executed and showing output</li>
+  <li>Markdown cells with explanations and observations</li>
+  <li>Visualizations properly labeled and formatted</li>
+</ul>
+
+<h3 id="2-reflection-report-embedded-in-notebook">2. Reflection Report (embedded in notebook)</h3>
+<p>Write a 300-500 word reflection addressing:</p>
+<ul>
+  <li><strong>Key differences</strong> between ML and traditional programming</li>
+  <li><strong>When would you use</strong> linear regression vs. other approaches?</li>
+  <li><strong>What challenges</strong> did you encounter in implementation?</li>
+  <li><strong>How could you improve</strong> the model’s performance?</li>
+</ul>
+
+<h2 id="grading-criteria">Grading Criteria</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Points</th>
+      <th>Criteria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mathematical Understanding</strong></td>
+      <td>25</td>
+      <td>Correctly implements gradient descent and cost function</td>
+    </tr>
+    <tr>
+      <td><strong>From-Scratch Implementation</strong></td>
+      <td>25</td>
+      <td>Working linear regression class with proper functionality</td>
+    </tr>
+    <tr>
+      <td><strong>Real-World Application</strong></td>
+      <td>25</td>
+      <td>Successfully applies both implementations to housing data</td>
+    </tr>
+    <tr>
+      <td><strong>Critical Reflection</strong></td>
+      <td>15</td>
+      <td>Thoughtful analysis of ML vs. traditional programming</td>
+    </tr>
+    <tr>
+      <td><strong>Code Quality &amp; Documentation</strong></td>
+      <td>10</td>
+      <td>Clean, well-commented code with clear explanations</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Total: 100 points</strong></p>
+
+<h2 id="step-by-step-instructions">Step-by-Step Instructions</h2>
+
+<h3 id="getting-started">Getting Started</h3>
+<ol>
+  <li>Download the <code class="language-plaintext highlighter-rouge">ca1.ipynb</code> notebook from the course materials</li>
+  <li>Set up your Python environment with required libraries</li>
+  <li>Open the notebook in Jupyter or Google Colab</li>
+</ol>
+
+<h3 id="part-1-mathematical-foundation">Part 1: Mathematical Foundation</h3>
+<ol>
+  <li><strong>Study the linear regression equation</strong>
+    <ul>
+      <li>Understand how <code class="language-plaintext highlighter-rouge">y = mx + b</code> extends to multiple variables</li>
+      <li>Learn about the cost function: <code class="language-plaintext highlighter-rouge">J(θ) = (1/2m) * Σ(h(x) - y)²</code></li>
+    </ul>
+  </li>
+  <li><strong>Implement basic functions</strong>
+    <ul>
+      <li>Create a function to calculate predictions</li>
+      <li>Implement mean squared error calculation</li>
+      <li>Understand partial derivatives for gradient descent</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="part-2-from-scratch-implementation">Part 2: From-Scratch Implementation</h3>
+<ol>
+  <li><strong>Create a LinearRegression class</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LinearRegression</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="c1"># Initialize parameters
+</span>       
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># Implement gradient descent
+</span>       
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="c1"># Make predictions
+</span>       
+    <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># Calculate mean squared error
+</span></code></pre></div>    </div>
+  </li>
+  <li><strong>Test with synthetic data</strong>
+    <ul>
+      <li>Generate sample data with known linear relationship</li>
+      <li>Verify your implementation produces expected results</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="part-3-real-world-application">Part 3: Real-World Application</h3>
+<ol>
+  <li><strong>Load and explore housing dataset</strong>
+    <ul>
+      <li>Use pandas to load and examine the data</li>
+      <li>Create visualizations to understand feature relationships</li>
+      <li>Handle any missing values or outliers</li>
+    </ul>
+  </li>
+  <li><strong>Preprocess the data</strong>
+    <ul>
+      <li>Scale features for better convergence</li>
+      <li>Split into training and testing sets</li>
+      <li>Prepare data for both implementations</li>
+    </ul>
+  </li>
+  <li><strong>Apply both implementations</strong>
+    <ul>
+      <li>Train your from-scratch model</li>
+      <li>Train scikit-learn’s LinearRegression</li>
+      <li>Compare results and performance</li>
+    </ul>
+  </li>
+  <li><strong>Visualize results</strong>
+    <ul>
+      <li>Plot actual vs. predicted values</li>
+      <li>Show learning curves (cost vs. iterations)</li>
+      <li>Compare feature importance</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="part-4-critical-reflection">Part 4: Critical Reflection</h3>
+<p>Write your reflection addressing these questions:</p>
+
+<ol>
+  <li><strong>Conceptual Understanding</strong>
+    <ul>
+      <li>How does machine learning “learn” differently than traditional programming?</li>
+      <li>What role does data play in ML vs. traditional approaches?</li>
+    </ul>
+  </li>
+  <li><strong>Practical Considerations</strong>
+    <ul>
+      <li>When would you choose linear regression over other methods?</li>
+      <li>What are the limitations you observed?</li>
+    </ul>
+  </li>
+  <li><strong>Implementation Insights</strong>
+    <ul>
+      <li>What was most challenging about implementing from scratch?</li>
+      <li>How did your results compare to scikit-learn?</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="tips-for-success">Tips for Success</h2>
+
+<h3 id="programming-tips">Programming Tips</h3>
+<ul>
+  <li><strong>Start early</strong> - Don’t underestimate the time needed for debugging</li>
+  <li><strong>Test incrementally</strong> - Verify each function before moving on</li>
+  <li><strong>Use print statements</strong> - Debug by printing intermediate values</li>
+  <li><strong>Visualize everything</strong> - Plots help you understand what’s happening</li>
+</ul>
+
+<h3 id="mathematical-tips">Mathematical Tips</h3>
+<ul>
+  <li><strong>Review linear algebra</strong> - Brush up on matrix operations</li>
+  <li><strong>Understand derivatives</strong> - Know why gradient descent works</li>
+  <li><strong>Check your math</strong> - Verify calculations with simple examples</li>
+</ul>
+
+<h3 id="common-pitfalls-to-avoid">Common Pitfalls to Avoid</h3>
+<ul>
+  <li><strong>Feature scaling</strong> - Always scale your features for gradient descent</li>
+  <li><strong>Learning rate</strong> - Too high causes divergence, too low is slow</li>
+  <li><strong>Initialization</strong> - Start with small random weights, not zeros</li>
+  <li><strong>Overfitting</strong> - Watch for perfect training but poor test performance</li>
+</ul>
+
+<h2 id="extension-opportunities">Extension Opportunities</h2>
+
+<p>For students who finish early or want extra challenge:</p>
+
+<ol>
+  <li><strong>Regularization</strong> - Implement L1 or L2 regularization</li>
+  <li><strong>Multiple datasets</strong> - Try your implementation on different data</li>
+  <li><strong>Feature engineering</strong> - Create polynomial features</li>
+  <li><strong>Comparison study</strong> - Compare with other regression techniques</li>
+</ol>
+
+<h2 id="resources">Resources</h2>
+
+<h3 id="mathematical-background">Mathematical Background</h3>
+<ul>
+  <li>Khan Academy: Linear Algebra</li>
+  <li>3Blue1Brown: Essence of Calculus</li>
+  <li>Andrew Ng’s ML Course: Linear Regression lectures</li>
+</ul>
+
+<h3 id="programming-resources">Programming Resources</h3>
+<ul>
+  <li>NumPy documentation and tutorials</li>
+  <li>Matplotlib plotting gallery</li>
+  <li>Scikit-learn user guide</li>
+</ul>
+
+<h3 id="dataset-information">Dataset Information</h3>
+<ul>
+  <li>UCI Machine Learning Repository</li>
+  <li>Pandas documentation for data manipulation</li>
+</ul>
+
+<h2 id="submission-instructions">Submission Instructions</h2>
+
+<ol>
+  <li><strong>Complete the notebook</strong> with all cells executed</li>
+  <li><strong>Save as HTML</strong> in addition to .ipynb format</li>
+  <li><strong>Upload both files</strong> to the course management system</li>
+  <li><strong>Include your name</strong> and student ID in the notebook header</li>
+</ol>
+
+<h2 id="academic-integrity">Academic Integrity</h2>
+
+<p>This is an individual assignment. While you may discuss concepts with classmates, all code and written work must be your own. Properly cite any external resources used beyond the course materials.</p>
+
+<hr />
+
+<p><strong>Questions?</strong> Contact the instructor during office hours or via email. Good luck, and enjoy your introduction to machine learning!</p>
+
+    </div>
+</div>
+    </main>
+    
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CSC 422: Machine and Deep Learning</h3>
+                <p>California Baptist University • Fall 2025</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/assignments/">Assignments</a></li>
+                    <li><a href="/syllabus/">Syllabus</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="https://github.com/Robbyswimmer/CBU-CSC422" target="_blank">GitHub Repository</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Instructor</h4>
+                <p>Professor Robert Moseley, MS</p>
+                <p><a href="mailto:rmoseley@calbaptist.edu">rmoseley@calbaptist.edu</a></p>
+                <p>EGR333 • (951) 552–8851</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 California Baptist University. All rights reserved.</p>
+                <p class="footer-note">Built with ❤️ using Jekyll and GitHub Pages</p>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <!-- Mobile Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    
+                    // Animate hamburger menu
+                    const lines = mobileMenuBtn.querySelectorAll('.hamburger-line');
+                    if (navLinks.classList.contains('active')) {
+                        lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        lines[1].style.opacity = '0';
+                        lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    } else {
+                        lines[0].style.transform = 'none';
+                        lines[1].style.opacity = '1';
+                        lines[2].style.transform = 'none';
+                    }
+                });
+                
+                // Close mobile menu when clicking on a link
+                navLinks.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('nav-link')) {
+                        navLinks.classList.remove('active');
+                        const lines = mobileMenuBtn.querySelectorAll('.hamburger-line');
+                        lines[0].style.transform = 'none';
+                        lines[1].style.opacity = '1';
+                        lines[2].style.transform = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

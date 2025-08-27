@@ -1,0 +1,9 @@
+---
+# This file allows GitHub Pages (Jekyll) to compile the theme CSS and then our custom CSS.
+---
+
+// Import the Minima theme styles first
+@import "minima";
+
+// Then import our custom dark-mode stylesheet
+@import "css/main.css";
