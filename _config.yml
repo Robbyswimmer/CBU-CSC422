@@ -1,7 +1,7 @@
 # CSC 422: Machine and Deep Learning - Jekyll Configuration
 title: "CSC 422: Machine and Deep Learning"
 description: "Unlock the Power of AI and Transform Data into Intelligence"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/CBU-CSC422" # the subpath of your site, e.g. /blog
 url: "https://robbyswimmer.github.io/CBU-CSC422" # the base hostname & protocol
 
 # Course Information
@@ -23,7 +23,6 @@ instructor:
 # Build settings
 markdown: kramdown
 highlighter: rouge
-theme: minima
 
 # Collections
 collections:

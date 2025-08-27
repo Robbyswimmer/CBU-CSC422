@@ -1,3 +1,5 @@
+---
+---
 // CSC 422: Machine and Deep Learning - Course Website JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
