@@ -292,7 +292,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 1</h3>
-<strong>Week 1</strong>
 </td>
 <td width="85%">
 
@@ -312,9 +311,30 @@ graph LR
 </td>
 </tr>
 <tr>
+<tr>
+<td width="15%" align="center">
+<h3>Week 2</h3>
+</td>
+<td width="85%">
+
+### **Data Exploration & Preprocessing** *(CLO 2)*
+
+**Your Mission:** Master the art of data preparation!
+
+**What You'll Create:**
+- Data cleaning and preprocessing pipeline
+- Exploratory data analysis (EDA) dashboard
+- Feature engineering techniques
+
+**Skills Unlocked:** Data wrangling, Statistical analysis, Data visualization
+
+**Victory Condition:** Transform messy real-world data into ML-ready datasets
+
+</td>
+</tr>
+<tr>
 <td width="15%" align="center">
 <h3>Week 3</h3>
-<strong>Week 3</strong>
 </td>
 <td width="85%">
 
@@ -347,7 +367,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 4</h3>
-<strong>Week 4</strong>
 </td>
 <td width="85%">
 
@@ -369,7 +388,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 5</h3>
-<strong>Week 5</strong>
 </td>
 <td width="85%">
 
@@ -391,7 +409,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 6</h3>
-<strong>Week 6</strong>
 </td>
 <td width="85%">
 
@@ -424,7 +441,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 7</h3>
-<strong>Week 7</strong>
 </td>
 <td width="85%">
 
@@ -446,7 +462,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 8</h3>
-<strong>Week 8</strong>
 </td>
 <td width="85%">
 
@@ -468,7 +483,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 9</h3>
-<strong>Week 9</strong>
 </td>
 <td width="85%">
 
@@ -501,7 +515,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 10</h3>
-<strong>Week 10</strong>
 </td>
 <td width="85%">
 
@@ -523,7 +536,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 11</h3>
-<strong>Week 11</strong>
 </td>
 <td width="85%">
 
@@ -545,7 +557,6 @@ graph LR
 <tr>
 <td width="15%" align="center">
 <h3>Week 12</h3>
-<strong>Week 12</strong>
 </td>
 <td width="85%">
 
@@ -565,9 +576,30 @@ graph LR
 </td>
 </tr>
 <tr>
+<tr>
+<td width="15%" align="center">
+<h3>Week 13</h3>
+</td>
+<td width="85%">
+
+### **Advanced Deep Learning Topics** *(CLOs 4, 5)*
+
+**Your Mission:** Explore cutting-edge AI techniques!
+
+**What You'll Study:**
+- Advanced CNN architectures (ResNet, DenseNet)
+- Transfer learning and fine-tuning
+- Attention mechanisms in detail
+
+**Skills Unlocked:** Advanced architectures, Transfer learning, Model optimization
+
+**Victory Condition:** Master state-of-the-art deep learning techniques
+
+</td>
+</tr>
+<tr>
 <td width="15%" align="center">
 <h3>Week 14</h3>
-<strong>Week 14</strong>
 </td>
 <td width="85%">
 
