@@ -1,8 +1,24 @@
 # Jekyll Configuration for CSC 422 Course Site
 title: "CSC 422: Machine and Deep Learning"
-description: "California Baptist University - Machine Learning Course"
-baseurl: "/CBU-CSC422" # Repository name
-url: "https://robbyswimmer.github.io" # GitHub Pages URL
+description: "Unlock the Power of AI and Transform Data into Intelligence"
+baseurl: "/CBU-CSC422"
+url: "https://robbyswimmer.github.io/CBU-CSC422"
+
+# Course Information
+course:
+  number: "CSC 422"
+  name: "Machine and Deep Learning"
+  semester: "Fall 2025"
+  university: "California Baptist University"
+
+# Instructor Information
+instructor:
+  name: "Professor Robert Moseley, MS"
+  email: "rmoseley@calbaptist.edu"
+  office: "EGR333"
+  phone: "(951) 552–8851"
+  office_hours: "Monday/Wednesday 10:30am-12:00pm, 1:00pm–3:00pm"
+  image: "/Materials/Art/professor.png"
 
 # Build settings
 markdown: kramdown
