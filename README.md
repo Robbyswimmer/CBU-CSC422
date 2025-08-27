@@ -282,8 +282,11 @@ graph LR
 
 ---
 
-## **Phase 1: Foundation Building**
-*Weeks 1-3: Build Your ML Foundation*
+<details>
+<summary><h2><strong>Phase 1: Foundation Building</strong></h2>
+<em>Weeks 1-3: Build Your ML Foundation</em></summary>
+
+<br>
 
 <table>
 <tr>
@@ -332,10 +335,13 @@ graph LR
 </tr>
 </table>
 
----
+</details>
 
-## **Phase 2: Advanced Techniques**
-*Weeks 4-6: Level Up Your Skills*
+<details>
+<summary><h2><strong>Phase 2: Advanced Techniques</strong></h2>
+<em>Weeks 4-6: Level Up Your Skills</em></summary>
+
+<br>
 
 <table>
 <tr>
@@ -406,10 +412,13 @@ graph LR
 </tr>
 </table>
 
----
+</details>
 
-## **Phase 3: Deep Learning Revolution**
-*Weeks 7-9: Master Advanced Neural Networks*
+<details>
+<summary><h2><strong>Phase 3: Deep Learning Revolution</strong></h2>
+<em>Weeks 7-9: Master Advanced Neural Networks</em></summary>
+
+<br>
 
 <table>
 <tr>
@@ -480,10 +489,13 @@ graph LR
 </tr>
 </table>
 
----
+</details>
 
-## **Phase 4: Mastery & Innovation**
-*Weeks 10-14: Become an AI Expert*
+<details>
+<summary><h2><strong>Phase 4: Mastery & Innovation</strong></h2>
+<em>Weeks 10-14: Become an AI Expert</em></summary>
+
+<br>
 
 <table>
 <tr>
@@ -575,6 +587,8 @@ graph LR
 </td>
 </tr>
 </table>
+
+</details>
 
 ---
 
