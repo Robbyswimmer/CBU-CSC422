@@ -1,0 +1,154 @@
+---
+layout: default
+title: Home
+---
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">{{ site.course.number }}: {{ site.course.name }}</h1>
+        <p class="hero-subtitle">{{ site.description }}</p>
+        <div class="hero-meta">
+            <span class="semester">{{ site.course.semester }}</span>
+            <span class="university">{{ site.course.university }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="course-overview">
+    <div class="instructor-card">
+        <div class="instructor-content">
+            <div class="instructor-info">
+                <h3>{{ site.instructor.name }}</h3>
+                <p class="instructor-title">Course Instructor</p>
+                <div class="contact-info">
+                    <p><strong>📧 Email:</strong> <a href="mailto:{{ site.instructor.email }}">{{ site.instructor.email }}</a></p>
+                    <p><strong>🏢 Office:</strong> {{ site.instructor.office }}</p>
+                    <p><strong>📞 Phone:</strong> {{ site.instructor.phone }}</p>
+                    <p><strong>⏰ Office Hours:</strong> {{ site.instructor.office_hours }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="phases-section">
+    <h2>🗺️ Your Learning Journey</h2>
+    <p class="phases-description">Embark on a transformative 14-week adventure through the world of Machine Learning and Deep Learning!</p>
+    
+    <div class="phases-grid">
+        {% for phase in site.phases %}
+        <div class="phase-card" style="--phase-color: {{ phase.color }}">
+            <div class="phase-header">
+                <h3>{{ phase.name }}</h3>
+                <span class="phase-weeks">Weeks {{ phase.weeks }}</span>
+            </div>
+            <p class="phase-description">{{ phase.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="assignments-section">
+    <h2>📚 Coding Assignments</h2>
+    <p class="assignments-description">Hands-on coding tutorials designed to build your ML expertise step by step.</p>
+    
+    <div class="assignments-grid">
+        {% assign assignments = site.assignments | sort: 'week' %}
+        {% for assignment in assignments %}
+        <div class="assignment-card">
+            <div class="assignment-header">
+                <div class="assignment-meta">
+                    {% if assignment.module %}
+                    <span class="assignment-module">{{ assignment.module }}</span>
+                    {% endif %}
+                    {% if assignment.week %}
+                    <span class="assignment-week">Week {{ assignment.week }}</span>
+                    {% endif %}
+                </div>
+                {% if assignment.difficulty %}
+                <span class="difficulty-badge difficulty-{{ assignment.difficulty | downcase }}">{{ assignment.difficulty }}</span>
+                {% endif %}
+            </div>
+            
+            <h3 class="assignment-title">
+                <a href="{{ assignment.url | relative_url }}">{{ assignment.title }}</a>
+            </h3>
+            
+            {% if assignment.description %}
+            <p class="assignment-description">{{ assignment.description }}</p>
+            {% endif %}
+            
+            <div class="assignment-details">
+                {% if assignment.estimated_time %}
+                <div class="detail-item">
+                    <span class="detail-icon">⏱️</span>
+                    <span>{{ assignment.estimated_time }}</span>
+                </div>
+                {% endif %}
+                
+                {% if assignment.points %}
+                <div class="detail-item">
+                    <span class="detail-icon">🎯</span>
+                    <span>{{ assignment.points }} points</span>
+                </div>
+                {% endif %}
+                
+                {% if assignment.due_date %}
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <span>Due {{ assignment.due_date }}</span>
+                </div>
+                {% endif %}
+            </div>
+            
+            {% if assignment.learning_objectives %}
+            <div class="learning-objectives-preview">
+                <span class="objectives-label">Learning Focus:</span>
+                <span class="objectives-preview">{{ assignment.learning_objectives[0] }}</span>
+                {% if assignment.learning_objectives.size > 1 %}
+                <span class="objectives-more">+{{ assignment.learning_objectives.size | minus: 1 }} more</span>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        
+        <!-- Fallback for when no assignments exist yet -->
+        {% if site.assignments.size == 0 %}
+        <div class="no-assignments">
+            <div class="no-assignments-icon">🚧</div>
+            <h3>Assignments Coming Soon!</h3>
+            <p>New coding assignments will appear here automatically as they're added to the course.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="quick-links-section">
+    <h2>🔗 Quick Access</h2>
+    <div class="quick-links-grid">
+        <a href="/syllabus/" class="quick-link-card">
+            <div class="quick-link-icon">📋</div>
+            <h3>Syllabus</h3>
+            <p>Course policies, schedule, and requirements</p>
+        </a>
+        
+        <a href="/resources/" class="quick-link-card">
+            <div class="quick-link-icon">📖</div>
+            <h3>Resources</h3>
+            <p>Tools, datasets, and learning materials</p>
+        </a>
+        
+        <a href="https://github.com/Robbyswimmer/CBU-CSC422" class="quick-link-card" target="_blank">
+            <div class="quick-link-icon">💻</div>
+            <h3>GitHub Repository</h3>
+            <p>Access course code and materials</p>
+        </a>
+        
+        <a href="mailto:{{ site.instructor.email }}" class="quick-link-card">
+            <div class="quick-link-icon">✉️</div>
+            <h3>Contact</h3>
+            <p>Get help and ask questions</p>
+        </a>
+    </div>
+</div>

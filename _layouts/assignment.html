@@ -1,0 +1,105 @@
+---
+layout: default
+---
+
+<div class="assignment-page">
+    <div class="assignment-header">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / 
+            <a href="/assignments/">Assignments</a> / 
+            <span>{{ page.title }}</span>
+        </div>
+        
+        <div class="assignment-meta">
+            <div class="meta-grid">
+                {% if page.module %}
+                <div class="meta-item">
+                    <span class="meta-label">Module</span>
+                    <span class="meta-value">{{ page.module }}</span>
+                </div>
+                {% endif %}
+                
+                {% if page.week %}
+                <div class="meta-item">
+                    <span class="meta-label">Week</span>
+                    <span class="meta-value">{{ page.week }}</span>
+                </div>
+                {% endif %}
+                
+                {% if page.due_date %}
+                <div class="meta-item">
+                    <span class="meta-label">Due Date</span>
+                    <span class="meta-value">{{ page.due_date }}</span>
+                </div>
+                {% endif %}
+                
+                {% if page.points %}
+                <div class="meta-item">
+                    <span class="meta-label">Points</span>
+                    <span class="meta-value">{{ page.points }}</span>
+                </div>
+                {% endif %}
+                
+                {% if page.estimated_time %}
+                <div class="meta-item">
+                    <span class="meta-label">Time Estimate</span>
+                    <span class="meta-value">{{ page.estimated_time }}</span>
+                </div>
+                {% endif %}
+                
+                {% if page.difficulty %}
+                <div class="meta-item">
+                    <span class="meta-label">Difficulty</span>
+                    <span class="meta-value difficulty-{{ page.difficulty | downcase }}">{{ page.difficulty }}</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <h1 class="assignment-title">{{ page.title }}</h1>
+        
+        {% if page.description %}
+        <p class="assignment-description">{{ page.description }}</p>
+        {% endif %}
+        
+        {% if page.learning_objectives %}
+        <div class="learning-objectives">
+            <h3>Learning Objectives</h3>
+            <ul>
+                {% for objective in page.learning_objectives %}
+                <li>{{ objective }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        {% if page.files %}
+        <div class="assignment-files">
+            <h3>Assignment Materials</h3>
+            <div class="file-grid">
+                {% for file in page.files %}
+                <a href="{{ file.url | relative_url }}" class="file-card {{ file.type }}">
+                    <div class="file-icon">
+                        {% case file.type %}
+                        {% when 'notebook' %}📓
+                        {% when 'markdown' %}📝
+                        {% when 'pdf' %}📄
+                        {% when 'dataset' %}📊
+                        {% else %}📁
+                        {% endcase %}
+                    </div>
+                    <div class="file-info">
+                        <span class="file-name">{{ file.name }}</span>
+                        <span class="file-description">{{ file.description }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="assignment-content">
+        {{ content }}
+    </div>
+</div>
