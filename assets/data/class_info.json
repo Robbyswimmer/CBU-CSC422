@@ -1,0 +1,6 @@
+---
+layout: null
+permalink: /assets/data/class_info.json
+sitemap: false
+---
+{{ site.data.calendar | jsonify }}
