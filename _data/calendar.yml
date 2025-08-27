@@ -23,6 +23,11 @@ important_dates:
     type: "holiday"
     description: "University closed"
 
+  - date: "2025-09-02"
+    title: "TEST"
+    type: "holiday"
+    description: "TEST"
+
   - date: "2025-09-03"
     title: "First Day of Classes"
     type: "milestone"
