@@ -1,0 +1,217 @@
+---
+layout: default
+title: Assignments
+description: Complete list of coding assignments for CSC 422 Machine Learning course
+---
+
+<div class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <h1 class="hero-title" style="font-size: 2.5rem;">📚 Course Assignments</h1>
+        <p class="hero-subtitle">Hands-on coding tutorials to master Machine Learning and Deep Learning</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <!-- Filter Controls -->
+        <div class="assignment-filters">
+            <div class="filter-group">
+                <label for="module-filter">Module:</label>
+                <select id="module-filter" class="filter-select">
+                    <option value="">All Modules</option>
+                    <option value="Module 1">Module 1</option>
+                    <option value="Module 2">Module 2</option>
+                    <option value="Module 3">Module 3</option>
+                    <option value="Module 4">Module 4</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="difficulty-filter">Difficulty:</label>
+                <select id="difficulty-filter" class="filter-select">
+                    <option value="">All Levels</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" class="filter-select">
+                    <option value="week">Week</option>
+                    <option value="title">Title</option>
+                    <option value="difficulty">Difficulty</option>
+                    <option value="points">Points</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Assignment Cards -->
+        <div class="grid grid-2" id="assignments-container">
+            {% assign assignments = site.assignments | sort: 'week' %}
+            {% for assignment in assignments %}
+            <div class="card assignment-card" 
+                 data-module="{{ assignment.module | default: '' }}" 
+                 data-difficulty="{{ assignment.difficulty | default: '' | downcase }}"
+                 data-week="{{ assignment.week | default: 0 }}"
+                 data-points="{{ assignment.points | default: 0 }}"
+                 data-title="{{ assignment.title | default: '' }}">
+                
+                <div class="assignment-header">
+                    <div class="assignment-meta">
+                        {% if assignment.module %}
+                        <span class="assignment-module">{{ assignment.module }}</span>
+                        {% endif %}
+                        {% if assignment.week %}
+                        <span class="assignment-week">Week {{ assignment.week }}</span>
+                        {% endif %}
+                    </div>
+                    {% if assignment.difficulty %}
+                    <span class="difficulty-badge difficulty-{{ assignment.difficulty | downcase }}">
+                        {{ assignment.difficulty }}
+                    </span>
+                    {% endif %}
+                </div>
+                
+                <h3 class="assignment-title">
+                    <a href="{{ assignment.url | relative_url }}">{{ assignment.title }}</a>
+                </h3>
+                
+                {% if assignment.description %}
+                <p class="assignment-description">{{ assignment.description }}</p>
+                {% endif %}
+                
+                <div class="assignment-details">
+                    {% if assignment.estimated_time %}
+                    <div class="detail-item">
+                        <span class="detail-icon">⏱️</span>
+                        <span>{{ assignment.estimated_time }}</span>
+                    </div>
+                    {% endif %}
+                    
+                    {% if assignment.points %}
+                    <div class="detail-item">
+                        <span class="detail-icon">🎯</span>
+                        <span>{{ assignment.points }} points</span>
+                    </div>
+                    {% endif %}
+                    
+                    {% if assignment.due_date %}
+                    <div class="detail-item">
+                        <span class="detail-icon">📅</span>
+                        <span>Due {{ assignment.due_date }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                {% if assignment.learning_objectives %}
+                <div class="learning-objectives-preview">
+                    <span class="objectives-label">Learning Focus:</span>
+                    <span class="objectives-preview">{{ assignment.learning_objectives[0] }}</span>
+                    {% if assignment.learning_objectives.size > 1 %}
+                    <span class="objectives-more">+{{ assignment.learning_objectives.size | minus: 1 }} more</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+                
+                {% if assignment.files %}
+                <div class="assignment-files-preview">
+                    <h4>Materials:</h4>
+                    <div class="files-list">
+                        {% for file in assignment.files %}
+                        <a href="{{ file.url | relative_url }}" class="file-link">
+                            {% case file.type %}
+                            {% when 'notebook' %}📓
+                            {% when 'markdown' %}📝
+                            {% when 'pdf' %}📄
+                            {% when 'dataset' %}📊
+                            {% else %}📁
+                            {% endcase %}
+                            {{ file.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+            {% if site.assignments.size == 0 %}
+            <div class="no-assignments">
+                <div class="no-assignments-icon">🚧</div>
+                <h3>Assignments Coming Soon!</h3>
+                <p>New coding assignments will appear here automatically as they're added to the course.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+// Assignment filtering and sorting functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const moduleFilter = document.getElementById('module-filter');
+    const difficultyFilter = document.getElementById('difficulty-filter');
+    const sortSelect = document.getElementById('sort-select');
+    const container = document.getElementById('assignments-container');
+    const cards = Array.from(container.querySelectorAll('.assignment-card'));
+
+    function filterAndSort() {
+        const moduleValue = moduleFilter.value.toLowerCase();
+        const difficultyValue = difficultyFilter.value.toLowerCase();
+        const sortValue = sortSelect.value;
+
+        // Filter cards
+        const filteredCards = cards.filter(card => {
+            const cardModule = card.dataset.module.toLowerCase();
+            const cardDifficulty = card.dataset.difficulty.toLowerCase();
+            
+            const moduleMatch = !moduleValue || cardModule.includes(moduleValue);
+            const difficultyMatch = !difficultyValue || cardDifficulty === difficultyValue;
+            
+            return moduleMatch && difficultyMatch;
+        });
+
+        // Sort cards
+        filteredCards.sort((a, b) => {
+            switch (sortValue) {
+                case 'week':
+                    return parseInt(a.dataset.week) - parseInt(b.dataset.week);
+                case 'title':
+                    return a.dataset.title.localeCompare(b.dataset.title);
+                case 'difficulty':
+                    const difficultyOrder = { beginner: 1, intermediate: 2, advanced: 3 };
+                    return (difficultyOrder[a.dataset.difficulty] || 0) - (difficultyOrder[b.dataset.difficulty] || 0);
+                case 'points':
+                    return parseInt(b.dataset.points) - parseInt(a.dataset.points);
+                default:
+                    return 0;
+            }
+        });
+
+        // Hide all cards
+        cards.forEach(card => {
+            card.style.display = 'none';
+        });
+
+        // Show filtered and sorted cards
+        filteredCards.forEach(card => {
+            card.style.display = 'block';
+        });
+
+        // Update container
+        filteredCards.forEach(card => {
+            container.appendChild(card);
+        });
+    }
+
+    // Add event listeners
+    moduleFilter.addEventListener('change', filterAndSort);
+    difficultyFilter.addEventListener('change', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+
+    // Initial sort
+    filterAndSort();
+});
+</script>

@@ -509,6 +509,819 @@ body {
     font-weight: 600;
 }
 
+/* Assignment Filters */
+.assignment-filters {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.filter-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Assignment Files Preview */
+.assignment-files-preview {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.assignment-files-preview h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.files-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    background: #f3f4f6;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.file-link:hover {
+    background: #e5e7eb;
+    color: #2563eb;
+}
+
+/* Assignment Page Styling */
+.assignment-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.assignment-header {
+    margin-bottom: 2rem;
+}
+
+.breadcrumb {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.assignment-meta {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 2rem;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.meta-value {
+    font-size: 1rem;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.assignment-page .assignment-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.assignment-page .assignment-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+}
+
+.learning-objectives {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.learning-objectives h3 {
+    margin: 0 0 1rem 0;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+.learning-objectives ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #374151;
+}
+
+.learning-objectives li {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.assignment-files {
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.assignment-files h3 {
+    margin: 0 0 1rem 0;
+    color: #a16207;
+    font-weight: 600;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.file-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.file-card:hover {
+    background: #f9fafb;
+    border-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.file-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.file-name {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.file-description {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.assignment-content {
+    line-height: 1.7;
+    color: #374151;
+}
+
+.assignment-content h1,
+.assignment-content h2,
+.assignment-content h3,
+.assignment-content h4,
+.assignment-content h5,
+.assignment-content h6 {
+    color: #1f2937;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    line-height: 1.3;
+}
+
+.assignment-content h1 { font-size: 2rem; }
+.assignment-content h2 { font-size: 1.5rem; }
+.assignment-content h3 { font-size: 1.25rem; }
+
+.assignment-content p {
+    margin: 1rem 0;
+}
+
+.assignment-content ul,
+.assignment-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.assignment-content li {
+    margin: 0.5rem 0;
+}
+
+.assignment-content code {
+    background: #f3f4f6;
+    color: #ef4444;
+    padding: 0.125rem 0.25rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.assignment-content pre {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.assignment-content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+.assignment-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.assignment-content th,
+.assignment-content td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.assignment-content th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.assignment-content tr:hover {
+    background: #f9fafb;
+}
+
+/* Mobile responsiveness for assignment filters */
+@media (max-width: 768px) {
+    .assignment-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        min-width: auto;
+    }
+    
+    .assignment-page {
+        padding: 1rem;
+    }
+    
+    .meta-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .assignment-page .assignment-title {
+        font-size: 2rem;
+    }
+    
+    .file-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Syllabus Page Styles */
+.syllabus-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.syllabus-section {
+    margin-bottom: 2rem;
+}
+
+.syllabus-section h2 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    padding: 0.5rem 0;
+}
+
+.info-item strong {
+    color: #374151;
+    display: inline-block;
+    min-width: 100px;
+}
+
+.objectives-list {
+    padding-left: 1.5rem;
+}
+
+.objectives-list li {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.phases-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.phase-summary {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+}
+
+.phase-summary h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+    font-size: 1.1rem;
+}
+
+.grading-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.grade-category {
+    background: #f9fafb;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.grade-category h3 {
+    margin: 0 0 0.75rem 0;
+    color: #1f2937;
+    font-size: 1.1rem;
+}
+
+.grade-scale {
+    margin-top: 2rem;
+}
+
+.grade-table {
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+}
+
+.grade-table td {
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    font-weight: 500;
+}
+
+.policy-highlight {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+}
+
+.policy-section {
+    margin-bottom: 1.5rem;
+}
+
+.policy-section h3 {
+    color: #92400e;
+    margin-bottom: 0.75rem;
+}
+
+.policy-section blockquote {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    margin: 1rem 0;
+    padding: 1rem;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+
+.schedule-note {
+    background: #dbeafe;
+    border: 1px solid #3b82f6;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Resources Page Styles */
+.resources-section {
+    margin-bottom: 2rem;
+}
+
+.resources-section h2 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-card {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.resource-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.resource-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: #1f2937;
+    font-size: 1.2rem;
+}
+
+.resource-card p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.resource-link {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.resource-link:hover {
+    background: #1d4ed8;
+}
+
+.primary-link {
+    background: #059669;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.primary-link:hover {
+    background: #047857;
+}
+
+.dataset-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.dataset-examples span {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.library-category {
+    margin-bottom: 2rem;
+}
+
+.library-category h3 {
+    color: #374151;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-left: 4px solid #2563eb;
+    padding-left: 0.75rem;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.library-item {
+    background: #f3f4f6;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.library-item strong {
+    color: #1f2937;
+    font-size: 1rem;
+    display: block;
+}
+
+.library-item a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.library-item a:hover {
+    text-decoration: underline;
+}
+
+.learning-category {
+    margin-bottom: 2rem;
+}
+
+.learning-category h3 {
+    color: #374151;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-left: 4px solid #059669;
+    padding-left: 0.75rem;
+}
+
+.book-list, .course-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.book-item, .course-item {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.book-info, .course-item {
+    flex: 1;
+}
+
+.book-item h4, .course-item h4 {
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+    font-size: 1.1rem;
+}
+
+.book-item p, .course-item p {
+    margin: 0;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.book-level {
+    background: #2563eb;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.course-item a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.course-item a:hover {
+    text-decoration: underline;
+}
+
+.highlight-section {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border: 1px solid #2563eb;
+}
+
+.github-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.github-icon {
+    font-size: 3rem;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.github-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1e40af;
+    font-size: 1.3rem;
+}
+
+.github-content p {
+    margin: 0 0 1rem 0;
+    color: #374151;
+}
+
+.repo-structure {
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.repo-structure h4 {
+    margin: 0 0 0.75rem 0;
+    color: #1e40af;
+}
+
+.repo-structure ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.repo-structure li {
+    margin: 0.5rem 0;
+    color: #374151;
+}
+
+.repo-structure code {
+    background: #e2e8f0;
+    padding: 0.125rem 0.25rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #1e40af;
+}
+
+.help-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.help-item {
+    background: #f3f4f6;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.help-item h3 {
+    margin: 0 0 0.75rem 0;
+    color: #1f2937;
+    font-size: 1.1rem;
+}
+
+.help-item p {
+    margin: 0.5rem 0;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.help-item a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.help-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness for syllabus and resources */
+@media (max-width: 768px) {
+    .info-grid,
+    .phases-overview,
+    .grading-breakdown,
+    .resources-grid,
+    .library-grid,
+    .help-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .book-item,
+    .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .book-level {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+    
+    .github-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .grade-table {
+        font-size: 0.9rem;
+    }
+}
+
 /* Ensure proper spacing */
 .main-content {
     min-height: calc(100vh - 200px);
