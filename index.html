@@ -500,9 +500,57 @@
         }
         
         /* Responsive Design */
+        /* Mobile Navigation Menu */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+        }
+        
+        .mobile-nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        
+        .mobile-nav-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .mobile-nav-links .nav-link {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-nav-links .nav-link:last-child {
+            border-bottom: none;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
             }
             
             /* Better mobile navigation touch targets */
@@ -514,12 +562,28 @@
             .instructor-card {
                 grid-template-columns: 1fr;
                 text-align: center;
+                padding: var(--spacing-md);
             }
             
             .instructor-image {
                 width: 150px;
                 height: 150px;
+                margin: 0 auto var(--spacing-md) auto;
+            }
+            
+            .instructor-info {
+                text-align: center;
+            }
+            
+            .instructor-details {
+                text-align: center;
+                max-width: 300px;
                 margin: 0 auto;
+            }
+            
+            .instructor-details p {
+                justify-content: center;
+                text-align: center;
             }
             
             .grid-2,
@@ -780,22 +844,45 @@
         /* Responsive weekly calendar */
         @media (max-width: 768px) {
             .week-calendar {
-                grid-template-columns: repeat(3, 1fr);
-                gap: var(--spacing-xs);
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                background: transparent;
+                box-shadow: none;
+            }
+            
+            .day-column {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--border-radius);
+                min-height: auto;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
             
             .day-column.inactive {
                 display: none;
             }
             
+            .day-column.active {
+                border-color: var(--accent-primary);
+            }
+            
             .day-header {
-                font-size: 0.8rem;
-                padding: var(--spacing-xs);
+                font-size: 1rem;
+                font-weight: 600;
+                padding: var(--spacing-sm);
+                background: var(--accent-primary);
+                color: white;
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
             }
             
             .class-block {
-                font-size: 0.75rem;
-                padding: var(--spacing-xs);
+                font-size: 0.9rem;
+                padding: var(--spacing-sm);
+                margin: var(--spacing-xs);
+                background: var(--bg-secondary);
+                border-radius: var(--border-radius);
+                border-left: 3px solid var(--accent-primary);
             }
         }
     </style>
@@ -814,6 +901,20 @@
                     <a href="#assessment" class="nav-link">Assessment</a>
                     <a href="#project" class="nav-link">Final Project</a>
                 </div>
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+                    ☰
+                </button>
+            </div>
+            <div class="mobile-nav-menu" id="mobile-nav-menu">
+                <div class="mobile-nav-links">
+                    <a href="#instructor" class="nav-link" onclick="closeMobileNav()">Instructor</a>
+                    <a href="#calendar" class="nav-link" onclick="closeMobileNav()">Calendar</a>
+                    <a href="#journey" class="nav-link" onclick="closeMobileNav()">Journey</a>
+                    <a href="#tech" class="nav-link" onclick="closeMobileNav()">Tech Stack</a>
+                    <a href="#assessment" class="nav-link" onclick="closeMobileNav()">Assessment</a>
+                    <a href="#project" class="nav-link" onclick="closeMobileNav()">Final Project</a>
+                </div>
+            </div>
             </div>
         </div>
     </nav>
@@ -1559,6 +1660,27 @@
                 `;
             }).join('');
         }
+
+        // Mobile Navigation Functions
+        function toggleMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const toggleButton = document.querySelector('.mobile-nav-toggle');
+            
+            if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
 
         // Load calendar data when page loads
         document.addEventListener('DOMContentLoaded', () => {
