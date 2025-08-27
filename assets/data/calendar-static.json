@@ -7,7 +7,7 @@
   "instructor": {
     "name": "Professor Robert Moseley, MS",
     "image": "./Materials/Art/professor.png",
-    "tagline": "WOW 2 Ready to guide you through the fascinating world of AI and machine learning.",
+    "tagline": "Ready to guide you through the fascinating world of AI and machine learning.",
     "email": "rmoseley@calbaptist.edu",
     "office": "EGR333",
     "phone": "(951) 552–8851",
@@ -25,7 +25,13 @@
       "title": "First Day of Classes",
       "type": "milestone",
       "description": "Welcome to CSC 422!"
-    }
+    },
+    {
+        "date": "2025-09-03",
+        "title": "TEST 2",
+        "type": "milestone",
+        "description": "TEST 2"
+      }
   ],
   "assignments": [
     {
