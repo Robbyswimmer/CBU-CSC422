@@ -885,6 +885,189 @@
                 border-left: 3px solid var(--accent-primary);
             }
         }
+
+        /* Enhanced Timeline Styles */
+        .timeline-container {
+            position: relative;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .timeline-phase {
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+
+        .timeline-phase:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 80px;
+            bottom: -30px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-primary), transparent);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .timeline-phase-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-phase-info h4 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+
+        .timeline-dates {
+            color: var(--accent-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .timeline-content {
+            margin-left: 66px;
+        }
+
+        .timeline-milestones {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .milestone {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            border-left: 4px solid var(--accent-primary);
+            transition: var(--transition);
+        }
+
+        .milestone:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .milestone-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .milestone-details h5 {
+            margin: 0 0 var(--spacing-xs) 0;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .milestone-details p {
+            margin: 0 0 var(--spacing-xs) 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .milestone-deadline {
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .timeline-legend {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 2px solid var(--border);
+            text-align: center;
+        }
+
+        .timeline-legend h5 {
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.2rem;
+        }
+
+        .grading-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .grading-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: rgba(102, 126, 234, 0.1);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--accent-primary);
+        }
+
+        .grade-weight {
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* Mobile Timeline Styles */
+        @media (max-width: 768px) {
+            .timeline-phase:not(:last-child):after {
+                left: 20px;
+            }
+            
+            .timeline-phase-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .timeline-content {
+                margin-left: 56px;
+            }
+            
+            .timeline-phase-info h4 {
+                font-size: 1.1rem;
+            }
+            
+            .milestone {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .milestone-icon {
+                font-size: 2rem;
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            .grading-items {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1337,32 +1520,157 @@
                 </div>
             </div>
             
+            <!-- Enhanced Project Timeline -->
             <div class="card animate-on-scroll" style="margin-top: 2rem;">
-                <h3>Project Timeline</h3>
-                <div class="grid grid-3">
-                    <div>
-                        <h4>Weeks 10-11: Planning</h4>
-                        <ul>
-                            <li>Background research</li>
-                            <li>8-10 minute presentation</li>
-                            <li>Project proposal</li>
-                        </ul>
+                <h3 style="text-align: center; margin-bottom: 2rem;">🗓️ Project Timeline & Milestones</h3>
+                
+                <div class="timeline-container">
+                    <!-- Phase 1: Research & Planning -->
+                    <div class="timeline-phase">
+                        <div class="timeline-header">
+                            <div class="timeline-phase-number">1</div>
+                            <div class="timeline-phase-info">
+                                <h4>Research & Planning Phase</h4>
+                                <span class="timeline-dates">Weeks 10-11</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-milestones">
+                                <div class="milestone">
+                                    <div class="milestone-icon">📚</div>
+                                    <div class="milestone-details">
+                                        <h5>Literature Review</h5>
+                                        <p>Deep dive into existing research, identify gaps and opportunities</p>
+                                        <span class="milestone-deadline">Week 10</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">🎯</div>
+                                    <div class="milestone-details">
+                                        <h5>Project Proposal</h5>
+                                        <p>Detailed research plan, methodology, and expected outcomes</p>
+                                        <span class="milestone-deadline">Week 11</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">🎤</div>
+                                    <div class="milestone-details">
+                                        <h5>Proposal Presentation</h5>
+                                        <p>8-10 minute presentation defending your research approach</p>
+                                        <span class="milestone-deadline">Week 11</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h4>Weeks 12-13: Development</h4>
-                        <ul>
-                            <li>Weekly video updates</li>
-                            <li>Code demonstrations</li>
-                            <li>Progress documentation</li>
-                        </ul>
+
+                    <!-- Phase 2: Implementation & Development -->
+                    <div class="timeline-phase">
+                        <div class="timeline-header">
+                            <div class="timeline-phase-number">2</div>
+                            <div class="timeline-phase-info">
+                                <h4>Implementation & Development</h4>
+                                <span class="timeline-dates">Weeks 12-13</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-milestones">
+                                <div class="milestone">
+                                    <div class="milestone-icon">⚙️</div>
+                                    <div class="milestone-details">
+                                        <h5>Initial Implementation</h5>
+                                        <p>Core algorithm development and baseline experiments</p>
+                                        <span class="milestone-deadline">Week 12</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">📹</div>
+                                    <div class="milestone-details">
+                                        <h5>Progress Video #1</h5>
+                                        <p>Demo of working prototype and preliminary results</p>
+                                        <span class="milestone-deadline">Week 12</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">🔬</div>
+                                    <div class="milestone-details">
+                                        <h5>Experimental Results</h5>
+                                        <p>Comprehensive testing, ablation studies, and analysis</p>
+                                        <span class="milestone-deadline">Week 13</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">📹</div>
+                                    <div class="milestone-details">
+                                        <h5>Progress Video #2</h5>
+                                        <p>Final results demonstration and insights</p>
+                                        <span class="milestone-deadline">Week 13</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h4>Week 14: Final Presentation</h4>
-                        <ul>
-                            <li>6-12 page research report</li>
-                            <li>Final presentation</li>
-                            <li>Complete codebase</li>
-                        </ul>
+
+                    <!-- Phase 3: Final Deliverables -->
+                    <div class="timeline-phase">
+                        <div class="timeline-header">
+                            <div class="timeline-phase-number">3</div>
+                            <div class="timeline-phase-info">
+                                <h4>Final Deliverables</h4>
+                                <span class="timeline-dates">Week 14</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-milestones">
+                                <div class="milestone">
+                                    <div class="milestone-icon">📝</div>
+                                    <div class="milestone-details">
+                                        <h5>Research Report</h5>
+                                        <p>6-12 page academic paper with methodology, results, and analysis</p>
+                                        <span class="milestone-deadline">Week 14</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">💻</div>
+                                    <div class="milestone-details">
+                                        <h5>Complete Codebase</h5>
+                                        <p>Well-documented, reproducible code with README and requirements</p>
+                                        <span class="milestone-deadline">Week 14</span>
+                                    </div>
+                                </div>
+                                <div class="milestone">
+                                    <div class="milestone-icon">🏆</div>
+                                    <div class="milestone-details">
+                                        <h5>Final Presentation</h5>
+                                        <p>15-20 minute research presentation with Q&A session</p>
+                                        <span class="milestone-deadline">Week 14</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Legend -->
+                <div class="timeline-legend">
+                    <h5>Grading Breakdown</h5>
+                    <div class="grading-items">
+                        <div class="grading-item">
+                            <span class="grade-weight">25%</span>
+                            <span>Research Quality & Innovation</span>
+                        </div>
+                        <div class="grading-item">
+                            <span class="grade-weight">25%</span>
+                            <span>Implementation & Technical Excellence</span>
+                        </div>
+                        <div class="grading-item">
+                            <span class="grade-weight">25%</span>
+                            <span>Experimental Rigor & Analysis</span>
+                        </div>
+                        <div class="grading-item">
+                            <span class="grade-weight">25%</span>
+                            <span>Presentation & Communication</span>
+                        </div>
                     </div>
                 </div>
             </div>
