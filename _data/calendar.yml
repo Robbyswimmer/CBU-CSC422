@@ -1,0 +1,149 @@
+# Course Calendar - CSC 422: Machine and Deep Learning
+# Fall 2025
+
+semester:
+  start_date: "2025-08-25"
+  end_date: "2025-12-15"
+  name: "Fall 2025"
+
+# Important Dates
+important_dates:
+  - date: "2025-08-25"
+    title: "First Day of Classes"
+    type: "milestone"
+    description: "Welcome to CSC 422!"
+    
+  - date: "2025-09-02"
+    title: "Labor Day - No Classes"
+    type: "holiday"
+    description: "University closed"
+    
+  - date: "2025-10-14"
+    title: "Fall Break"
+    type: "holiday"
+    description: "No classes"
+    
+  - date: "2025-11-25"
+    title: "Thanksgiving Week"
+    type: "holiday" 
+    description: "No classes Nov 25-29"
+    
+  - date: "2025-12-09"
+    title: "Last Day of Classes"
+    type: "milestone"
+    description: "Final presentations"
+    
+  - date: "2025-12-15"
+    title: "Final Grades Due"
+    type: "milestone"
+    description: "End of semester"
+
+# Assignment Due Dates
+assignments:
+  - date: "2025-09-02"
+    title: "CA1: Linear Regression"
+    type: "assignment"
+    points: 100
+    module: "Module 1"
+    description: "Introduction to ML fundamentals"
+    
+  - date: "2025-09-09"
+    title: "CA2: Classification Models"
+    type: "assignment"
+    points: 100
+    module: "Module 1"
+    description: "Logistic regression and decision trees"
+    
+  - date: "2025-09-16"
+    title: "CA3: Model Evaluation"
+    type: "assignment"
+    points: 100
+    module: "Module 1"
+    description: "Cross-validation and metrics"
+    
+  - date: "2025-09-23"
+    title: "CA4: Clustering & PCA"
+    type: "assignment"
+    points: 100
+    module: "Module 2"
+    description: "Unsupervised learning techniques"
+    
+  - date: "2025-09-30"
+    title: "CA5: Neural Networks"
+    type: "assignment"
+    points: 100
+    module: "Module 2"
+    description: "Introduction to deep learning"
+    
+  - date: "2025-10-07"
+    title: "Midterm Project"
+    type: "project"
+    points: 200
+    module: "Module 2"
+    description: "Shallow learning project showcase"
+    
+  - date: "2025-10-21"
+    title: "CA6: CNNs & Computer Vision"
+    type: "assignment"
+    points: 100
+    module: "Module 3"
+    description: "Convolutional neural networks"
+    
+  - date: "2025-10-28"
+    title: "CA7: RNNs & Sequential Data"
+    type: "assignment"
+    points: 100
+    module: "Module 3"
+    description: "Recurrent neural networks"
+    
+  - date: "2025-11-04"
+    title: "CA8: GANs & Generation"
+    type: "assignment"
+    points: 100
+    module: "Module 3"
+    description: "Generative adversarial networks"
+    
+  - date: "2025-11-11"
+    title: "CA9: Transformers & LLMs"
+    type: "assignment"
+    points: 100
+    module: "Module 4"
+    description: "Large language models"
+    
+  - date: "2025-11-18"
+    title: "CA10: Reinforcement Learning"
+    type: "assignment"
+    points: 100
+    module: "Module 4"
+    description: "RL fundamentals and Q-learning"
+    
+  - date: "2025-12-02"
+    title: "Final Research Presentation"
+    type: "project"
+    points: 300
+    module: "Module 4"
+    description: "Advanced ML research project"
+    
+  - date: "2025-12-09"
+    title: "Final Research Report Due"
+    type: "project"
+    points: 300
+    module: "Module 4"
+    description: "Written research report submission"
+
+# Weekly Schedule
+weekly_schedule:
+  - day: "Monday"
+    time: "2:00 PM - 3:15 PM"
+    location: "EGR 101"
+    type: "lecture"
+    
+  - day: "Wednesday" 
+    time: "2:00 PM - 3:15 PM"
+    location: "EGR 101"
+    type: "lecture"
+    
+  - day: "Friday"
+    time: "2:00 PM - 3:15 PM"
+    location: "EGR 101"
+    type: "lab"
