@@ -1,8 +1,8 @@
 # CSC 422: Machine and Deep Learning - Jekyll Configuration
 title: "CSC 422: Machine and Deep Learning"
 description: "Unlock the Power of AI and Transform Data into Intelligence"
-baseurl: "/CBU-CSC422" # the subpath of your site, e.g. /blog
-url: "https://robbyswimmer.github.io/CBU-CSC422" # the base hostname & protocol
+baseurl: "/CBU-CSC422"
+url: "https://robbyswimmer.github.io/CBU-CSC422"
 
 # Course Information
 course:
@@ -29,17 +29,6 @@ collections:
   assignments:
     output: true
     permalink: /:collection/:name/
-  modules:
-    output: true
-    permalink: /:collection/:name/
-
-# Plugins (github-pages includes these automatically)
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
-# GitHub Pages compatible settings - no theme, using custom CSS
 
 # Exclude files
 exclude:
@@ -54,12 +43,6 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - add_to_readme.md
-
-# Sass configuration
-sass:
-  sass_dir: _sass
-  style: expanded
-  sourcemap: never
 
 # Site navigation
 navigation:
@@ -98,8 +81,3 @@ defaults:
       type: "assignments"
     values:
       layout: "assignment"
-  - scope:
-      path: ""
-      type: "modules"
-    values:
-      layout: "module"
