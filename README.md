@@ -14,31 +14,27 @@
 
 ## 👨‍🏫 Meet Your Instructor
 
-<div align="center">
-
 <table>
 <tr>
 <td width="200" align="center">
 
-<img src="https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/professor.png" alt="Professor Robert Moseley" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+![Professor Robert Moseley](https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/professor.png)
 
 </td>
-<td width="20"></td>
+<td width="50"></td>
 <td>
 
 **Professor Robert Moseley, MS**
 - **Email:** rmoseley@calbaptist.edu
-- **Office:** EGR333https://github.com/Robbyswimmer/CBU-CSC422
+- **Office:** EGR333
 - **Phone:** (951) 552–8851
-- **Office Hours:** Mon/Wed 10:30am-12:00pm, 1:00pm–3:00pm
+- **Office Hours:** Monday/Wednesday 10:30am-12:00pm, 1:00pm–3:00pm
 
 *Ready to guide you through the fascinating world of AI and machine learning!*
 
 </td>
 </tr>
 </table>
-
-</div>
 
 ---
 
@@ -299,17 +295,17 @@ graph LR
 
 <div style="border: 2px solid #FFE6E6; border-radius: 10px; padding: 20px; margin: 10px; background: linear-gradient(135deg, #FFE6E6 0%, #FFF0F0 100%);">
 
-### **🌟 Phase 1**
+### **Phase 1**
 **Foundation Building**
 
 *Weeks 1-3*
 
-**🎯 Core Skills:**
+**Core Skills:**
 - Linear Regression
 - Classification Models  
 - ML Fundamentals
 
-**🏆 Achievement:**
+**Achievement:**
 *ML Foundations Unlocked*
 
 </div>
@@ -319,17 +315,17 @@ graph LR
 
 <div style="border: 2px solid #E6F3FF; border-radius: 10px; padding: 20px; margin: 10px; background: linear-gradient(135deg, #E6F3FF 0%, #F0F8FF 100%);">
 
-### **🔬 Phase 2** 
+### **Phase 2** 
 **Advanced Techniques**
 
 *Weeks 4-6*
 
-**🎯 Core Skills:**
+**Core Skills:**
 - Cross-Validation
 - Clustering & PCA
 - Neural Networks
 
-**🏆 Achievement:**
+**Achievement:**
 *Advanced ML Mastery*
 
 </div>
@@ -339,17 +335,17 @@ graph LR
 
 <div style="border: 2px solid #E6FFE6; border-radius: 10px; padding: 20px; margin: 10px; background: linear-gradient(135deg, #E6FFE6 0%, #F0FFF0 100%);">
 
-### **🧠 Phase 3**
+### **Phase 3**
 **Deep Learning**
 
 *Weeks 7-9*
 
-**🎯 Core Skills:**
+**Core Skills:**
 - CNNs & Computer Vision
 - RNNs & Sequential Data
 - GANs & Generation
 
-**🏆 Achievement:**
+**Achievement:**
 *Deep Learning Expert*
 
 </div>
@@ -359,17 +355,17 @@ graph LR
 
 <div style="border: 2px solid #FFF0E6; border-radius: 10px; padding: 20px; margin: 10px; background: linear-gradient(135deg, #FFF0E6 0%, #FFFAF0 100%);">
 
-### **🎓 Phase 4**
+### **Phase 4**
 **AI Mastery**
 
 *Weeks 10-14*
 
-**🎯 Core Skills:**
+**Core Skills:**
 - Transformers & LLMs
 - Reinforcement Learning
 - Research Projects
 
-**🏆 Achievement:**
+**Achievement:**
 *AI Practitioner*
 
 </div>
@@ -380,10 +376,10 @@ graph LR
 
 <div align="center">
 
-### 🛤️ **Your Transformation Path**
+### **Your Transformation Path**
 
 ```
-🌱 Curious Beginner  →  📚 ML Student  →  🧠 DL Practitioner  →  🚀 AI Expert
+Curious Beginner  →  ML Student  →  DL Practitioner  →  AI Expert
 ```
 
 **Ready to begin your transformation into an AI practitioner?**
@@ -815,56 +811,56 @@ graph LR
 
 > **Excellence is achieved through consistent effort and meaningful engagement with challenging material.**
 
-### **📈 Course Point Distribution**
+### **Course Point Distribution**
 
 <table>
 <thead>
 <tr>
-<th width="50%">📚 <strong>Assessment Category</strong></th>
+<th width="50%"><strong>Assessment Category</strong></th>
 <th width="25%"><strong>Weight</strong></th>
 <th width="25%"><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>🎯 <strong>Coding Assignments</strong></td>
+<td><strong>Coding Assignments</strong></td>
 <td align="center"><strong>30%</strong></td>
 <td>Hands-on ML/DL implementations</td>
 </tr>
 <tr>
-<td>🔬 <strong>Final Research Project</strong></td>
+<td><strong>Final Research Project</strong></td>
 <td align="center"><strong>30%</strong></td>
 <td>Advanced ML research & implementation</td>
 </tr>
 <tr>
-<td>🚀 <strong>Midterm Project</strong></td>
+<td><strong>Midterm Project</strong></td>
 <td align="center"><strong>10%</strong></td>
 <td>Shallow learning project</td>
 </tr>
 <tr>
-<td>📚 <strong>Homework (zyLabs/Blackboard)</strong></td>
+<td><strong>Homework (zyLabs/Blackboard)</strong></td>
 <td align="center"><strong>10%</strong></td>
 <td>Theory and practice exercises</td>
 </tr>
 <tr>
-<td>🎤 <strong>Participation & Activities</strong></td>
+<td><strong>Participation & Activities</strong></td>
 <td align="center"><strong>10%</strong></td>
 <td>Zybooks + Presentations</td>
 </tr>
 <tr>
-<td>🎓 <strong>Research Presentation</strong></td>
+<td><strong>Research Presentation</strong></td>
 <td align="center"><strong>10%</strong></td>
 <td>Final project showcase</td>
 </tr>
 <tr>
-<td>📍 <strong>Attendance</strong></td>
+<td><strong>Attendance</strong></td>
 <td align="center"><strong>0%</strong></td>
 <td>Expected but not graded</td>
 </tr>
 </tbody>
 </table>
 
-### **🎯 Grade Scale**
+### **Grade Scale**
 
 <div align="center">
 
@@ -907,11 +903,11 @@ graph LR
 
 </div>
 
-### **📋 Assessment Quality**
+### **Assessment Quality**
 
 > **Every major assignment includes detailed rubrics and evaluation criteria.** Check the course website for specific grading instruments and success criteria.
 
-**💡 Pro Tip:** Monitor your progress regularly via Blackboard to stay on track!
+**Pro Tip:** Monitor your progress regularly via Blackboard to stay on track!
 
 ---
 
@@ -919,7 +915,7 @@ graph LR
 
 <div align="center">
 
-### **🚀 AI-Powered Learning: Your Creative Partner**
+### **AI-Powered Learning: Your Creative Partner**
 
 </div>
 
@@ -929,15 +925,15 @@ graph LR
 <tr>
 <td width="50%">
 
-### **✅ Encouraged AI Uses**
+### **Encouraged AI Uses**
 
-**🎯 Learning Accelerators:**
+**Learning Accelerators:**
 - Brainstorm creative project ideas
 - Debug and optimize your code
 - Explain complex ML concepts
 - Generate test data and examples
 
-**🚀 Development Partners:**
+**Development Partners:**
 - Code completion and suggestions
 - Architecture planning and design
 - Documentation and commenting
@@ -946,15 +942,15 @@ graph LR
 </td>
 <td width="50%">
 
-### **🎓 Learning Principles**
+### **Learning Principles**
 
-**🔍 Critical Evaluation Required:**
+**Critical Evaluation Required:**
 - Verify all AI-generated solutions
 - Understand every line of code you submit
 - Test and validate AI recommendations
 - Adapt solutions to your specific context
 
-**💡 Your Responsibility:**
+**Your Responsibility:**
 - Demonstrate deep understanding
 - Explain your implementation choices
 - Reproduce and modify your work
@@ -966,7 +962,7 @@ graph LR
 
 <div align="center">
 
-### **🎯 The Golden Rule**
+### **The Golden Rule**
 
 **Think of AI as your brilliant research partner—not your replacement.**
 
@@ -980,7 +976,7 @@ graph LR
 
 <div align="center">
 
-### **🎯 Your Capstone Achievement: Advanced ML Research**
+### **Your Capstone Achievement: Advanced ML Research**
 
 *Weeks 10-14: Where Theory Meets Innovation*
 
@@ -988,7 +984,7 @@ graph LR
 
 > **The culmination of your learning journey: a substantial research project that goes beyond toy examples and tackles real ML challenges.**
 
-### **🎪 Project Options**
+### **Project Options**
 
 <table>
 <tr>
@@ -996,7 +992,7 @@ graph LR
 
 <div style="border: 2px solid #E6F3FF; border-radius: 10px; padding: 15px; background: linear-gradient(135deg, #E6F3FF 0%, #F0F8FF 100%);">
 
-### **🔧 Method Extension**
+### **Method Extension**
 **Modify & Improve**
 
 Extend an existing ML method with novel ideas and improvements
@@ -1013,7 +1009,7 @@ Extend an existing ML method with novel ideas and improvements
 
 <div style="border: 2px solid #E6FFE6; border-radius: 10px; padding: 15px; background: linear-gradient(135deg, #E6FFE6 0%, #F0FFF0 100%);">
 
-### **🏔️ Open Challenge**
+### **Open Challenge**
 **Tackle the Unknown**
 
 Address challenging, unsolved problems in ML/AI
@@ -1030,7 +1026,7 @@ Address challenging, unsolved problems in ML/AI
 
 <div style="border: 2px solid #FFF0E6; border-radius: 10px; padding: 15px; background: linear-gradient(135deg, #FFF0E6 0%, #FFFAF0 100%);">
 
-### **📄 Research Replication**
+### **Research Replication**
 **Reproduce & Analyze**
 
 Implement and extend recent research papers
@@ -1046,12 +1042,12 @@ Implement and extend recent research papers
 </tr>
 </table>
 
-### **📅 Project Timeline**
+### **Project Timeline**
 
 <table>
 <thead>
 <tr>
-<th>🗓️ <strong>Phase</strong></th>
+<th><strong>Phase</strong></th>
 <th><strong>Duration</strong></th>
 <th><strong>Key Deliverables</strong></th>
 <th><strong>Focus</strong></th>
@@ -1059,19 +1055,19 @@ Implement and extend recent research papers
 </thead>
 <tbody>
 <tr>
-<td>📚 <strong>Planning & Research</strong></td>
+<td><strong>Planning & Research</strong></td>
 <td>Weeks 10-11</td>
 <td>• Background research<br/>• 8-10 minute presentation<br/>• Project proposal</td>
 <td>Literature review, problem scoping, methodology planning</td>
 </tr>
 <tr>
-<td>💻 <strong>Development & Progress</strong></td>
+<td><strong>Development & Progress</strong></td>
 <td>Weeks 12-13</td>
 <td>• Weekly 5-minute video updates<br/>• Code demos<br/>• Progress documentation</td>
 <td>Implementation, experimentation, iterative improvement</td>
 </tr>
 <tr>
-<td>🎓 <strong>Final Presentation</strong></td>
+<td><strong>Final Presentation</strong></td>
 <td>Week 14</td>
 <td>• 6-12 page research report<br/>• 8-10 minute final presentation<br/>• Complete codebase</td>
 <td>Results analysis, conclusions, future work</td>
@@ -1079,7 +1075,7 @@ Implement and extend recent research papers
 </tbody>
 </table>
 
-### **📄 Research Report Structure**
+### **Research Report Structure**
 
 Your final report should follow scholarly paper format:
 
@@ -1088,7 +1084,7 @@ Your final report should follow scholarly paper format:
 
 <br>
 
-**📖 Structure Requirements:**
+**Structure Requirements:**
 - **Abstract** - Concise summary of problem, methods, and key findings
 - **Introduction** - Problem motivation and research questions  
 - **Background & Related Work** - Literature review and context
@@ -1097,7 +1093,7 @@ Your final report should follow scholarly paper format:
 - **Conclusion & Future Work** - Summary, limitations, and next steps
 - **References** - Proper academic citations
 
-**🎯 Evaluation Criteria:**
+**Evaluation Criteria:**
 - Creativity and innovation in approach
 - Technical rigor and experimental depth
 - Clear communication and presentation
@@ -1105,14 +1101,14 @@ Your final report should follow scholarly paper format:
 
 </details>
 
-### **🏆 Success Metrics**
+### **Success Metrics**
 
 **Your project will be evaluated on:**
-- **🧠 Technical Depth** - Sophisticated ML/DL implementation
-- **🎨 Creativity** - Novel approaches and innovative solutions  
-- **📊 Rigor** - Thorough experimentation and analysis
-- **💬 Communication** - Clear presentation of complex ideas
-- **🎯 Impact** - Meaningful contributions to the field
+- **Technical Depth** - Sophisticated ML/DL implementation
+- **Creativity** - Novel approaches and innovative solutions  
+- **Rigor** - Thorough experimentation and analysis
+- **Communication** - Clear presentation of complex ideas
+- **Impact** - Meaningful contributions to the field
 
 ---
 
