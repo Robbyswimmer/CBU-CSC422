@@ -1891,8 +1891,18 @@
                 }
                 
                 const data = await response.json();
-                courseData[dataType] = data;
-                loadingStatus[dataType] = true;
+                
+                // Map data to correct courseData properties
+                if (dataType === 'important_dates') {
+                    courseData.importantDates = data;
+                    loadingStatus.importantDates = true;
+                } else if (dataType === 'weekly_schedule') {
+                    courseData.weeklySchedule = data;
+                    loadingStatus.weeklySchedule = true;
+                } else {
+                    courseData[dataType] = data;
+                    loadingStatus[dataType] = true;
+                }
                 
                 console.log(`✅ Successfully loaded ${dataType}:`, data);
                 return data;
@@ -1912,8 +1922,8 @@
                 semester: loadDataFile('semester'),
                 instructor: loadDataFile('instructor'), 
                 assignments: loadDataFile('assignments'),
-                importantDates: loadDataFile('important-dates'),
-                weeklySchedule: loadDataFile('weekly-schedule')
+                importantDates: loadDataFile('important_dates'),
+                weeklySchedule: loadDataFile('weekly_schedule')
             };
 
             // Load data in parallel but handle each independently
