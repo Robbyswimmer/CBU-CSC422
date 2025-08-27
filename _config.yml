@@ -33,15 +33,13 @@ collections:
     output: true
     permalink: /:collection/:name/
 
-# Plugins
+# Plugins (github-pages includes these automatically)
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# GitHub Pages compatible settings
-remote_theme: ""
-theme: ""
+# GitHub Pages compatible settings - no theme, using custom CSS
 
 # Exclude files
 exclude:
