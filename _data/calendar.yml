@@ -53,8 +53,3 @@ weekly_schedule:
     time: "8:15 AM - 9:15 AM"
     location: "EGR 104"
     type: "lecture"
-    
-  - day: "Friday"
-    time: "8:15 AM - 9:15 AM"
-    location: "EGR 104"
-    type: "lecture"

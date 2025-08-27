@@ -853,28 +853,6 @@
                         <!-- Dynamic content loaded here -->
                     </div>
                 </div>
-                
-                <!-- Weekly Schedule -->
-                <div class="calendar-section animate-on-scroll">
-                    <h3 class="calendar-title">📚 Weekly Schedule</h3>
-                    <div class="schedule-grid">
-                        <div class="schedule-item">
-                            <div class="schedule-day">Monday</div>
-                            <div class="schedule-time">8:15 AM - 9:15 AM</div>
-                            <div class="schedule-location">CSC 422 • Lecture</div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="schedule-day">Wednesday</div>
-                            <div class="schedule-time">8:15 AM - 9:15 AM</div>
-                            <div class="schedule-location">CSC 422 • Lecture</div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="schedule-day">Friday</div>
-                            <div class="schedule-time">8:15 AM - 9:15 AM</div>
-                            <div class="schedule-location">CSC 422 • Lecture</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1343,23 +1321,15 @@
         // Load calendar data from YAML file
         async function loadCalendarData() {
             try {
-                console.log('Loading calendar data...');
                 const response = await fetch('./_data/calendar.yml');
-                console.log('Fetch response:', response.status);
                 const yamlText = await response.text();
-                console.log('YAML text length:', yamlText.length);
-                console.log('YAML text preview:', yamlText.substring(0, 200));
                 
                 // Parse YAML (simple parsing for our structure)
                 const data = parseYAML(yamlText);
-                console.log('Parsed data:', data);
-                
                 calendarData.assignments = data.assignments || [];
                 calendarData.importantDates = data.important_dates || [];
                 calendarData.instructor = data.instructor || {};
                 calendarData.weeklySchedule = data.weekly_schedule || [];
-                
-                console.log('Calendar data loaded:', calendarData);
                 
                 // Load all the displays
                 loadInstructor();
@@ -1396,90 +1366,69 @@
 
         // Simple YAML parser for our specific structure
         function parseYAML(yamlText) {
-            console.log('Parsing YAML...');
             const lines = yamlText.split('\n');
             const result = { assignments: [], important_dates: [], instructor: {}, weekly_schedule: [] };
             let currentSection = null;
             let currentItem = null;
-            
-            for (let i = 0; i < lines.length; i++) {
-                let line = lines[i].trim();
-                
+
+            const keyValRegex = /^\s{2}(\w+):\s*(.*)/; // For indented key-value pairs
+
+            for (const line of lines) {
                 // Skip empty lines and comments
-                if (!line || line.startsWith('#')) continue;
-                
-                // Check for main sections
-                if (line === 'assignments:') {
-                    console.log('Found assignments section');
-                    currentSection = 'assignments';
-                    currentItem = null;
-                    continue;
-                } else if (line === 'important_dates:') {
-                    console.log('Found important_dates section');
-                    currentSection = 'important_dates';
-                    currentItem = null;
-                    continue;
-                } else if (line === 'instructor:') {
-                    console.log('Found instructor section');
-                    currentSection = 'instructor';
-                    currentItem = null;
-                    continue;
-                } else if (line === 'weekly_schedule:') {
-                    console.log('Found weekly_schedule section');
-                    currentSection = 'weekly_schedule';
-                    currentItem = null;
+                if (line.trim() === '' || line.trim().startsWith('#')) continue;
+
+                // Check for section headers (not indented)
+                if (!line.startsWith('  ')) {
+                    const sectionName = line.trim().replace(':', '');
+                    if (result.hasOwnProperty(sectionName)) {
+                        currentSection = sectionName;
+                        if (currentItem && Array.isArray(result[currentSection])) {
+                            result[currentSection].push(currentItem);
+                        }
+                        currentItem = null;
+                    }
                     continue;
                 }
-                
-                // Handle instructor section (simple key-value pairs)
-                if (currentSection === 'instructor' && line.includes(':') && !line.startsWith('-')) {
-                    const colonIndex = line.indexOf(':');
-                    const key = line.substring(0, colonIndex).trim();
-                    const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
-                    result.instructor[key] = value;
-                    console.log('Added instructor field:', key, '=', value);
-                }
-                
-                // Handle array sections (assignments, important_dates, weekly_schedule)
-                else if ((currentSection === 'assignments' || currentSection === 'important_dates' || currentSection === 'weekly_schedule') && line.startsWith('- ')) {
-                    // Save previous item
-                    if (currentItem) {
+
+                // Handle list items
+                if (line.trim().startsWith('-')) {
+                    if (currentItem && currentSection && Array.isArray(result[currentSection])) {
                         result[currentSection].push(currentItem);
-                        console.log('Added item to', currentSection, ':', currentItem);
                     }
+                    currentItem = {}; // Start a new item
                     
-                    // Start new item
-                    if (line.startsWith('- date:')) {
-                        const dateMatch = line.match(/- date:\s*["']([^"']+)["']/);
-                        currentItem = { date: dateMatch ? dateMatch[1] : '' };
-                    } else if (line.startsWith('- day:')) {
-                        const dayMatch = line.match(/- day:\s*["']([^"']+)["']/);
-                        currentItem = { day: dayMatch ? dayMatch[1] : '' };
+                    // Check if a key-value is on the same line as the dash
+                    const sameLineMatch = line.match(/^\s*-\s*(\w+):\s*(.*)/);
+                    if (sameLineMatch) {
+                        const [, key, value] = sameLineMatch;
+                        currentItem[key] = value.trim().replace(/[\"']/g, '');
                     }
+                    continue;
                 }
-                
-                // Handle properties of current item
-                else if (currentItem && line.includes(':') && !line.startsWith('-')) {
-                    const colonIndex = line.indexOf(':');
-                    const key = line.substring(0, colonIndex).trim();
-                    const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
-                    
-                    if (key === 'title') currentItem.title = value;
-                    else if (key === 'type') currentItem.type = value;
-                    else if (key === 'points') currentItem.points = parseInt(value) || 0;
-                    else if (key === 'module') currentItem.module = value;
-                    else if (key === 'description') currentItem.description = value;
-                    else if (key === 'time') currentItem.time = value;
-                    else if (key === 'location') currentItem.location = value;
+
+                // Handle indented key-value pairs for the current item or section
+                const match = line.match(keyValRegex);
+                if (match) {
+                    const [, key, value] = match;
+                    const cleanValue = value.trim().replace(/[\"']/g, '');
+
+                    if (currentSection === 'instructor') {
+                        result.instructor[key] = cleanValue;
+                    } else if (currentItem) {
+                        if (key === 'points') {
+                            currentItem[key] = parseInt(cleanValue, 10) || 0;
+                        } else {
+                            currentItem[key] = cleanValue;
+                        }
+                    }
                 }
             }
-            
-            // Don't forget the last item
-            if (currentItem && currentSection && (currentSection === 'assignments' || currentSection === 'important_dates' || currentSection === 'weekly_schedule')) {
+
+            // Add the last item if it exists
+            if (currentItem && currentSection && Array.isArray(result[currentSection]) && Object.keys(currentItem).length > 0) {
                 result[currentSection].push(currentItem);
-                console.log('Added final item to', currentSection, ':', currentItem);
             }
-            
+
             console.log('Final parsed result:', result);
             return result;
         }
