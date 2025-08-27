@@ -295,40 +295,47 @@ graph LR
 </td>
 <td width="85%">
 
-### **Housing Price Prediction** *(CLO 5)*
+### **Introduction to ML & High-Level Theoretical Overview** *(CLO 5)*
 
-**Your Mission:** Build your very first machine learning model!
+**Assignment:** Coding Assignment 1 - Linear Regression Implementation
+
+**What You'll Learn:**
+- Fundamental ML concepts and terminology
+- Difference between AI, ML, and Deep Learning
+- Supervised vs Unsupervised learning overview
+- Linear regression theory and implementation
 
 **What You'll Create:**
-- Linear regression model from scratch (no libraries!)
-- Real housing price predictor using Python
-- Comparison between your code and professional ML libraries
+- Simple linear regression from scratch in Python
+- Housing price prediction model
+- Reflection on ML vs traditional programming
 
-**Skills Unlocked:** Python fundamentals, Regression basics, Mathematical thinking
-
-**Victory Condition:** Successfully predict house prices and understand how ML differs from traditional programming
+**Skills Unlocked:** ML fundamentals, Python basics, Mathematical foundations
 
 </td>
 </tr>
-<tr>
 <tr>
 <td width="15%" align="center">
 <h3>Week 2</h3>
 </td>
 <td width="85%">
 
-### **Data Exploration & Preprocessing** *(CLO 2)*
+### **ML Theory & Zybooks Study Week** *(CLO 1)*
 
-**Your Mission:** Master the art of data preparation!
+**Focus:** Theoretical Foundation Building
 
-**What You'll Create:**
-- Data cleaning and preprocessing pipeline
-- Exploratory data analysis (EDA) dashboard
-- Feature engineering techniques
+**What You'll Study:**
+- Zybooks Ch. 1: ML fundamentals
+- Statistical concepts for ML
+- Data types and preprocessing concepts
+- Mathematical foundations review
 
-**Skills Unlocked:** Data wrangling, Statistical analysis, Data visualization
+**Activities:**
+- Complete Zybooks readings
+- Practice problems and quizzes
+- Prepare for upcoming classification assignment
 
-**Victory Condition:** Transform messy real-world data into ML-ready datasets
+**Skills Unlocked:** Theoretical understanding, Statistical thinking, ML vocabulary
 
 </td>
 </tr>
@@ -338,18 +345,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Classification Showdown** *(CLO 1)*
+### **Classification Models & Model Evaluation** *(CLO 1)*
 
-**Your Mission:** Master the art of classification!
+**Assignment:** Coding Assignment 2 - Classification & Evaluation
+
+**What You'll Learn:**
+- Classification vs Regression models
+- Logistic regression and decision trees
+- Model evaluation metrics (accuracy, precision, recall)
+- Supervised vs Unsupervised learning in practice
 
 **What You'll Create:**
-- Logistic regression vs Decision tree battle
-- Model accuracy comparison dashboard
-- Real-world labeled dataset analysis
+- Logistic regression classifier
+- Decision tree implementation
+- Model comparison and evaluation framework
 
-**Skills Unlocked:** Classification techniques, Model evaluation, Data interpretation
-
-**Victory Condition:** Train competing models and determine which performs better on your dataset
+**Skills Unlocked:** Classification algorithms, Model evaluation, Performance metrics
 
 </td>
 </tr>
@@ -370,18 +381,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Bias-Variance Battle** *(CLOs 2, 3)*
+### **Model Validation & Cross-Validation** *(CLOs 2, 3)*
 
-**Your Mission:** Conquer overfitting and underfitting!
+**Assignment:** Coding Assignment 3 - Model Validation
+
+**What You'll Learn:**
+- Cross-validation techniques
+- Bias-variance tradeoff
+- Overfitting and underfitting detection
+- Model selection strategies
 
 **What You'll Create:**
-- Cross-validation testing framework
-- Interactive bias-variance visualization
-- Model optimization strategies
+- Cross-validation implementation
+- Bias-variance analysis tools
+- Model performance visualization
 
-**Skills Unlocked:** Advanced visualization, Model tuning, Performance analysis
-
-**Victory Condition:** Create models that generalize well to unseen data
+**Skills Unlocked:** Model validation, Cross-validation, Bias-variance analysis
 
 </td>
 </tr>
@@ -391,18 +406,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Unsupervised Discovery** *(CLOs 2, 3)*
+### **Unsupervised Learning & Clustering** *(CLOs 2, 3)*
 
-**Your Mission:** Find hidden patterns in unlabeled data!
+**Assignment:** Coding Assignment 4 - K-means & PCA
+
+**What You'll Learn:**
+- K-means clustering algorithm
+- Principal Component Analysis (PCA)
+- Dimensionality reduction techniques
+- Unsupervised learning applications
 
 **What You'll Create:**
-- K-means clustering algorithm
-- PCA dimensionality reduction
-- Cluster quality assessment tools
+- K-means clustering implementation
+- PCA for dimensionality reduction
+- Cluster analysis and visualization
 
-**Skills Unlocked:** Pattern recognition, Dimensionality reduction, Cluster analysis
-
-**Victory Condition:** Discover meaningful groups in data without any labels
+**Skills Unlocked:** Clustering algorithms, PCA, Dimensionality reduction
 
 </td>
 </tr>
@@ -412,18 +431,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Neural Network Genesis + Midterm Launch** *(CLOs 2, 4)*
+### **Neural Networks & Midterm Project Launch** *(CLOs 2, 4)*
 
-**Your Mission:** Enter the world of neural networks!
+**Assignment:** Coding Assignment 5 + Midterm Project
+
+**What You'll Learn:**
+- Multi-Layer Perceptrons (MLPs)
+- Neural network architecture basics
+- Perceptrons, weights, and biases
+- Shallow network implementation
 
 **What You'll Create:**
-- Multi-layer perceptron from scratch (NumPy only!)
-- Midterm project proposal and initial implementation
-- Neural network visualization tools
+- MLP from scratch using NumPy
+- Neural network training algorithm
+- Midterm project proposal and baseline
 
-**Skills Unlocked:** Neural network fundamentals, Project management, Research skills
-
-**Victory Condition:** Build working neural networks and launch your midterm research project
+**Skills Unlocked:** Neural networks, Backpropagation, Project planning
 
 </td>
 </tr>
@@ -444,18 +467,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Computer Vision Mastery** *(CLO 4)*
+### **Convolutional Neural Networks (CNNs)** *(CLO 4)*
 
-**Your Mission:** Teach computers to see!
+**Assignment:** Coding Assignment 6 - Image Classification
+
+**What You'll Learn:**
+- CNN architecture and convolution operations
+- Image classification techniques
+- Image segmentation basics
+- Computer vision fundamentals
 
 **What You'll Create:**
-- Convolutional Neural Networks (CNNs)
-- Image classifier for MNIST/CIFAR-10
-- Filter visualization dashboard
+- CNN for image classification
+- MNIST/CIFAR-10 classifier
+- Image preprocessing pipeline
 
-**Skills Unlocked:** Computer vision, TensorFlow/PyTorch, Feature visualization
-
-**Victory Condition:** Build CNNs that can recognize handwritten digits and everyday objects
+**Skills Unlocked:** CNNs, Image processing, Computer vision
 
 </td>
 </tr>
@@ -465,18 +492,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Sequential Data Magic** *(CLO 4)*
+### **Recurrent Neural Networks (RNNs)** *(CLO 4)*
 
-**Your Mission:** Master time and language!
+**Assignment:** Coding Assignment 7 - Sequential Data
+
+**What You'll Learn:**
+- RNN and LSTM architectures
+- Sequential data processing
+- Temporal pattern recognition
+- Time series and text analysis
 
 **What You'll Create:**
-- Recurrent Neural Networks (RNNs/LSTMs)
-- Text and time series prediction models
-- Hidden state analysis tools
+- RNN/LSTM implementation
+- Text classification model
+- Time series prediction system
 
-**Skills Unlocked:** Sequence modeling, Natural language processing, Time series analysis
-
-**Victory Condition:** Create models that understand temporal patterns and generate text
+**Skills Unlocked:** RNNs, LSTMs, Sequential modeling
 
 </td>
 </tr>
@@ -486,18 +517,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Creative AI with GANs** *(CLO 4)*
+### **Generative Adversarial Networks (GANs)** *(CLO 4)*
 
-**Your Mission:** Generate entirely new data!
+**Assignment:** Coding Assignment 8 - Generative Models
+
+**What You'll Learn:**
+- GAN architecture and training
+- Generative vs discriminative models
+- Diffusion models introduction
+- Image generation techniques
 
 **What You'll Create:**
-- Generative Adversarial Network (GAN)
+- Simple GAN implementation
 - Image generation system
-- Quality evaluation metrics (FID)
+- Model evaluation metrics
 
-**Skills Unlocked:** Generative modeling, Adversarial training, Creative AI
-
-**Victory Condition:** Train networks that can create realistic new images from random noise
+**Skills Unlocked:** GANs, Generative modeling, Adversarial training
 
 </td>
 </tr>
@@ -518,18 +553,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Transformer Deep Dive** *(Theory Focus)*
+### **Transformers and LLMs** *(Theory Focus)*
 
-**Your Mission:** Understand the architecture powering ChatGPT!
+**Focus:** Zybooks Ch. 10 - Advanced Topics
 
 **What You'll Study:**
 - Transformer architecture fundamentals
-- Attention mechanisms and self-attention
-- Fine-tuning strategies for large language models
+- Large Language Models (LLMs)
+- Training stages and fine-tuning
+- Attention mechanisms in detail
 
-**Skills Unlocked:** Advanced architectures, Attention theory, Cutting-edge research
+**Activities:**
+- Complete Zybooks readings
+- Transformer architecture analysis
+- LLM fine-tuning exploration
 
-**Victory Condition:** Deeply understand the technology behind modern AI breakthroughs
+**Skills Unlocked:** Transformers, LLMs, Attention mechanisms
 
 </td>
 </tr>
@@ -541,16 +580,20 @@ graph LR
 
 ### **Reinforcement Learning** *(CLO 4)*
 
-**Your Mission:** Create AI that learns through trial and error!
+**Assignment:** Coding Assignment 9 - RL Fundamentals
+
+**What You'll Learn:**
+- Q-learning and policy methods
+- Reinforcement learning fundamentals
+- Reasoning and alignment concepts
+- Agent-environment interaction
 
 **What You'll Create:**
-- Q-learning agent for Gridworld
-- Reward shaping experiments
-- Policy evaluation systems
+- Q-learning implementation
+- Simple RL environment
+- Policy evaluation system
 
-**Skills Unlocked:** Decision making, Game AI, Reward optimization
-
-**Victory Condition:** Train agents that can navigate environments and maximize rewards
+**Skills Unlocked:** Q-learning, RL algorithms, Policy methods
 
 </td>
 </tr>
@@ -560,18 +603,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Project Progress Showcase** *(CLOs 2–5)*
+### **Extra Topics & Project Lab Time** *(CLOs 2-5)*
 
-**Your Mission:** Demonstrate your research progress!
+**Assignment:** Coding Assignment 10 - Project Progress
+
+**What You'll Work On:**
+- Advanced ML/DL topics exploration
+- Individual project development
+- Final project preparation
+- Code refinement and testing
 
 **What You'll Submit:**
-- Comprehensive project notebook
-- Dataset preparation documentation
-- Baseline model results and analysis
+- Project progress report
+- Updated code and documentation
+- Preliminary results analysis
 
-**Skills Unlocked:** Project documentation, Progress tracking, Milestone management
-
-**Victory Condition:** Clear demonstration of project progress with solid baseline results
+**Skills Unlocked:** Advanced topics, Project management, Research skills
 
 </td>
 </tr>
@@ -582,18 +629,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Advanced Deep Learning Topics** *(CLOs 4, 5)*
+### **Final Presentations & Project Showcase** *(CLOs 2-5)*
 
-**Your Mission:** Explore cutting-edge AI techniques!
+**Focus:** Project Presentations and Course Wrap-up
 
-**What You'll Study:**
-- Advanced CNN architectures (ResNet, DenseNet)
-- Transfer learning and fine-tuning
-- Attention mechanisms in detail
+**What You'll Present:**
+- Complete final project presentation
+- Technical implementation details
+- Results analysis and conclusions
+- Future work and improvements
 
-**Skills Unlocked:** Advanced architectures, Transfer learning, Model optimization
+**Activities:**
+- Final project presentations
+- Peer feedback and discussion
+- Course reflection and review
 
-**Victory Condition:** Master state-of-the-art deep learning techniques
+**Skills Unlocked:** Technical presentation, Project completion, Peer evaluation
 
 </td>
 </tr>
@@ -603,18 +654,22 @@ graph LR
 </td>
 <td width="85%">
 
-### **Final Project Presentation** *(CLOs 2–5)*
+### **Finals Week** *(CLOs 2-5)*
 
-**Your Mission:** Showcase your AI mastery!
+**Deliverable:** Final Project Deliverables
 
-**What You'll Deliver:**
-- Complete deep learning research project
-- Professional presentation to the class
-- Comprehensive technical report
+**What You'll Submit:**
+- Complete project report and code
+- Final presentation materials
+- Comprehensive documentation
+- Reflection on learning outcomes
 
-**Skills Unlocked:** Technical presentation, Research writing, AI innovation
+**Final Requirements:**
+- All code properly documented
+- Results analysis and interpretation
+- Professional presentation quality
 
-**Victory Condition:** Successfully apply advanced ML/DL techniques to solve a novel problem
+**Skills Demonstrated:** Complete ML/DL project lifecycle, Technical communication
 
 </td>
 </tr>
