@@ -1,0 +1,23 @@
+# Weekly Schedule - CSC 422: Machine and Deep Learning
+# Fall 2025
+
+- day: "Monday"
+  time: "8:15 AM - 9:15 AM"
+  location: "EGR 104"
+  type: "lecture"
+  duration: 60
+  description: "Main lecture covering theory and concepts"
+
+- day: "Wednesday"
+  time: "8:15 AM - 9:15 AM"
+  location: "EGR 104"
+  type: "lecture"
+  duration: 60
+  description: "Continued lecture and concept reinforcement"
+
+- day: "Friday"
+  time: "8:15 AM - 9:15 AM"
+  location: "EGR 104"
+  type: "lecture"
+  duration: 60
+  description: "Lab work, coding assignments, and practical application"
