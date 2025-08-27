@@ -1,0 +1,31 @@
+// CSC 422: Course Design Variables
+
+// Color Palette
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$secondary-color: #64748b;
+$accent-color: #0ea5e9;
+$success-color: #059669;
+$warning-color: #d97706;
+$danger-color: #dc2626;
+
+$background: #ffffff;
+$surface: #f8fafc;
+$surface-hover: #f1f5f9;
+$border: #e2e8f0;
+$text-primary: #0f172a;
+$text-secondary: #475569;
+$text-muted: #64748b;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+// Border Radius
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+
+// Layout
+$container-max: 1200px;
+$container-padding: 1rem;
