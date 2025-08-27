@@ -1077,6 +1077,16 @@
             margin-right: var(--spacing-sm);
         }
 
+        /* Improve bullet point spacing for better readability */
+        .card ul li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        
+        .card ul li:last-child {
+            margin-bottom: 0;
+        }
+
         /* Mobile Timeline Styles */
         @media (max-width: 768px) {
             .timeline-phase:not(:last-child):after {
@@ -1232,7 +1242,7 @@
             
             <div class="grid grid-3">
                 <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">🤖 Core Machine Learning</h3>
+                    <h3 class="text-gradient">Core Machine Learning</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li>• Supervised Learning: Linear & Logistic Regression, SVMs</li>
                         <li>• Unsupervised Learning: Clustering, PCA, Dimensionality Reduction</li>
@@ -1241,7 +1251,7 @@
                 </div>
                 
                 <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">🧠 Deep Learning Revolution</h3>
+                    <h3 class="text-gradient">Deep Learning Revolution</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li>• Neural Networks: MLPs, CNNs, RNNs</li>
                         <li>• Advanced Architectures: GANs, Transformers, LLMs</li>
@@ -1250,7 +1260,7 @@
                 </div>
                 
                 <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">🚀 Real-World Application</h3>
+                    <h3 class="text-gradient">Real-World Application</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li>• Data Wrangling: Clean and prepare real datasets</li>
                         <li>• Research Projects: Tackle novel AI problems</li>
