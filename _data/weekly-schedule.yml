@@ -7,23 +7,17 @@
   type: "lecture"
   duration: 60
   description: "Main lecture covering theory and concepts"
-  
-- day: "Wednesday" 
+
+- day: "Wednesday"
   time: "8:15 AM - 9:15 AM"
   location: "EGR 104"
   type: "lecture"
   duration: 60
   description: "Continued lecture and concept reinforcement"
-  
+
 - day: "Friday"
   time: "8:15 AM - 9:15 AM"
   location: "EGR 104"
   type: "lecture"
   duration: 60
-  description: "Lab work, coding assignments, and practical application"
-
-# Additional schedule metadata
-total_hours_per_week: 3
-credit_hours: 3
-attendance_policy: "Attendance is expected but not graded"
-late_policy: "Please arrive on time to avoid disrupting the class"
+  description: "Research Presentations, Labs, etc"
