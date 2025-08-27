@@ -17,14 +17,19 @@ title: Home
 <div class="course-overview">
     <div class="container">
         <div class="instructor-card">
-            <div class="instructor-info">
-                <h3>{{ site.instructor.name }}</h3>
-                <p class="instructor-title">Course Instructor</p>
-                <div class="contact-info">
-                    <p><strong>📧 Email:</strong> <a href="mailto:{{ site.instructor.email }}">{{ site.instructor.email }}</a></p>
-                    <p><strong>🏢 Office:</strong> {{ site.instructor.office }}</p>
-                    <p><strong>📞 Phone:</strong> {{ site.instructor.phone }}</p>
-                    <p><strong>⏰ Office Hours:</strong> {{ site.instructor.office_hours }}</p>
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <img src="{{ site.instructor.image | relative_url }}" alt="{{ site.instructor.name }}" class="professor-photo">
+                </div>
+                <div class="instructor-info">
+                    <h3>{{ site.instructor.name }}</h3>
+                    <p class="instructor-title">Course Instructor</p>
+                    <div class="contact-info">
+                        <p><strong>📧 Email:</strong> <a href="mailto:{{ site.instructor.email }}">{{ site.instructor.email }}</a></p>
+                        <p><strong>🏢 Office:</strong> {{ site.instructor.office }}</p>
+                        <p><strong>📞 Phone:</strong> {{ site.instructor.phone }}</p>
+                        <p><strong>⏰ Office Hours:</strong> {{ site.instructor.office_hours }}</p>
+                    </div>
                 </div>
             </div>
         </div>
