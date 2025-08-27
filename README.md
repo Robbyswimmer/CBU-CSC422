@@ -20,7 +20,7 @@
 <tr>
 <td width="200" align="center">
 
-<img src="Materials/Art/professor.png" alt="Professor Robert Moseley" width="180" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/professor.png" alt="Professor Robert Moseley" width="180" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 </td>
 <td width="20"></td>
