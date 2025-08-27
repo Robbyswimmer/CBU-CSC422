@@ -1052,11 +1052,11 @@
         .grade-weight {
             background: var(--accent-primary);
             color: white;
-            padding: 0.25rem 0.5rem;
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.9rem;
-            min-width: 40px;
+            min-width: 50px;
             text-align: center;
         }
 
@@ -1092,6 +1092,30 @@
             
             .grading-items {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Fix bullet point spacing on mobile */
+            .card ul {
+                padding-left: var(--spacing-lg) !important;
+                margin-left: var(--spacing-sm) !important;
+            }
+            
+            .card ul li {
+                margin-bottom: var(--spacing-xs);
+                padding-left: var(--spacing-xs);
+            }
+            
+            /* Fix instructor details alignment */
+            .instructor-details p {
+                display: flex;
+                align-items: center;
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            .instructor-details strong {
+                min-width: 100px;
+                display: inline-block;
+                flex-shrink: 0;
             }
         }
     </style>
@@ -1513,7 +1537,7 @@
             
             <div class="grid grid-3">
                 <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">🔧 Method Extension</h3>
+                    <h3 class="text-gradient">Method Extension</h3>
                     <p><strong>Modify & Improve</strong></p>
                     <p>Extend an existing ML method with novel ideas and improvements</p>
                     <ul style="margin-top: 1rem;">
@@ -1524,7 +1548,7 @@
                 </div>
                 
                 <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">🎯 Open Challenge</h3>
+                    <h3 class="text-gradient">Open Challenge</h3>
                     <p><strong>Tackle the Unknown</strong></p>
                     <p>Address challenging, unsolved problems in ML/AI</p>
                     <ul style="margin-top: 1rem;">
@@ -1535,7 +1559,7 @@
                 </div>
                 
                 <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">📄 Research Replication</h3>
+                    <h3 class="text-gradient">Research Replication</h3>
                     <p><strong>Reproduce & Analyze</strong></p>
                     <p>Implement and extend recent research papers</p>
                     <ul style="margin-top: 1rem;">
@@ -1552,7 +1576,7 @@
                 
                 <div class="timeline-container">
                     <!-- Phase 1: Research & Planning -->
-                    <div class="timeline-phase">
+                    <div class="timeline-phase collapsed">
                         <div class="timeline-header" onclick="togglePhase(this)">
                             <div class="timeline-phase-number">1</div>
                             <div class="timeline-phase-info">
@@ -1591,7 +1615,7 @@
                     </div>
 
                     <!-- Phase 2: Implementation & Development -->
-                    <div class="timeline-phase">
+                    <div class="timeline-phase collapsed">
                         <div class="timeline-header" onclick="togglePhase(this)">
                             <div class="timeline-phase-number">2</div>
                             <div class="timeline-phase-info">
@@ -1637,7 +1661,7 @@
                     </div>
 
                     <!-- Phase 3: Final Deliverables -->
-                    <div class="timeline-phase">
+                    <div class="timeline-phase collapsed">
                         <div class="timeline-header" onclick="togglePhase(this)">
                             <div class="timeline-phase-number">3</div>
                             <div class="timeline-phase-info">
@@ -1885,10 +1909,10 @@
                     <p style="font-style: italic; color: var(--text-secondary);">${instructor.tagline || ''}</p>
                     
                     <div class="instructor-details">
-                        <p><strong>📧 Email:</strong> ${instructor.email || ''}</p>
-                        <p><strong>🏢 Office:</strong> ${instructor.office || ''}</p>
-                        <p><strong>📞 Phone:</strong> ${instructor.phone || ''}</p>
-                        <p><strong>⏰ Office Hours:</strong> ${instructor.office_hours || ''}</p>
+                        <p><strong>Email:</strong> ${instructor.email || ''}</p>
+                        <p><strong>Office:</strong> ${instructor.office || ''}</p>
+                        <p><strong>Phone:</strong> ${instructor.phone || ''}</p>
+                        <p><strong>Office Hours:</strong> ${instructor.office_hours || ''}</p>
                     </div>
                 </div>
             `;
