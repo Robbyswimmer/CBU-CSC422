@@ -1,8 +1,10 @@
 # CSC 422: Machine and Deep Learning - Jekyll Configuration
 title: "CSC 422: Machine and Deep Learning"
 description: "Unlock the Power of AI and Transform Data into Intelligence"
+# For project pages use your username site + repo baseurl
+# Example: https://USERNAME.github.io and baseurl: /REPO_NAME
 baseurl: "/CBU-CSC422"
-url: "https://robbyswimmer.github.io/CBU-CSC422"
+url: "https://robbyswimmer.github.io"
 
 # Course Information
 course:
@@ -23,6 +25,9 @@ instructor:
 # Build settings
 markdown: kramdown
 highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-seo-tag
 
 # Collections
 collections:

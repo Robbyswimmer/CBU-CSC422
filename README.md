@@ -14,14 +14,16 @@
 
 ## 👨‍🏫 Meet Your Instructor
 
+<div align="center">
+
 <table>
 <tr>
 <td width="200" align="center">
 
-![Professor Robert Moseley](https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/professor.png)
+<img src="https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/professor.png" alt="Professor Robert Moseley" width="180" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 </td>
-<td width="50"></td>
+<td width="20"></td>
 <td>
 
 **Professor Robert Moseley, MS**

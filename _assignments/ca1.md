@@ -17,11 +17,11 @@ files:
   - name: "ca1.ipynb"
     description: "Interactive Jupyter notebook with guided implementation"
     type: "notebook"
-    url: "/Assignments/Module 1/ca1.ipynb"
+    url: "../Assignments/Module 1/ca1.ipynb"
   - name: "Assignment Instructions"
     description: "Detailed assignment description and requirements"
     type: "markdown"
-    url: "/Assignments/Module 1/ca1.md"
+    url: "../Assignments/Module 1/ca1.md"
 layout: assignment
 ---
 
