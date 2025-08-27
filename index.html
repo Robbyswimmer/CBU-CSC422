@@ -505,6 +505,12 @@
                 display: none;
             }
             
+            /* Better mobile navigation touch targets */
+            .nav-logo {
+                padding: var(--spacing-sm);
+                font-size: 1.1rem;
+            }
+            
             .instructor-card {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -539,6 +545,17 @@
             .card {
                 padding: var(--spacing-sm);
             }
+            
+            /* Improve touch targets and spacing */
+            .assignment-item, .date-item {
+                padding: var(--spacing-md) var(--spacing-sm);
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .instructor-details p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
         }
         
         /* Calendar Styles */
@@ -547,6 +564,14 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--spacing-lg);
             margin-top: var(--spacing-lg);
+        }
+        
+        /* Mobile-friendly calendar container */
+        @media (max-width: 768px) {
+            .calendar-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
         }
         
         .calendar-section {
