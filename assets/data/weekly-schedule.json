@@ -1,3 +1,3 @@
 ---
 ---
-{{ site.data.weekly-schedule | jsonify }}
+{{ site.data.weekly_schedule | jsonify }}
