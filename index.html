@@ -1060,6 +1060,20 @@
             text-align: center;
         }
 
+        /* Universal Instructor Details Alignment */
+        .instructor-details p {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .instructor-details strong {
+            min-width: 120px;
+            display: inline-block;
+            flex-shrink: 0;
+            margin-right: var(--spacing-sm);
+        }
+
         /* Mobile Timeline Styles */
         @media (max-width: 768px) {
             .timeline-phase:not(:last-child):after {
@@ -1105,18 +1119,7 @@
                 padding-left: var(--spacing-xs);
             }
             
-            /* Fix instructor details alignment */
-            .instructor-details p {
-                display: flex;
-                align-items: center;
-                margin-bottom: var(--spacing-xs);
-            }
-            
-            .instructor-details strong {
-                min-width: 100px;
-                display: inline-block;
-                flex-shrink: 0;
-            }
+
         }
     </style>
 </head>
