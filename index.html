@@ -912,6 +912,43 @@
             align-items: center;
             gap: var(--spacing-md);
             margin-bottom: var(--spacing-md);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+        }
+
+        .timeline-header:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .timeline-toggle {
+            margin-left: auto;
+            transition: var(--transition);
+        }
+
+        .timeline-toggle .toggle-icon {
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-phase.collapsed .timeline-toggle .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .timeline-content {
+            margin-left: 66px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            max-height: 1000px;
+            opacity: 1;
+        }
+
+        .timeline-phase.collapsed .timeline-content {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
         }
 
         .timeline-phase-number {
@@ -942,9 +979,7 @@
             font-size: 0.9rem;
         }
 
-        .timeline-content {
-            margin-left: 66px;
-        }
+
 
         .timeline-milestones {
             display: grid;
@@ -952,9 +987,6 @@
         }
 
         .milestone {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-md);
             background: var(--bg-secondary);
             border-radius: var(--border-radius);
             padding: var(--spacing-md);
@@ -965,12 +997,6 @@
         .milestone:hover {
             transform: translateX(5px);
             box-shadow: var(--shadow);
-        }
-
-        .milestone-icon {
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            margin-top: 0.2rem;
         }
 
         .milestone-details h5 {
@@ -1522,22 +1548,24 @@
             
             <!-- Enhanced Project Timeline -->
             <div class="card animate-on-scroll" style="margin-top: 2rem;">
-                <h3 style="text-align: center; margin-bottom: 2rem;">🗓️ Project Timeline & Milestones</h3>
+                <h3 style="text-align: center; margin-bottom: 2rem;">Project Timeline & Milestones</h3>
                 
                 <div class="timeline-container">
                     <!-- Phase 1: Research & Planning -->
                     <div class="timeline-phase">
-                        <div class="timeline-header">
+                        <div class="timeline-header" onclick="togglePhase(this)">
                             <div class="timeline-phase-number">1</div>
                             <div class="timeline-phase-info">
                                 <h4>Research & Planning Phase</h4>
                                 <span class="timeline-dates">Weeks 10-11</span>
                             </div>
+                            <div class="timeline-toggle">
+                                <span class="toggle-icon">▼</span>
+                            </div>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-milestones">
                                 <div class="milestone">
-                                    <div class="milestone-icon">📚</div>
                                     <div class="milestone-details">
                                         <h5>Literature Review</h5>
                                         <p>Deep dive into existing research, identify gaps and opportunities</p>
@@ -1545,7 +1573,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">🎯</div>
                                     <div class="milestone-details">
                                         <h5>Project Proposal</h5>
                                         <p>Detailed research plan, methodology, and expected outcomes</p>
@@ -1553,7 +1580,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">🎤</div>
                                     <div class="milestone-details">
                                         <h5>Proposal Presentation</h5>
                                         <p>8-10 minute presentation defending your research approach</p>
@@ -1566,17 +1592,19 @@
 
                     <!-- Phase 2: Implementation & Development -->
                     <div class="timeline-phase">
-                        <div class="timeline-header">
+                        <div class="timeline-header" onclick="togglePhase(this)">
                             <div class="timeline-phase-number">2</div>
                             <div class="timeline-phase-info">
                                 <h4>Implementation & Development</h4>
                                 <span class="timeline-dates">Weeks 12-13</span>
                             </div>
+                            <div class="timeline-toggle">
+                                <span class="toggle-icon">▼</span>
+                            </div>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-milestones">
                                 <div class="milestone">
-                                    <div class="milestone-icon">⚙️</div>
                                     <div class="milestone-details">
                                         <h5>Initial Implementation</h5>
                                         <p>Core algorithm development and baseline experiments</p>
@@ -1584,7 +1612,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">📹</div>
                                     <div class="milestone-details">
                                         <h5>Progress Video #1</h5>
                                         <p>Demo of working prototype and preliminary results</p>
@@ -1592,7 +1619,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">🔬</div>
                                     <div class="milestone-details">
                                         <h5>Experimental Results</h5>
                                         <p>Comprehensive testing, ablation studies, and analysis</p>
@@ -1600,7 +1626,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">📹</div>
                                     <div class="milestone-details">
                                         <h5>Progress Video #2</h5>
                                         <p>Final results demonstration and insights</p>
@@ -1613,17 +1638,19 @@
 
                     <!-- Phase 3: Final Deliverables -->
                     <div class="timeline-phase">
-                        <div class="timeline-header">
+                        <div class="timeline-header" onclick="togglePhase(this)">
                             <div class="timeline-phase-number">3</div>
                             <div class="timeline-phase-info">
                                 <h4>Final Deliverables</h4>
                                 <span class="timeline-dates">Week 14</span>
                             </div>
+                            <div class="timeline-toggle">
+                                <span class="toggle-icon">▼</span>
+                            </div>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-milestones">
                                 <div class="milestone">
-                                    <div class="milestone-icon">📝</div>
                                     <div class="milestone-details">
                                         <h5>Research Report</h5>
                                         <p>6-12 page academic paper with methodology, results, and analysis</p>
@@ -1631,7 +1658,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">💻</div>
                                     <div class="milestone-details">
                                         <h5>Complete Codebase</h5>
                                         <p>Well-documented, reproducible code with README and requirements</p>
@@ -1639,7 +1665,6 @@
                                     </div>
                                 </div>
                                 <div class="milestone">
-                                    <div class="milestone-icon">🏆</div>
                                     <div class="milestone-details">
                                         <h5>Final Presentation</h5>
                                         <p>15-20 minute research presentation with Q&A session</p>
@@ -1989,6 +2014,12 @@
                 mobileMenu.classList.remove('active');
             }
         });
+
+        // Toggle phase visibility
+        function togglePhase(header) {
+            const phase = header.closest('.timeline-phase');
+            phase.classList.toggle('collapsed');
+        }
 
         // Load calendar data when page loads
         document.addEventListener('DOMContentLoaded', () => {

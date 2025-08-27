@@ -31,7 +31,7 @@ important_dates:
 # Assignment Due Dates
 assignments:
   - date: "2025-09-12"
-    title: "CA1: Linear Regression"
+    title: "CA.1 - Linear Regression"
     type: "assignment"
     points: 100
     module: "Module 1"
