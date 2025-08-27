@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC 422: Machine and Deep Learning | California Baptist University</title>
+    <meta name="description" content="Unlock the Power of AI and Transform Data into Intelligence - CSC 422 Machine Learning Course at CBU">
+    
+    <style>
+        /* Import Modern Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        /* CSS Custom Properties */
+        :root {
+            /* Dark Theme Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --accent-orange: #ff6b35;
+            --accent-green: #4ecdc4;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #666666;
+            --border: #333333;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+            
+            /* Phase Colors */
+            --phase-1: #ff6b6b;
+            --phase-2: #4ecdc4;
+            --phase-3: #45b7d1;
+            --phase-4: #96ceb4;
+            
+            /* Spacing & Layout */
+            --container-max: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Container & Layout */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        h3 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .text-large {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        .text-gradient {
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-primary);
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            font-style: italic;
+        }
+        
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .badge {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .badge.ml { border-color: var(--phase-1); color: var(--phase-1); }
+        .badge.dl { border-color: var(--phase-2); color: var(--phase-2); }
+        .badge.python { border-color: var(--phase-3); color: var(--phase-3); }
+        .badge.ai { border-color: var(--phase-4); color: var(--phase-4); }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--bg-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        
+        /* Instructor Section */
+        .instructor-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .instructor-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .instructor-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+        
+        .instructor-details {
+            display: grid;
+            gap: var(--spacing-xs);
+            margin-top: var(--spacing-sm);
+        }
+        
+        .instructor-details p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .instructor-details strong {
+            color: var(--accent-primary);
+            min-width: 80px;
+        }
+        
+        /* Phase Cards */
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .phase-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phase-card.phase-1::before { background: linear-gradient(135deg, var(--phase-1), rgba(255, 107, 107, 0.1)); }
+        .phase-card.phase-2::before { background: linear-gradient(135deg, var(--phase-2), rgba(78, 205, 196, 0.1)); }
+        .phase-card.phase-3::before { background: linear-gradient(135deg, var(--phase-3), rgba(69, 183, 209, 0.1)); }
+        .phase-card.phase-4::before { background: linear-gradient(135deg, var(--phase-4), rgba(150, 206, 180, 0.1)); }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .phase-weeks {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+        }
+        
+        .tech-category h4 {
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .tech-item {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .tech-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--accent-primary);
+        }
+        
+        /* Assessment Table */
+        .assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-lg);
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .assessment-table th,
+        .assessment-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .assessment-table th {
+            background: var(--bg-gradient);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .assessment-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Grade Scale */
+        .grade-scale {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--spacing-sm);
+        }
+        
+        .grade-item {
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+        }
+        
+        .grade-letter {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+        
+        /* Prerequisites */
+        .prereq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .prereq-category {
+            background: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+        }
+        
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .instructor-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .instructor-image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .phase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .section {
+                padding: var(--spacing-md) 0;
+            }
+            
+            .card {
+                padding: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">CSC 422</a>
+                <div class="nav-links">
+                    <a href="#instructor" class="nav-link">Instructor</a>
+                    <a href="#journey" class="nav-link">Journey</a>
+                    <a href="#tech" class="nav-link">Tech Stack</a>
+                    <a href="#assessment" class="nav-link">Assessment</a>
+                    <a href="#project" class="nav-link">Final Project</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>CSC 422: Machine and Deep Learning</h1>
+                <p class="hero-subtitle">Unlock the Power of AI and Transform Data into Intelligence</p>
+                
+                <div class="hero-badges">
+                    <span class="badge ml">Machine Learning</span>
+                    <span class="badge dl">Deep Learning</span>
+                    <span class="badge python">Python</span>
+                    <span class="badge ai">Artificial Intelligence</span>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <p class="text-large">California Baptist University • Fall 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section id="instructor" class="section">
+        <div class="container">
+            <h2 class="text-center">👨‍🏫 Meet Your Instructor</h2>
+            
+            <div class="instructor-card animate-on-scroll">
+                <div class="instructor-image">
+                    <img src="./Materials/Art/professor.png" alt="Professor Robert Moseley">
+                </div>
+                
+                <div class="instructor-info">
+                    <h3>Professor Robert Moseley, MS</h3>
+                    <p style="font-style: italic; color: var(--text-secondary);">Ready to guide you through the fascinating world of AI and machine learning!</p>
+                    
+                    <div class="instructor-details">
+                        <p><strong>📧 Email:</strong> rmoseley@calbaptist.edu</p>
+                        <p><strong>🏢 Office:</strong> EGR333</p>
+                        <p><strong>📞 Phone:</strong> (951) 552–8851</p>
+                        <p><strong>⏰ Office Hours:</strong> Monday/Wednesday 10:30am-12:00pm, 1:00pm–3:00pm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Master Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="text-center">What You'll Master</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">Transform from coding novice to AI practitioner in one semester!</p>
+            
+            <div class="grid grid-3">
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">🤖 Core Machine Learning</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Supervised Learning: Linear & Logistic Regression, SVMs</li>
+                        <li>• Unsupervised Learning: Clustering, PCA, Dimensionality Reduction</li>
+                        <li>• Model Validation: Cross-validation, Bias-Variance Tradeoffs</li>
+                    </ul>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">🧠 Deep Learning Revolution</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Neural Networks: MLPs, CNNs, RNNs</li>
+                        <li>• Advanced Architectures: GANs, Transformers, LLMs</li>
+                        <li>• Modern Frameworks: TensorFlow, PyTorch</li>
+                    </ul>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">🚀 Real-World Application</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Data Wrangling: Clean and prepare real datasets</li>
+                        <li>• Research Projects: Tackle novel AI problems</li>
+                        <li>• Ethics in AI: Navigate the moral landscape of AI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Journey Section -->
+    <section id="journey" class="section">
+        <div class="container">
+            <h2 class="text-center">🗺️ Your Learning Journey</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">Transform from curious beginner to confident AI practitioner in 14 weeks!</p>
+            
+            <div class="phase-grid">
+                <div class="card phase-card phase-1 animate-on-scroll">
+                    <div class="phase-header">
+                        <h3>Phase 1: Foundation Building</h3>
+                        <span class="phase-weeks">Weeks 1-3</span>
+                    </div>
+                    <p><strong>Core Skills:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                        <li>• Linear Regression</li>
+                        <li>• Classification Models</li>
+                        <li>• ML Fundamentals</li>
+                    </ul>
+                    <p><strong>Achievement:</strong> <em>ML Foundations Unlocked</em></p>
+                </div>
+                
+                <div class="card phase-card phase-2 animate-on-scroll">
+                    <div class="phase-header">
+                        <h3>Phase 2: Advanced Techniques</h3>
+                        <span class="phase-weeks">Weeks 4-6</span>
+                    </div>
+                    <p><strong>Core Skills:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                        <li>• Cross-Validation</li>
+                        <li>• Clustering & PCA</li>
+                        <li>• Neural Networks</li>
+                    </ul>
+                    <p><strong>Achievement:</strong> <em>Advanced ML Mastery</em></p>
+                </div>
+                
+                <div class="card phase-card phase-3 animate-on-scroll">
+                    <div class="phase-header">
+                        <h3>Phase 3: Deep Learning</h3>
+                        <span class="phase-weeks">Weeks 7-9</span>
+                    </div>
+                    <p><strong>Core Skills:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                        <li>• CNNs & Computer Vision</li>
+                        <li>• RNNs & Sequential Data</li>
+                        <li>• GANs & Generation</li>
+                    </ul>
+                    <p><strong>Achievement:</strong> <em>Deep Learning Expert</em></p>
+                </div>
+                
+                <div class="card phase-card phase-4 animate-on-scroll">
+                    <div class="phase-header">
+                        <h3>Phase 4: AI Mastery</h3>
+                        <span class="phase-weeks">Weeks 10-14</span>
+                    </div>
+                    <p><strong>Core Skills:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                        <li>• Transformers & LLMs</li>
+                        <li>• Reinforcement Learning</li>
+                        <li>• Research Projects</li>
+                    </ul>
+                    <p><strong>Achievement:</strong> <em>AI Practitioner</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="section">
+        <div class="container">
+            <h2 class="text-center">🛠️ Tech Stack You'll Master</h2>
+            
+            <div class="card animate-on-scroll">
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h4>Languages & Libraries</h4>
+                        <div class="tech-list">
+                            <span class="tech-item">Python 3.11+</span>
+                            <span class="tech-item">NumPy</span>
+                            <span class="tech-item">Pandas</span>
+                            <span class="tech-item">Matplotlib</span>
+                            <span class="tech-item">Seaborn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>ML/DL Frameworks</h4>
+                        <div class="tech-list">
+                            <span class="tech-item">TensorFlow</span>
+                            <span class="tech-item">PyTorch</span>
+                            <span class="tech-item">Scikit-learn</span>
+                            <span class="tech-item">Keras</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>Development Tools</h4>
+                        <div class="tech-list">
+                            <span class="tech-item">VS Code</span>
+                            <span class="tech-item">Jupyter Notebook</span>
+                            <span class="tech-item">Google Colab</span>
+                            <span class="tech-item">Git</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>Core Concepts</h4>
+                        <div class="tech-list">
+                            <span class="tech-item">Machine Learning</span>
+                            <span class="tech-item">Deep Learning</span>
+                            <span class="tech-item">Neural Networks</span>
+                            <span class="tech-item">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Section -->
+    <section id="assessment" class="section">
+        <div class="container">
+            <h2 class="text-center">📊 Assessment & Grading</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">Excellence is achieved through consistent effort and meaningful engagement</p>
+            
+            <div class="grid grid-2">
+                <div class="animate-on-scroll">
+                    <h3>Grade Distribution</h3>
+                    <table class="assessment-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Category</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Coding Assignments</td><td><strong>30%</strong></td></tr>
+                            <tr><td>Final Research Project</td><td><strong>30%</strong></td></tr>
+                            <tr><td>Midterm Project</td><td><strong>10%</strong></td></tr>
+                            <tr><td>Homework (zyLabs/Blackboard)</td><td><strong>10%</strong></td></tr>
+                            <tr><td>Participation & Activities</td><td><strong>10%</strong></td></tr>
+                            <tr><td>Research Presentation</td><td><strong>10%</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <h3>Grade Scale</h3>
+                    <div class="grade-scale">
+                        <div class="grade-item">
+                            <div class="grade-letter">A</div>
+                            <div>93-100%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">A-</div>
+                            <div>90-92.9%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">B+</div>
+                            <div>87-89.9%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">B</div>
+                            <div>83-86.9%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">B-</div>
+                            <div>80-82.9%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">C+</div>
+                            <div>77-79.9%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">C</div>
+                            <div>73-76.9%</div>
+                        </div>
+                        <div class="grade-item">
+                            <div class="grade-letter">C-</div>
+                            <div>70-72.9%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prerequisites Section -->
+    <section id="prerequisites" class="section">
+        <div class="container">
+            <h2 class="text-center">📋 Prerequisites & Resources</h2>
+            
+            <div class="prereq-grid">
+                <div class="prereq-category animate-on-scroll">
+                    <h3>🖥️ Programming Foundation</h3>
+                    <p><strong>Required (choose one):</strong></p>
+                    <ul>
+                        <li>EGR121 (Intro to Computer Programming in C++)</li>
+                        <li>EGR120 (Computer Programming Languages - Python)</li>
+                    </ul>
+                </div>
+                
+                <div class="prereq-category animate-on-scroll">
+                    <h3>🔢 Mathematical Foundation</h3>
+                    <p><strong>Required (choose one):</strong></p>
+                    <ul>
+                        <li>EGR130 (Mathematical Statistics I)</li>
+                        <li>EGR305 (Engineering Stats)</li>
+                        <li>MAT353 (Probability & Statistics)</li>
+                        <li>STA144 (Intro to Statistics)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card animate-on-scroll" style="margin-top: 2rem;">
+                <h3>📚 Required Materials</h3>
+                <div class="grid grid-2">
+                    <div>
+                        <h4>Zybook Access</h4>
+                        <p><strong>Platform:</strong> learn.zybooks.com/library</p>
+                        <p><strong>Code:</strong> <code style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">CALBAPTISTCSC422MoseleyFall2025</code></p>
+                    </div>
+                    <div>
+                        <h4>Development Environment</h4>
+                        <ul>
+                            <li>VS Code IDE</li>
+                            <li>Python 3.11+</li>
+                            <li>Jupyter Notebook/Lab</li>
+                            <li>Git for version control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Policy Section -->
+    <section id="ai-policy" class="section">
+        <div class="container">
+            <h2 class="text-center">🤖 AI Tools Policy</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">AI tools are not just welcome—they're encouraged!</p>
+            
+            <div class="grid grid-2">
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">✅ Encouraged Uses</h3>
+                    <ul>
+                        <li>Brainstorm creative project ideas</li>
+                        <li>Debug and optimize your code</li>
+                        <li>Explain complex ML concepts</li>
+                        <li>Generate test data and examples</li>
+                        <li>Code completion and suggestions</li>
+                        <li>Architecture planning and design</li>
+                    </ul>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">📋 Your Responsibility</h3>
+                    <ul>
+                        <li>Verify all AI-generated solutions</li>
+                        <li>Understand every line of code you submit</li>
+                        <li>Test and validate AI recommendations</li>
+                        <li>Demonstrate deep understanding</li>
+                        <li>Explain your implementation choices</li>
+                        <li>Show genuine learning growth</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card animate-on-scroll" style="margin-top: 2rem; text-align: center;">
+                <h3>The Golden Rule</h3>
+                <p class="text-large">Think of AI as your brilliant research partner—not your replacement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Project Section -->
+    <section id="project" class="section">
+        <div class="container">
+            <h2 class="text-center">🔬 Final Research Project</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">Your Capstone Achievement: Advanced ML Research</p>
+            
+            <div class="grid grid-3">
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">🔧 Method Extension</h3>
+                    <p><strong>Modify & Improve</strong></p>
+                    <p>Extend an existing ML method with novel ideas and improvements</p>
+                    <ul style="margin-top: 1rem;">
+                        <li>Enhanced GAN architectures</li>
+                        <li>Custom attention mechanisms</li>
+                        <li>Novel regularization techniques</li>
+                    </ul>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">🎯 Open Challenge</h3>
+                    <p><strong>Tackle the Unknown</strong></p>
+                    <p>Address challenging, unsolved problems in ML/AI</p>
+                    <ul style="margin-top: 1rem;">
+                        <li>Robustness & fairness research</li>
+                        <li>Interpretability challenges</li>
+                        <li>Novel RL environments</li>
+                    </ul>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="text-gradient">📄 Research Replication</h3>
+                    <p><strong>Reproduce & Analyze</strong></p>
+                    <p>Implement and extend recent research papers</p>
+                    <ul style="margin-top: 1rem;">
+                        <li>Transformer variants</li>
+                        <li>State-of-the-art CV models</li>
+                        <li>Novel training techniques</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card animate-on-scroll" style="margin-top: 2rem;">
+                <h3>Project Timeline</h3>
+                <div class="grid grid-3">
+                    <div>
+                        <h4>Weeks 10-11: Planning</h4>
+                        <ul>
+                            <li>Background research</li>
+                            <li>8-10 minute presentation</li>
+                            <li>Project proposal</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Weeks 12-13: Development</h4>
+                        <ul>
+                            <li>Weekly video updates</li>
+                            <li>Code demonstrations</li>
+                            <li>Progress documentation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Week 14: Final Presentation</h4>
+                        <ul>
+                            <li>6-12 page research report</li>
+                            <li>Final presentation</li>
+                            <li>Complete codebase</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="section" style="text-align: center;">
+        <div class="container">
+            <h2>Ready to Begin Your AI Journey?</h2>
+            <p class="text-large" style="margin-bottom: 2rem;">The best time to plant a tree was 20 years ago. The second best time is now.</p>
+            <p class="text-large" style="margin-bottom: 3rem;">Let's build the future together, one algorithm at a time!</p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:rmoseley@calbaptist.edu" class="cta-button">Contact Professor</a>
+                <a href="#journey" class="cta-button">Explore Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active state to navigation links
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
