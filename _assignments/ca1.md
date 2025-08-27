@@ -22,7 +22,7 @@ files:
     description: "Detailed assignment description and requirements"
     type: "markdown"
     url: "../Assignments/Module 1/ca1.md"
-layout: assignment
+layout: default
 ---
 
 ## Assignment Overview
