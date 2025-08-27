@@ -1,0 +1,11 @@
+# Assignment Due Dates - CSC 422: Machine and Deep Learning
+# Fall 2025
+
+- date: "2025-09-12"
+  title: "CA1: Linear Regression"
+  type: "assignment"
+  points: 100
+  module: "Module 1"
+  description: "Introduction to ML fundamentals and linear regression implementation"
+  estimated_hours: 8
+  difficulty: "Beginner"
