@@ -14,24 +14,31 @@
 
 ## 👨‍🏫 Meet Your Instructor
 
+<div align="center">
+
 <table>
 <tr>
-<td>
+<td width="200" align="center">
 
-**🎓 Professor Robert Moseley, MS**
-- 📧 **Email:** rmoseley@calbaptist.edu
-- 🏢 **Office:** EGR333
-- 📞 **Phone:** (951) 552–8851
-- ⏰ **Office Hours:** Mon/Wed 10:30am-12:00pm, 1:00pm–3:00pm
+<img src="Materials/Art/professor.png" alt="Professor Robert Moseley" width="180" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 </td>
-<td width="300">
+<td width="20"></td>
+<td>
+
+**Professor Robert Moseley, MS**
+- **Email:** rmoseley@calbaptist.edu
+- **Office:** EGR333
+- **Phone:** (951) 552–8851
+- **Office Hours:** Mon/Wed 10:30am-12:00pm, 1:00pm–3:00pm
 
 *Ready to guide you through the fascinating world of AI and machine learning!*
 
 </td>
 </tr>
 </table>
+
+</div>
 
 ---
 
