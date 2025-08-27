@@ -532,6 +532,118 @@
                 padding: var(--spacing-sm);
             }
         }
+        
+        /* Calendar Styles */
+        .calendar-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .calendar-section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .calendar-title {
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .assignment-item, .date-item {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid var(--accent-primary);
+            transition: all 0.2s ease;
+        }
+        
+        .assignment-item:hover, .date-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .assignment-title, .date-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .assignment-date, .date-date {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .assignment-description, .date-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        .assignment-points {
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            gap: var(--spacing-sm);
+        }
+        
+        .schedule-item {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            border-left: 4px solid var(--accent-secondary);
+        }
+        
+        .schedule-day {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .schedule-time {
+            color: var(--accent-secondary);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .schedule-location {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .overdue {
+            border-left-color: #ef4444;
+        }
+        
+        .due-soon {
+            border-left-color: #f59e0b;
+        }
+        
+        .upcoming {
+            border-left-color: var(--accent-primary);
+        }
     </style>
 </head>
 <body>
@@ -542,6 +654,7 @@
                 <a href="#home" class="nav-logo">CSC 422</a>
                 <div class="nav-links">
                     <a href="#instructor" class="nav-link">Instructor</a>
+                    <a href="#calendar" class="nav-link">Calendar</a>
                     <a href="#journey" class="nav-link">Journey</a>
                     <a href="#tech" class="nav-link">Tech Stack</a>
                     <a href="#assessment" class="nav-link">Assessment</a>
@@ -575,7 +688,7 @@
     <!-- Instructor Section -->
     <section id="instructor" class="section">
         <div class="container">
-            <h2 class="text-center">👨‍🏫 Meet Your Instructor</h2>
+            <h2 class="text-center">Meet Your Instructor</h2>
             
             <div class="instructor-card animate-on-scroll">
                 <div class="instructor-image">
@@ -591,6 +704,54 @@
                         <p><strong>🏢 Office:</strong> EGR333</p>
                         <p><strong>📞 Phone:</strong> (951) 552–8851</p>
                         <p><strong>⏰ Office Hours:</strong> Monday/Wednesday 10:30am-12:00pm, 1:00pm–3:00pm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Calendar Section -->
+    <section id="calendar" class="section">
+        <div class="container">
+            <h2 class="text-center">📅 Course Calendar</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">Stay on track with upcoming assignments and important dates</p>
+            
+            <div class="calendar-container">
+                <!-- Upcoming Assignments -->
+                <div class="calendar-section animate-on-scroll">
+                    <h3 class="calendar-title">🎯 Upcoming Assignments</h3>
+                    <div class="assignment-list" id="upcoming-assignments">
+                        <!-- Dynamic content loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Important Dates -->
+                <div class="calendar-section animate-on-scroll">
+                    <h3 class="calendar-title">📌 Important Dates</h3>
+                    <div class="dates-list" id="important-dates">
+                        <!-- Dynamic content loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Weekly Schedule -->
+                <div class="calendar-section animate-on-scroll">
+                    <h3 class="calendar-title">📚 Weekly Schedule</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-item">
+                            <div class="schedule-day">Monday</div>
+                            <div class="schedule-time">8:15 AM - 9:15 AM</div>
+                            <div class="schedule-location">CSC 422 • Lecture</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-day">Wednesday</div>
+                            <div class="schedule-time">8:15 AM - 9:15 AM</div>
+                            <div class="schedule-location">CSC 422 • Lecture</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-day">Friday</div>
+                            <div class="schedule-time">8:15 AM - 9:15 AM</div>
+                            <div class="schedule-location">CSC 422 • Lecture</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -872,7 +1033,7 @@
     <!-- AI Tools Policy Section -->
     <section id="ai-policy" class="section">
         <div class="container">
-            <h2 class="text-center">🤖 AI Tools Policy</h2>
+            <h2 class="text-center">AI Tools Policy</h2>
             <p class="text-large text-center" style="margin-bottom: 3rem;">AI tools are not just welcome—they're encouraged!</p>
             
             <div class="grid grid-2">
@@ -1048,6 +1209,187 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        // Calendar Data and Functions
+        const calendarData = {
+            assignments: [
+                {
+                    date: "2025-09-02",
+                    title: "CA1: Linear Regression",
+                    type: "assignment",
+                    points: 100,
+                    module: "Module 1",
+                    description: "Introduction to ML fundamentals"
+                },
+                {
+                    date: "2025-09-09",
+                    title: "CA2: Classification Models",
+                    type: "assignment",
+                    points: 100,
+                    module: "Module 1",
+                    description: "Logistic regression and decision trees"
+                },
+                {
+                    date: "2025-09-16",
+                    title: "CA3: Model Evaluation",
+                    type: "assignment",
+                    points: 100,
+                    module: "Module 1",
+                    description: "Cross-validation and metrics"
+                },
+                {
+                    date: "2025-09-23",
+                    title: "CA4: Clustering & PCA",
+                    type: "assignment",
+                    points: 100,
+                    module: "Module 2",
+                    description: "Unsupervised learning techniques"
+                },
+                {
+                    date: "2025-09-30",
+                    title: "CA5: Neural Networks",
+                    type: "assignment",
+                    points: 100,
+                    module: "Module 2",
+                    description: "Introduction to deep learning"
+                },
+                {
+                    date: "2025-10-07",
+                    title: "Midterm Project",
+                    type: "project",
+                    points: 200,
+                    module: "Module 2",
+                    description: "Shallow learning project showcase"
+                },
+                {
+                    date: "2025-12-02",
+                    title: "Final Research Presentation",
+                    type: "project",
+                    points: 300,
+                    module: "Module 4",
+                    description: "Advanced ML research project"
+                }
+            ],
+            importantDates: [
+                {
+                    date: "2025-08-25",
+                    title: "First Day of Classes",
+                    type: "milestone",
+                    description: "Welcome to CSC 422!"
+                },
+                {
+                    date: "2025-09-02",
+                    title: "Labor Day - No Classes",
+                    type: "holiday",
+                    description: "University closed"
+                },
+                {
+                    date: "2025-10-14",
+                    title: "Fall Break",
+                    type: "holiday",
+                    description: "No classes"
+                },
+                {
+                    date: "2025-11-25",
+                    title: "Thanksgiving Week",
+                    type: "holiday",
+                    description: "No classes Nov 25-29"
+                },
+                {
+                    date: "2025-12-09",
+                    title: "Last Day of Classes",
+                    type: "milestone",
+                    description: "Final presentations"
+                }
+            ]
+        };
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function getDaysUntil(dateString) {
+            const today = new Date();
+            const targetDate = new Date(dateString);
+            const diffTime = targetDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        function getStatusClass(daysUntil) {
+            if (daysUntil < 0) return 'overdue';
+            if (daysUntil <= 7) return 'due-soon';
+            return 'upcoming';
+        }
+
+        function loadUpcomingAssignments() {
+            const container = document.getElementById('upcoming-assignments');
+            const today = new Date();
+            
+            // Filter and sort upcoming assignments
+            const upcomingAssignments = calendarData.assignments
+                .filter(assignment => new Date(assignment.date) >= today)
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
+                .slice(0, 5); // Show next 5 assignments
+
+            if (upcomingAssignments.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-secondary);">No upcoming assignments</p>';
+                return;
+            }
+
+            container.innerHTML = upcomingAssignments.map(assignment => {
+                const daysUntil = getDaysUntil(assignment.date);
+                const statusClass = getStatusClass(daysUntil);
+                
+                return `
+                    <div class="assignment-item ${statusClass}">
+                        <div class="assignment-title">${assignment.title}</div>
+                        <div class="assignment-date">Due: ${formatDate(assignment.date)} (${daysUntil > 0 ? `${daysUntil} days` : 'Today'})</div>
+                        <div class="assignment-description">${assignment.description}</div>
+                        <span class="assignment-points">${assignment.points} points</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function loadImportantDates() {
+            const container = document.getElementById('important-dates');
+            const today = new Date();
+            
+            // Filter and sort upcoming important dates
+            const upcomingDates = calendarData.importantDates
+                .filter(date => new Date(date.date) >= today)
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
+                .slice(0, 4); // Show next 4 dates
+
+            if (upcomingDates.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-secondary);">No upcoming important dates</p>';
+                return;
+            }
+
+            container.innerHTML = upcomingDates.map(dateItem => {
+                const daysUntil = getDaysUntil(dateItem.date);
+                
+                return `
+                    <div class="date-item">
+                        <div class="date-title">${dateItem.title}</div>
+                        <div class="date-date">${formatDate(dateItem.date)} (${daysUntil > 0 ? `${daysUntil} days` : 'Today'})</div>
+                        <div class="date-description">${dateItem.description}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load calendar data when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUpcomingAssignments();
+            loadImportantDates();
         });
     </script>
 </body>
