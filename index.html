@@ -1329,10 +1329,12 @@
                 
                 // Check if Jekyll processed the baseurl (will be empty string if not processed)
                 if (baseUrl && !baseUrl.includes('{')) {
-                    calendarUrl = baseUrl + '/assets/data/calendar.json';
+                    // Add cache busting parameter to force fresh data
+                    const cacheBuster = new Date().getTime();
+                    calendarUrl = baseUrl + '/assets/data/class_info.json?v=' + cacheBuster;
                     console.log('Using Jekyll-processed URL:', calendarUrl);
                 } else {
-                    calendarUrl = './assets/data/calendar-static.json';
+                    calendarUrl = './assets/data/class_static.json';
                     console.log('Using static fallback:', calendarUrl);
                 }
                 
@@ -1380,7 +1382,7 @@
             }
         }
 
-        // YAML parsing removed. We now fetch prebuilt JSON from Jekyll at `assets/data/calendar.json`.
+        // YAML parsing removed. We now fetch prebuilt JSON from Jekyll at `assets/data/class_info.json`.
 
         function formatDate(dateString) {
             const date = new Date(dateString);

@@ -1,6 +1,0 @@
----
-layout: null
-permalink: /assets/data/calendar.json
-sitemap: false
----
-{{ site.data.calendar | jsonify }}
