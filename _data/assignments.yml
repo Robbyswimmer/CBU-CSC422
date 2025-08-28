@@ -4,7 +4,7 @@
 - date: "2025-09-12"
   title: "CA1: Linear Regression"
   type: "assignment"
-  points: 100
+  points: 3
   module: "Module 1"
   module_number: 1
   description: "Introduction to ML fundamentals and linear regression implementation"

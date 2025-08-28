@@ -1109,21 +1109,21 @@ let currentFilter = {
 
 async function loadAssignmentsPage() {
     try {
-        // Load assignments data using the existing data loading system
-        const baseUrl = '{{ site.baseurl }}';
-        const isJekyllProcessed = baseUrl && !baseUrl.includes('{');
+        // Load assignments data with proper cache busting
         const cacheBuster = new Date().getTime();
-        
-        let assignmentsUrl;
-        if (isJekyllProcessed) {
-            assignmentsUrl = `${baseUrl}/assets/data/assignments.json?v=${cacheBuster}`;
-        } else {
-            assignmentsUrl = './assets/data/assignments.json?v=${cacheBuster}';
-        }
+        const assignmentsUrl = `./assets/data/assignments.json?v=${cacheBuster}`;
         
         console.log('Loading assignments from:', assignmentsUrl);
-        const response = await fetch(assignmentsUrl);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const response = await fetch(assignmentsUrl, {
+            cache: 'no-cache',
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            }
+        });
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         
         assignmentsData = await response.json();
         console.log('Loaded assignments data:', assignmentsData);
@@ -1267,22 +1267,15 @@ function openAssignmentModal(assignmentTitle) {
     const assignment = assignmentsData.find(a => a.title === assignmentTitle);
     if (!assignment) return;
     
-    // Populate modal
-    document.getElementById('modal-title').textContent = assignment.title;
-    document.getElementById('modal-due-date').textContent = formatDate(assignment.date);
-    document.getElementById('modal-points').textContent = `${assignment.points || 0} points`;
-    document.getElementById('modal-time').textContent = assignment.estimated_hours ? `~${assignment.estimated_hours} hours` : 'Not specified';
-    document.getElementById('modal-difficulty').textContent = assignment.difficulty || 'Not specified';
-    document.getElementById('modal-description').textContent = assignment.description;
-    
-    // Generate GitHub URL
+    // Generate assignment markdown file URL based on module and assignment title
     const moduleFolder = assignment.module || 'Other';
-    const githubUrl = `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(moduleFolder)}`;
-    document.getElementById('modal-github-link').href = githubUrl;
+    const assignmentId = assignment.title.toLowerCase().replace(/[^a-z0-9]/g, '').replace(/ca(\d+).*/, 'ca$1');
     
-    // Show modal
-    document.getElementById('assignment-modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+    // Try to open the assignment markdown file (e.g., /assignments/Module 1/ca1.md)
+    const assignmentUrl = `./assignments/${encodeURIComponent(moduleFolder)}/${assignmentId}.md`;
+    
+    // Open assignment in new tab
+    window.open(assignmentUrl, '_blank');
 }
 
 function closeAssignmentModal() {

@@ -1,38 +1,20 @@
 ---
-title: "Introduction to Linear Regression"
-description: "Build and understand linear regression from mathematical foundations to real-world applications using Python."
+title: "CA.01: Linear Regression"
+description: "Introduction to ML fundamentals and linear regression implementation"
 module: "Module 1"
-week: 1
-due_date: "TBD"
-points: 100
-estimated_time: "2 hours"
+points: 3
+estimated_hours: 2
 difficulty: "Beginner"
-learning_objectives:
-  - "Understand the fundamentals of linear regression from a mathematical perspective"
-  - "Implement linear regression from scratch using only basic Python and NumPy"
-  - "Apply linear regression using modern ML libraries (scikit-learn)"
-  - "Analyze and visualize regression results and model performance"
-  - "Reflect critically on how machine learning differs from traditional programming approaches"
-files:
-  - name: "ca1.ipynb"
-    description: "Interactive Jupyter notebook with guided implementation"
-    type: "notebook"
-    url: "../Assignments/Module 1/ca1.ipynb"
-  - name: "Assignment Instructions"
-    description: "Detailed assignment description and requirements"
-    type: "markdown"
-    url: "../Assignments/Module 1/ca1.md"
-layout: default
 ---
 
 ## Assignment Overview
 
-This hands-on coding assignment introduces you to **linear regression**, the cornerstone of machine learning. You'll build understanding from mathematical foundations to practical implementation, working with real housing data to predict prices.
+This hands-on coding assignment introduces you to **linear regression**, the cornerstone of machine learning. You'll implement linear regression from scratch using Python and NumPy, covering data preprocessing, model training, evaluation metrics, and visualization of results.
 
-**Week:** 1  
-**Course Learning Objective:** CLO 5 - Research, analyze and present cutting-edge machine learning topics  
-**Estimated Time:** 2 hours  
-**Due Date:** [To be determined by instructor]
+**Due Date:** September 12, 2025  
+**Points:** 3  
+**Estimated Time:** 8 hours  
+**Difficulty:** Beginner
 
 ## Learning Goals
 
@@ -85,32 +67,22 @@ You will work with the **California Housing Dataset**, which includes:
 - **Target:** Median home values (in $100K units)
 - **Size:** ~20,640 samples with 8 features
 
-## Deliverables
+## What You Need to Turn In
 
-### 1. Jupyter Notebook (`ca1.ipynb`)
-Complete the provided notebook template with:
+**Submit one completed Jupyter notebook (`ca1.ipynb`) that includes:**
 - All code cells executed and showing output
-- Markdown cells with explanations and observations
-- Visualizations properly labeled and formatted
+- Written explanations and analysis within the notebook
+- Visualizations with proper labels and descriptions
+- Your reflection on the ML concepts learned
 
-### 2. Reflection Report (embedded in notebook)
-Write a 300-500 word reflection addressing:
-- **Key differences** between ML and traditional programming
-- **When would you use** linear regression vs. other approaches?
-- **What challenges** did you encounter in implementation?
-- **How could you improve** the model's performance?
+## Grading Rubric (3 Points Total)
 
-## Grading Criteria
-
-| Component | Points | Criteria |
-|-----------|--------|----------|
-| **Mathematical Understanding** | 25 | Correctly implements gradient descent and cost function |
-| **From-Scratch Implementation** | 25 | Working linear regression class with proper functionality |
-| **Real-World Application** | 25 | Successfully applies both implementations to housing data |
-| **Critical Reflection** | 15 | Thoughtful analysis of ML vs. traditional programming |
-| **Code Quality & Documentation** | 10 | Clean, well-commented code with clear explanations |
-
-**Total: 100 points**
+| Points | Performance Level | Description |
+|--------|------------------|-------------|
+| **3 - Excellent** | Assignment Fully Complete | Notebook runs without errors, all sections completed thoroughly, demonstrates clear understanding of linear regression concepts, includes thoughtful analysis and well-documented code |
+| **2 - Proficient** | Assignment Mostly Complete | Notebook mostly functional with minor issues, most sections completed adequately, shows good understanding of core concepts with some gaps in analysis or documentation |
+| **1 - Developing** | Assignment Partially Complete | Notebook has significant errors or missing sections, shows basic understanding but lacks depth, incomplete analysis or poorly documented code |
+| **0 - Incomplete** | Assignment Not Submitted | No submission or assignment shows no meaningful effort toward completion |
 
 ## Step-by-Step Instructions
 
