@@ -211,24 +211,38 @@
         
         .calendar-day {
             background: var(--bg-card);
-            min-height: 100px;
+            height: 120px;
             padding: var(--spacing-xs);
             position: relative;
             cursor: pointer;
             transition: var(--transition);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .calendar-day:hover {
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
         .calendar-day.other-month {
             opacity: 0.3;
         }
         
+        .calendar-day.other-month:hover {
+            opacity: 0.5;
+        }
+        
         .calendar-day.today {
             background: rgba(102, 126, 234, 0.2);
             border: 2px solid var(--accent-primary);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .calendar-day.has-events {
+            border-left: 3px solid var(--accent-primary);
         }
         
         .calendar-day-number {
@@ -247,6 +261,15 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .calendar-event:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
         
         .calendar-event.assignment {
@@ -267,6 +290,16 @@
         
         .calendar-event.milestone {
             background: #4ecdc4;
+        }
+        
+        .calendar-event.more {
+            background: var(--text-muted);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .calendar-event.more:hover {
+            background: var(--accent-primary);
         }
         
         /* Sidebar */
@@ -344,6 +377,14 @@
             padding: var(--spacing-sm);
             border-left: 4px solid var(--accent-primary);
             transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .assignment-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-left-color: var(--accent-secondary);
         }
         
         .assignment-item.completed {
@@ -416,6 +457,115 @@
             gap: var(--spacing-xs);
         }
         
+        /* Modal System */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            padding: 0;
+            max-width: 600px;
+            width: 90vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from { transform: translateY(-20px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        
+        .modal-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+        
+        .modal-body {
+            padding: var(--spacing-lg);
+        }
+        
+        .modal-event-item {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid var(--accent-primary);
+        }
+        
+        .modal-event-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .modal-event-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .modal-event-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .calendar-layout {
@@ -438,12 +588,13 @@
             }
             
             .calendar-day {
-                min-height: 80px;
+                height: 100px;
                 padding: var(--spacing-xs);
             }
             
             .calendar-event {
                 font-size: 0.6rem;
+                padding: 1px 3px;
             }
             
             .sidebar {
@@ -456,6 +607,86 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .bottom-sections {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .modal-content {
+                width: 95vw;
+                max-height: 85vh;
+            }
+            
+            .modal-header {
+                padding: var(--spacing-md);
+            }
+            
+            .modal-body {
+                padding: var(--spacing-md);
+            }
+            
+            .assignment-list {
+                max-height: 300px;
+            }
+            
+            .calendar-nav {
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+            }
+            
+            .calendar-nav-btn {
+                padding: var(--spacing-xs);
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .calendar-day {
+                height: 80px;
+            }
+            
+            .calendar-day-number {
+                font-size: 0.9rem;
+            }
+            
+            .filter-controls {
+                gap: var(--spacing-xs);
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Touch device enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .calendar-day:hover,
+            .assignment-item:hover,
+            .calendar-event:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .calendar-day:active {
+                background: rgba(102, 126, 234, 0.2);
+            }
+            
+            .assignment-item:active {
+                background: rgba(102, 126, 234, 0.1);
+            }
+            
+            .calendar-event:active {
+                transform: scale(0.98);
             }
         }
     </style>
@@ -545,13 +776,6 @@
                         </div>
                     </div>
 
-                    <!-- Completed Assignments -->
-                    <div class="sidebar-section">
-                        <h3 class="sidebar-title">✅ Completed Assignments</h3>
-                        <div class="assignment-list large" id="completed-assignments">
-                            <!-- Will be populated by JavaScript -->
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -560,12 +784,20 @@
                 <!-- Important Dates -->
                 <div class="section-card">
                     <h3 class="section-title">📌 Important Dates</h3>
-                    <div class="assignment-list large" id="important-dates">
+                    <div class="assignment-list" id="important-dates" style="max-height: 400px;">
                         <!-- Will be populated by JavaScript -->
                     </div>
                 </div>
 
-                <!-- Quick Stats -->
+                <!-- Completed Assignments -->
+                <div class="section-card">
+                    <h3 class="section-title">✅ Completed Assignments</h3>
+                    <div class="assignment-list" id="completed-assignments" style="max-height: 400px;">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Enhanced Course Overview -->
                 <div class="section-card">
                     <h3 class="section-title">📊 Course Overview</h3>
                     <div id="course-stats">
@@ -575,6 +807,19 @@
             </div>
         </div>
     </main>
+
+    <!-- Day Detail Modal -->
+    <div id="day-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-day-title">Day Events</h2>
+                <button class="modal-close" onclick="closeDayModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-day-content">
+                <!-- Day events will be populated here -->
+            </div>
+        </div>
+    </div>
 
     <script>
         // Global variables
@@ -659,15 +904,27 @@
                 const currentDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                 const isToday = isDateToday(currentDateStr);
                 const events = getEventsForDate(currentDateStr);
+                const hasEvents = events.length > 0;
                 
                 let eventsHTML = '';
-                events.forEach(event => {
-                    eventsHTML += `<div class="calendar-event ${event.type}">${event.title}</div>`;
+                const maxVisibleEvents = 3;
+                const visibleEvents = events.slice(0, maxVisibleEvents);
+                
+                visibleEvents.forEach(event => {
+                    eventsHTML += `<div class="calendar-event ${event.type}" onclick="showEventDetails('${event.title}', '${event.type}', '${currentDateStr}')" title="${event.title}">${event.title}</div>`;
                 });
                 
-                calendarHTML += `<div class="calendar-day ${isToday ? 'today' : ''}" data-date="${currentDateStr}">
+                if (events.length > maxVisibleEvents) {
+                    const remaining = events.length - maxVisibleEvents;
+                    eventsHTML += `<div class="calendar-event more" onclick="showDayDetails('${currentDateStr}')">+${remaining} more</div>`;
+                }
+                
+                calendarHTML += `<div class="calendar-day ${isToday ? 'today' : ''} ${hasEvents ? 'has-events' : ''}" 
+                    data-date="${currentDateStr}" onclick="showDayDetails('${currentDateStr}')">
                     <div class="calendar-day-number">${day}</div>
-                    ${eventsHTML}
+                    <div class="calendar-events-container" onclick="event.stopPropagation()">
+                        ${eventsHTML}
+                    </div>
                 </div>`;
             }
             
@@ -781,9 +1038,17 @@
         }
 
         function populateCourseStats() {
+            const today = new Date();
             const totalAssignments = courseData.assignments.length;
+            const completedAssignments = courseData.assignments.filter(a => new Date(a.date) < today).length;
+            const upcomingAssignments = totalAssignments - completedAssignments;
             const totalPoints = courseData.assignments.reduce((sum, assignment) => sum + (assignment.points || 0), 0);
+            const completedPoints = courseData.assignments
+                .filter(a => new Date(a.date) < today)
+                .reduce((sum, assignment) => sum + (assignment.points || 0), 0);
+            
             const assignmentTypes = [...new Set(courseData.assignments.map(a => a.type))];
+            const progress = totalAssignments > 0 ? Math.round((completedAssignments / totalAssignments) * 100) : 0;
             
             const statsHTML = `
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
@@ -796,8 +1061,30 @@
                         <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Points</div>
                     </div>
                 </div>
-                <div style="font-size: 0.9rem; color: var(--text-secondary);">
-                    <strong>Assignment Types:</strong> ${assignmentTypes.join(', ')}
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                    <div style="text-align: center; padding: var(--spacing-sm); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-orange);">${upcomingAssignments}</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Upcoming</div>
+                    </div>
+                    <div style="text-align: center; padding: var(--spacing-sm); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-green);">${progress}%</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Progress</div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--bg-secondary); border-radius: var(--border-radius); padding: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: var(--spacing-xs);">
+                        <span>Assignment Progress</span>
+                        <span>${completedAssignments}/${totalAssignments}</span>
+                    </div>
+                    <div style="background: var(--bg-primary); border-radius: 10px; height: 8px; overflow: hidden;">
+                        <div style="background: var(--accent-primary); height: 100%; width: ${progress}%; transition: width 0.5s ease;"></div>
+                    </div>
+                </div>
+                
+                <div style="font-size: 0.9rem; color: var(--text-secondary); text-align: center;">
+                    <strong>Types:</strong> ${assignmentTypes.join(' • ')}
                 </div>
             `;
             
@@ -840,6 +1127,86 @@
             currentDate = new Date();
             renderCalendar();
         }
+
+        // Modal functions
+        function showDayDetails(dateStr) {
+            const events = getEventsForDate(dateStr);
+            const assignments = courseData.assignments.filter(a => a.date === dateStr);
+            const dates = courseData.importantDates.filter(d => d.date === dateStr);
+            
+            const allEvents = [
+                ...assignments.map(a => ({...a, type: a.type || 'assignment', eventType: 'assignment'})),
+                ...dates.map(d => ({...d, type: d.type || 'milestone', eventType: 'date'}))
+            ];
+            
+            if (allEvents.length === 0) {
+                return;
+            }
+            
+            const formattedDate = new Date(dateStr).toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            document.getElementById('modal-day-title').textContent = formattedDate;
+            
+            let contentHTML = '';
+            allEvents.forEach(event => {
+                const borderColor = event.type === 'assignment' ? 'var(--accent-orange)' : 
+                                  event.type === 'lab' ? 'var(--accent-green)' : 
+                                  event.type === 'reading' ? 'var(--accent-secondary)' : 
+                                  'var(--accent-primary)';
+                
+                contentHTML += `
+                    <div class="modal-event-item" style="border-left-color: ${borderColor};">
+                        <div class="modal-event-title">${event.icon || ''} ${event.title}</div>
+                        <div class="modal-event-meta">
+                            ${event.eventType === 'assignment' ? 
+                                `${event.points || 0} points • ${event.type || 'Assignment'}` : 
+                                event.type || 'Event'
+                            }
+                        </div>
+                        ${event.description ? `<div class="modal-event-description">${event.description}</div>` : ''}
+                        ${event.github_url ? `<div style="margin-top: var(--spacing-sm);"><a href="${event.github_url}" target="_blank" style="color: var(--accent-primary); text-decoration: none;">View Assignment →</a></div>` : ''}
+                    </div>
+                `;
+            });
+            
+            document.getElementById('modal-day-content').innerHTML = contentHTML;
+            document.getElementById('day-modal').classList.add('show');
+        }
+        
+        function closeDayModal() {
+            document.getElementById('day-modal').classList.remove('show');
+        }
+        
+        function showEventDetails(title, type, dateStr) {
+            // For now, just show the day details - could be enhanced for individual event modals
+            showDayDetails(dateStr);
+        }
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('day-modal');
+            if (event.target === modal) {
+                closeDayModal();
+            }
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDayModal();
+            }
+            if (event.key === 'ArrowLeft' && !event.target.matches('input, select')) {
+                changeMonth(-1);
+            }
+            if (event.key === 'ArrowRight' && !event.target.matches('input, select')) {
+                changeMonth(1);
+            }
+        });
 
         // Utility functions
         function formatDate(dateString) {
