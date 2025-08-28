@@ -2241,7 +2241,7 @@
                 // Generate assignment markdown file URL
                 const moduleFolder = assignment.module || 'Other';
                 const assignmentId = assignment.title.toLowerCase().replace(/[^a-z0-9]/g, '').replace(/ca(\d+).*/, 'ca$1');
-                const assignmentUrl = `./assignments/${encodeURIComponent(moduleFolder)}/${assignmentId}.md`;
+                const assignmentUrl = `https://raw.githubusercontent.com/robbyswimmer/CBU-CSC422/main/assignments/${moduleFolder}/${assignmentId}.md`;
                 
                 return `
                     <div class="assignment-item ${statusClass}" style="cursor: pointer; transition: var(--transition);" 

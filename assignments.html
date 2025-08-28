@@ -1271,8 +1271,8 @@ function openAssignmentModal(assignmentTitle) {
     const moduleFolder = assignment.module || 'Other';
     const assignmentId = assignment.title.toLowerCase().replace(/[^a-z0-9]/g, '').replace(/ca(\d+).*/, 'ca$1');
     
-    // Try to open the assignment markdown file (e.g., /assignments/Module 1/ca1.md)
-    const assignmentUrl = `./assignments/${encodeURIComponent(moduleFolder)}/${assignmentId}.md`;
+    // Try to open the assignment markdown file (e.g., assignments/Module 1/ca1.md)
+    const assignmentUrl = `https://raw.githubusercontent.com/robbyswimmer/CBU-CSC422/main/assignments/${moduleFolder}/${assignmentId}.md`;
     
     // Open assignment in new tab
     window.open(assignmentUrl, '_blank');
