@@ -993,8 +993,9 @@
             // Populate upcoming assignments
             const upcomingHTML = upcoming.slice(0, 15).map(assignment => {
                 const daysUntil = Math.ceil((new Date(assignment.date) - today) / (1000 * 60 * 60 * 24));
+                const assignmentUrl = assignment.github_url || `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(assignment.module || 'Module 1')}`;
                 return `
-                    <div class="assignment-item ${assignment.type}">
+                    <div class="assignment-item ${assignment.type}" onclick="window.open('${assignmentUrl}', '_blank')" style="cursor: pointer;">
                         <div class="assignment-title">${assignment.title}</div>
                         <div class="assignment-meta">
                             <span class="assignment-date">${formatDate(assignment.date)} (${daysUntil} days)</span>
@@ -1008,15 +1009,18 @@
                 upcomingHTML || '<p style="color: var(--text-muted);">No upcoming assignments</p>';
             
             // Populate completed assignments
-            const completedHTML = completed.slice(0, 20).map(assignment => `
-                <div class="assignment-item completed ${assignment.type}">
-                    <div class="assignment-title">${assignment.title}</div>
-                    <div class="assignment-meta">
-                        <span class="assignment-date">${formatDate(assignment.date)}</span>
-                        <span class="assignment-points">${assignment.points} pts</span>
+            const completedHTML = completed.slice(0, 20).map(assignment => {
+                const assignmentUrl = assignment.github_url || `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(assignment.module || 'Module 1')}`;
+                return `
+                    <div class="assignment-item completed ${assignment.type}" onclick="window.open('${assignmentUrl}', '_blank')" style="cursor: pointer;">
+                        <div class="assignment-title">${assignment.title}</div>
+                        <div class="assignment-meta">
+                            <span class="assignment-date">${formatDate(assignment.date)}</span>
+                            <span class="assignment-points">${assignment.points} pts</span>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
             
             document.getElementById('completed-assignments').innerHTML = 
                 completedHTML || '<p style="color: var(--text-muted);">No completed assignments</p>';
