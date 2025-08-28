@@ -689,6 +689,13 @@
                 display: none;
             }
             
+            /* Fix container padding on mobile */
+            .container {
+                padding: 0 var(--spacing-sm);
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
             .instructor-card {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -725,6 +732,12 @@
                 grid-template-columns: 1fr;
             }
             
+            /* Fix bullet point alignment on mobile */
+            ul[style*="list-style: none"] li {
+                text-align: left !important;
+                padding-left: 0;
+            }
+            
             .phase-grid {
                 grid-template-columns: 1fr;
             }
@@ -758,7 +771,7 @@
         /* Calendar Styles */
         .calendar-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-lg);
             margin-top: var(--spacing-lg);
         }
@@ -768,6 +781,13 @@
             .calendar-container {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-md);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .calendar-section {
+                margin: 0;
+                padding: var(--spacing-md);
             }
         }
         
