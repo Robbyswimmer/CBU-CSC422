@@ -1,0 +1,851 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Calendar - CSC 422: Machine and Deep Learning</title>
+    <meta name="description" content="Comprehensive course calendar with assignments, deadlines, and important dates">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            /* Dark Theme Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --accent-orange: #ff6b35;
+            --accent-green: #4ecdc4;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #666666;
+            --border: #333333;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+            
+            /* Spacing & Layout */
+            --container-max: 1400px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Container & Layout */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        /* Calendar Layout */
+        .calendar-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        /* Calendar Grid */
+        .calendar-container {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+            padding: var(--spacing-lg);
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .calendar-nav {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .calendar-nav-btn {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .calendar-nav-btn:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+        
+        .calendar-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .calendar-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .calendar-day-header {
+            background: var(--bg-secondary);
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .calendar-day {
+            background: var(--bg-card);
+            min-height: 100px;
+            padding: var(--spacing-xs);
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .calendar-day:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .calendar-day.other-month {
+            opacity: 0.3;
+        }
+        
+        .calendar-day.today {
+            background: rgba(102, 126, 234, 0.2);
+            border: 2px solid var(--accent-primary);
+        }
+        
+        .calendar-day-number {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .calendar-event {
+            background: var(--accent-primary);
+            color: white;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .calendar-event.assignment {
+            background: var(--accent-orange);
+        }
+        
+        .calendar-event.lab {
+            background: var(--accent-green);
+        }
+        
+        .calendar-event.reading {
+            background: var(--accent-secondary);
+        }
+        
+        .calendar-event.holiday {
+            background: #ff6b6b;
+        }
+        
+        .calendar-event.milestone {
+            background: #4ecdc4;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .sidebar-section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+            padding: var(--spacing-md);
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .filter-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .filter-select, .search-input {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        
+        .filter-select:focus, .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+        
+        /* Assignment Lists */
+        .assignment-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .assignment-item {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            border-left: 4px solid var(--accent-primary);
+            transition: var(--transition);
+        }
+        
+        .assignment-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+        
+        .assignment-item.assignment {
+            border-left-color: var(--accent-orange);
+        }
+        
+        .assignment-item.lab {
+            border-left-color: var(--accent-green);
+        }
+        
+        .assignment-item.reading {
+            border-left-color: var(--accent-secondary);
+        }
+        
+        .assignment-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .assignment-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .assignment-date {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+        
+        .assignment-points {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--accent-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        /* Bottom Sections */
+        .bottom-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .section-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+            padding: var(--spacing-lg);
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .calendar-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+            }
+            
+            .sidebar-section {
+                min-width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .calendar-day {
+                min-height: 80px;
+                padding: var(--spacing-xs);
+            }
+            
+            .calendar-event {
+                font-size: 0.6rem;
+            }
+            
+            .sidebar {
+                flex-direction: column;
+            }
+            
+            .sidebar-section {
+                min-width: auto;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">CSC 422</a>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="assignments.html" class="nav-link">Assignments</a>
+                    <a href="course-calendar.html" class="nav-link" style="color: var(--accent-primary);">Course Calendar</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">📅 Course Calendar</h1>
+            <p class="page-subtitle">Complete overview of assignments, deadlines, and important dates</p>
+
+            <!-- Calendar Layout -->
+            <div class="calendar-layout">
+                <!-- Main Calendar -->
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <h2 class="calendar-title" id="calendar-month-year">September 2025</h2>
+                        <div class="calendar-nav">
+                            <button class="calendar-nav-btn" id="prev-month" onclick="changeMonth(-1)">‹ Previous</button>
+                            <button class="calendar-nav-btn" id="today-btn" onclick="goToToday()">Today</button>
+                            <button class="calendar-nav-btn" id="next-month" onclick="changeMonth(1)">Next ›</button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid">
+                        <!-- Calendar will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Filters -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">🔍 Filters & Search</h3>
+                        <div class="filter-controls">
+                            <div class="filter-group">
+                                <label class="filter-label">Search</label>
+                                <input type="text" class="search-input" id="search-input" placeholder="Search assignments...">
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Type</label>
+                                <select class="filter-select" id="type-filter">
+                                    <option value="all">All Types</option>
+                                    <option value="assignment">Assignments</option>
+                                    <option value="lab">Labs</option>
+                                    <option value="reading">Readings</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Module</label>
+                                <select class="filter-select" id="module-filter">
+                                    <option value="all">All Modules</option>
+                                    <option value="Module 1">Module 1</option>
+                                    <option value="Module 2">Module 2</option>
+                                    <option value="Module 3">Module 3</option>
+                                    <option value="Module 4">Module 4</option>
+                                    <option value="Module 5">Module 5</option>
+                                    <option value="Module 6">Module 6</option>
+                                    <option value="Module 7">Module 7</option>
+                                    <option value="Module 8">Module 8</option>
+                                    <option value="Module 9">Module 9</option>
+                                    <option value="Module 10">Module 10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Assignments -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">⏰ Upcoming Assignments</h3>
+                        <div class="assignment-list" id="upcoming-assignments">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Completed Assignments -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">✅ Completed Assignments</h3>
+                        <div class="assignment-list" id="completed-assignments">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Sections -->
+            <div class="bottom-sections">
+                <!-- Important Dates -->
+                <div class="section-card">
+                    <h3 class="section-title">📌 Important Dates</h3>
+                    <div class="assignment-list" id="important-dates">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="section-card">
+                    <h3 class="section-title">📊 Course Overview</h3>
+                    <div id="course-stats">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Global variables
+        let currentDate = new Date();
+        let courseData = {
+            assignments: [],
+            importantDates: [],
+            semester: {}
+        };
+        let filteredAssignments = [];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCourseData();
+        });
+
+        // Load course data
+        async function loadCourseData() {
+            try {
+                const [assignmentsResponse, datesResponse, semesterResponse] = await Promise.all([
+                    fetch('assets/data/assignments.json'),
+                    fetch('assets/data/important_dates.json'),
+                    fetch('assets/data/semester.json')
+                ]);
+
+                courseData.assignments = await assignmentsResponse.json();
+                courseData.importantDates = await datesResponse.json();
+                courseData.semester = await semesterResponse.json();
+
+                filteredAssignments = [...courseData.assignments];
+                
+                renderCalendar();
+                populateAssignments();
+                populateImportantDates();
+                populateCourseStats();
+                setupEventListeners();
+                
+            } catch (error) {
+                console.error('Error loading course data:', error);
+                // Fallback content
+                document.getElementById('upcoming-assignments').innerHTML = 
+                    '<p style="color: var(--text-muted);">Unable to load assignments data</p>';
+            }
+        }
+
+        // Calendar rendering
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            // Update title
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('calendar-month-year').textContent = `${monthNames[month]} ${year}`;
+            
+            // Get first day of month and number of days
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDayOfWeek = firstDay.getDay();
+            
+            // Create calendar grid
+            let calendarHTML = '';
+            
+            // Day headers
+            const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            dayHeaders.forEach(day => {
+                calendarHTML += `<div class="calendar-day-header">${day}</div>`;
+            });
+            
+            // Previous month's trailing days
+            const prevMonth = new Date(year, month - 1, 0);
+            const prevMonthDays = prevMonth.getDate();
+            for (let i = startingDayOfWeek - 1; i >= 0; i--) {
+                calendarHTML += `<div class="calendar-day other-month">
+                    <div class="calendar-day-number">${prevMonthDays - i}</div>
+                </div>`;
+            }
+            
+            // Current month days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const currentDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const isToday = isDateToday(currentDateStr);
+                const events = getEventsForDate(currentDateStr);
+                
+                let eventsHTML = '';
+                events.forEach(event => {
+                    eventsHTML += `<div class="calendar-event ${event.type}">${event.title}</div>`;
+                });
+                
+                calendarHTML += `<div class="calendar-day ${isToday ? 'today' : ''}" data-date="${currentDateStr}">
+                    <div class="calendar-day-number">${day}</div>
+                    ${eventsHTML}
+                </div>`;
+            }
+            
+            // Next month's leading days
+            const remainingCells = 42 - (startingDayOfWeek + daysInMonth); // 6 weeks * 7 days
+            for (let day = 1; day <= remainingCells; day++) {
+                calendarHTML += `<div class="calendar-day other-month">
+                    <div class="calendar-day-number">${day}</div>
+                </div>`;
+            }
+            
+            document.getElementById('calendar-grid').innerHTML = calendarHTML;
+        }
+
+        // Helper functions
+        function isDateToday(dateStr) {
+            const today = new Date();
+            const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+            return dateStr === todayStr;
+        }
+
+        function getEventsForDate(dateStr) {
+            const events = [];
+            
+            // Add assignments
+            courseData.assignments.forEach(assignment => {
+                if (assignment.date === dateStr) {
+                    events.push({
+                        title: assignment.title,
+                        type: assignment.type || 'assignment'
+                    });
+                }
+            });
+            
+            // Add important dates
+            courseData.importantDates.forEach(date => {
+                if (date.date === dateStr) {
+                    events.push({
+                        title: date.title,
+                        type: date.type || 'milestone'
+                    });
+                }
+            });
+            
+            return events;
+        }
+
+        function populateAssignments() {
+            const today = new Date();
+            const upcoming = [];
+            const completed = [];
+            
+            filteredAssignments.forEach(assignment => {
+                const dueDate = new Date(assignment.date);
+                if (dueDate >= today) {
+                    upcoming.push(assignment);
+                } else {
+                    completed.push(assignment);
+                }
+            });
+            
+            // Sort by date
+            upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+            completed.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Populate upcoming assignments
+            const upcomingHTML = upcoming.slice(0, 5).map(assignment => {
+                const daysUntil = Math.ceil((new Date(assignment.date) - today) / (1000 * 60 * 60 * 24));
+                return `
+                    <div class="assignment-item ${assignment.type}">
+                        <div class="assignment-title">${assignment.title}</div>
+                        <div class="assignment-meta">
+                            <span class="assignment-date">${formatDate(assignment.date)} (${daysUntil} days)</span>
+                            <span class="assignment-points">${assignment.points} pts</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('upcoming-assignments').innerHTML = 
+                upcomingHTML || '<p style="color: var(--text-muted);">No upcoming assignments</p>';
+            
+            // Populate completed assignments
+            const completedHTML = completed.slice(0, 10).map(assignment => `
+                <div class="assignment-item completed ${assignment.type}">
+                    <div class="assignment-title">${assignment.title}</div>
+                    <div class="assignment-meta">
+                        <span class="assignment-date">${formatDate(assignment.date)}</span>
+                        <span class="assignment-points">${assignment.points} pts</span>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('completed-assignments').innerHTML = 
+                completedHTML || '<p style="color: var(--text-muted);">No completed assignments</p>';
+        }
+
+        function populateImportantDates() {
+            const datesHTML = courseData.importantDates.map(date => `
+                <div class="assignment-item">
+                    <div class="assignment-title">${date.icon || '📅'} ${date.title}</div>
+                    <div class="assignment-meta">
+                        <span class="assignment-date">${formatDate(date.date)}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">${date.description}</span>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('important-dates').innerHTML = 
+                datesHTML || '<p style="color: var(--text-muted);">No important dates loaded</p>';
+        }
+
+        function populateCourseStats() {
+            const totalAssignments = courseData.assignments.length;
+            const totalPoints = courseData.assignments.reduce((sum, assignment) => sum + (assignment.points || 0), 0);
+            const assignmentTypes = [...new Set(courseData.assignments.map(a => a.type))];
+            
+            const statsHTML = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                    <div style="text-align: center; padding: var(--spacing-sm); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-primary);">${totalAssignments}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Assignments</div>
+                    </div>
+                    <div style="text-align: center; padding: var(--spacing-sm); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">${totalPoints}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Points</div>
+                    </div>
+                </div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    <strong>Assignment Types:</strong> ${assignmentTypes.join(', ')}
+                </div>
+            `;
+            
+            document.getElementById('course-stats').innerHTML = statsHTML;
+        }
+
+        // Event listeners
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('search-input').addEventListener('input', applyFilters);
+            document.getElementById('type-filter').addEventListener('change', applyFilters);
+            document.getElementById('module-filter').addEventListener('change', applyFilters);
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const typeFilter = document.getElementById('type-filter').value;
+            const moduleFilter = document.getElementById('module-filter').value;
+            
+            filteredAssignments = courseData.assignments.filter(assignment => {
+                const matchesSearch = assignment.title.toLowerCase().includes(searchTerm) ||
+                                    (assignment.description && assignment.description.toLowerCase().includes(searchTerm));
+                const matchesType = typeFilter === 'all' || assignment.type === typeFilter;
+                const matchesModule = moduleFilter === 'all' || assignment.module === moduleFilter;
+                
+                return matchesSearch && matchesType && matchesModule;
+            });
+            
+            populateAssignments();
+            renderCalendar();
+        }
+
+        // Calendar navigation
+        function changeMonth(direction) {
+            currentDate.setMonth(currentDate.getMonth() + direction);
+            renderCalendar();
+        }
+
+        function goToToday() {
+            currentDate = new Date();
+            renderCalendar();
+        }
+
+        // Utility functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+    </script>
+</body>
+</html>
