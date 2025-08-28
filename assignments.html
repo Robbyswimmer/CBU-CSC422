@@ -68,6 +68,48 @@
             padding: 0 var(--spacing-md);
         }
         
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+        
         .section {
             padding: var(--spacing-xl) 0;
             position: relative;
@@ -488,6 +530,10 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
             .hero-title {
                 font-size: 2rem;
             }
@@ -530,6 +576,21 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">CSC 422</a>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="assignments.html" class="nav-link" style="color: var(--accent-primary);">Assignments</a>
+                    <a href="course-calendar.html" class="nav-link">Course Calendar</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
 <div class="hero-section" style="padding: 3rem 0;">
     <div class="container">
         <div class="breadcrumb" style="margin-bottom: 1rem;">

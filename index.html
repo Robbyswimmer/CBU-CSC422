@@ -131,29 +131,29 @@
             background-clip: text;
         }
         
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
             border-bottom: 1px solid var(--border);
-            z-index: 1000;
             padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .nav-container {
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .nav-logo {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-primary);
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
         }
         
@@ -167,13 +167,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--border-radius);
         }
         
         .nav-link:hover {
             color: var(--accent-primary);
-            background: rgba(102, 126, 234, 0.1);
         }
         
         /* Vertical Navigation */
@@ -679,10 +676,6 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-            }
-            
-            .mobile-nav-toggle {
-                display: block;
             }
             
             /* Better mobile navigation touch targets */
@@ -1408,30 +1401,20 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="nav-container">
-                <a href="#home" class="nav-logo">CSC 422</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">CSC 422</a>
                 <div class="nav-links">
+                    <a href="index.html" class="nav-link" style="color: var(--accent-primary);">Home</a>
                     <a href="assignments.html" class="nav-link">Assignments</a>
                     <a href="course-calendar.html" class="nav-link">Course Calendar</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
                 </div>
-                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
-                    ☰
-                </button>
-            </div>
-            <div class="mobile-nav-menu" id="mobile-nav-menu">
-                <div class="mobile-nav-links">
-                    <a href="assignments.html" class="nav-link" onclick="closeMobileNav()">Assignments</a>
-                    <a href="course-calendar.html" class="nav-link" onclick="closeMobileNav()">Course Calendar</a>
-                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank" onclick="closeMobileNav()">Syllabus</a>
-                </div>
-            </div>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Vertical Page Navigation -->
     <div class="vertical-nav" id="vertical-nav">
