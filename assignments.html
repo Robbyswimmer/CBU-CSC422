@@ -1267,12 +1267,11 @@ function openAssignmentModal(assignmentTitle) {
     const assignment = assignmentsData.find(a => a.title === assignmentTitle);
     if (!assignment) return;
     
-    // Generate assignment markdown file URL based on GitHub structure
+    // Generate GitHub repository page URL
     const moduleNumber = assignment.module_number || assignment.module?.match(/\d+/)?.[0] || '1';
-    const assignmentId = assignment.title.toLowerCase().replace(/[^a-z0-9]/g, '').replace(/ca(\d+).*/, 'ca$1');
     
-    // Try to open the assignment markdown file (e.g., modules/module1/ca1.md)
-    const assignmentUrl = `https://raw.githubusercontent.com/robbyswimmer/CBU-CSC422/main/modules/module${moduleNumber}/${assignmentId}.md`;
+    // Open the GitHub repository page for the module (e.g., modules/module1/)
+    const assignmentUrl = `https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module${moduleNumber}`;
     
     // Open assignment in new tab
     window.open(assignmentUrl, '_blank');
