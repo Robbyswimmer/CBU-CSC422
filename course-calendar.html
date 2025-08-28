@@ -330,8 +330,12 @@
             display: flex;
             flex-direction: column;
             gap: var(--spacing-sm);
-            max-height: 300px;
+            max-height: 500px;
             overflow-y: auto;
+        }
+        
+        .assignment-list.large {
+            max-height: 600px;
         }
         
         .assignment-item {
@@ -536,7 +540,7 @@
                     <!-- Upcoming Assignments -->
                     <div class="sidebar-section">
                         <h3 class="sidebar-title">⏰ Upcoming Assignments</h3>
-                        <div class="assignment-list" id="upcoming-assignments">
+                        <div class="assignment-list large" id="upcoming-assignments">
                             <!-- Will be populated by JavaScript -->
                         </div>
                     </div>
@@ -544,7 +548,7 @@
                     <!-- Completed Assignments -->
                     <div class="sidebar-section">
                         <h3 class="sidebar-title">✅ Completed Assignments</h3>
-                        <div class="assignment-list" id="completed-assignments">
+                        <div class="assignment-list large" id="completed-assignments">
                             <!-- Will be populated by JavaScript -->
                         </div>
                     </div>
@@ -556,7 +560,7 @@
                 <!-- Important Dates -->
                 <div class="section-card">
                     <h3 class="section-title">📌 Important Dates</h3>
-                    <div class="assignment-list" id="important-dates">
+                    <div class="assignment-list large" id="important-dates">
                         <!-- Will be populated by JavaScript -->
                     </div>
                 </div>
@@ -730,7 +734,7 @@
             completed.sort((a, b) => new Date(b.date) - new Date(a.date));
             
             // Populate upcoming assignments
-            const upcomingHTML = upcoming.slice(0, 5).map(assignment => {
+            const upcomingHTML = upcoming.slice(0, 15).map(assignment => {
                 const daysUntil = Math.ceil((new Date(assignment.date) - today) / (1000 * 60 * 60 * 24));
                 return `
                     <div class="assignment-item ${assignment.type}">
@@ -747,7 +751,7 @@
                 upcomingHTML || '<p style="color: var(--text-muted);">No upcoming assignments</p>';
             
             // Populate completed assignments
-            const completedHTML = completed.slice(0, 10).map(assignment => `
+            const completedHTML = completed.slice(0, 20).map(assignment => `
                 <div class="assignment-item completed ${assignment.type}">
                     <div class="assignment-title">${assignment.title}</div>
                     <div class="assignment-meta">
