@@ -59,6 +59,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 80px;
         }
         
         /* Container & Layout */
@@ -73,9 +74,12 @@
             background: var(--bg-secondary);
             border-bottom: 1px solid var(--border);
             padding: var(--spacing-sm) 0;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         
         .nav {
