@@ -6,6 +6,191 @@
   type: "assignment"
   points: 100
   module: "Module 1"
+  module_number: 1
   description: "Introduction to ML fundamentals and linear regression implementation"
+  detailed_description: "Students will implement linear regression from scratch using Python and NumPy. This assignment covers data preprocessing, model training, evaluation metrics, and visualization of results."
   estimated_hours: 8
   difficulty: "Beginner"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module1"
+  skills:
+    - "Python Programming"
+    - "NumPy"
+    - "Data Preprocessing"
+    - "Linear Algebra"
+  deliverables:
+    - "Python implementation (.py file)"
+    - "Jupyter notebook with analysis"
+    - "Written report (2-3 pages)"
+
+- date: "2025-09-19"
+  title: "CA2: Logistic Regression & Classification"
+  type: "assignment"
+  points: 100
+  module: "Module 2"
+  module_number: 2
+  description: "Binary and multi-class classification using logistic regression"
+  detailed_description: "Implement logistic regression for binary and multi-class classification problems. Students will work with real datasets, perform feature engineering, and evaluate model performance using various metrics."
+  estimated_hours: 10
+  difficulty: "Beginner"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module2"
+  skills:
+    - "Classification Algorithms"
+    - "Feature Engineering"
+    - "Model Evaluation"
+    - "Scikit-learn"
+  deliverables:
+    - "Classification implementation"
+    - "Performance analysis report"
+    - "Feature importance visualization"
+
+- date: "2025-09-26"
+  title: "CA3: Neural Network Fundamentals"
+  type: "assignment"
+  points: 120
+  module: "Module 3"
+  module_number: 3
+  description: "Build a neural network from scratch and compare with library implementations"
+  detailed_description: "Students will implement a multi-layer perceptron from scratch, then compare performance with TensorFlow/Keras implementations. Focus on understanding backpropagation, gradient descent, and hyperparameter tuning."
+  estimated_hours: 12
+  difficulty: "Intermediate"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module3"
+  skills:
+    - "Neural Networks"
+    - "Backpropagation"
+    - "TensorFlow/Keras"
+    - "Hyperparameter Tuning"
+  deliverables:
+    - "Custom neural network implementation"
+    - "TensorFlow comparison model"
+    - "Performance comparison report"
+
+- date: "2025-10-03"
+  title: "CA4: Convolutional Neural Networks"
+  type: "assignment"
+  points: 120
+  module: "Module 4"
+  module_number: 4
+  description: "Image classification using CNNs with transfer learning"
+  detailed_description: "Implement CNN architectures for image classification. Students will use pre-trained models for transfer learning, perform data augmentation, and optimize model performance on custom datasets."
+  estimated_hours: 15
+  difficulty: "Intermediate"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module4"
+  skills:
+    - "Convolutional Neural Networks"
+    - "Transfer Learning"
+    - "Data Augmentation"
+    - "Computer Vision"
+  deliverables:
+    - "CNN implementation"
+    - "Transfer learning model"
+    - "Data augmentation pipeline"
+    - "Results visualization"
+
+- date: "2025-10-17"
+  title: "CA5: Recurrent Neural Networks"
+  type: "assignment"
+  points: 120
+  module: "Module 5"
+  module_number: 5
+  description: "Time series prediction and text analysis using RNNs and LSTMs"
+  detailed_description: "Build RNN and LSTM models for sequential data analysis. Projects include stock price prediction, sentiment analysis, and text generation. Focus on handling vanishing gradients and sequence modeling."
+  estimated_hours: 14
+  difficulty: "Intermediate"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module5"
+  skills:
+    - "Recurrent Neural Networks"
+    - "LSTM/GRU"
+    - "Time Series Analysis"
+    - "Natural Language Processing"
+  deliverables:
+    - "RNN/LSTM implementation"
+    - "Time series prediction model"
+    - "Text analysis application"
+
+- date: "2025-10-31"
+  title: "CA6: Unsupervised Learning"
+  type: "assignment"
+  points: 100
+  module: "Module 6"
+  module_number: 6
+  description: "Clustering and dimensionality reduction techniques"
+  detailed_description: "Implement various unsupervised learning algorithms including K-means, hierarchical clustering, PCA, and t-SNE. Students will work with high-dimensional datasets and visualize results effectively."
+  estimated_hours: 10
+  difficulty: "Intermediate"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module6"
+  skills:
+    - "Clustering Algorithms"
+    - "Dimensionality Reduction"
+    - "Data Visualization"
+    - "Statistical Analysis"
+  deliverables:
+    - "Clustering implementation"
+    - "PCA/t-SNE analysis"
+    - "Visualization dashboard"
+
+- date: "2025-11-07"
+  title: "CA7: Reinforcement Learning"
+  type: "assignment"
+  points: 130
+  module: "Module 7"
+  module_number: 7
+  description: "Q-learning and policy gradient methods for game environments"
+  detailed_description: "Implement reinforcement learning algorithms to solve classic control problems and game environments. Students will use OpenAI Gym, implement Q-learning and policy gradients, and analyze learning curves."
+  estimated_hours: 16
+  difficulty: "Advanced"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module7"
+  skills:
+    - "Reinforcement Learning"
+    - "Q-Learning"
+    - "Policy Gradients"
+    - "OpenAI Gym"
+  deliverables:
+    - "Q-learning implementation"
+    - "Policy gradient agent"
+    - "Performance analysis"
+    - "Demo video"
+
+- date: "2025-11-21"
+  title: "CA8: Generative Models"
+  type: "assignment"
+  points: 140
+  module: "Module 8"
+  module_number: 8
+  description: "GANs and Variational Autoencoders for data generation"
+  detailed_description: "Build generative models including GANs and VAEs. Students will generate synthetic images, analyze mode collapse, implement different GAN architectures, and explore latent space representations."
+  estimated_hours: 18
+  difficulty: "Advanced"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module8"
+  skills:
+    - "Generative Adversarial Networks"
+    - "Variational Autoencoders"
+    - "Image Generation"
+    - "Latent Space Analysis"
+  deliverables:
+    - "GAN implementation"
+    - "VAE implementation"
+    - "Generated samples portfolio"
+    - "Architecture comparison report"
+
+- date: "2025-12-05"
+  title: "Final Project Presentation"
+  type: "project"
+  points: 200
+  module: "Final Project"
+  module_number: 9
+  description: "Comprehensive ML/DL project with real-world application"
+  detailed_description: "Students will propose, implement, and present a comprehensive machine learning or deep learning project addressing a real-world problem. Projects should demonstrate mastery of course concepts and include novel applications or improvements."
+  estimated_hours: 25
+  difficulty: "Advanced"
+  github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/final-projects"
+  skills:
+    - "Project Management"
+    - "Research Skills"
+    - "Technical Communication"
+    - "End-to-End ML Pipeline"
+  deliverables:
+    - "Complete project implementation"
+    - "Technical documentation"
+    - "Presentation slides"
+    - "Live demonstration"
+    - "Peer review participation"

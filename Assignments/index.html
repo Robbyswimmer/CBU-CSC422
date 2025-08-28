@@ -1,0 +1,854 @@
+---
+layout: default
+title: Assignments
+description: Complete overview of all course assignments organized by modules
+---
+
+<div class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <div class="breadcrumb" style="margin-bottom: 1rem;">
+            <a href="../" style="color: var(--accent-primary, #667eea); text-decoration: none; font-weight: 500;">← Back to CSC 422 Course</a>
+        </div>
+        <h1 class="hero-title" style="font-size: 2.5rem;">📚 Course Assignments</h1>
+        <p class="hero-subtitle">Master Machine Learning through hands-on coding projects</p>
+        
+        <div class="assignments-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="total-assignments">--</div>
+                <div class="stat-label">Total Assignments</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="upcoming-count">--</div>
+                <div class="stat-label">Upcoming</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-points">--</div>
+                <div class="stat-label">Total Points</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <!-- Search and Filter Controls -->
+        <div class="assignments-controls">
+            <div class="search-container">
+                <input type="text" id="assignment-search" placeholder="🔍 Search assignments..." class="search-input">
+            </div>
+            <div class="filter-controls">
+                <select id="difficulty-filter" class="filter-select">
+                    <option value="">All Difficulties</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                <select id="status-filter" class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="overdue">Overdue</option>
+                    <option value="due-soon">Due Soon</option>
+                    <option value="upcoming">Upcoming</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Module Cards Grid -->
+        <div id="modules-container" class="modules-grid">
+            <!-- Dynamic module cards will be inserted here -->
+        </div>
+    </div>
+</div>
+
+<!-- Assignment Detail Modal -->
+<div id="assignment-modal" class="assignment-modal">
+    <div class="modal-backdrop" onclick="closeAssignmentModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modal-title">Assignment Title</h3>
+            <button class="modal-close" onclick="closeAssignmentModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="assignment-meta">
+                <div class="meta-item">
+                    <span class="meta-label">📅 Due Date:</span>
+                    <span id="modal-due-date">--</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">🎯 Points:</span>
+                    <span id="modal-points">--</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">⏱️ Estimated Time:</span>
+                    <span id="modal-time">--</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">📊 Difficulty:</span>
+                    <span id="modal-difficulty" class="difficulty-badge">--</span>
+                </div>
+            </div>
+            <div class="assignment-description">
+                <h4>Description</h4>
+                <p id="modal-description">--</p>
+            </div>
+            <div class="assignment-files" id="modal-files">
+                <!-- Assignment files will be listed here -->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a id="modal-github-link" href="#" target="_blank" class="cta-button">
+                <span>🔗 View on GitHub</span>
+            </a>
+            <button onclick="closeAssignmentModal()" class="btn-secondary">Close</button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Assignments Page Styles */
+.assignments-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Search and Filter Controls */
+.assignments-controls {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-controls {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.filter-select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-select:hover {
+    border-color: var(--accent-primary);
+}
+
+/* Modules Grid */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Module Cards */
+.module-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: var(--transition-slow);
+    position: relative;
+}
+
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--bg-gradient);
+    transition: var(--transition);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.module-card:hover::before {
+    transform: scaleX(1);
+}
+
+.module-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.module-header {
+    padding: var(--spacing-md);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.module-header:hover {
+    background: rgba(102, 126, 234, 0.05);
+}
+
+.module-info h3 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+.module-meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.module-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+    font-weight: 500;
+}
+
+.module-toggle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    transform: rotate(0deg);
+}
+
+.module-card.expanded .module-toggle {
+    transform: rotate(180deg);
+}
+
+.module-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background: var(--bg-secondary);
+}
+
+.module-card.expanded .module-content {
+    max-height: 2000px;
+    padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+/* Assignment Cards within Modules */
+.assignments-list {
+    display: grid;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.assignment-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    cursor: pointer;
+    transition: var(--transition);
+    border-left: 4px solid var(--accent-primary);
+}
+
+.assignment-card:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.assignment-card.overdue {
+    border-left-color: #ef4444;
+}
+
+.assignment-card.due-soon {
+    border-left-color: #f59e0b;
+}
+
+.assignment-card.upcoming {
+    border-left-color: var(--accent-primary);
+}
+
+.assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.assignment-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.assignment-due {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.assignment-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.assignment-details {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.detail-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.points-badge {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--accent-primary);
+}
+
+.time-badge {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+}
+
+/* GitHub Link Button */
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    margin-top: var(--spacing-md);
+}
+
+.github-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Assignment Modal */
+.assignment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+.assignment-modal.active {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1001;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: var(--spacing-md);
+}
+
+.assignment-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.meta-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.assignment-description h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.modal-footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-card);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .assignments-controls {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .filter-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .assignment-details {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        margin: var(--spacing-sm);
+        max-height: 90vh;
+    }
+    
+    .assignments-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .assignment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .hero-title {
+        font-size: 2rem !important;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    loadAssignmentsPage();
+});
+
+let assignmentsData = [];
+let currentFilter = {
+    difficulty: '',
+    status: '',
+    search: ''
+};
+
+async function loadAssignmentsPage() {
+    try {
+        // Load assignments data using the existing data loading system
+        const baseUrl = '{{ site.baseurl }}';
+        const isJekyllProcessed = baseUrl && !baseUrl.includes('{');
+        const cacheBuster = new Date().getTime();
+        
+        let assignmentsUrl;
+        if (isJekyllProcessed) {
+            assignmentsUrl = `${baseUrl}/assets/data/assignments.json?v=${cacheBuster}`;
+        } else {
+            assignmentsUrl = './assets/data/assignments.json?v=${cacheBuster}';
+        }
+        
+        console.log('Loading assignments from:', assignmentsUrl);
+        const response = await fetch(assignmentsUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        assignmentsData = await response.json();
+        console.log('Loaded assignments data:', assignmentsData);
+        
+        updateStatistics();
+        renderModules();
+        setupEventListeners();
+        
+    } catch (error) {
+        console.error('Error loading assignments:', error);
+        document.getElementById('modules-container').innerHTML = 
+            '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">Unable to load assignments. Please refresh the page.</p>';
+    }
+}
+
+function updateStatistics() {
+    const totalAssignments = assignmentsData.length;
+    const totalPoints = assignmentsData.reduce((sum, assignment) => sum + (assignment.points || 0), 0);
+    
+    // Calculate upcoming assignments (not overdue)
+    const today = new Date();
+    const upcomingAssignments = assignmentsData.filter(assignment => {
+        const dueDate = new Date(assignment.date);
+        return dueDate >= today;
+    }).length;
+    
+    // Update DOM
+    document.getElementById('total-assignments').textContent = totalAssignments;
+    document.getElementById('upcoming-count').textContent = upcomingAssignments;
+    document.getElementById('total-points').textContent = totalPoints;
+}
+
+function renderModules() {
+    // Group assignments by module
+    const modules = {};
+    assignmentsData.forEach(assignment => {
+        const moduleKey = assignment.module || 'Other';
+        if (!modules[moduleKey]) {
+            modules[moduleKey] = [];
+        }
+        modules[moduleKey].push(assignment);
+    });
+    
+    // Sort modules naturally (Module 1, Module 2, etc.)
+    const sortedModuleKeys = Object.keys(modules).sort((a, b) => {
+        if (a === 'Other') return 1;
+        if (b === 'Other') return -1;
+        const numA = parseInt(a.match(/\d+/)?.[0] || 0);
+        const numB = parseInt(b.match(/\d+/)?.[0] || 0);
+        return numA - numB;
+    });
+    
+    const modulesContainer = document.getElementById('modules-container');
+    modulesContainer.innerHTML = '';
+    
+    sortedModuleKeys.forEach(moduleKey => {
+        const assignments = modules[moduleKey];
+        const moduleCard = createModuleCard(moduleKey, assignments);
+        modulesContainer.appendChild(moduleCard);
+    });
+}
+
+function createModuleCard(moduleName, assignments) {
+    const moduleDiv = document.createElement('div');
+    moduleDiv.className = 'module-card';
+    moduleDiv.dataset.module = moduleName;
+    
+    // Calculate module statistics
+    const totalPoints = assignments.reduce((sum, a) => sum + (a.points || 0), 0);
+    const nextDue = getNextDueAssignment(assignments);
+    
+    // Generate GitHub URL for module
+    const githubUrl = `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(moduleName)}`;
+    
+    moduleDiv.innerHTML = `
+        <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-info">
+                <h3>${moduleName}</h3>
+                <div class="module-meta">
+                    <span class="module-badge">${assignments.length} assignments</span>
+                    <span class="module-badge">${totalPoints} points</span>
+                    ${nextDue ? `<span class="module-badge">${nextDue}</span>` : ''}
+                </div>
+            </div>
+            <div class="module-toggle">▼</div>
+        </div>
+        <div class="module-content">
+            <div class="assignments-list">
+                ${assignments.map(assignment => createAssignmentCard(assignment)).join('')}
+            </div>
+            <a href="${githubUrl}" target="_blank" class="github-link">
+                <span>📁</span>
+                View ${moduleName} on GitHub
+            </a>
+        </div>
+    `;
+    
+    return moduleDiv;
+}
+
+function createAssignmentCard(assignment) {
+    const daysUntil = getDaysUntil(assignment.date);
+    const statusClass = getStatusClass(daysUntil);
+    const formattedDate = formatDate(assignment.date);
+    
+    return `
+        <div class="assignment-card ${statusClass}" onclick="openAssignmentModal('${assignment.title}')" data-assignment="${assignment.title}">
+            <div class="assignment-header">
+                <h4 class="assignment-title">${assignment.title}</h4>
+                <div class="assignment-due">Due ${formattedDate}</div>
+            </div>
+            <div class="assignment-description">${assignment.description}</div>
+            <div class="assignment-details">
+                <span class="detail-badge points-badge">${assignment.points || 0} points</span>
+                ${assignment.difficulty ? `<span class="detail-badge difficulty-badge difficulty-${assignment.difficulty.toLowerCase()}">${assignment.difficulty}</span>` : ''}
+                ${assignment.estimated_hours ? `<span class="detail-badge time-badge">~${assignment.estimated_hours}h</span>` : ''}
+            </div>
+        </div>
+    `;
+}
+
+function getNextDueAssignment(assignments) {
+    const today = new Date();
+    const upcoming = assignments
+        .filter(a => new Date(a.date) >= today)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+    
+    if (upcoming.length > 0) {
+        const days = getDaysUntil(upcoming[0].date);
+        return days === 0 ? 'Due today' : `Next due: ${days} days`;
+    }
+    return null;
+}
+
+function toggleModule(headerElement) {
+    const moduleCard = headerElement.closest('.module-card');
+    moduleCard.classList.toggle('expanded');
+}
+
+function openAssignmentModal(assignmentTitle) {
+    const assignment = assignmentsData.find(a => a.title === assignmentTitle);
+    if (!assignment) return;
+    
+    // Populate modal
+    document.getElementById('modal-title').textContent = assignment.title;
+    document.getElementById('modal-due-date').textContent = formatDate(assignment.date);
+    document.getElementById('modal-points').textContent = `${assignment.points || 0} points`;
+    document.getElementById('modal-time').textContent = assignment.estimated_hours ? `~${assignment.estimated_hours} hours` : 'Not specified';
+    document.getElementById('modal-difficulty').textContent = assignment.difficulty || 'Not specified';
+    document.getElementById('modal-description').textContent = assignment.description;
+    
+    // Generate GitHub URL
+    const moduleFolder = assignment.module || 'Other';
+    const githubUrl = `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(moduleFolder)}`;
+    document.getElementById('modal-github-link').href = githubUrl;
+    
+    // Show modal
+    document.getElementById('assignment-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAssignmentModal() {
+    document.getElementById('assignment-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function setupEventListeners() {
+    // Search functionality
+    document.getElementById('assignment-search').addEventListener('input', function(e) {
+        currentFilter.search = e.target.value.toLowerCase();
+        applyFilters();
+    });
+    
+    // Filter functionality
+    document.getElementById('difficulty-filter').addEventListener('change', function(e) {
+        currentFilter.difficulty = e.target.value;
+        applyFilters();
+    });
+    
+    document.getElementById('status-filter').addEventListener('change', function(e) {
+        currentFilter.status = e.target.value;
+        applyFilters();
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAssignmentModal();
+        }
+    });
+}
+
+function applyFilters() {
+    const moduleCards = document.querySelectorAll('.module-card');
+    
+    moduleCards.forEach(moduleCard => {
+        const assignments = moduleCard.querySelectorAll('.assignment-card');
+        let hasVisibleAssignments = false;
+        
+        assignments.forEach(assignmentCard => {
+            const title = assignmentCard.dataset.assignment.toLowerCase();
+            const assignment = assignmentsData.find(a => a.title.toLowerCase() === title);
+            
+            let show = true;
+            
+            // Search filter
+            if (currentFilter.search && !title.includes(currentFilter.search)) {
+                show = false;
+            }
+            
+            // Difficulty filter
+            if (currentFilter.difficulty && assignment.difficulty !== currentFilter.difficulty) {
+                show = false;
+            }
+            
+            // Status filter
+            if (currentFilter.status) {
+                const statusClass = getStatusClass(getDaysUntil(assignment.date));
+                if (statusClass !== currentFilter.status) {
+                    show = false;
+                }
+            }
+            
+            assignmentCard.style.display = show ? 'block' : 'none';
+            if (show) hasVisibleAssignments = true;
+        });
+        
+        moduleCard.style.display = hasVisibleAssignments ? 'block' : 'none';
+    });
+}
+
+// Utility functions
+function getDaysUntil(dateString) {
+    const today = new Date();
+    const targetDate = new Date(dateString);
+    const diffTime = targetDate - today;
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+}
+
+function getStatusClass(daysUntil) {
+    if (daysUntil < 0) return 'overdue';
+    if (daysUntil <= 7) return 'due-soon';
+    return 'upcoming';
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+    });
+}
+</script>
