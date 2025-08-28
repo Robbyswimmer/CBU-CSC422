@@ -2238,8 +2238,16 @@
                 const daysUntil = getDaysUntil(assignment.date);
                 const statusClass = getStatusClass(daysUntil);
                 
+                // Generate assignment markdown file URL
+                const moduleFolder = assignment.module || 'Other';
+                const assignmentId = assignment.title.toLowerCase().replace(/[^a-z0-9]/g, '').replace(/ca(\d+).*/, 'ca$1');
+                const assignmentUrl = `./assignments/${encodeURIComponent(moduleFolder)}/${assignmentId}.md`;
+                
                 return `
-                    <div class="assignment-item ${statusClass}">
+                    <div class="assignment-item ${statusClass}" style="cursor: pointer; transition: var(--transition);" 
+                         onclick="window.open('${assignmentUrl}', '_blank')" 
+                         onmouseover="this.style.transform='translateX(4px)'" 
+                         onmouseout="this.style.transform='translateX(0)'">
                         <div class="assignment-title">${assignment.title}</div>
                         <div class="assignment-date">Due: ${formatDate(assignment.date)} (${daysUntil > 0 ? `${daysUntil} days` : 'Today'})</div>
                         <div class="assignment-description">${assignment.description}</div>
@@ -2247,6 +2255,7 @@
                             <span class="assignment-points">${assignment.points} points</span>
                             ${assignment.difficulty ? `<span class="badge ${assignment.difficulty.toLowerCase()}" style="font-size: 0.8rem;">${assignment.difficulty}</span>` : ''}
                             ${assignment.estimated_hours ? `<span style="font-size: 0.8rem; color: var(--text-muted);">~${assignment.estimated_hours}h</span>` : ''}
+                            <span style="font-size: 0.8rem; color: var(--accent-primary); margin-left: auto;">Click to view →</span>
                         </div>
                     </div>
                 `;

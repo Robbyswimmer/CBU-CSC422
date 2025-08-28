@@ -11,9 +11,8 @@ difficulty: "Beginner"
 
 This hands-on coding assignment introduces you to **linear regression**, the cornerstone of machine learning. You'll implement linear regression from scratch using Python and NumPy, covering data preprocessing, model training, evaluation metrics, and visualization of results.
 
-**Due Date:** September 12, 2025  
 **Points:** 3  
-**Estimated Time:** 8 hours  
+**Estimated Time:** 2 hours  
 **Difficulty:** Beginner
 
 ## Learning Goals

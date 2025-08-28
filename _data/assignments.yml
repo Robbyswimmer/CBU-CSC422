@@ -9,7 +9,7 @@
   module_number: 1
   description: "Introduction to ML fundamentals and linear regression implementation"
   detailed_description: "Students will implement linear regression from scratch using Python and NumPy. This assignment covers data preprocessing, model training, evaluation metrics, and visualization of results."
-  estimated_hours: 8
+  estimated_hours: 2
   difficulty: "Beginner"
   github_url: "https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module1"
   skills:
