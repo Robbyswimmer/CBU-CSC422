@@ -1268,10 +1268,10 @@ function openAssignmentModal(assignmentTitle) {
     if (!assignment) return;
     
     // Generate GitHub repository page URL
-    const moduleNumber = assignment.module_number || assignment.module?.match(/\d+/)?.[0] || '1';
+    const moduleFolder = assignment.module || 'Module 1';
     
-    // Open the GitHub repository page for the module (e.g., modules/module1/)
-    const assignmentUrl = `https://github.com/robbyswimmer/CBU-CSC422/tree/main/modules/module${moduleNumber}`;
+    // Open the GitHub repository page for the module (e.g., Assignments/Module 1/)
+    const assignmentUrl = `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(moduleFolder)}`;
     
     // Open assignment in new tab
     window.open(assignmentUrl, '_blank');
