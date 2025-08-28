@@ -176,6 +176,99 @@
             background: rgba(102, 126, 234, 0.1);
         }
         
+        /* Vertical Navigation */
+        .vertical-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .vertical-nav.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .vertical-nav-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1.5rem 1rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.9);
+        }
+        
+        .vertical-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vertical-nav-item:hover {
+            color: var(--accent-primary);
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(-4px);
+        }
+        
+        .vertical-nav-item.active {
+            color: var(--accent-primary);
+            background: rgba(102, 126, 234, 0.15);
+        }
+        
+        .vertical-nav-item.active .nav-dot {
+            background: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .vertical-nav-item:hover .nav-dot {
+            background: var(--accent-primary);
+            transform: scale(1.2);
+        }
+        
+        .nav-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition);
+            pointer-events: none;
+        }
+        
+        .vertical-nav-item:hover .nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .vertical-nav-item.active .nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -589,6 +682,11 @@
             .nav-logo {
                 padding: var(--spacing-sm);
                 font-size: 1.1rem;
+            }
+            
+            /* Hide vertical nav on mobile */
+            .vertical-nav {
+                display: none;
             }
             
             .instructor-card {
@@ -1175,14 +1273,8 @@
             <div class="nav-container">
                 <a href="#home" class="nav-logo">CSC 422</a>
                 <div class="nav-links">
-                    <a href="#instructor" class="nav-link">Instructor</a>
                     <a href="assignments.html" class="nav-link">Assignments</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
-                    <a href="#calendar" class="nav-link">Calendar</a>
-                    <a href="#journey" class="nav-link">Journey</a>
-                    <a href="#tech" class="nav-link">Tech Stack</a>
-                    <a href="#assessment" class="nav-link">Assessment</a>
-                    <a href="#project" class="nav-link">Final Project</a>
                 </div>
                 <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
                     ☰
@@ -1190,19 +1282,47 @@
             </div>
             <div class="mobile-nav-menu" id="mobile-nav-menu">
                 <div class="mobile-nav-links">
-                    <a href="#instructor" class="nav-link" onclick="closeMobileNav()">Instructor</a>
                     <a href="assignments.html" class="nav-link" onclick="closeMobileNav()">Assignments</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank" onclick="closeMobileNav()">Syllabus</a>
-                    <a href="#calendar" class="nav-link" onclick="closeMobileNav()">Calendar</a>
-                    <a href="#journey" class="nav-link" onclick="closeMobileNav()">Journey</a>
-                    <a href="#tech" class="nav-link" onclick="closeMobileNav()">Tech Stack</a>
-                    <a href="#assessment" class="nav-link" onclick="closeMobileNav()">Assessment</a>
-                    <a href="#project" class="nav-link" onclick="closeMobileNav()">Final Project</a>
                 </div>
             </div>
             </div>
         </div>
     </nav>
+
+    <!-- Vertical Page Navigation -->
+    <div class="vertical-nav" id="vertical-nav">
+        <div class="vertical-nav-container">
+            <a href="#home" class="vertical-nav-item active" data-section="home" title="Home">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="#instructor" class="vertical-nav-item" data-section="instructor" title="Instructor">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Instructor</span>
+            </a>
+            <a href="#calendar" class="vertical-nav-item" data-section="calendar" title="Calendar">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Calendar</span>
+            </a>
+            <a href="#journey" class="vertical-nav-item" data-section="journey" title="Journey">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Journey</span>
+            </a>
+            <a href="#tech" class="vertical-nav-item" data-section="tech" title="Tech Stack">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Tech Stack</span>
+            </a>
+            <a href="#assessment" class="vertical-nav-item" data-section="assessment" title="Assessment">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Assessment</span>
+            </a>
+            <a href="#project" class="vertical-nav-item" data-section="project" title="Final Project">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Final Project</span>
+            </a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero section">
@@ -1826,23 +1946,39 @@
             observer.observe(el);
         });
 
-        // Add active state to navigation links
+        // Vertical Navigation Management
+        const verticalNav = document.getElementById('vertical-nav');
+        const verticalNavItems = document.querySelectorAll('.vertical-nav-item');
+        
+        // Show vertical nav after hero section
         window.addEventListener('scroll', () => {
+            const heroHeight = document.querySelector('.hero').offsetHeight;
+            const scrollPos = window.pageYOffset;
+            
+            // Show/hide vertical nav
+            if (scrollPos > heroHeight * 0.3) {
+                verticalNav.classList.add('show');
+            } else {
+                verticalNav.classList.remove('show');
+            }
+            
+            // Update active section
             let current = '';
             const sections = document.querySelectorAll('section[id]');
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
                     current = section.getAttribute('id');
                 }
             });
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
+            
+            // Update vertical nav active states
+            verticalNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-section') === current) {
+                    item.classList.add('active');
                 }
             });
         });
