@@ -854,6 +854,69 @@
             margin-top: 0.5rem;
         }
         
+        /* Standardized assignment badges */
+        .assignment-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            background: var(--accent-primary);
+            color: white;
+        }
+        
+        .assignment-badge.difficulty-beginner {
+            background: var(--accent-green);
+            color: white;
+        }
+        
+        .assignment-badge.difficulty-intermediate {
+            background: var(--accent-orange);
+            color: white;
+        }
+        
+        .assignment-badge.difficulty-advanced {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .assignment-badge.time-badge {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+        
+        /* What You'll Master Section Styling */
+        .mastery-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .mastery-skills {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .skill-item strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .skill-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
         .schedule-grid {
             display: grid;
             gap: var(--spacing-sm);
@@ -1418,30 +1481,60 @@
             
             <div class="grid grid-3">
                 <div class="card animate-on-scroll">
+                    <div class="mastery-icon">🧠</div>
                     <h3 class="text-gradient">Core Machine Learning</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>• Supervised Learning: Linear & Logistic Regression, SVMs</li>
-                        <li>• Unsupervised Learning: Clustering, PCA, Dimensionality Reduction</li>
-                        <li>• Model Validation: Cross-validation, Bias-Variance Tradeoffs</li>
-                    </ul>
+                    <div class="mastery-skills">
+                        <div class="skill-item">
+                            <strong>Supervised Learning</strong>
+                            <span>Linear & Logistic Regression, SVMs</span>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Unsupervised Learning</strong>
+                            <span>Clustering, PCA, Dimensionality Reduction</span>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Model Validation</strong>
+                            <span>Cross-validation, Bias-Variance Tradeoffs</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="card animate-on-scroll">
+                    <div class="mastery-icon">⚡</div>
                     <h3 class="text-gradient">Deep Learning Revolution</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>• Neural Networks: MLPs, CNNs, RNNs</li>
-                        <li>• Advanced Architectures: GANs, Transformers, LLMs</li>
-                        <li>• Modern Frameworks: TensorFlow, PyTorch</li>
-                    </ul>
+                    <div class="mastery-skills">
+                        <div class="skill-item">
+                            <strong>Neural Networks</strong>
+                            <span>MLPs, CNNs, RNNs</span>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Advanced Architectures</strong>
+                            <span>GANs, Transformers, LLMs</span>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Modern Frameworks</strong>
+                            <span>TensorFlow, PyTorch</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="card animate-on-scroll">
+                    <div class="mastery-icon">🚀</div>
                     <h3 class="text-gradient">Real-World Application</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>• Data Wrangling: Clean and prepare real datasets</li>
-                        <li>• Research Projects: Tackle novel AI problems</li>
-                        <li>• Ethics in AI: Navigate the moral landscape of AI</li>
-                    </ul>
+                    <div class="mastery-skills">
+                        <div class="skill-item">
+                            <strong>Data Wrangling</strong>
+                            <span>Clean and prepare real datasets</span>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Research Projects</strong>
+                            <span>Tackle novel AI problems</span>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Ethics in AI</strong>
+                            <span>Navigate the moral landscape of AI</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2270,10 +2363,10 @@
                         <div class="assignment-title">${assignment.title}</div>
                         <div class="assignment-date">Due: ${formatDate(assignment.date)} (${daysUntil > 0 ? `${daysUntil} days` : 'Today'})</div>
                         <div class="assignment-description">${assignment.description}</div>
-                        <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm);">
-                            <span class="assignment-points">${assignment.points} points</span>
-                            ${assignment.difficulty ? `<span class="badge ${assignment.difficulty.toLowerCase()}" style="font-size: 0.8rem;">${assignment.difficulty}</span>` : ''}
-                            ${assignment.estimated_hours ? `<span style="font-size: 0.8rem; color: var(--text-muted);">~${assignment.estimated_hours}h</span>` : ''}
+                        <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm); align-items: center;">
+                            <span class="assignment-badge">${assignment.points} points</span>
+                            ${assignment.difficulty ? `<span class="assignment-badge difficulty-${assignment.difficulty.toLowerCase()}">${assignment.difficulty}</span>` : ''}
+                            ${assignment.estimated_hours ? `<span class="assignment-badge time-badge">~${assignment.estimated_hours}h</span>` : ''}
                             <span style="font-size: 0.8rem; color: var(--accent-primary); margin-left: auto;">Click to view →</span>
                         </div>
                     </div>
