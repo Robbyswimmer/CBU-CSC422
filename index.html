@@ -177,6 +177,49 @@
             color: var(--accent-primary);
         }
         
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+        }
+        
+        .mobile-nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .mobile-nav-links .nav-link {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-nav-links .nav-link:last-child {
+            border-bottom: none;
+        }
+        
         /* Vertical Navigation */
         .vertical-nav {
             position: fixed;
@@ -680,6 +723,10 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
             }
             
             /* Better mobile navigation touch targets */
@@ -1416,7 +1463,16 @@
                     <a href="course-calendar.html" class="nav-link">Course Calendar</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
                 </div>
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰</button>
             </nav>
+            <div class="mobile-nav-menu" id="mobile-nav-menu">
+                <div class="mobile-nav-links">
+                    <a href="index.html" class="nav-link" onclick="closeMobileNav()" style="color: var(--accent-primary);">Home</a>
+                    <a href="assignments.html" class="nav-link" onclick="closeMobileNav()">Assignments</a>
+                    <a href="course-calendar.html" class="nav-link" onclick="closeMobileNav()">Course Calendar</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank" onclick="closeMobileNav()">Syllabus</a>
+                </div>
+            </div>
         </div>
     </header>
 

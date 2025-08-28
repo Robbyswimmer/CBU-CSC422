@@ -85,7 +85,7 @@
         
         /* Add top padding to main content to account for fixed header */
         .main-content {
-            padding-top: 80px;
+            padding-top: 120px;
         }
         
         .nav {
@@ -118,6 +118,49 @@
         
         .nav-link:hover {
             color: var(--accent-primary);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+        }
+        
+        .mobile-nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .mobile-nav-links .nav-link {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-nav-links .nav-link:last-child {
+            border-bottom: none;
         }
         
         /* Main Content */
@@ -623,6 +666,10 @@
                 display: none;
             }
             
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
             .bottom-sections {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-md);
@@ -717,7 +764,16 @@
                     <a href="course-calendar.html" class="nav-link" style="color: var(--accent-primary);">Course Calendar</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
                 </div>
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰</button>
             </nav>
+            <div class="mobile-nav-menu" id="mobile-nav-menu">
+                <div class="mobile-nav-links">
+                    <a href="index.html" class="nav-link" onclick="closeMobileNav()">Home</a>
+                    <a href="assignments.html" class="nav-link" onclick="closeMobileNav()">Assignments</a>
+                    <a href="course-calendar.html" class="nav-link" onclick="closeMobileNav()" style="color: var(--accent-primary);">Course Calendar</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank" onclick="closeMobileNav()">Syllabus</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -1229,6 +1285,27 @@
             }
             if (event.key === 'ArrowRight' && !event.target.matches('input, select')) {
                 changeMonth(1);
+            }
+        });
+
+        // Mobile Navigation Functions
+        function toggleMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const toggleButton = document.querySelector('.mobile-nav-toggle');
+            
+            if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                mobileMenu.classList.remove('active');
             }
         });
 

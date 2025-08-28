@@ -114,6 +114,49 @@
             color: var(--accent-primary);
         }
         
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+        }
+        
+        .mobile-nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        
+        .mobile-nav-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .mobile-nav-links .nav-link {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-nav-links .nav-link:last-child {
+            border-bottom: none;
+        }
+        
         .section {
             padding: var(--spacing-xl) 0;
             position: relative;
@@ -538,6 +581,10 @@
                 display: none;
             }
             
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
             .hero-title {
                 font-size: 2rem;
             }
@@ -591,7 +638,16 @@
                     <a href="course-calendar.html" class="nav-link">Course Calendar</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
                 </div>
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰</button>
             </nav>
+            <div class="mobile-nav-menu" id="mobile-nav-menu">
+                <div class="mobile-nav-links">
+                    <a href="index.html" class="nav-link" onclick="closeMobileNav()">Home</a>
+                    <a href="assignments.html" class="nav-link" onclick="closeMobileNav()" style="color: var(--accent-primary);">Assignments</a>
+                    <a href="course-calendar.html" class="nav-link" onclick="closeMobileNav()">Course Calendar</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank" onclick="closeMobileNav()">Syllabus</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -1324,6 +1380,27 @@ function toggleModule(headerElement) {
     const moduleCard = headerElement.closest('.module-card');
     moduleCard.classList.toggle('expanded');
 }
+
+// Mobile Navigation Functions
+function toggleMobileNav() {
+    const mobileMenu = document.getElementById('mobile-nav-menu');
+    mobileMenu.classList.toggle('active');
+}
+
+function closeMobileNav() {
+    const mobileMenu = document.getElementById('mobile-nav-menu');
+    mobileMenu.classList.remove('active');
+}
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', (e) => {
+    const mobileMenu = document.getElementById('mobile-nav-menu');
+    const toggleButton = document.querySelector('.mobile-nav-toggle');
+    
+    if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+    }
+});
 
 function openAssignmentModal(assignmentTitle) {
     const assignment = assignmentsData.find(a => a.title === assignmentTitle);
