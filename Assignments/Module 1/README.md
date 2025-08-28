@@ -42,21 +42,16 @@ By the end of this module, you will be able to:
 ## 📝 Assignments
 
 ### CA.01: Linear Regression
-**Due:** September 12, 2025  
 **Points:** 3  
 **Estimated Time:** 2 hours
 
 ### Zybooks Labs: Chapter 1
-**Due:** September 12, 2025  
 **Points:** 3  
 **Estimated Time:** 2 hours
 
 ### Zybooks Reading: Chapter 1
-**Due:** September 12, 2025  
 **Points:** 3  
 **Estimated Time:** 2 hours
-
-*[Assignment details to be added]*
 
 ## 📊 Required Tools & Libraries
 

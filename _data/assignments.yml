@@ -21,3 +21,41 @@
     - "Python implementation (.py file)"
     - "Jupyter notebook with analysis"
     - "Written report (2-3 pages)"
+
+- date: "2025-09-12"
+  title: "Zybooks Labs: Chapter 1"
+  type: "lab"
+  points: 1
+  module: "Module 1"
+  module_number: 1
+  description: "Chapter 1 Labs from Zybooks"
+  detailed_description: "Students will complete the labs from Chapter 1 of the Zybooks textbook."
+  estimated_hours: 1
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/1/section/7"
+  skills:
+    - "Python Programming"
+    - "NumPy"
+    - "Data Preprocessing"
+    - "Linear Algebra"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-09-12"
+  title: "Zybooks Reading: Chapter 1"
+  type: "reading"
+  points: 1
+  module: "Module 1"
+  module_number: 1
+  description: "Chapter 1 Reading from Zybooks"
+  detailed_description: "Students will complete the reading from Chapter 1 of the Zybooks textbook."
+  estimated_hours: 1
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/1/section/1"
+  skills:
+    - "Python Programming"
+    - "NumPy"
+    - "Data Preprocessing"
+    - "Linear Algebra"
+  deliverables:
+    - "100% on Zybooks Reading"
