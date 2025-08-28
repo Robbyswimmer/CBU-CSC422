@@ -2516,7 +2516,9 @@
                         <div class="date-title">${dateItem.icon ? `${dateItem.icon} ` : ''}${dateItem.title}</div>
                         <div class="date-date">${formatDate(dateItem.date)} (${daysUntil === 0 ? 'Today' : daysUntil > 0 ? `${daysUntil} days` : `${Math.abs(daysUntil)} days ago`})</div>
                         <div class="date-description">${dateItem.description}</div>
-                        ${dateItem.type ? `<span class="badge" style="font-size: 0.75rem; margin-top: var(--spacing-sm);">${dateItem.type}</span>` : ''}
+                        <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm); align-items: center;">
+                            ${dateItem.type ? `<span class="badge" style="font-size: 0.75rem;">${dateItem.type}</span>` : ''}
+                        </div>
                     </div>
                 `;
             }).join('');
