@@ -1267,11 +1267,8 @@ function openAssignmentModal(assignmentTitle) {
     const assignment = assignmentsData.find(a => a.title === assignmentTitle);
     if (!assignment) return;
     
-    // Generate GitHub repository page URL
-    const moduleFolder = assignment.module || 'Module 1';
-    
-    // Open the GitHub repository page for the module (e.g., Assignments/Module 1/)
-    const assignmentUrl = `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(moduleFolder)}`;
+    // Use specific assignment URL from YAML data, or fallback to module folder
+    const assignmentUrl = assignment.github_url || `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(assignment.module || 'Module 1')}`;
     
     // Open assignment in new tab
     window.open(assignmentUrl, '_blank');

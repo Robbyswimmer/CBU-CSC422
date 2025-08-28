@@ -459,8 +459,15 @@
         /* Phase Cards */
         .phase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-md);
+        }
+        
+        /* Better responsive layout for 4 phases */
+        @media (min-width: 1200px) {
+            .phase-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
         
         .phase-card {
@@ -915,6 +922,45 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.4;
+        }
+        
+        /* Pagination Controls */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .pagination-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
         
         .schedule-grid {
@@ -1460,6 +1506,11 @@
                     <div class="assignment-list" id="upcoming-assignments">
                         <!-- Dynamic content loaded here -->
                     </div>
+                    <div class="pagination-controls" id="assignments-pagination" style="display: none;">
+                        <button class="pagination-btn" id="assignments-prev" onclick="changeAssignmentsPage(-1)">‹ Previous</button>
+                        <span class="pagination-info" id="assignments-page-info">Page 1 of 1</span>
+                        <button class="pagination-btn" id="assignments-next" onclick="changeAssignmentsPage(1)">Next ›</button>
+                    </div>
                 </div>
                 
                 <!-- Important Dates -->
@@ -1467,6 +1518,11 @@
                     <h3 class="calendar-title">📌 Important Dates</h3>
                     <div class="dates-list" id="important-dates">
                         <!-- Dynamic content loaded here -->
+                    </div>
+                    <div class="pagination-controls" id="dates-pagination" style="display: none;">
+                        <button class="pagination-btn" id="dates-prev" onclick="changeDatesPage(-1)">‹ Previous</button>
+                        <span class="pagination-info" id="dates-page-info">Page 1 of 1</span>
+                        <button class="pagination-btn" id="dates-next" onclick="changeDatesPage(1)">Next ›</button>
                     </div>
                 </div>
             </div>
@@ -2326,34 +2382,48 @@
             }).join('');
         }
 
+        // Pagination state
+        let assignmentsPage = 1;
+        let datesPage = 1;
+        const itemsPerPage = 3;
+        let allUpcomingAssignments = [];
+        let allImportantDates = [];
+
         function loadUpcomingAssignments() {
-            const container = document.getElementById('upcoming-assignments');
             const today = new Date();
             
             // Check if assignments data is loaded
             if (!Array.isArray(courseData.assignments)) {
-                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: var(--spacing-md);">Loading assignments...</p>';
+                document.getElementById('upcoming-assignments').innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: var(--spacing-md);">Loading assignments...</p>';
                 return;
             }
             
             // Filter and sort upcoming assignments
-            const upcomingAssignments = courseData.assignments
+            allUpcomingAssignments = courseData.assignments
                 .filter(assignment => new Date(assignment.date) >= today)
-                .sort((a, b) => new Date(a.date) - new Date(b.date))
-                .slice(0, 5); // Show next 5 assignments
+                .sort((a, b) => new Date(a.date) - new Date(b.date));
 
-            if (upcomingAssignments.length === 0) {
-                container.innerHTML = '<p style="color: var(--text-secondary);">No upcoming assignments</p>';
+            if (allUpcomingAssignments.length === 0) {
+                document.getElementById('upcoming-assignments').innerHTML = '<p style="color: var(--text-secondary);">No upcoming assignments</p>';
+                document.getElementById('assignments-pagination').style.display = 'none';
                 return;
             }
 
-            container.innerHTML = upcomingAssignments.map(assignment => {
+            displayAssignmentsPage();
+        }
+
+        function displayAssignmentsPage() {
+            const container = document.getElementById('upcoming-assignments');
+            const startIndex = (assignmentsPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageItems = allUpcomingAssignments.slice(startIndex, endIndex);
+
+            container.innerHTML = pageItems.map(assignment => {
                 const daysUntil = getDaysUntil(assignment.date);
                 const statusClass = getStatusClass(daysUntil);
                 
-                // Generate GitHub repository page URL
-                const moduleFolder = assignment.module || 'Module 1';
-                const assignmentUrl = `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(moduleFolder)}`;
+                // Use specific assignment URL from YAML data, or fallback to module folder
+                const assignmentUrl = assignment.github_url || `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(assignment.module || 'Module 1')}`;
                 
                 return `
                     <div class="assignment-item ${statusClass}" style="cursor: pointer; transition: var(--transition);" 
@@ -2372,41 +2442,88 @@
                     </div>
                 `;
             }).join('');
+
+            // Update pagination controls
+            const totalPages = Math.ceil(allUpcomingAssignments.length / itemsPerPage);
+            if (totalPages > 1) {
+                document.getElementById('assignments-pagination').style.display = 'flex';
+                document.getElementById('assignments-page-info').textContent = `Page ${assignmentsPage} of ${totalPages}`;
+                document.getElementById('assignments-prev').disabled = assignmentsPage <= 1;
+                document.getElementById('assignments-next').disabled = assignmentsPage >= totalPages;
+            } else {
+                document.getElementById('assignments-pagination').style.display = 'none';
+            }
+        }
+
+        function changeAssignmentsPage(direction) {
+            const totalPages = Math.ceil(allUpcomingAssignments.length / itemsPerPage);
+            assignmentsPage += direction;
+            assignmentsPage = Math.max(1, Math.min(assignmentsPage, totalPages));
+            displayAssignmentsPage();
         }
 
         function loadImportantDates() {
-            const container = document.getElementById('important-dates');
             const today = new Date();
             
             // Check if important dates data is loaded
             if (!Array.isArray(courseData.importantDates)) {
-                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: var(--spacing-md);">Loading important dates...</p>';
+                document.getElementById('important-dates').innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: var(--spacing-md);">Loading important dates...</p>';
                 return;
             }
             
-            // Filter and sort upcoming important dates
-            const upcomingDates = courseData.importantDates
-                .filter(date => new Date(date.date) >= today)
-                .sort((a, b) => new Date(a.date) - new Date(b.date))
-                .slice(0, 4); // Show next 4 dates
+            // Filter and sort important dates (show dates from 30 days ago to future)
+            const thirtyDaysAgo = new Date(today);
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            
+            allImportantDates = courseData.importantDates
+                .filter(dateItem => new Date(dateItem.date) >= thirtyDaysAgo)
+                .sort((a, b) => new Date(a.date) - new Date(b.date));
 
-            if (upcomingDates.length === 0) {
-                container.innerHTML = '<p style="color: var(--text-secondary);">No upcoming important dates</p>';
+            if (allImportantDates.length === 0) {
+                document.getElementById('important-dates').innerHTML = '<p style="color: var(--text-secondary);">No important dates</p>';
+                document.getElementById('dates-pagination').style.display = 'none';
                 return;
             }
 
-            container.innerHTML = upcomingDates.map(dateItem => {
+            displayDatesPage();
+        }
+
+        function displayDatesPage() {
+            const container = document.getElementById('important-dates');
+            const startIndex = (datesPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageItems = allImportantDates.slice(startIndex, endIndex);
+
+            container.innerHTML = pageItems.map(dateItem => {
                 const daysUntil = getDaysUntil(dateItem.date);
                 
                 return `
                     <div class="date-item">
                         <div class="date-title">${dateItem.icon ? `${dateItem.icon} ` : ''}${dateItem.title}</div>
-                        <div class="date-date">${formatDate(dateItem.date)} (${daysUntil > 0 ? `${daysUntil} days` : 'Today'})</div>
+                        <div class="date-date">${formatDate(dateItem.date)} (${daysUntil === 0 ? 'Today' : daysUntil > 0 ? `${daysUntil} days` : `${Math.abs(daysUntil)} days ago`})</div>
                         <div class="date-description">${dateItem.description}</div>
-                        ${dateItem.type ? `<span class="badge" style="font-size: 0.75rem; margin-top: var(--spacing-xs);">${dateItem.type}</span>` : ''}
+                        ${dateItem.type ? `<span class="badge" style="font-size: 0.75rem; margin-top: var(--spacing-md);">${dateItem.type}</span>` : ''}
                     </div>
                 `;
             }).join('');
+
+            // Update pagination controls
+            const totalPages = Math.ceil(allImportantDates.length / itemsPerPage);
+            if (totalPages > 1) {
+                document.getElementById('dates-pagination').style.display = 'flex';
+                document.getElementById('dates-page-info').textContent = `Page ${datesPage} of ${totalPages}`;
+                document.getElementById('dates-prev').disabled = datesPage <= 1;
+                document.getElementById('dates-next').disabled = datesPage >= totalPages;
+            } else {
+                document.getElementById('dates-pagination').style.display = 'none';
+            }
+        }
+
+        function changeDatesPage(direction) {
+            const totalPages = Math.ceil(allImportantDates.length / itemsPerPage);
+            datesPage += direction;
+            datesPage = Math.max(1, Math.min(datesPage, totalPages));
+            displayDatesPage();
         }
 
         // Mobile Navigation Functions
