@@ -85,7 +85,7 @@
         
         /* Add top padding to main content to account for fixed header */
         .main-content {
-            padding-top: 120px;
+            padding-top: 140px;
         }
         
         .nav {
@@ -1544,7 +1544,8 @@
             
             // Add lectures (recurring weekly events)
             courseData.weeklySchedule.forEach(lecture => {
-                if (lecture.day === dayName) {
+                // Handle special first class on Wednesday 09/03/2025
+                if (lecture.first_class_only && dateStr === '2025-09-03') {
                     events.push({
                         title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
                         type: 'lecture',
@@ -1552,6 +1553,19 @@
                         location: lecture.location,
                         description: lecture.description
                     });
+                }
+                // Regular recurring schedule (skip first class only entries)
+                else if (!lecture.first_class_only && lecture.day === dayName) {
+                    // Only show regular classes starting from Tuesday 09/10/2025 onwards
+                    if (targetDate >= new Date('2025-09-10')) {
+                        events.push({
+                            title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
+                            type: 'lecture',
+                            time: lecture.time,
+                            location: lecture.location,
+                            description: lecture.description
+                        });
+                    }
                 }
             });
             
@@ -1811,7 +1825,15 @@
             // Get lectures for this day
             const targetDate = new Date(dateStr);
             const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][targetDate.getDay()];
-            const lectures = courseData.weeklySchedule.filter(l => l.day === dayName);
+            
+            const lectures = courseData.weeklySchedule.filter(l => {
+                // Special first class on Wednesday 09/03/2025
+                if (l.first_class_only && dateStr === '2025-09-03') {
+                    return true;
+                }
+                // Regular recurring schedule (starting from 09/10/2025)
+                return !l.first_class_only && l.day === dayName && targetDate >= new Date('2025-09-10');
+            });
             
             const allEvents = [
                 ...assignments.map(a => ({...a, type: a.type || 'assignment', eventType: 'assignment'})),
