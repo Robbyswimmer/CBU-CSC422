@@ -195,7 +195,7 @@
         }
         
         /* Mobile Week View */
-        .mobile-week-view {
+        .mobile-week-view, .mobile-sections {
             display: none;
         }
         
@@ -744,8 +744,8 @@
                 display: none;
             }
             
-            /* Show week view on mobile */
-            .mobile-week-view {
+            /* Show week view and mobile sections on mobile */
+            .mobile-week-view, .mobile-sections {
                 display: block;
             }
             
@@ -757,50 +757,90 @@
                 display: block;
             }
             
-            /* Mobile sidebar optimization */
+            /* Completely redesigned mobile experience */
             .sidebar {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-                margin-top: var(--spacing-md);
+                display: none; /* Hide cramped sidebar on mobile */
             }
             
-            .sidebar-section {
-                min-width: unset;
-                padding: var(--spacing-sm);
+            /* Create a clean mobile layout with proper sections */
+            .mobile-sections {
+                display: block;
+                margin-top: var(--spacing-lg);
+                padding: 0 var(--spacing-sm);
             }
             
-            .sidebar-title {
-                font-size: 1.1rem;
-                margin-bottom: var(--spacing-xs);
-            }
-            
-            /* Make assignment items more touch-friendly */
-            .assignment-item, .important-date-item {
-                padding: var(--spacing-sm);
-                margin-bottom: var(--spacing-xs);
-                border-radius: var(--border-radius);
-                background: var(--bg-secondary);
+            .mobile-section {
+                background: var(--bg-card);
+                border-radius: var(--border-radius-lg);
                 border: 1px solid var(--border);
-                min-height: 60px;
+                margin-bottom: var(--spacing-lg);
+                padding: var(--spacing-lg);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-section-title {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: var(--accent-primary);
+                margin-bottom: var(--spacing-md);
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                align-items: center;
+                gap: var(--spacing-sm);
             }
             
-            .assignment-item:hover, .important-date-item:hover {
+            .mobile-section-title::before {
+                content: '';
+                width: 4px;
+                height: 24px;
+                background: var(--accent-primary);
+                border-radius: 2px;
+            }
+            
+            /* Clean assignment/date items for mobile */
+            .mobile-item {
+                background: var(--bg-secondary);
+                border-radius: var(--border-radius);
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-md);
+                border-left: 4px solid var(--accent-primary);
+                transition: var(--transition);
+                cursor: pointer;
+            }
+            
+            .mobile-item:hover {
                 background: var(--bg-hover);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
             }
             
-            .assignment-title, .important-date-title {
-                font-size: 1rem;
+            .mobile-item:last-child {
+                margin-bottom: 0;
+            }
+            
+            .mobile-item-title {
+                font-size: 1.1rem;
                 font-weight: 600;
-                line-height: 1.3;
+                color: var(--text-primary);
+                margin-bottom: var(--spacing-xs);
+                line-height: 1.4;
             }
             
-            .assignment-meta, .important-date-meta {
+            .mobile-item-meta {
                 font-size: 0.9rem;
-                margin-top: var(--spacing-xs);
+                color: var(--text-secondary);
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--spacing-sm);
+                align-items: center;
             }
+            
+            .mobile-item-badge {
+                background: rgba(102, 126, 234, 0.1);
+                color: var(--accent-primary);
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 0.8rem;
+                font-weight: 500;
             }
             
             /* Mobile sidebar becomes full width sections */
@@ -872,35 +912,148 @@
                 font-size: 0.9rem;
             }
             
-            /* Touch-friendly week navigation */
-            .week-day-card {
-                cursor: pointer;
-                transition: var(--transition);
-                min-height: 80px;
+            /* Redesigned mobile week view */
+            .mobile-week-view {
+                padding: 0 var(--spacing-sm);
             }
             
-            .week-day-card:active {
-                transform: scale(0.98);
+            .calendar-header {
+                background: var(--bg-card);
+                border-radius: var(--border-radius-lg);
+                padding: var(--spacing-lg);
+                margin-bottom: var(--spacing-lg);
+                border: 1px solid var(--border);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            
+            .calendar-title {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: var(--spacing-md);
+                text-align: center;
+            }
+            
+            .calendar-nav {
+                display: flex;
+                justify-content: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .calendar-nav-btn {
+                background: var(--accent-primary);
+                color: white;
+                border: none;
+                border-radius: var(--border-radius);
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-weight: 500;
+                cursor: pointer;
+                transition: var(--transition);
+                min-height: 44px;
+                font-size: 0.9rem;
+            }
+            
+            .calendar-nav-btn:hover {
+                background: var(--accent-secondary);
+                transform: translateY(-1px);
+            }
+            
+            /* Beautiful day cards */
+            .week-day-card {
+                background: var(--bg-card);
+                border-radius: var(--border-radius-lg);
+                border: 1px solid var(--border);
+                margin-bottom: var(--spacing-md);
+                padding: var(--spacing-lg);
+                cursor: pointer;
+                transition: var(--transition);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            }
+            
+            .week-day-card:hover {
+                background: var(--bg-hover);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+            
+            .week-day-card.today {
+                border-color: var(--accent-primary);
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(102, 126, 234, 0.02));
+            }
+            
+            .week-day-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: var(--spacing-md);
+                padding-bottom: var(--spacing-sm);
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .week-day-name {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: var(--text-primary);
+            }
+            
+            .week-day-date {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--accent-primary);
+                background: rgba(102, 126, 234, 0.1);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .week-day-card.today .week-day-date {
+                background: var(--accent-primary);
+                color: white;
             }
             
             .week-event {
-                min-height: 44px;
+                background: var(--bg-secondary);
+                border-radius: var(--border-radius);
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-sm);
+                border-left: 4px solid var(--accent-orange);
+                transition: var(--transition);
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: var(--spacing-sm);
-                margin-bottom: var(--spacing-xs);
-                background: var(--bg-secondary);
-                border-radius: var(--border-radius);
-                cursor: pointer;
-                transition: var(--transition);
             }
             
-            .week-event:hover,
-            .week-event:active {
-                background: var(--accent-primary);
-                color: white;
+            .week-event.assignment {
+                border-left-color: var(--accent-orange);
+            }
+            
+            .week-event.lab {
+                border-left-color: var(--accent-green);
+            }
+            
+            .week-event.reading {
+                border-left-color: var(--accent-secondary);
+            }
+            
+            .week-event:hover {
+                background: var(--bg-hover);
                 transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            
+            .week-event:last-child {
+                margin-bottom: 0;
+            }
+            
+            .week-no-events {
+                color: var(--text-muted);
+                font-style: italic;
+                text-align: center;
+                padding: var(--spacing-lg) 0;
             }
             
             .assignment-list {
@@ -1079,6 +1232,33 @@
                 </div>
             </div>
 
+            <!-- Mobile-Optimized Sections -->
+            <div class="mobile-sections">
+                <!-- Upcoming Assignments Mobile -->
+                <div class="mobile-section">
+                    <h3 class="mobile-section-title">📋 Upcoming Assignments</h3>
+                    <div id="mobile-upcoming-assignments">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Important Dates Mobile -->
+                <div class="mobile-section">
+                    <h3 class="mobile-section-title">📌 Important Dates</h3>
+                    <div id="mobile-important-dates">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Course Statistics Mobile -->
+                <div class="mobile-section">
+                    <h3 class="mobile-section-title">📊 Course Progress</h3>
+                    <div id="mobile-course-stats">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Bottom Sections -->
             <div class="bottom-sections">
                 <!-- Important Dates -->
@@ -1157,6 +1337,9 @@
                 populateAssignments();
                 populateImportantDates();
                 populateCourseStats();
+                populateMobileAssignments();
+                populateMobileImportantDates();
+                populateMobileCourseStats();
                 setupEventListeners();
                 
             } catch (error) {
@@ -1466,6 +1649,88 @@
             document.getElementById('course-stats').innerHTML = statsHTML;
         }
 
+        // Mobile population functions
+        function populateMobileAssignments() {
+            const today = new Date();
+            const upcoming = filteredAssignments
+                .filter(assignment => new Date(assignment.date) >= today)
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
+                .slice(0, 5);
+            
+            const upcomingHTML = upcoming.map(assignment => {
+                const daysUntil = Math.ceil((new Date(assignment.date) - today) / (1000 * 60 * 60 * 24));
+                const assignmentUrl = assignment.github_url || `https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/${encodeURIComponent(assignment.module || 'Module 1')}`;
+                return `
+                    <div class="mobile-item" onclick="window.open('${assignmentUrl}', '_blank')">
+                        <div class="mobile-item-title">${assignment.title}</div>
+                        <div class="mobile-item-meta">
+                            <span class="mobile-item-badge ${assignment.type}">${assignment.type}</span>
+                            <span>${formatDate(assignment.date)}</span>
+                            <span>${daysUntil} days left</span>
+                            <span>${assignment.points} pts</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('mobile-upcoming-assignments').innerHTML = 
+                upcomingHTML || '<div class="mobile-item"><div class="mobile-item-title">No upcoming assignments</div></div>';
+        }
+
+        function populateMobileImportantDates() {
+            const datesHTML = courseData.importantDates.map(date => `
+                <div class="mobile-item">
+                    <div class="mobile-item-title">${date.icon || '📅'} ${date.title}</div>
+                    <div class="mobile-item-meta">
+                        <span class="mobile-item-badge">Date</span>
+                        <span>${formatDate(date.date)}</span>
+                    </div>
+                    <div style="margin-top: var(--spacing-xs); font-size: 0.9rem; color: var(--text-secondary);">${date.description}</div>
+                </div>
+            `).join('');
+            
+            document.getElementById('mobile-important-dates').innerHTML = 
+                datesHTML || '<div class="mobile-item"><div class="mobile-item-title">No important dates</div></div>';
+        }
+
+        function populateMobileCourseStats() {
+            const today = new Date();
+            const totalAssignments = courseData.assignments.length;
+            const completedAssignments = courseData.assignments.filter(a => new Date(a.date) < today).length;
+            const upcomingAssignments = totalAssignments - completedAssignments;
+            const totalPoints = courseData.assignments.reduce((sum, assignment) => sum + (assignment.points || 0), 0);
+            const progress = totalAssignments > 0 ? Math.round((completedAssignments / totalAssignments) * 100) : 0;
+            
+            const statsHTML = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                    <div class="mobile-item" style="text-align: center; cursor: default;">
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: var(--spacing-xs);">${totalAssignments}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Assignments</div>
+                    </div>
+                    <div class="mobile-item" style="text-align: center; cursor: default;">
+                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-green); margin-bottom: var(--spacing-xs);">${totalPoints}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Points</div>
+                    </div>
+                </div>
+                
+                <div class="mobile-item" style="cursor: default;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-sm);">
+                        <span style="font-weight: 600;">Course Progress</span>
+                        <span style="font-weight: 700; color: var(--accent-primary);">${progress}%</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border-radius: 10px; height: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); height: 100%; width: ${progress}%; transition: width 0.8s ease; border-radius: 10px;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: var(--spacing-sm); font-size: 0.85rem; color: var(--text-secondary);">
+                        <span>${completedAssignments} completed</span>
+                        <span>${upcomingAssignments} remaining</span>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('mobile-course-stats').innerHTML = statsHTML;
+        }
+
         // Event listeners
         function setupEventListeners() {
             // Search functionality
@@ -1489,6 +1754,7 @@
             });
             
             populateAssignments();
+            populateMobileAssignments();
             renderCalendar();
         }
 

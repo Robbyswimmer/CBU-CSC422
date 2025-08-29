@@ -639,6 +639,55 @@
                 justify-content: center;
             }
             
+            /* Mobile assignment cards within modules */
+            .assignment-card {
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-sm);
+                border-radius: var(--border-radius);
+                min-height: auto;
+            }
+            
+            .assignment-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-xs);
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .assignment-title {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                margin-bottom: var(--spacing-xs);
+                word-break: break-word;
+            }
+            
+            .assignment-due {
+                font-size: 0.9rem;
+                color: var(--accent-orange);
+                font-weight: 500;
+            }
+            
+            .assignment-details {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+                margin-top: var(--spacing-sm);
+            }
+            
+            .detail-badge {
+                padding: 4px 8px;
+                font-size: 0.75rem;
+                border-radius: 4px;
+                white-space: nowrap;
+            }
+            
+            .assignment-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: var(--spacing-sm) 0;
+                color: var(--text-secondary);
+            }
+            
             .assignment-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1230,7 +1279,23 @@
     }
     
     .assignments-stats {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .stat-card {
+        padding: var(--spacing-md);
+        min-height: auto;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+        line-height: 1.2;
     }
 }
 
@@ -1247,6 +1312,37 @@
     
     .hero-title {
         font-size: 2rem !important;
+    }
+    
+    /* Extra small screen improvements */
+    .assignments-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .stat-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .assignment-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .assignment-title {
+        font-size: 1rem;
+    }
+    
+    .detail-badge {
+        font-size: 0.7rem;
+        padding: 2px 6px;
     }
 }
 </style>
