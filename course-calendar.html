@@ -1543,9 +1543,11 @@
             });
             
             // Add lectures (recurring weekly events)
+            const semesterStart = new Date(courseData.semester.start_date || '2025-09-03');
+            const semesterEnd = new Date(courseData.semester.end_date || '2025-12-15');
+            
             courseData.weeklySchedule.forEach(lecture => {
-                // Handle special first class on Wednesday 09/03/2025
-                if (lecture.first_class_only && dateStr === '2025-09-03') {
+                if (lecture.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd) {
                     events.push({
                         title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
                         type: 'lecture',
@@ -1553,19 +1555,6 @@
                         location: lecture.location,
                         description: lecture.description
                     });
-                }
-                // Regular recurring schedule (skip first class only entries)
-                else if (!lecture.first_class_only && lecture.day === dayName) {
-                    // Only show regular classes starting from Monday 09/09/2025 onwards
-                    if (targetDate >= new Date('2025-09-09')) {
-                        events.push({
-                            title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
-                            type: 'lecture',
-                            time: lecture.time,
-                            location: lecture.location,
-                            description: lecture.description
-                        });
-                    }
                 }
             });
             
@@ -1825,14 +1814,11 @@
             // Get lectures for this day
             const targetDate = new Date(dateStr);
             const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][targetDate.getDay()];
+            const semesterStart = new Date(courseData.semester.start_date || '2025-09-03');
+            const semesterEnd = new Date(courseData.semester.end_date || '2025-12-15');
             
             const lectures = courseData.weeklySchedule.filter(l => {
-                // Special first class on Wednesday 09/03/2025
-                if (l.first_class_only && dateStr === '2025-09-03') {
-                    return true;
-                }
-                // Regular recurring schedule (starting from 09/09/2025)
-                return !l.first_class_only && l.day === dayName && targetDate >= new Date('2025-09-09');
+                return l.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd;
             });
             
             const allEvents = [
