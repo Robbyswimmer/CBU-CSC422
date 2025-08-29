@@ -1,4 +1,4 @@
-![Module 1 Cover](https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Assignments/Module%201/module_1.png)
+![Module 1 Cover](https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/module_1.png)
 
 # Module 1: Introduction to Machine Learning
 
