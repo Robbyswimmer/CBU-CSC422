@@ -194,6 +194,101 @@
             margin-bottom: var(--spacing-lg);
         }
         
+        /* Mobile Week View */
+        .mobile-week-view {
+            display: none;
+        }
+        
+        .week-day-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+            margin-bottom: var(--spacing-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .week-day-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .week-day-card.today {
+            border-left: 4px solid var(--accent-primary);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .week-day-header {
+            background: var(--bg-secondary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .week-day-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .week-day-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .week-day-events {
+            padding: var(--spacing-sm) var(--spacing-md);
+            min-height: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .week-event {
+            background: var(--accent-primary);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .week-event:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .week-event.assignment {
+            background: var(--accent-orange);
+        }
+        
+        .week-event.lab {
+            background: var(--accent-green);
+        }
+        
+        .week-event.reading {
+            background: var(--accent-secondary);
+        }
+        
+        .week-event.holiday {
+            background: #ff6b6b;
+        }
+        
+        .week-event.milestone {
+            background: #4ecdc4;
+        }
+        
+        .week-no-events {
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+        
         /* Calendar Grid */
         .calendar-container {
             background: var(--bg-card);
@@ -644,22 +739,14 @@
                 padding: 0 var(--spacing-sm);
             }
             
-            .calendar-day {
-                height: 100px;
-                padding: var(--spacing-xs);
+            /* Hide month view on mobile */
+            .calendar-layout {
+                display: none;
             }
             
-            .calendar-event {
-                font-size: 0.6rem;
-                padding: 1px 3px;
-            }
-            
-            .sidebar {
-                flex-direction: column;
-            }
-            
-            .sidebar-section {
-                min-width: auto;
+            /* Show week view on mobile */
+            .mobile-week-view {
+                display: block;
             }
             
             .nav-links {
@@ -670,6 +757,59 @@
                 display: block;
             }
             
+            /* Mobile sidebar optimization */
+            .sidebar {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                margin-top: var(--spacing-md);
+            }
+            
+            .sidebar-section {
+                min-width: unset;
+                padding: var(--spacing-sm);
+            }
+            
+            .sidebar-title {
+                font-size: 1.1rem;
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            /* Make assignment items more touch-friendly */
+            .assignment-item, .important-date-item {
+                padding: var(--spacing-sm);
+                margin-bottom: var(--spacing-xs);
+                border-radius: var(--border-radius);
+                background: var(--bg-secondary);
+                border: 1px solid var(--border);
+                min-height: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .assignment-item:hover, .important-date-item:hover {
+                background: var(--bg-hover);
+            }
+            
+            .assignment-title, .important-date-title {
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.3;
+            }
+            
+            .assignment-meta, .important-date-meta {
+                font-size: 0.9rem;
+                margin-top: var(--spacing-xs);
+            }
+            }
+            
+            /* Mobile sidebar becomes full width sections */
+            .bottom-sections {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+                margin-top: var(--spacing-md);
+            }
+            
             .bottom-sections {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-md);
@@ -677,15 +817,90 @@
             
             .modal-content {
                 width: 95vw;
-                max-height: 85vh;
+                max-height: 90vh;
+                margin: var(--spacing-sm);
+                max-width: none;
             }
             
             .modal-header {
                 padding: var(--spacing-md);
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
+                word-break: break-word;
+                flex: 1;
+                min-width: 0;
             }
             
             .modal-body {
                 padding: var(--spacing-md);
+            }
+            
+            .modal-event-item {
+                padding: var(--spacing-sm);
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .modal-event-title {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            .modal-event-meta {
+                font-size: 0.85rem;
+            }
+            
+            .modal-event-description {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+            
+            /* Make modal close button more touch-friendly */
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            /* Touch-friendly calendar navigation */
+            .calendar-nav-btn {
+                min-height: 44px;
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.9rem;
+            }
+            
+            /* Touch-friendly week navigation */
+            .week-day-card {
+                cursor: pointer;
+                transition: var(--transition);
+                min-height: 80px;
+            }
+            
+            .week-day-card:active {
+                transform: scale(0.98);
+            }
+            
+            .week-event {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: var(--spacing-sm);
+                margin-bottom: var(--spacing-xs);
+                background: var(--bg-secondary);
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                transition: var(--transition);
+            }
+            
+            .week-event:hover,
+            .week-event:active {
+                background: var(--accent-primary);
+                color: white;
+                transform: translateY(-1px);
             }
             
             .assignment-list {
@@ -849,6 +1064,21 @@
                 </div>
             </div>
 
+            <!-- Mobile Week View -->
+            <div class="mobile-week-view">
+                <div class="calendar-header">
+                    <h2 class="calendar-title" id="mobile-week-title">This Week</h2>
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prev-week" onclick="changeWeek(-1)">‹ Previous</button>
+                        <button class="calendar-nav-btn" id="today-week-btn" onclick="goToToday()">Today</button>
+                        <button class="calendar-nav-btn" id="next-week" onclick="changeWeek(1)">Next ›</button>
+                    </div>
+                </div>
+                <div class="mobile-week-container" id="mobile-week-container">
+                    <!-- Week view will be generated here -->
+                </div>
+            </div>
+
             <!-- Bottom Sections -->
             <div class="bottom-sections">
                 <!-- Important Dates -->
@@ -894,6 +1124,7 @@
     <script>
         // Global variables
         let currentDate = new Date();
+        let currentWeekStart = getWeekStart(new Date());
         let courseData = {
             assignments: [],
             importantDates: [],
@@ -922,6 +1153,7 @@
                 filteredAssignments = [...courseData.assignments];
                 
                 renderCalendar();
+                renderMobileWeekView();
                 populateAssignments();
                 populateImportantDates();
                 populateCourseStats();
@@ -1007,6 +1239,74 @@
             }
             
             document.getElementById('calendar-grid').innerHTML = calendarHTML;
+        }
+
+        // Mobile Week View Functions
+        function getWeekStart(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            const diff = d.getDate() - day; // Sunday is 0
+            return new Date(d.setDate(diff));
+        }
+
+        function renderMobileWeekView() {
+            const weekStart = new Date(currentWeekStart);
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekStart.getDate() + 6);
+            
+            const weekTitle = `${weekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${weekEnd.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+            document.getElementById('mobile-week-title').textContent = weekTitle;
+            
+            let weekHTML = '';
+            
+            for (let i = 0; i < 7; i++) {
+                const dayDate = new Date(weekStart);
+                dayDate.setDate(weekStart.getDate() + i);
+                const dayDateStr = `${dayDate.getFullYear()}-${String(dayDate.getMonth() + 1).padStart(2, '0')}-${String(dayDate.getDate()).padStart(2, '0')}`;
+                
+                const isToday = isDateToday(dayDateStr);
+                const events = getEventsForDate(dayDateStr);
+                
+                const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const dayName = dayNames[dayDate.getDay()];
+                const dayNumber = dayDate.getDate();
+                
+                let eventsHTML = '';
+                if (events.length > 0) {
+                    eventsHTML = events.map(event => `
+                        <div class="week-event ${event.type}" onclick="showEventDetails('${event.title}', '${event.type}', '${dayDateStr}')" title="${event.title}">
+                            <span>${event.title}</span>
+                            <span style="font-size: 0.8rem; opacity: 0.9;">→</span>
+                        </div>
+                    `).join('');
+                } else {
+                    eventsHTML = '<div class="week-no-events">No events</div>';
+                }
+                
+                weekHTML += `
+                    <div class="week-day-card ${isToday ? 'today' : ''}" onclick="showDayDetails('${dayDateStr}')">
+                        <div class="week-day-header">
+                            <span class="week-day-name">${dayName}</span>
+                            <span class="week-day-date">${dayNumber}</span>
+                        </div>
+                        <div class="week-day-events">
+                            ${eventsHTML}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('mobile-week-container').innerHTML = weekHTML;
+        }
+
+        function changeWeek(direction) {
+            currentWeekStart.setDate(currentWeekStart.getDate() + (direction * 7));
+            renderMobileWeekView();
+        }
+
+        function goToToday() {
+            currentWeekStart = getWeekStart(new Date());
+            renderMobileWeekView();
         }
 
         // Helper functions
