@@ -438,6 +438,10 @@
             background: #4ecdc4;
         }
         
+        .calendar-event.lecture {
+            background: var(--accent-secondary);
+        }
+        
         .calendar-event.more {
             background: var(--text-muted);
             font-weight: 600;
@@ -749,6 +753,11 @@
                 display: block;
             }
             
+            /* Hide desktop bottom sections on mobile */
+            .bottom-sections {
+                display: none;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -930,7 +939,7 @@
                 font-size: 1.4rem;
                 font-weight: 700;
                 color: var(--text-primary);
-                margin-bottom: var(--spacing-md);
+                margin-bottom: var(--spacing-lg);
                 text-align: center;
             }
             
@@ -938,6 +947,7 @@
                 display: flex;
                 justify-content: center;
                 gap: var(--spacing-sm);
+                flex-wrap: wrap;
             }
             
             .calendar-nav-btn {
@@ -1037,6 +1047,11 @@
             
             .week-event.reading {
                 border-left-color: var(--accent-secondary);
+            }
+            
+            .week-event.lecture {
+                border-left-color: var(--accent-secondary);
+                background: rgba(102, 126, 234, 0.05);
             }
             
             .week-event:hover {
@@ -1308,7 +1323,8 @@
         let courseData = {
             assignments: [],
             importantDates: [],
-            semester: {}
+            semester: {},
+            weeklySchedule: []
         };
         let filteredAssignments = [];
 
@@ -1320,15 +1336,17 @@
         // Load course data
         async function loadCourseData() {
             try {
-                const [assignmentsResponse, datesResponse, semesterResponse] = await Promise.all([
+                const [assignmentsResponse, datesResponse, semesterResponse, scheduleResponse] = await Promise.all([
                     fetch('assets/data/assignments.json'),
                     fetch('assets/data/important_dates.json'),
-                    fetch('assets/data/semester.json')
+                    fetch('assets/data/semester.json'),
+                    fetch('assets/data/weekly_schedule.json')
                 ]);
 
                 courseData.assignments = await assignmentsResponse.json();
                 courseData.importantDates = await datesResponse.json();
                 courseData.semester = await semesterResponse.json();
+                courseData.weeklySchedule = await scheduleResponse.json();
 
                 filteredAssignments = [...courseData.assignments];
                 
@@ -1501,6 +1519,8 @@
 
         function getEventsForDate(dateStr) {
             const events = [];
+            const targetDate = new Date(dateStr);
+            const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][targetDate.getDay()];
             
             // Add assignments
             courseData.assignments.forEach(assignment => {
@@ -1518,6 +1538,19 @@
                     events.push({
                         title: date.title,
                         type: date.type || 'milestone'
+                    });
+                }
+            });
+            
+            // Add lectures (recurring weekly events)
+            courseData.weeklySchedule.forEach(lecture => {
+                if (lecture.day === dayName) {
+                    events.push({
+                        title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
+                        type: 'lecture',
+                        time: lecture.time,
+                        location: lecture.location,
+                        description: lecture.description
                     });
                 }
             });
@@ -1775,9 +1808,22 @@
             const assignments = courseData.assignments.filter(a => a.date === dateStr);
             const dates = courseData.importantDates.filter(d => d.date === dateStr);
             
+            // Get lectures for this day
+            const targetDate = new Date(dateStr);
+            const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][targetDate.getDay()];
+            const lectures = courseData.weeklySchedule.filter(l => l.day === dayName);
+            
             const allEvents = [
                 ...assignments.map(a => ({...a, type: a.type || 'assignment', eventType: 'assignment'})),
-                ...dates.map(d => ({...d, type: d.type || 'milestone', eventType: 'date'}))
+                ...dates.map(d => ({...d, type: d.type || 'milestone', eventType: 'date'})),
+                ...lectures.map(l => ({
+                    title: `${l.type === 'lecture' ? 'Lecture' : 'Class'}`,
+                    description: `${l.time} - ${l.location}\n${l.description}`,
+                    type: 'lecture',
+                    eventType: 'lecture',
+                    time: l.time,
+                    location: l.location
+                }))
             ];
             
             if (allEvents.length === 0) {
