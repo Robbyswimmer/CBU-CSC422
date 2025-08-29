@@ -1556,8 +1556,8 @@
                 }
                 // Regular recurring schedule (skip first class only entries)
                 else if (!lecture.first_class_only && lecture.day === dayName) {
-                    // Only show regular classes starting from Tuesday 09/10/2025 onwards
-                    if (targetDate >= new Date('2025-09-10')) {
+                    // Only show regular classes starting from Monday 09/09/2025 onwards
+                    if (targetDate >= new Date('2025-09-09')) {
                         events.push({
                             title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
                             type: 'lecture',
@@ -1831,8 +1831,8 @@
                 if (l.first_class_only && dateStr === '2025-09-03') {
                     return true;
                 }
-                // Regular recurring schedule (starting from 09/10/2025)
-                return !l.first_class_only && l.day === dayName && targetDate >= new Date('2025-09-10');
+                // Regular recurring schedule (starting from 09/09/2025)
+                return !l.first_class_only && l.day === dayName && targetDate >= new Date('2025-09-09');
             });
             
             const allEvents = [

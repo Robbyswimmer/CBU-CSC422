@@ -2,31 +2,22 @@
 # Fall 2025
 # Classes start Wednesday 09/03/2025
 
-# First class only (Wednesday start)
-- day: "Wednesday"
-  time: "8:15 AM - 9:15 AM"
-  location: "EGR 104"
-  type: "lecture"
-  duration: 60
-  description: "Course introduction and overview"
-  first_class_only: true
-
 # Regular weekly schedule (starts after first week)
-- day: "Tuesday"
+- day: "Monday"
   time: "8:15 AM - 9:15 AM"
   location: "EGR 104"
   type: "lecture"
   duration: 60
   description: "Main lecture covering theory and concepts"
 
-- day: "Thursday"
+- day: "Wednesday"
   time: "8:15 AM - 9:15 AM"
   location: "EGR 104"
   type: "lecture"
   duration: 60
   description: "Continued lecture and concept reinforcement"
 
-- day: "Saturday"
+- day: "Friday"
   time: "8:15 AM - 9:15 AM"
   location: "EGR 104"
   type: "lecture"
