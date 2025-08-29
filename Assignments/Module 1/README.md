@@ -1,4 +1,4 @@
-![Module 1 Cover](https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/module_1.png)
+<img src="https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/module_1.png" alt="Module 1 Cover" width="400">
 
 # Module 1: Introduction to Machine Learning
 
