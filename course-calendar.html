@@ -1468,30 +1468,39 @@
                 const isToday = isDateToday(dayDateStr);
                 const events = getEventsForDate(dayDateStr);
                 
-                const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                const dayName = dayNames[dayDate.getDay()];
-                const dayNumber = dayDate.getDate();
-                
-                let eventsHTML = '';
+                // Only show days that have course activities
                 if (events.length > 0) {
-                    eventsHTML = events.map(event => `
+                    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    const dayName = dayNames[dayDate.getDay()];
+                    const dayNumber = dayDate.getDate();
+                    
+                    const eventsHTML = events.map(event => `
                         <div class="week-event ${event.type}" onclick="showEventDetails('${event.title}', '${event.type}', '${dayDateStr}')" title="${event.title}">
                             <span>${event.title}</span>
                             <span style="font-size: 0.8rem; opacity: 0.9;">→</span>
                         </div>
                     `).join('');
-                } else {
-                    eventsHTML = '<div class="week-no-events">No events</div>';
-                }
-                
-                weekHTML += `
-                    <div class="week-day-card ${isToday ? 'today' : ''}" onclick="showDayDetails('${dayDateStr}')">
-                        <div class="week-day-header">
-                            <span class="week-day-name">${dayName}</span>
-                            <span class="week-day-date">${dayNumber}</span>
+                    
+                    weekHTML += `
+                        <div class="week-day-card ${isToday ? 'today' : ''}" onclick="showDayDetails('${dayDateStr}')">
+                            <div class="week-day-header">
+                                <span class="week-day-name">${dayName}</span>
+                                <span class="week-day-date">${dayNumber}</span>
+                            </div>
+                            <div class="week-day-events">
+                                ${eventsHTML}
+                            </div>
                         </div>
-                        <div class="week-day-events">
-                            ${eventsHTML}
+                    `;
+                }
+            }
+            
+            // If no days have activities, show a message
+            if (weekHTML === '') {
+                weekHTML = `
+                    <div class="week-day-card" style="text-align: center; padding: var(--spacing-lg);">
+                        <div class="week-no-events" style="font-size: 1rem; color: var(--text-muted);">
+                            📅 No course activities this week
                         </div>
                     </div>
                 `;
@@ -1519,7 +1528,9 @@
 
         function getEventsForDate(dateStr) {
             const events = [];
-            const targetDate = new Date(dateStr);
+            // Parse date as local date to avoid timezone issues
+            const [year, month, day] = dateStr.split('-').map(Number);
+            const targetDate = new Date(year, month - 1, day);
             const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][targetDate.getDay()];
             
             // Add assignments
@@ -1543,8 +1554,12 @@
             });
             
             // Add lectures (recurring weekly events)
-            const semesterStart = new Date(courseData.semester.start_date || '2025-09-03');
-            const semesterEnd = new Date(courseData.semester.end_date || '2025-12-15');
+            const startDateStr = courseData.semester.start_date || '2025-09-03';
+            const endDateStr = courseData.semester.end_date || '2025-12-15';
+            const [startYear, startMonth, startDay] = startDateStr.split('-').map(Number);
+            const [endYear, endMonth, endDay] = endDateStr.split('-').map(Number);
+            const semesterStart = new Date(startYear, startMonth - 1, startDay);
+            const semesterEnd = new Date(endYear, endMonth - 1, endDay);
             
             courseData.weeklySchedule.forEach(lecture => {
                 if (lecture.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd) {
@@ -1812,10 +1827,15 @@
             const dates = courseData.importantDates.filter(d => d.date === dateStr);
             
             // Get lectures for this day
-            const targetDate = new Date(dateStr);
+            const [year, month, day] = dateStr.split('-').map(Number);
+            const targetDate = new Date(year, month - 1, day);
             const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][targetDate.getDay()];
-            const semesterStart = new Date(courseData.semester.start_date || '2025-09-03');
-            const semesterEnd = new Date(courseData.semester.end_date || '2025-12-15');
+            const startDateStr = courseData.semester.start_date || '2025-09-03';
+            const endDateStr = courseData.semester.end_date || '2025-12-15';
+            const [startYear, startMonth, startDay] = startDateStr.split('-').map(Number);
+            const [endYear, endMonth, endDay] = endDateStr.split('-').map(Number);
+            const semesterStart = new Date(startYear, startMonth - 1, startDay);
+            const semesterEnd = new Date(endYear, endMonth - 1, endDay);
             
             const lectures = courseData.weeklySchedule.filter(l => {
                 return l.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd;
