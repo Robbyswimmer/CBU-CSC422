@@ -988,17 +988,16 @@
                 color: white;
                 border: none;
                 border-radius: var(--border-radius);
-                padding: var(--spacing-xs) var(--spacing-sm);
-                font-weight: 500;
+                padding: var(--spacing-sm) var(--spacing-xs);
+                font-weight: 600;
                 cursor: pointer;
                 transition: var(--transition);
-                min-height: 40px;
-                font-size: 0.85rem;
+                min-height: 44px;
+                font-size: 0.9rem;
                 flex: 1;
-                max-width: 80px;
+                max-width: 100px;
                 white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                text-align: center;
             }
             
             .calendar-nav-btn:hover {
@@ -1820,14 +1819,14 @@
             const progress = totalAssignments > 0 ? Math.round((completedAssignments / totalAssignments) * 100) : 0;
             
             const statsHTML = `
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
-                    <div class="mobile-item" style="text-align: center; cursor: default; padding: var(--spacing-sm);">
-                        <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-primary); margin-bottom: var(--spacing-xs);">${totalAssignments}</div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.2;">Assignments</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xs); margin-bottom: var(--spacing-md);">
+                    <div class="mobile-item" style="text-align: center; cursor: default; padding: var(--spacing-xs); min-height: 60px; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 2px;">${totalAssignments}</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.1;">Assignments</div>
                     </div>
-                    <div class="mobile-item" style="text-align: center; cursor: default; padding: var(--spacing-sm);">
-                        <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-green); margin-bottom: var(--spacing-xs);">${totalPoints}</div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.2;">Points</div>
+                    <div class="mobile-item" style="text-align: center; cursor: default; padding: var(--spacing-xs); min-height: 60px; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-green); margin-bottom: 2px;">${totalPoints}</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.1;">Points</div>
                     </div>
                 </div>
                 
