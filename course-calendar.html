@@ -758,6 +758,38 @@
                 display: none;
             }
             
+            /* Enhanced mobile polish */
+            .mobile-section {
+                margin-bottom: var(--spacing-md);
+                padding: var(--spacing-md);
+            }
+            
+            .mobile-section-title {
+                font-size: 1.2rem;
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .mobile-item {
+                padding: var(--spacing-sm);
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .mobile-item-title {
+                font-size: 1rem;
+                line-height: 1.4;
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            .mobile-item-meta {
+                font-size: 0.85rem;
+                gap: var(--spacing-xs);
+            }
+            
+            .mobile-item-badge {
+                font-size: 0.75rem;
+                padding: 2px 6px;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -939,15 +971,16 @@
                 font-size: 1.4rem;
                 font-weight: 700;
                 color: var(--text-primary);
-                margin-bottom: var(--spacing-lg);
+                margin-bottom: var(--spacing-md);
                 text-align: center;
             }
             
             .calendar-nav {
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
+                align-items: center;
                 gap: var(--spacing-sm);
-                flex-wrap: wrap;
+                max-width: 100%;
             }
             
             .calendar-nav-btn {
@@ -955,12 +988,17 @@
                 color: white;
                 border: none;
                 border-radius: var(--border-radius);
-                padding: var(--spacing-sm) var(--spacing-md);
+                padding: var(--spacing-xs) var(--spacing-sm);
                 font-weight: 500;
                 cursor: pointer;
                 transition: var(--transition);
-                min-height: 44px;
-                font-size: 0.9rem;
+                min-height: 40px;
+                font-size: 0.85rem;
+                flex: 1;
+                max-width: 80px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
             .calendar-nav-btn:hover {
@@ -1561,17 +1599,25 @@
             const semesterStart = new Date(startYear, startMonth - 1, startDay);
             const semesterEnd = new Date(endYear, endMonth - 1, endDay);
             
-            courseData.weeklySchedule.forEach(lecture => {
-                if (lecture.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd) {
-                    events.push({
-                        title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
-                        type: 'lecture',
-                        time: lecture.time,
-                        location: lecture.location,
-                        description: lecture.description
-                    });
-                }
-            });
+            // Check if there's an asynchronous lecture on this day
+            const hasAsyncLecture = courseData.importantDates.some(date => 
+                date.date === dateStr && date.type === 'lecture'
+            );
+            
+            // Only add regular lectures if there's no asynchronous lecture on this day
+            if (!hasAsyncLecture) {
+                courseData.weeklySchedule.forEach(lecture => {
+                    if (lecture.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd) {
+                        events.push({
+                            title: `📚 ${lecture.type === 'lecture' ? 'Lecture' : 'Class'} - ${lecture.time}`,
+                            type: 'lecture',
+                            time: lecture.time,
+                            location: lecture.location,
+                            description: lecture.description
+                        });
+                    }
+                });
+            }
             
             return events;
         }
@@ -1729,7 +1775,13 @@
         }
 
         function populateMobileImportantDates() {
-            const datesHTML = courseData.importantDates.map(date => `
+            // Show only top 3 important dates with pagination option
+            const sortedDates = [...courseData.importantDates]
+                .sort((a, b) => new Date(a.date) - new Date(b.date));
+            const topDates = sortedDates.slice(0, 3);
+            const hasMore = sortedDates.length > 3;
+            
+            const datesHTML = topDates.map(date => `
                 <div class="mobile-item">
                     <div class="mobile-item-title">${date.icon || '📅'} ${date.title}</div>
                     <div class="mobile-item-meta">
@@ -1740,8 +1792,23 @@
                 </div>
             `).join('');
             
+            const moreButton = hasMore ? `
+                <div class="mobile-item" style="text-align: center; cursor: pointer; border: 2px dashed var(--border); background: transparent;" onclick="showAllImportantDates()">
+                    <div class="mobile-item-title" style="color: var(--accent-primary);">+ ${sortedDates.length - 3} more dates</div>
+                </div>
+            ` : '';
+            
             document.getElementById('mobile-important-dates').innerHTML = 
-                datesHTML || '<div class="mobile-item"><div class="mobile-item-title">No important dates</div></div>';
+                (datesHTML + moreButton) || '<div class="mobile-item"><div class="mobile-item-title">No important dates</div></div>';
+        }
+        
+        function showAllImportantDates() {
+            // Simple alert for now - could be enhanced with a modal
+            const allDates = courseData.importantDates
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
+                .map(date => `${date.title} - ${formatDate(date.date)}`)
+                .join('\n');
+            alert('All Important Dates:\n\n' + allDates);
         }
 
         function populateMobileCourseStats() {
@@ -1753,28 +1820,28 @@
             const progress = totalAssignments > 0 ? Math.round((completedAssignments / totalAssignments) * 100) : 0;
             
             const statsHTML = `
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
-                    <div class="mobile-item" style="text-align: center; cursor: default;">
-                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: var(--spacing-xs);">${totalAssignments}</div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Assignments</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
+                    <div class="mobile-item" style="text-align: center; cursor: default; padding: var(--spacing-sm);">
+                        <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-primary); margin-bottom: var(--spacing-xs);">${totalAssignments}</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.2;">Assignments</div>
                     </div>
-                    <div class="mobile-item" style="text-align: center; cursor: default;">
-                        <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-green); margin-bottom: var(--spacing-xs);">${totalPoints}</div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary);">Total Points</div>
+                    <div class="mobile-item" style="text-align: center; cursor: default; padding: var(--spacing-sm);">
+                        <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-green); margin-bottom: var(--spacing-xs);">${totalPoints}</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.2;">Points</div>
                     </div>
                 </div>
                 
-                <div class="mobile-item" style="cursor: default;">
+                <div class="mobile-item" style="cursor: default; padding: var(--spacing-md);">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-sm);">
-                        <span style="font-weight: 600;">Course Progress</span>
-                        <span style="font-weight: 700; color: var(--accent-primary);">${progress}%</span>
+                        <span style="font-weight: 600; font-size: 0.9rem;">Progress</span>
+                        <span style="font-weight: 700; color: var(--accent-primary); font-size: 0.9rem;">${progress}%</span>
                     </div>
-                    <div style="background: var(--bg-secondary); border-radius: 10px; height: 12px; overflow: hidden;">
-                        <div style="background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); height: 100%; width: ${progress}%; transition: width 0.8s ease; border-radius: 10px;"></div>
+                    <div style="background: var(--bg-secondary); border-radius: 6px; height: 8px; overflow: hidden; margin-bottom: var(--spacing-sm);">
+                        <div style="background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); height: 100%; width: ${progress}%; transition: width 0.8s ease; border-radius: 6px;"></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; margin-top: var(--spacing-sm); font-size: 0.85rem; color: var(--text-secondary);">
-                        <span>${completedAssignments} completed</span>
-                        <span>${upcomingAssignments} remaining</span>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-secondary);">
+                        <span>${completedAssignments} done</span>
+                        <span>${upcomingAssignments} left</span>
                     </div>
                 </div>
             `;
@@ -1837,9 +1904,15 @@
             const semesterStart = new Date(startYear, startMonth - 1, startDay);
             const semesterEnd = new Date(endYear, endMonth - 1, endDay);
             
-            const lectures = courseData.weeklySchedule.filter(l => {
+            // Check if there's an asynchronous lecture on this day
+            const hasAsyncLecture = courseData.importantDates.some(date => 
+                date.date === dateStr && date.type === 'lecture'
+            );
+            
+            // Only include regular lectures if there's no asynchronous lecture on this day
+            const lectures = !hasAsyncLecture ? courseData.weeklySchedule.filter(l => {
                 return l.day === dayName && targetDate >= semesterStart && targetDate <= semesterEnd;
-            });
+            }) : [];
             
             const allEvents = [
                 ...assignments.map(a => ({...a, type: a.type || 'assignment', eventType: 'assignment'})),
