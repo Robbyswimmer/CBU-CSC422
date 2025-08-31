@@ -2394,7 +2394,8 @@
         }
 
         function formatDate(dateString) {
-            const date = new Date(dateString);
+            // Parse date as local time to avoid timezone offset issues
+            const date = new Date(dateString + 'T00:00:00');
             return date.toLocaleDateString('en-US', {
                 weekday: 'short',
                 month: 'short',
@@ -2404,7 +2405,8 @@
 
         function getDaysUntil(dateString) {
             const today = new Date();
-            const targetDate = new Date(dateString);
+            // Parse date as local time to avoid timezone offset issues
+            const targetDate = new Date(dateString + 'T00:00:00');
             const diffTime = targetDate - today;
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return diffDays;
@@ -2505,8 +2507,8 @@
             
             // Filter and sort upcoming assignments
             allUpcomingAssignments = courseData.assignments
-                .filter(assignment => new Date(assignment.date) >= today)
-                .sort((a, b) => new Date(a.date) - new Date(b.date));
+                .filter(assignment => new Date(assignment.date + 'T00:00:00') >= today)
+                .sort((a, b) => new Date(a.date + 'T00:00:00') - new Date(b.date + 'T00:00:00'));
 
             if (allUpcomingAssignments.length === 0) {
                 document.getElementById('upcoming-assignments').innerHTML = '<p style="color: var(--text-secondary);">No upcoming assignments</p>';
@@ -2581,8 +2583,8 @@
             thirtyDaysAgo.setDate(today.getDate() - 30);
             
             allImportantDates = courseData.importantDates
-                .filter(dateItem => new Date(dateItem.date) >= thirtyDaysAgo)
-                .sort((a, b) => new Date(a.date) - new Date(b.date));
+                .filter(dateItem => new Date(dateItem.date + 'T00:00:00') >= thirtyDaysAgo)
+                .sort((a, b) => new Date(a.date + 'T00:00:00') - new Date(b.date + 'T00:00:00'));
 
             if (allImportantDates.length === 0) {
                 document.getElementById('important-dates').innerHTML = '<p style="color: var(--text-secondary);">No important dates</p>';
