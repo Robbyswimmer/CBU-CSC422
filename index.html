@@ -2595,7 +2595,7 @@
 
         function displayDatesPage() {
             const container = document.getElementById('important-dates');
-            const startIndex = (datesPage) * itemsPerPage;
+            const startIndex = (datesPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             const pageItems = allImportantDates.slice(startIndex, endIndex);
 
