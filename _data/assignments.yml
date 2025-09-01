@@ -26,7 +26,7 @@
   title: "Zybooks Labs: Chapter 1"
   type: "lab"
   points: 1
-  module: "Module 1"
+  module: "Module 0"
   module_number: 1
   description: "Chapter 1 Labs from Zybooks"
   detailed_description: "Students will complete the labs from Chapter 1 of the Zybooks textbook."
@@ -45,7 +45,7 @@
   title: "Zybooks Reading: Chapter 1"
   type: "reading"
   points: 1
-  module: "Module 1"
+  module: "Module 0"
   module_number: 1
   description: "Chapter 1 Reading from Zybooks"
   detailed_description: "Students will complete the reading from Chapter 1 of the Zybooks textbook."
