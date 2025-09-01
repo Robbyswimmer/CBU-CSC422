@@ -1,17 +1,17 @@
 # Assignment Due Dates - CSC 422: Machine and Deep Learning
 # Fall 2025
 
-- date: "2025-09-17"
-  title: "CA.01: Linear Regression"
+- date: "2025-09-12"
+  title: "CA.00: Math & Python Fundamentals"
   type: "assignment"
   points: 3
-  module: "Module 1"
-  module_number: 1
-  description: "Introduction to ML fundamentals and linear regression implementation"
-  detailed_description: "Students will implement linear regression from scratch using Python and NumPy. This assignment covers data preprocessing, model training, evaluation metrics, and visualization of results."
-  estimated_hours: 2
+  module: "Module 0"
+  module_number: 0
+  description: "Introduction to Python and mathematical framework"
+  detailed_description: "Students will implement advanced python functions and implement basic mathematics needed for this course. "
+  estimated_hours: 0.5
   difficulty: "Beginner"
-  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Module%201"
+  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Module%200"
   skills:
     - "Python Programming"
     - "NumPy"
@@ -59,3 +59,24 @@
     - "Linear Algebra"
   deliverables:
     - "100% on Zybooks Reading"
+
+- date: "2025-09-17"
+  title: "CA.01: Linear Regression"
+  type: "assignment"
+  points: 3
+  module: "Module 1"
+  module_number: 1
+  description: "Introduction to ML fundamentals and linear regression implementation"
+  detailed_description: "Students will implement linear regression from scratch using Python and NumPy. This assignment covers data preprocessing, model training, evaluation metrics, and visualization of results."
+  estimated_hours: 2
+  difficulty: "Beginner"
+  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Module%201"
+  skills:
+    - "Python Programming"
+    - "NumPy"
+    - "Data Preprocessing"
+    - "Linear Algebra"
+  deliverables:
+    - "Python implementation (.py file)"
+    - "Jupyter notebook with analysis"
+    - "Written report (2-3 pages)"
