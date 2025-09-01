@@ -47,12 +47,12 @@ By the end of this module, you will be able to:
 **Points:** 3  
 **Estimated Time:** 2 hours
 
-### Zybooks Labs: Chapter 1
-**Points:** 3  
+### Zybooks Labs: Chapter 2
+**Points:** 1
 **Estimated Time:** 2 hours
 
-### Zybooks Reading: Chapter 1
-**Points:** 3  
+### Zybooks Reading: Chapter 2
+**Points:** 1
 **Estimated Time:** 2 hours
 
 ## 📊 Required Tools & Libraries
