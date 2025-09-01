@@ -18,9 +18,7 @@
     - "Data Preprocessing"
     - "Linear Algebra"
   deliverables:
-    - "Python implementation (.py file)"
-    - "Jupyter notebook with analysis"
-    - "Written report (2-3 pages)"
+    - "Python implementation (.ipynb file)"
 
 - date: "2025-09-12"
   title: "Zybooks Labs: Chapter 1"
@@ -77,6 +75,4 @@
     - "Data Preprocessing"
     - "Linear Algebra"
   deliverables:
-    - "Python implementation (.py file)"
-    - "Jupyter notebook with analysis"
-    - "Written report (2-3 pages)"
+    - "Python implementation (.ipynb file)"
