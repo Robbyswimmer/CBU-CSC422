@@ -83,6 +83,20 @@ By the end of this module, you will be able to:
 - [Calculus Fundamentals - Khan Academy](https://www.khanacademy.org/math/calculus-1)
 - [Exponential and Logarithmic Functions](https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:logs)
 
+## Assignments
+
+### CA.00: Python Fundamentals & Mathematical Foundation
+**Points:** 3  
+**Estimated Time:** 2 hours
+
+### Zybooks Labs: Chapter 1
+**Points:** 1
+**Estimated Time:** 1 hours
+
+### Zybooks Reading: Chapter 1
+**Points:** 1
+**Estimated Time:** 1 hours
+
 ## Module Checklist
 
 Before starting Module 1, ensure you have:
