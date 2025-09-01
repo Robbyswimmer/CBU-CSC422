@@ -34,10 +34,9 @@ By the end of this session, students will:
 ## Opening Hook (2 minutes)
 
 **TALKING POINTS:**
-• Introduce core theme: "Loops work, but they don't scale"
-• Position session as transformation: functional but clunky → elegant and powerful
-• Set up the challenge paradigm: solve real data problems efficiently
-• Preview the journey: from 5-line solutions to 1-line elegance
+• Loops work, but they don't scale
+• Let's go from functional but clunky to elegant and powerful
+• We are doing this because we will be using Python to solve real data problems efficiently
 
 ```python
 # Challenge: How would you calculate the square of every even number from 1 to 20?
@@ -50,10 +49,10 @@ print(squares)
 ```
 
 **TALKING POINTS:**
-• Identify the problem: works but verbose, doesn't scale to large datasets
-• Promise transformation: by end of class, this becomes one elegant line
-• Connect to course context: data processing efficiency matters in ML
-• Transition: "Let's build the foundation for better solutions"
+• works but verbose, doesn't scale to large datasets
+• by end of class, this becomes one elegant line
+• data processing efficiency matters in ML
+• "Let's build the foundation for better solutions"
 
 ## Variables & Modern String Formatting (3 minutes)
 
