@@ -76,3 +76,409 @@
     - "Linear Algebra"
   deliverables:
     - "Python implementation (.ipynb file)"
+
+# Module 1 Zybooks Assignments - Classification Models
+- date: "2025-09-19"
+  title: "Zybooks Labs: Chapter 2"
+  type: "lab"
+  points: 1
+  module: "Module 1"
+  module_number: 1
+  description: "Chapter 2 Labs from Zybooks - Classification Models"
+  detailed_description: "Students will complete the labs from Chapter 2 of the Zybooks textbook covering classification models."
+  estimated_hours: 1
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/2/section/7"
+  skills:
+    - "Classification Models"
+    - "Machine Learning"
+    - "Model Training"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-09-19"
+  title: "Zybooks Reading: Chapter 2"
+  type: "reading"
+  points: 1
+  module: "Module 1"
+  module_number: 1
+  description: "Chapter 2 Reading from Zybooks - Classification Models"
+  detailed_description: "Students will complete the reading from Chapter 2 of the Zybooks textbook covering classification models."
+  estimated_hours: 1
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/2/section/1"
+  skills:
+    - "Classification Models"
+    - "Machine Learning"
+    - "Model Training"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 2 Zybooks Assignments - Regression Models
+- date: "2025-09-26"
+  title: "Zybooks Labs: Chapter 3"
+  type: "lab"
+  points: 1
+  module: "Module 2"
+  module_number: 2
+  description: "Chapter 3 Labs from Zybooks - Regression Models"
+  detailed_description: "Students will complete the labs from Chapter 3 of the Zybooks textbook covering regression models."
+  estimated_hours: 1
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/3/section/7"
+  skills:
+    - "Regression Models"
+    - "Linear Regression"
+    - "Statistical Analysis"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-09-26"
+  title: "Zybooks Reading: Chapter 3"
+  type: "reading"
+  points: 1
+  module: "Module 2"
+  module_number: 2
+  description: "Chapter 3 Reading from Zybooks - Regression Models"
+  detailed_description: "Students will complete the reading from Chapter 3 of the Zybooks textbook covering regression models."
+  estimated_hours: 1
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/3/section/1"
+  skills:
+    - "Regression Models"
+    - "Linear Regression"
+    - "Statistical Analysis"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 3 Zybooks Assignments - Model Evaluation & Validation (Chapters 4 & 5)
+- date: "2025-10-03"
+  title: "Zybooks Labs: Chapter 4"
+  type: "lab"
+  points: 1
+  module: "Module 3"
+  module_number: 3
+  description: "Chapter 4 Labs from Zybooks - Model Evaluation"
+  detailed_description: "Students will complete the labs from Chapter 4 of the Zybooks textbook covering model evaluation."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/4/section/7"
+  skills:
+    - "Model Evaluation"
+    - "Performance Metrics"
+    - "Cross Validation"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-10-03"
+  title: "Zybooks Reading: Chapter 4"
+  type: "reading"
+  points: 1
+  module: "Module 3"
+  module_number: 3
+  description: "Chapter 4 Reading from Zybooks - Model Evaluation"
+  detailed_description: "Students will complete the reading from Chapter 4 of the Zybooks textbook covering model evaluation."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/4/section/1"
+  skills:
+    - "Model Evaluation"
+    - "Performance Metrics"
+    - "Cross Validation"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+- date: "2025-10-03"
+  title: "Zybooks Labs: Chapter 5"
+  type: "lab"
+  points: 1
+  module: "Module 3"
+  module_number: 3
+  description: "Chapter 5 Labs from Zybooks - Model Validation"
+  detailed_description: "Students will complete the labs from Chapter 5 of the Zybooks textbook covering model validation."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/5/section/7"
+  skills:
+    - "Model Validation"
+    - "Overfitting"
+    - "Regularization"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-10-03"
+  title: "Zybooks Reading: Chapter 5"
+  type: "reading"
+  points: 1
+  module: "Module 3"
+  module_number: 3
+  description: "Chapter 5 Reading from Zybooks - Model Validation"
+  detailed_description: "Students will complete the reading from Chapter 5 of the Zybooks textbook covering model validation."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/5/section/1"
+  skills:
+    - "Model Validation"
+    - "Overfitting"
+    - "Regularization"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 4 Zybooks Assignments - Model Improvement
+- date: "2025-10-10"
+  title: "Zybooks Labs: Chapter 6"
+  type: "lab"
+  points: 1
+  module: "Module 4"
+  module_number: 4
+  description: "Chapter 6 Labs from Zybooks - Model Improvement"
+  detailed_description: "Students will complete the labs from Chapter 6 of the Zybooks textbook covering model improvement techniques."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/6/section/7"
+  skills:
+    - "Model Improvement"
+    - "Feature Engineering"
+    - "Hyperparameter Tuning"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-10-10"
+  title: "Zybooks Reading: Chapter 6"
+  type: "reading"
+  points: 1
+  module: "Module 4"
+  module_number: 4
+  description: "Chapter 6 Reading from Zybooks - Model Improvement"
+  detailed_description: "Students will complete the reading from Chapter 6 of the Zybooks textbook covering model improvement techniques."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/6/section/1"
+  skills:
+    - "Model Improvement"
+    - "Feature Engineering"
+    - "Hyperparameter Tuning"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 5 Zybooks Assignments - Support Vector Machines
+- date: "2025-10-17"
+  title: "Zybooks Labs: Chapter 7"
+  type: "lab"
+  points: 1
+  module: "Module 5"
+  module_number: 5
+  description: "Chapter 7 Labs from Zybooks - Support Vector Machines"
+  detailed_description: "Students will complete the labs from Chapter 7 of the Zybooks textbook covering support vector machines."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/7/section/7"
+  skills:
+    - "Support Vector Machines"
+    - "Kernel Methods"
+    - "Classification"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-10-17"
+  title: "Zybooks Reading: Chapter 7"
+  type: "reading"
+  points: 1
+  module: "Module 5"
+  module_number: 5
+  description: "Chapter 7 Reading from Zybooks - Support Vector Machines"
+  detailed_description: "Students will complete the reading from Chapter 7 of the Zybooks textbook covering support vector machines."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/7/section/1"
+  skills:
+    - "Support Vector Machines"
+    - "Kernel Methods"
+    - "Classification"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 6 Zybooks Assignments - Decision Trees
+- date: "2025-10-24"
+  title: "Zybooks Labs: Chapter 8"
+  type: "lab"
+  points: 1
+  module: "Module 6"
+  module_number: 6
+  description: "Chapter 8 Labs from Zybooks - Decision Trees"
+  detailed_description: "Students will complete the labs from Chapter 8 of the Zybooks textbook covering decision trees."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/8/section/7"
+  skills:
+    - "Decision Trees"
+    - "Tree Algorithms"
+    - "Feature Selection"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-10-24"
+  title: "Zybooks Reading: Chapter 8"
+  type: "reading"
+  points: 1
+  module: "Module 6"
+  module_number: 6
+  description: "Chapter 8 Reading from Zybooks - Decision Trees"
+  detailed_description: "Students will complete the reading from Chapter 8 of the Zybooks textbook covering decision trees."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/8/section/1"
+  skills:
+    - "Decision Trees"
+    - "Tree Algorithms"
+    - "Feature Selection"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 7 Zybooks Assignments - Ensemble Models
+- date: "2025-10-31"
+  title: "Zybooks Labs: Chapter 9"
+  type: "lab"
+  points: 1
+  module: "Module 7"
+  module_number: 7
+  description: "Chapter 9 Labs from Zybooks - Ensemble Models"
+  detailed_description: "Students will complete the labs from Chapter 9 of the Zybooks textbook covering ensemble models."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/9/section/7"
+  skills:
+    - "Ensemble Models"
+    - "Random Forests"
+    - "Bagging and Boosting"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-10-31"
+  title: "Zybooks Reading: Chapter 9"
+  type: "reading"
+  points: 1
+  module: "Module 7"
+  module_number: 7
+  description: "Chapter 9 Reading from Zybooks - Ensemble Models"
+  detailed_description: "Students will complete the reading from Chapter 9 of the Zybooks textbook covering ensemble models."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/9/section/1"
+  skills:
+    - "Ensemble Models"
+    - "Random Forests"
+    - "Bagging and Boosting"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 8 Zybooks Assignments - Deep Learning
+- date: "2025-11-07"
+  title: "Zybooks Labs: Chapter 10"
+  type: "lab"
+  points: 1
+  module: "Module 8"
+  module_number: 8
+  description: "Chapter 10 Labs from Zybooks - Deep Learning"
+  detailed_description: "Students will complete the labs from Chapter 10 of the Zybooks textbook covering deep learning."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/10/section/7"
+  skills:
+    - "Deep Learning"
+    - "Neural Networks"
+    - "Backpropagation"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-11-07"
+  title: "Zybooks Reading: Chapter 10"
+  type: "reading"
+  points: 1
+  module: "Module 8"
+  module_number: 8
+  description: "Chapter 10 Reading from Zybooks - Deep Learning"
+  detailed_description: "Students will complete the reading from Chapter 10 of the Zybooks textbook covering deep learning."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/10/section/1"
+  skills:
+    - "Deep Learning"
+    - "Neural Networks"
+    - "Backpropagation"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 9 Zybooks Assignments - Clustering
+- date: "2025-11-14"
+  title: "Zybooks Labs: Chapter 11"
+  type: "lab"
+  points: 1
+  module: "Module 9"
+  module_number: 9
+  description: "Chapter 11 Labs from Zybooks - Clustering"
+  detailed_description: "Students will complete the labs from Chapter 11 of the Zybooks textbook covering clustering algorithms."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/11/section/7"
+  skills:
+    - "Clustering"
+    - "Unsupervised Learning"
+    - "K-Means"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-11-14"
+  title: "Zybooks Reading: Chapter 11"
+  type: "reading"
+  points: 1
+  module: "Module 9"
+  module_number: 9
+  description: "Chapter 11 Reading from Zybooks - Clustering"
+  detailed_description: "Students will complete the reading from Chapter 11 of the Zybooks textbook covering clustering algorithms."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/11/section/1"
+  skills:
+    - "Clustering"
+    - "Unsupervised Learning"
+    - "K-Means"
+  deliverables:
+    - "100% on Zybooks Reading"
+
+# Module 10 Zybooks Assignments - Dimensionality Reduction
+- date: "2025-11-21"
+  title: "Zybooks Labs: Chapter 12"
+  type: "lab"
+  points: 1
+  module: "Module 10"
+  module_number: 10
+  description: "Chapter 12 Labs from Zybooks - Dimensionality Reduction"
+  detailed_description: "Students will complete the labs from Chapter 12 of the Zybooks textbook covering dimensionality reduction techniques."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/12/section/7"
+  skills:
+    - "Dimensionality Reduction"
+    - "Principal Component Analysis"
+    - "Feature Selection"
+  deliverables:
+    - "100% on Zybooks Labs"
+
+- date: "2025-11-21"
+  title: "Zybooks Reading: Chapter 12"
+  type: "reading"
+  points: 1
+  module: "Module 10"
+  module_number: 10
+  description: "Chapter 12 Reading from Zybooks - Dimensionality Reduction"
+  detailed_description: "Students will complete the reading from Chapter 12 of the Zybooks textbook covering dimensionality reduction techniques."
+  estimated_hours: 1
+  difficulty: "Advanced"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/12/section/1"
+  skills:
+    - "Dimensionality Reduction"
+    - "Principal Component Analysis"
+    - "Feature Selection"
+  deliverables:
+    - "100% on Zybooks Reading"
