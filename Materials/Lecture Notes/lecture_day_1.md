@@ -2,6 +2,8 @@
 
 ### Course Introduction
 
+- Introductions PPT
+- Talk about Final / Midterm (track 1 vs track 2)
 - [Course Overview](https://robbyswimmer.github.io/CBU-CSC422/index.html)
 
 ### Github Structure
