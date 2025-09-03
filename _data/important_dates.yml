@@ -19,6 +19,12 @@
   description: "Online learning day - review posted materials and complete activities"
   icon: "💻"
 
+- date: "2025-09-22"
+  title: "PhD Orientation"
+  type: "OOF"
+  description: "Online learning day - review posted materials and complete activities"
+  icon: "😵‍💫"
+
 - date: "2025-09-24"
   title: "Asynchronous Lecture Day"
   type: "lecture"
