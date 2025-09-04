@@ -518,6 +518,17 @@
             <p class="updated" id="last-updated">Last updated: <time datetime="2025-01-15">January 15, 2025</time></p>
         </header>
 
+        <!-- Course Philosophy Section -->
+        <section id="philosophy" class="section" style="background: var(--bg-card); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-xl); border-left: 4px solid var(--accent-primary);">
+            <h2 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">Course Philosophy</h2>
+            <p style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: var(--spacing-sm); font-weight: 500;">
+                "Well... to allow you to learn and study things that are interesting to you. My only job in this course is to enable you to do cool things."
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                Your final project is the culmination of this philosophy — choose a track that aligns with your interests, career goals, and learning style. Whether you prefer structured guidance or independent exploration, both paths will challenge you to apply machine learning to problems that matter to you.
+            </p>
+        </section>
+
         <main id="content">
             <!-- Track Overview -->
             <section id="tracks" aria-labelledby="tracks-title">
@@ -526,13 +537,28 @@
                 <div class="track-grid grid grid-2">
                     <!-- Track 1 Card -->
                     <article class="track-card card" id="track-1" aria-labelledby="track-1-title">
-                        <h3 id="track-1-title">Track 1: Midterm + Final</h3>
-                        <p class="summary">Scaffolded, structured path with midterm checkpoint and comprehensive final.</p>
+                        <h3 id="track-1-title">Track 1: Structured Learning Path</h3>
+                        <p class="summary">Two connected projects that progressively build your ML expertise with guided milestones.</p>
+                        
+                        <div style="background: rgba(102, 126, 234, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0;">
+                            <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-sm);">📊 Midterm Project</h4>
+                            <p style="color: var(--text-secondary); font-style: italic; margin-bottom: var(--spacing-xs);">
+                                "Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(118, 75, 162, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0;">
+                            <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-sm);">🚀 Final Project</h4>
+                            <p style="color: var(--text-secondary); font-style: italic; margin-bottom: var(--spacing-xs);">
+                                "Go deeper — use deep learning, transfer learning, or tackle a more complex dataset/problem."
+                            </p>
+                        </div>
+
                         <ul class="bullets">
-                            <li><strong>Total:</strong> 40 points</li>
-                            <li><strong>Structure:</strong> Midterm (10 pts) + Final (30 pts)</li>
-                            <li><strong>Midterm Deliverables:</strong> Code repo + 5–10 min video</li>
-                            <li><strong>Final Deliverables:</strong> Code repo + 6–8 page report</li>
+                            <li><strong>Total:</strong> 40 points (10 + 30)</li>
+                            <li><strong>Best for:</strong> Students who prefer guided structure and incremental complexity</li>
+                            <li><strong>Timeline:</strong> Two distinct project phases with clear milestones</li>
+                            <li><strong>Support:</strong> Scaffolded learning with built-in checkpoints</li>
                         </ul>
                         <a class="jump" href="#rubric-track1-midterm">See Midterm Rubric</a> ·
                         <a class="jump" href="#rubric-track1-final">See Final Rubric</a>
@@ -540,16 +566,129 @@
 
                     <!-- Track 2 Card -->
                     <article class="track-card card" id="track-2" aria-labelledby="track-2-title">
-                        <h3 id="track-2-title">Track 2: Semester-Long</h3>
-                        <p class="summary">One ambitious research project with built-in midterm update checkpoint.</p>
+                        <h3 id="track-2-title">Track 2: Independent Research</h3>
+                        <p class="summary">One ambitious, semester-long exploration where you tackle bigger problems and drive your own learning.</p>
+                        
+                        <div style="background: rgba(255, 107, 53, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0; border-left: 3px solid var(--accent-orange);">
+                            <h4 style="color: var(--accent-orange); margin-bottom: var(--spacing-sm);">🔬 Research Focus</h4>
+                            <p style="color: var(--text-secondary); font-style: italic; margin-bottom: var(--spacing-xs);">
+                                "Tackle a big idea — explore an unsolved or applied AI problem. Show curiosity, not perfection. Depth and initiative matter more than results."
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(78, 205, 196, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0;">
+                            <h4 style="color: var(--accent-green); margin-bottom: var(--spacing-sm);">✨ Key Benefits</h4>
+                            <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary);">
+                                <li>You only complete <strong>1 project</strong> in this course</li>
+                                <li><strong>YOU decide</strong> what you work on and what you learn</li>
+                                <li>Potential for <strong>publishable research</strong> or impressive portfolio work</li>
+                                <li>Much more <strong>in-depth exploration</strong> of topics that interest you</li>
+                            </ul>
+                        </div>
+
                         <ul class="bullets">
-                            <li><strong>Total:</strong> 40 points</li>
-                            <li><strong>Structure:</strong> Single comprehensive project</li>
-                            <li><strong>Deliverables:</strong> Code repo + 8–10 page report + midterm update</li>
-                            <li><strong>Focus:</strong> Deep exploration with research-paper style output</li>
+                            <li><strong>Total:</strong> 40 points (single project)</li>
+                            <li><strong>Best for:</strong> Self-motivated students who want research experience</li>
+                            <li><strong>Expectations:</strong> Higher standards, more independent work</li>
+                            <li><strong>Outcome:</strong> Impressive project + comprehensive research report</li>
                         </ul>
-                        <a class="jump" href="#rubric-track2">See Track 2 Rubric</a>
+                        <a class="jump" href="#rubric-track2">See Track 2 Rubric</a> ·
+                        <a class="jump" href="#track2-examples">See Project Examples</a>
                     </article>
+                </div>
+            </section>
+
+            <!-- Track 2 Project Examples -->
+            <section id="track2-examples" aria-labelledby="track2-examples-title" style="margin-bottom: var(--spacing-xl);">
+                <h2 id="track2-examples-title">Track 2: Project Inspiration</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--spacing-lg); text-align: center;">
+                    Goal: Tackle a bigger, semi-open problem — exploratory, with either a research bent or applied AI innovation.
+                </p>
+
+                <div class="grid grid-3" style="margin-bottom: var(--spacing-lg);">
+                    <!-- Unsolved/Open-Ended Problems -->
+                    <div class="card">
+                        <h3 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">🔬 Unsolved/Open-Ended Problems</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Student-friendly scale explorations</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                <strong>RL Exploration:</strong> Train an agent to play a new game or adapt an environment
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                <strong>Bias & Fairness Study:</strong> Analyze bias in datasets like COMPAS with multiple models
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                <strong>Energy Forecasting:</strong> Predict demand using temporal models + deep learning
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                <strong>Climate/Environmental AI:</strong> Classify land use or track deforestation with CNNs
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                <strong>Multi-modal Learning:</strong> Combine text + images for fake news detection
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                <strong>Human-in-the-Loop:</strong> Build systems where human feedback improves predictions
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Applied AI to Other Fields -->
+                    <div class="card">
+                        <h3 style="color: var(--accent-orange); margin-bottom: var(--spacing-md);">🌍 Applied AI to Other Fields</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Cross-disciplinary innovation</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                <strong>Biology:</strong> Classify satellite imagery to track coral reef bleaching over time
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                <strong>Sports:</strong> Predict swimming race outcomes using training/physiology data
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                <strong>Education:</strong> Design quiz-recommendation system using performance logs
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                <strong>Business:</strong> Customer churn prediction with imbalanced classification
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Research-Adjacent Explorations -->
+                    <div class="card">
+                        <h3 style="color: var(--accent-green); margin-bottom: var(--spacing-md);">🔬 Research-Adjacent Explorations</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Academic-style investigations</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-green);">•</span>
+                                <strong>Architecture Comparison:</strong> Compare transformer vs RNN on small NLP tasks
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-green);">•</span>
+                                <strong>ML vs DL Benchmark:</strong> Shallow ML vs Deep Learning on tabular datasets
+                            </li>
+                            <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--accent-green);">•</span>
+                                <strong>Active Learning:</strong> Experiment with label efficiency techniques
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 1px solid var(--accent-primary);">
+                    <h3 style="color: var(--accent-primary); text-align: center; margin-bottom: var(--spacing-md);">💡 Remember: Initiative Matters Most</h3>
+                    <p style="color: var(--text-secondary); text-align: center; font-size: 1.1rem;">
+                        Students show initiative by designing their dataset pipeline, tackling harder tasks, and/or proposing innovative AI-for-X projects. 
+                        The goal is ambitious exploration, not perfect results.
+                    </p>
                 </div>
             </section>
 
@@ -646,6 +785,114 @@
                             <ul id="deliverables-t2">
                                 <!-- populated by JSON -->
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline" aria-labelledby="timeline-title" style="margin-bottom: var(--spacing-xl);">
+                <h2 id="timeline-title">Project Timeline</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--spacing-lg); text-align: center;">
+                    Estimated timeline for both tracks with key milestones and deliverables
+                </p>
+
+                <div class="grid grid-2" style="gap: var(--spacing-xl);">
+                    <!-- Track 1 Timeline -->
+                    <div class="card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);">
+                        <h3 style="color: var(--accent-primary); text-align: center; margin-bottom: var(--spacing-md);">📊 Track 1: Structured Timeline</h3>
+                        
+                        <div style="position: relative; padding-left: var(--spacing-md);">
+                            <!-- Timeline Line -->
+                            <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));"></div>
+                            
+                            <!-- Week 8-10: Midterm -->
+                            <div style="position: relative; margin-bottom: var(--spacing-lg);">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-xs);">Weeks 8-10: Midterm Project</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Get hands dirty with datasets and shallow models</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Dataset selection and EDA</li>
+                                        <li>Baseline model implementation</li>
+                                        <li>5-10 minute video deliverable</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Week 11-14: Final -->
+                            <div style="position: relative;">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-secondary); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-xs);">Weeks 11-14: Final Project</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Go deeper with advanced models and complex problems</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Deep learning or transfer learning</li>
+                                        <li>Comprehensive 6-8 page report</li>
+                                        <li>Final presentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Track 2 Timeline -->
+                    <div class="card" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);">
+                        <h3 style="color: var(--accent-orange); text-align: center; margin-bottom: var(--spacing-md);">🔬 Track 2: Research Timeline</h3>
+                        
+                        <div style="position: relative; padding-left: var(--spacing-md);">
+                            <!-- Timeline Line -->
+                            <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent-orange), var(--accent-green));"></div>
+                            
+                            <!-- Week 8-10: Midterm Update -->
+                            <div style="position: relative; margin-bottom: var(--spacing-lg);">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-orange); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-orange); margin-bottom: var(--spacing-xs);">Weeks 8-10: Progress Update</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Comprehensive write-up in place of midterm points</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Research progress documentation</li>
+                                        <li>Early results and pipeline demo</li>
+                                        <li>Challenge identification and solutions</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Week 11-14: Final Deliverables -->
+                            <div style="position: relative;">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-green); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-green); margin-bottom: var(--spacing-xs);">Weeks 11-14: Final Research</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Ambitious project with potential for publication</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Complete research implementation</li>
+                                        <li>8-10 page research-quality report</li>
+                                        <li>Impressive final presentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: var(--spacing-lg); background: rgba(102, 126, 234, 0.05); border-left: 3px solid var(--accent-primary);">
+                    <h3 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">🗓️ Key Dates</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md);">
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Week 8</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Track selection deadline</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Week 10</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Midterm deliverables due</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Week 14</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Final projects due</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Finals Week</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Research presentations</p>
                         </div>
                     </div>
                 </div>
