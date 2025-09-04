@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC 422 Final Project · Tracks & Rubrics</title>
+    <meta name="description" content="Final project overview, timelines, rubrics, and deliverables for Track 1 and Track 2.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Custom Properties - Matching Course Theme */
+        :root {
+            /* Dark Theme Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --accent-orange: #ff6b35;
+            --accent-green: #4ecdc4;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #666666;
+            --border: #333333;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+            
+            /* Spacing & Layout */
+            --container-max: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: var(--spacing-md) 0;
+        }
+        
+        /* Container & Layout */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-primary);
+        }
+        
+        p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+        
+        .lede {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* Card System */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--bg-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+        
+        /* Track Cards */
+        .track-card {
+            position: relative;
+        }
+        
+        .track-card .summary {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .bullets {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .bullets li {
+            color: var(--text-secondary);
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .bullets li::before {
+            content: '•';
+            color: var(--accent-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .jump {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .jump:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+        
+        /* Accordions */
+        .accordion {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+        
+        .accordion-trigger {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: var(--spacing-md);
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-trigger:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--accent-primary);
+        }
+        
+        .accordion-trigger::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: normal;
+            transition: var(--transition);
+        }
+        
+        .accordion-trigger[aria-expanded="true"]::after {
+            content: '−';
+        }
+        
+        .accordion-panel {
+            border-top: 1px solid var(--border);
+            padding: var(--spacing-md);
+            background: rgba(102, 126, 234, 0.02);
+        }
+        
+        .accordion-panel[hidden] {
+            display: none;
+        }
+        
+        /* Tables */
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-md);
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .rubric-table caption {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+            text-align: left;
+        }
+        
+        .rubric-table th,
+        .rubric-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .rubric-table th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .rubric-table td {
+            color: var(--text-secondary);
+        }
+        
+        .rubric-table th[scope="row"] {
+            background: transparent;
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        
+        .rubric-table tr:last-child th,
+        .rubric-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Deliverables Section */
+        .deliverables {
+            background: var(--bg-primary);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+        }
+        
+        .deliverables ul {
+            list-style: none;
+        }
+        
+        .deliverables li {
+            color: var(--text-secondary);
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .deliverables li::before {
+            content: '→';
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Notes Section */
+        #global-notes {
+            list-style: none;
+            background: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        #global-notes li {
+            color: var(--text-secondary);
+            padding: var(--spacing-sm) 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        #global-notes li::before {
+            content: '⚠';
+            color: var(--accent-orange);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Footer */
+        .page-footer {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-primary);
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .accordion-trigger {
+                font-size: 1.1rem;
+                padding: var(--spacing-sm);
+            }
+            
+            .rubric-table th,
+            .rubric-table td {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 0.9rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .page-header,
+            .section {
+                background: transparent;
+            }
+            
+            .accordion-panel {
+                display: block !important;
+            }
+            
+            .accordion-trigger {
+                display: none;
+            }
+            
+            .footer-links {
+                display: none;
+            }
+            
+            .card {
+                background: transparent;
+                border: 1px solid #ccc;
+                box-shadow: none;
+                transform: none;
+            }
+            
+            .rubric-table {
+                background: transparent;
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3, h4 {
+                color: black;
+            }
+            
+            .updated::before {
+                content: "Printed on " attr(datetime) ". ";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>CSC 422 · Final Project</h1>
+            <p class="lede">Choose your track, understand expectations, and see how you'll be graded.</p>
+            <p class="updated" id="last-updated">Last updated: <time datetime="2025-01-15">January 15, 2025</time></p>
+        </header>
+
+        <main id="content">
+            <!-- Track Overview -->
+            <section id="tracks" aria-labelledby="tracks-title">
+                <h2 id="tracks-title">Track Overview</h2>
+
+                <div class="track-grid grid grid-2">
+                    <!-- Track 1 Card -->
+                    <article class="track-card card" id="track-1" aria-labelledby="track-1-title">
+                        <h3 id="track-1-title">Track 1: Midterm + Final</h3>
+                        <p class="summary">Scaffolded, structured path with midterm checkpoint and comprehensive final.</p>
+                        <ul class="bullets">
+                            <li><strong>Total:</strong> 40 points</li>
+                            <li><strong>Structure:</strong> Midterm (10 pts) + Final (30 pts)</li>
+                            <li><strong>Midterm Deliverables:</strong> Code repo + 5–10 min video</li>
+                            <li><strong>Final Deliverables:</strong> Code repo + 6–8 page report</li>
+                        </ul>
+                        <a class="jump" href="#rubric-track1-midterm">See Midterm Rubric</a> ·
+                        <a class="jump" href="#rubric-track1-final">See Final Rubric</a>
+                    </article>
+
+                    <!-- Track 2 Card -->
+                    <article class="track-card card" id="track-2" aria-labelledby="track-2-title">
+                        <h3 id="track-2-title">Track 2: Semester-Long</h3>
+                        <p class="summary">One ambitious research project with built-in midterm update checkpoint.</p>
+                        <ul class="bullets">
+                            <li><strong>Total:</strong> 40 points</li>
+                            <li><strong>Structure:</strong> Single comprehensive project</li>
+                            <li><strong>Deliverables:</strong> Code repo + 8–10 page report + midterm update</li>
+                            <li><strong>Focus:</strong> Deep exploration with research-paper style output</li>
+                        </ul>
+                        <a class="jump" href="#rubric-track2">See Track 2 Rubric</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Rubrics -->
+            <section id="rubrics" aria-labelledby="rubrics-title">
+                <h2 id="rubrics-title">Rubrics</h2>
+
+                <!-- Accordion: Track 1 Midterm -->
+                <div class="accordion">
+                    <h3>
+                        <button class="accordion-trigger" aria-expanded="false"
+                                aria-controls="panel-track1-midterm" id="rubric-track1-midterm">
+                            Track 1 — Midterm (10 pts)
+                        </button>
+                    </h3>
+                    <div id="panel-track1-midterm" class="accordion-panel" role="region" aria-labelledby="rubric-track1-midterm" hidden>
+                        <table class="rubric-table">
+                            <caption>Track 1 Midterm Rubric (10 pts)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rubric-t1m-body">
+                                <!-- populated by JSON -->
+                            </tbody>
+                        </table>
+                        <div class="deliverables">
+                            <h4>Deliverables</h4>
+                            <ul id="deliverables-t1m">
+                                <!-- populated by JSON -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Track 1 Final -->
+                <div class="accordion">
+                    <h3>
+                        <button class="accordion-trigger" aria-expanded="false"
+                                aria-controls="panel-track1-final" id="rubric-track1-final">
+                            Track 1 — Final (30 pts)
+                        </button>
+                    </h3>
+                    <div id="panel-track1-final" class="accordion-panel" role="region" aria-labelledby="rubric-track1-final" hidden>
+                        <table class="rubric-table">
+                            <caption>Track 1 Final Rubric (30 pts)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rubric-t1f-body">
+                                <!-- populated by JSON -->
+                            </tbody>
+                        </table>
+                        <div class="deliverables">
+                            <h4>Deliverables</h4>
+                            <ul id="deliverables-t1f">
+                                <!-- populated by JSON -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Track 2 -->
+                <div class="accordion">
+                    <h3>
+                        <button class="accordion-trigger" aria-expanded="false"
+                                aria-controls="panel-track2" id="rubric-track2">
+                            Track 2 — Semester-Long (40 pts)
+                        </button>
+                    </h3>
+                    <div id="panel-track2" class="accordion-panel" role="region" aria-labelledby="rubric-track2" hidden>
+                        <table class="rubric-table">
+                            <caption>Track 2 Rubric (40 pts)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rubric-t2-body">
+                                <!-- populated by JSON -->
+                            </tbody>
+                        </table>
+                        <div class="deliverables">
+                            <h4>Deliverables</h4>
+                            <ul id="deliverables-t2">
+                                <!-- populated by JSON -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes -->
+            <section id="notes" aria-labelledby="notes-title">
+                <h2 id="notes-title">Important Notes</h2>
+                <ul id="global-notes">
+                    <!-- populated by JSON -->
+                </ul>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <nav class="footer-links">
+                <a href="/">Course Home</a>
+                <a href="/assignments.html">All Assignments</a>
+                <a href="mailto:rmoseley@calbaptist.edu">Contact Instructor</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        // Final Project Data Model - Single Source of Truth
+        window.FINAL_PAGE_DATA = {
+            "tracks": {
+                "track1": {
+                    "label": "Track 1",
+                    "summary": "Midterm (10 pts) + Final (30 pts); scaffolded, structured.",
+                    "points_total": 40,
+                    "midterm": {
+                        "points_total": 10,
+                        "deliverables": [
+                            "Code repository (clean, runnable, with README)",
+                            "5–10 minute recorded video explaining problem, methods, results, and reflections"
+                        ],
+                        "rubric": [
+                            { "category": "Problem Statement & Dataset", "points": 2, "criteria": "Clear research question, motivation, and appropriate dataset selection." },
+                            { "category": "Data Exploration & Preprocessing", "points": 2, "criteria": "Thorough EDA with visualizations, justified preprocessing steps and data splits." },
+                            { "category": "Model & Baseline", "points": 2, "criteria": "At least one baseline model plus one shallow ML model implementation." },
+                            { "category": "Evaluation & Results", "points": 2, "criteria": "Appropriate evaluation metrics with clear, interpretable results." },
+                            { "category": "Code Quality & Reproducibility", "points": 2, "criteria": "Code runs from clean clone, includes basic README, and has clean structure." }
+                        ]
+                    },
+                    "final": {
+                        "points_total": 30,
+                        "deliverables": [
+                            "Complete code repository (baselines + advanced models, README, configurations)",
+                            "Comprehensive 6–8 page written report (abstract, background, methods, results, discussion, ethics/limitations, references)"
+                        ],
+                        "rubric": [
+                            { "category": "Problem Framing & Context", "points": 5, "criteria": "Well-defined research question, clear motivation, and ≥5 relevant sources." },
+                            { "category": "Data & Documentation", "points": 3, "criteria": "Clear data provenance, thorough EDA, justified splits, and complete data dictionary." },
+                            { "category": "Modeling & Technical Depth", "points": 7, "criteria": "Strong baseline + advanced models, hyperparameter tuning/ablation studies, complete pipeline." },
+                            { "category": "Evaluation & Error Analysis", "points": 5, "criteria": "Task-appropriate metrics, comprehensive error analysis, and failure case investigation." },
+                            { "category": "Code Quality & Reproducibility", "points": 3, "criteria": "Well-organized repository, fully reproducible execution, and clear configuration management." },
+                            { "category": "Results Interpretation & Storytelling", "points": 4, "criteria": "Insightful narrative connecting results to research question, effective visualizations." },
+                            { "category": "Ethics & Limitations", "points": 3, "criteria": "Thoughtful discussion of biases, risks, limitations, and responsible AI considerations." }
+                        ]
+                    }
+                },
+                "track2": {
+                    "label": "Track 2",
+                    "summary": "Semester-long exploration (40 pts total).",
+                    "points_total": 40,
+                    "deliverables": [
+                        "Complete code repository (baselines + advanced models, configurations, full reproducibility)",
+                        "Comprehensive research report (8–10 pages, research-paper style with abstract, related work, methodology)",
+                        "Midterm progress update (short written progress report + repository checkpoint)"
+                    ],
+                    "rubric": [
+                        { "category": "Research Progress Update (Midterm Checkpoint)", "points": 5, "criteria": "Clear progress documentation, early results/pipeline demonstration, identified challenges and solutions." },
+                        { "category": "Implementation & Technical Depth", "points": 20, "criteria": "Strong baseline + advanced models, technical novelty/creativity, rigorous experimentation and ablation studies." },
+                        { "category": "Comprehensive Research Report", "points": 10, "criteria": "Research-quality writing: abstract, background/related work, methodology, results, discussion, conclusion, references." },
+                        { "category": "Project Initiative & Excellence", "points": 5, "criteria": "Consistent progress management, ambitious scope, originality, and effective collaboration (if team project)." }
+                    ]
+                }
+            },
+            "global_notes": [
+                "All students deliver an end-of-semester research presentation (10% of course grade) — graded separately from project tracks.",
+                "Both tracks must include a strong baseline model, rigorous evaluation methodology, and fully reproducible code repository.",
+                "Ethical considerations are required: identify potential biases, risks of misuse, privacy concerns, and limitations.",
+                "Code repositories must be clean, well-documented, and runnable from a fresh clone with clear setup instructions.",
+                "Final presentations will be scheduled during finals week — format and timing details will be announced mid-semester."
+            ]
+        };
+
+        // Render page content from JSON data
+        (function() {
+            const data = window.FINAL_PAGE_DATA;
+            if (!data) {
+                console.error('Final page data not loaded');
+                return;
+            }
+
+            // Helper functions
+            function createTableRows(rubric) {
+                return rubric.map(item => `
+                    <tr>
+                        <th scope="row">${item.category}</th>
+                        <td><strong>${item.points}</strong></td>
+                        <td>${item.criteria}</td>
+                    </tr>
+                `).join('');
+            }
+
+            function createListItems(items) {
+                return items.map(item => `<li>${item}</li>`).join('');
+            }
+
+            // Populate Track 1 Midterm
+            const t1 = data.tracks.track1;
+            document.getElementById('rubric-t1m-body').innerHTML = createTableRows(t1.midterm.rubric);
+            document.getElementById('deliverables-t1m').innerHTML = createListItems(t1.midterm.deliverables);
+
+            // Populate Track 1 Final
+            document.getElementById('rubric-t1f-body').innerHTML = createTableRows(t1.final.rubric);
+            document.getElementById('deliverables-t1f').innerHTML = createListItems(t1.final.deliverables);
+
+            // Populate Track 2
+            const t2 = data.tracks.track2;
+            document.getElementById('rubric-t2-body').innerHTML = createTableRows(t2.rubric);
+            document.getElementById('deliverables-t2').innerHTML = createListItems(t2.deliverables);
+
+            // Populate Global Notes
+            document.getElementById('global-notes').innerHTML = createListItems(data.global_notes);
+
+            // Setup accordions with accessibility
+            document.querySelectorAll('.accordion-trigger').forEach(button => {
+                button.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    const panel = document.getElementById(this.getAttribute('aria-controls'));
+                    
+                    // Toggle this accordion
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    panel.hidden = expanded;
+                    
+                    // Optional: Close other accordions (comment out for multiple open)
+                    // document.querySelectorAll('.accordion-trigger').forEach(otherButton => {
+                    //     if (otherButton !== this) {
+                    //         otherButton.setAttribute('aria-expanded', 'false');
+                    //         document.getElementById(otherButton.getAttribute('aria-controls')).hidden = true;
+                    //     }
+                    // });
+                });
+            });
+
+            // Keyboard navigation for accordions
+            document.querySelectorAll('.accordion-trigger').forEach(button => {
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Optional: Open first accordion by default
+            const firstAccordion = document.querySelector('.accordion-trigger');
+            if (firstAccordion) {
+                firstAccordion.click();
+            }
+
+            // Update timestamp
+            const now = new Date();
+            const timeElement = document.querySelector('#last-updated time');
+            if (timeElement) {
+                timeElement.setAttribute('datetime', now.toISOString().split('T')[0]);
+                timeElement.textContent = now.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
