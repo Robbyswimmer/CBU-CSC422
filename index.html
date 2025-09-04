@@ -2453,12 +2453,9 @@
                 return;
             }
             
-            // Filter and sort important dates (show dates from 30 days ago to future)
-            const thirtyDaysAgo = new Date(today);
-            thirtyDaysAgo.setDate(today.getDate() - 30);
-            
+            // Filter and sort important dates (show only future dates)
             allImportantDates = courseData.importantDates
-                .filter(dateItem => new Date(dateItem.date + 'T00:00:00') >= thirtyDaysAgo)
+                .filter(dateItem => new Date(dateItem.date + 'T00:00:00') >= today)
                 .sort((a, b) => new Date(a.date + 'T00:00:00') - new Date(b.date + 'T00:00:00'));
 
             if (allImportantDates.length === 0) {
