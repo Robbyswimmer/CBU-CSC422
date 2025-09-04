@@ -616,31 +616,109 @@
                             </button>
                         </h3>
                         <div id="panel-track1-midterm-examples" class="accordion-panel" role="region" aria-labelledby="track1-midterm-examples" hidden>
-                            <div class="card" style="margin-top: var(--spacing-md);">
-                                <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">Shallow Learning Focus</h4>
-                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">"Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."</p>
-                                <ul style="list-style: none; padding: 0;">
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Classification:</strong> Binary or multi-class problems using logistic regression, SVM, or decision trees
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Regression:</strong> Predict continuous values using linear regression or polynomial features
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Clustering:</strong> Unsupervised learning with K-means, hierarchical clustering
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Feature Engineering:</strong> Data preprocessing, feature selection, and dimensionality reduction
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Model Comparison:</strong> Evaluate multiple algorithms and choose the best performing one
-                                    </li>
-                                </ul>
+                            <div style="margin-top: var(--spacing-md);">
+                                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(102, 126, 234, 0.05) 100%); padding: var(--spacing-lg); border-radius: var(--border-radius-lg); border: 1px solid rgba(102, 126, 234, 0.2); margin-bottom: var(--spacing-lg);">
+                                    <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-md); font-size: 1.3rem; font-weight: 600;">Shallow Learning Focus</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 1.1rem; font-style: italic; line-height: 1.6;">"Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."</p>
+                                </div>
+                                
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-lg);">
+                                    <!-- Classification Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🎯</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Classification</h5>
+                                                <span style="background: rgba(102, 126, 234, 0.15); color: var(--accent-primary); padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Beginner Friendly</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Binary or multi-class problems using logistic regression, SVM, or decision trees</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Logistic Regression</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">SVM</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Decision Trees</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Regression Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">📈</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Regression</h5>
+                                                <span style="background: rgba(102, 126, 234, 0.15); color: var(--accent-primary); padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Beginner Friendly</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Predict continuous values using linear regression or polynomial features</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Linear Regression</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Polynomial Features</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Clustering Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🔍</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Clustering</h5>
+                                                <span style="background: rgba(255, 193, 7, 0.15); color: #B8860B; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Intermediate</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Unsupervised learning with K-means, hierarchical clustering</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">K-means</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Hierarchical</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Feature Engineering Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">⚙️</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Feature Engineering</h5>
+                                                <span style="background: rgba(255, 193, 7, 0.15); color: #B8860B; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Intermediate</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Data preprocessing, feature selection, and dimensionality reduction</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Preprocessing</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">PCA</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Model Comparison Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">📊</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Model Comparison</h5>
+                                                <span style="background: rgba(102, 126, 234, 0.15); color: var(--accent-primary); padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Beginner Friendly</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Evaluate multiple algorithms and choose the best performing one</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Cross-validation</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Metrics</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -653,31 +731,112 @@
                             </button>
                         </h3>
                         <div id="panel-track1-final-examples" class="accordion-panel" role="region" aria-labelledby="track1-final-examples" hidden>
-                            <div class="card" style="margin-top: var(--spacing-md);">
-                                <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-md);">Deep Learning Focus</h4>
-                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">"Go deeper. Build upon your midterm work with neural networks and advanced techniques."</p>
-                                <ul style="list-style: none; padding: 0;">
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
-                                        <strong>Neural Networks:</strong> Feedforward networks, backpropagation, activation functions
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
-                                        <strong>Computer Vision:</strong> CNNs for image classification, object detection, image segmentation
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
-                                        <strong>Natural Language Processing:</strong> RNNs, LSTMs, transformer models for text analysis
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
-                                        <strong>Transfer Learning:</strong> Fine-tune pre-trained models for specific tasks
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
-                                        <strong>Generative Models:</strong> GANs, VAEs, or diffusion models for creative applications
-                                    </li>
-                                </ul>
+                            <div style="margin-top: var(--spacing-md);">
+                                <div style="background: linear-gradient(135deg, rgba(118, 75, 162, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%); padding: var(--spacing-lg); border-radius: var(--border-radius-lg); border: 1px solid rgba(118, 75, 162, 0.2); margin-bottom: var(--spacing-lg);">
+                                    <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-md); font-size: 1.3rem; font-weight: 600;">Deep Learning Focus</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 1.1rem; font-style: italic; line-height: 1.6;">"Go deeper. Build upon your midterm work with neural networks and advanced techniques."</p>
+                                </div>
+                                
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-lg);">
+                                    <!-- Neural Networks Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-secondary)'; this.style.boxShadow='0 4px 20px rgba(118, 75, 162, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(118, 75, 162, 0.2), rgba(118, 75, 162, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🧠</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-secondary); margin: 0; font-size: 1.1rem; font-weight: 600;">Neural Networks</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Feedforward networks, backpropagation, activation functions</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Feedforward</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Backpropagation</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">ReLU</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Computer Vision Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-secondary)'; this.style.boxShadow='0 4px 20px rgba(118, 75, 162, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(118, 75, 162, 0.2), rgba(118, 75, 162, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">👁️</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-secondary); margin: 0; font-size: 1.1rem; font-weight: 600;">Computer Vision</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">CNNs for image classification, object detection, image segmentation</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">CNNs</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Object Detection</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Segmentation</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- NLP Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-secondary)'; this.style.boxShadow='0 4px 20px rgba(118, 75, 162, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(118, 75, 162, 0.2), rgba(118, 75, 162, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">💬</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-secondary); margin: 0; font-size: 1.1rem; font-weight: 600;">Natural Language Processing</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">RNNs, LSTMs, transformer models for text analysis</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">RNNs</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">LSTMs</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Transformers</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Transfer Learning Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-secondary)'; this.style.boxShadow='0 4px 20px rgba(118, 75, 162, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(118, 75, 162, 0.2), rgba(118, 75, 162, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🔄</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-secondary); margin: 0; font-size: 1.1rem; font-weight: 600;">Transfer Learning</h5>
+                                                <span style="background: rgba(255, 193, 7, 0.15); color: #B8860B; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Intermediate</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Fine-tune pre-trained models for specific tasks</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Fine-tuning</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Pre-trained</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Generative Models Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-secondary)'; this.style.boxShadow='0 4px 20px rgba(118, 75, 162, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(118, 75, 162, 0.2), rgba(118, 75, 162, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🎨</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-secondary); margin: 0; font-size: 1.1rem; font-weight: 600;">Generative Models</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">GANs, VAEs, or diffusion models for creative applications</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">GANs</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">VAEs</span>
+                                            <span style="background: rgba(118, 75, 162, 0.1); color: var(--accent-secondary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Diffusion</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -700,34 +859,132 @@
                             </button>
                         </h3>
                         <div id="panel-track2-unsolved" class="accordion-panel" role="region" aria-labelledby="track2-unsolved" hidden>
-                            <div class="card" style="margin-top: var(--spacing-md);">
-                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Student-friendly scale explorations</p>
-                                <ul style="list-style: none; padding: 0;">
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>RL Exploration:</strong> Train an agent to play a new game or adapt an environment
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Bias & Fairness Study:</strong> Analyze bias in datasets like COMPAS with multiple models
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Energy Forecasting:</strong> Predict demand using temporal models + deep learning
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Climate/Environmental AI:</strong> Classify land use or track deforestation with CNNs
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Multi-modal Learning:</strong> Combine text + images for fake news detection
-                                    </li>
-                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
-                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
-                                        <strong>Human-in-the-Loop:</strong> Build systems where human feedback improves predictions
-                                    </li>
-                                </ul>
+                            <div style="margin-top: var(--spacing-md);">
+                                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(102, 126, 234, 0.05) 100%); padding: var(--spacing-lg); border-radius: var(--border-radius-lg); border: 1px solid rgba(102, 126, 234, 0.2); margin-bottom: var(--spacing-lg);">
+                                    <p style="color: var(--text-secondary); margin: 0; font-size: 1.1rem; font-style: italic; line-height: 1.6; text-align: center;">Student-friendly scale explorations of cutting-edge problems</p>
+                                </div>
+                                
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--spacing-lg);">
+                                    <!-- RL Exploration Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🎮</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">RL Exploration</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Train an agent to play a new game or adapt an environment</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Q-Learning</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Policy Gradient</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">OpenAI Gym</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bias & Fairness Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">⚖️</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Bias & Fairness Study</h5>
+                                                <span style="background: rgba(255, 193, 7, 0.15); color: #B8860B; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Intermediate</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Analyze bias in datasets like COMPAS with multiple models</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Fairness Metrics</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">COMPAS</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Ethical AI</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Energy Forecasting Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">⚡</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Energy Forecasting</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Predict demand using temporal models + deep learning</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Time Series</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">LSTMs</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Forecasting</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Climate/Environmental AI Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🌍</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Climate/Environmental AI</h5>
+                                                <span style="background: rgba(255, 193, 7, 0.15); color: #B8860B; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Intermediate</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Classify land use or track deforestation with CNNs</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Satellite Data</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">CNNs</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">GIS</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Multi-modal Learning Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">🔀</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Multi-modal Learning</h5>
+                                                <span style="background: rgba(255, 107, 53, 0.15); color: #D2691E; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Advanced</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Combine text + images for fake news detection</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Vision + NLP</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Fusion</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Misinformation</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Human-in-the-Loop Card -->
+                                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: var(--spacing-lg); transition: var(--transition); position: relative; overflow: hidden;" onmouseover="this.style.borderColor='var(--accent-primary)'; this.style.boxShadow='0 4px 20px rgba(102, 126, 234, 0.15)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none'">
+                                        <div style="position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); opacity: 0.1; border-radius: 50%;"></div>
+                                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-md);">
+                                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(102, 126, 234, 0.1)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-sm);">
+                                                <span style="font-size: 1.2rem;">👤</span>
+                                            </div>
+                                            <div>
+                                                <h5 style="color: var(--accent-primary); margin: 0; font-size: 1.1rem; font-weight: 600;">Human-in-the-Loop</h5>
+                                                <span style="background: rgba(255, 193, 7, 0.15); color: #B8860B; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">Intermediate</span>
+                                            </div>
+                                        </div>
+                                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.6;">Build systems where human feedback improves predictions</p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Active Learning</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Feedback</span>
+                                            <span style="background: rgba(102, 126, 234, 0.1); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 16px; font-size: 0.85rem;">Interactive ML</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
