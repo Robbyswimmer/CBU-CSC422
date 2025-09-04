@@ -485,8 +485,34 @@
 </head>
 
 <body>
+    <!-- Navigation Header -->
+    <header class="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--bg-primary); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);">
+        <div class="container" style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--spacing-md);">
+            <nav style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm) 0;">
+                <a href="index.html" style="font-size: 1.5rem; font-weight: 700; background: var(--bg-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none;">CSC 422</a>
+                <div style="display: flex; gap: var(--spacing-md);" class="nav-links-desktop">
+                    <a href="index.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Home</a>
+                    <a href="assignments.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Assignments</a>
+                    <a href="course-calendar.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Course Calendar</a>
+                    <a href="final.html" style="color: var(--accent-primary); text-decoration: none; font-weight: 500; transition: var(--transition);">Final Project</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Syllabus</a>
+                </div>
+                <button onclick="toggleMobileNav()" style="display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer;" id="mobile-nav-toggle">☰</button>
+            </nav>
+            <div id="mobile-nav-menu" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--border-radius); margin: var(--spacing-sm); backdrop-filter: blur(10px);">
+                <div style="display: flex; flex-direction: column; padding: var(--spacing-sm) 0;">
+                    <a href="index.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="assignments.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500;">Assignments</a>
+                    <a href="course-calendar.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500;">Course Calendar</a>
+                    <a href="final.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--accent-primary); text-decoration: none; font-weight: 500;">Final Project</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" target="_blank" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; border-bottom: none;">Syllabus</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
-        <header class="page-header">
+        <header class="page-header" style="margin-top: var(--spacing-xl);">
             <h1>CSC 422 · Final Project</h1>
             <p class="lede">Choose your track, understand expectations, and see how you'll be graded.</p>
             <p class="updated" id="last-updated">Last updated: <time datetime="2025-01-15">January 15, 2025</time></p>
@@ -796,6 +822,46 @@
                 });
             }
         })();
+
+        // Mobile Navigation Functions
+        function toggleMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function closeMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.style.display = 'none';
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const toggleButton = document.getElementById('mobile-nav-toggle');
+            
+            if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                mobileMenu.style.display = 'none';
+            }
+        });
+
+        // Mobile responsive navigation
+        function checkMobileNav() {
+            const navDesktop = document.querySelector('.nav-links-desktop');
+            const mobileToggle = document.getElementById('mobile-nav-toggle');
+            
+            if (window.innerWidth <= 768) {
+                navDesktop.style.display = 'none';
+                mobileToggle.style.display = 'block';
+            } else {
+                navDesktop.style.display = 'flex';
+                mobileToggle.style.display = 'none';
+                closeMobileNav();
+            }
+        }
+
+        // Check on load and resize
+        window.addEventListener('load', checkMobileNav);
+        window.addEventListener('resize', checkMobileNav);
     </script>
 </body>
 </html>
