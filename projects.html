@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC 422 Projects · Tracks & Examples</title>
+    <meta name="description" content="Comprehensive project overview with examples, timelines, rubrics, and deliverables for Track 1 and Track 2."
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Custom Properties - Matching Course Theme */
+        :root {
+            /* Dark Theme Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --accent-orange: #ff6b35;
+            --accent-green: #4ecdc4;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #666666;
+            --border: #333333;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+            
+            /* Spacing & Layout */
+            --container-max: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: var(--spacing-md) 0;
+        }
+        
+        /* Container & Layout */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-primary);
+        }
+        
+        p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+        
+        .lede {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* Card System */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--bg-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-primary);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+        
+        /* Track Cards */
+        .track-card {
+            position: relative;
+        }
+        
+        .track-card .summary {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .bullets {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .bullets li {
+            color: var(--text-secondary);
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .bullets li::before {
+            content: '•';
+            color: var(--accent-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .jump {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .jump:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+        
+        /* Accordions */
+        .accordion {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+        
+        .accordion-trigger {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: var(--spacing-md);
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-trigger:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--accent-primary);
+        }
+        
+        .accordion-trigger::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: normal;
+            transition: var(--transition);
+        }
+        
+        .accordion-trigger[aria-expanded="true"]::after {
+            content: '−';
+        }
+        
+        .accordion-panel {
+            border-top: 1px solid var(--border);
+            padding: var(--spacing-md);
+            background: rgba(102, 126, 234, 0.02);
+        }
+        
+        .accordion-panel[hidden] {
+            display: none;
+        }
+        
+        /* Tables */
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-md);
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .rubric-table caption {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+            text-align: left;
+        }
+        
+        .rubric-table th,
+        .rubric-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .rubric-table th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .rubric-table td {
+            color: var(--text-secondary);
+        }
+        
+        .rubric-table th[scope="row"] {
+            background: transparent;
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        
+        .rubric-table tr:last-child th,
+        .rubric-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Deliverables Section */
+        .deliverables {
+            background: var(--bg-primary);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+        }
+        
+        .deliverables ul {
+            list-style: none;
+        }
+        
+        .deliverables li {
+            color: var(--text-secondary);
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .deliverables li::before {
+            content: '→';
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Notes Section */
+        #global-notes {
+            list-style: none;
+            background: var(--bg-card);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        #global-notes li {
+            color: var(--text-secondary);
+            padding: var(--spacing-sm) 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        #global-notes li::before {
+            content: '⚠';
+            color: var(--accent-orange);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Footer */
+        .page-footer {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-primary);
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .accordion-trigger {
+                font-size: 1.1rem;
+                padding: var(--spacing-sm);
+            }
+            
+            .rubric-table th,
+            .rubric-table td {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 0.9rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .page-header,
+            .section {
+                background: transparent;
+            }
+            
+            .accordion-panel {
+                display: block !important;
+            }
+            
+            .accordion-trigger {
+                display: none;
+            }
+            
+            .footer-links {
+                display: none;
+            }
+            
+            .card {
+                background: transparent;
+                border: 1px solid #ccc;
+                box-shadow: none;
+                transform: none;
+            }
+            
+            .rubric-table {
+                background: transparent;
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3, h4 {
+                color: black;
+            }
+            
+            .updated::before {
+                content: "Printed on " attr(datetime) ". ";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--bg-primary); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);">
+        <div class="container" style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--spacing-md);">
+            <nav style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm) 0;">
+                <a href="index.html" style="font-size: 1.5rem; font-weight: 700; background: var(--bg-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none;">CSC 422</a>
+                <div style="display: flex; gap: var(--spacing-md);" class="nav-links-desktop">
+                    <a href="index.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Home</a>
+                    <a href="assignments.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Assignments</a>
+                    <a href="course-calendar.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Course Calendar</a>
+                    <a href="projects.html" style="color: var(--accent-primary); text-decoration: none; font-weight: 500; transition: var(--transition);">Projects</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition);" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Syllabus</a>
+                </div>
+                <button onclick="toggleMobileNav()" style="display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer;" id="mobile-nav-toggle">☰</button>
+            </nav>
+            <div id="mobile-nav-menu" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--border-radius); margin: var(--spacing-sm); backdrop-filter: blur(10px);">
+                <div style="display: flex; flex-direction: column; padding: var(--spacing-sm) 0;">
+                    <a href="index.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="assignments.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500;">Assignments</a>
+                    <a href="course-calendar.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500;">Course Calendar</a>
+                    <a href="projects.html" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; color: var(--accent-primary); text-decoration: none; font-weight: 500;">Projects</a>
+                    <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" target="_blank" onclick="closeMobileNav()" style="padding: var(--spacing-md) var(--spacing-lg); text-align: center; font-size: 1.1rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; border-bottom: none;">Syllabus</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <header class="page-header" style="margin-top: var(--spacing-xl);">
+            <h1>CSC 422 · Projects</h1>
+            <p class="lede">Explore project examples, choose your track, and understand expectations.</p>
+            <p class="updated" id="last-updated">Last updated: <time datetime="2025-01-15">January 15, 2025</time></p>
+        </header>
+
+        <!-- Course Philosophy Section -->
+        <section id="philosophy" class="section" style="background: var(--bg-card); border-radius: var(--border-radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-xl); border-left: 4px solid var(--accent-primary);">
+            <h2 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">Course Philosophy</h2>
+            <p style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: var(--spacing-sm); font-weight: 500;">
+                "Well... to allow you to learn and study things that are interesting to you. My only job in this course is to enable you to do cool things."
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                Your final project is the culmination of this philosophy — choose a track that aligns with your interests, career goals, and learning style. Whether you prefer structured guidance or independent exploration, both paths will challenge you to apply machine learning to problems that matter to you.
+            </p>
+        </section>
+
+        <main id="content">
+            <!-- Track Overview -->
+            <section id="tracks" aria-labelledby="tracks-title">
+                <h2 id="tracks-title">Track Overview</h2>
+
+                <div class="track-grid grid grid-2">
+                    <!-- Track 1 Card -->
+                    <article class="track-card card" id="track-1" aria-labelledby="track-1-title">
+                        <h3 id="track-1-title">Track 1: Structured Learning Path</h3>
+                        <p class="summary">Two connected projects that progressively build your ML expertise with guided milestones.</p>
+                        
+                        <div style="background: rgba(102, 126, 234, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0;">
+                            <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-sm);">📊 Midterm Project</h4>
+                            <p style="color: var(--text-secondary); font-style: italic; margin-bottom: var(--spacing-xs);">
+                                "Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(118, 75, 162, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0;">
+                            <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-sm);">🚀 Final Project</h4>
+                            <p style="color: var(--text-secondary); font-style: italic; margin-bottom: var(--spacing-xs);">
+                                "Go deeper — use deep learning, transfer learning, or tackle a more complex dataset/problem."
+                            </p>
+                        </div>
+
+                        <ul class="bullets">
+                            <li><strong>Total:</strong> 40 points (10 + 30)</li>
+                            <li><strong>Best for:</strong> Students who prefer guided structure and incremental complexity</li>
+                            <li><strong>Timeline:</strong> Two distinct project phases with clear milestones</li>
+                            <li><strong>Support:</strong> Scaffolded learning with built-in checkpoints</li>
+                        </ul>
+                        <a class="jump" href="#rubric-track1-midterm">See Midterm Rubric</a> ·
+                        <a class="jump" href="#rubric-track1-final">See Final Rubric</a> ·
+                        <a class="jump" href="#track1-examples">See Project Examples</a>
+                    </article>
+
+                    <!-- Track 2 Card -->
+                    <article class="track-card card" id="track-2" aria-labelledby="track-2-title">
+                        <h3 id="track-2-title">Track 2: Independent Research</h3>
+                        <p class="summary">One ambitious, semester-long exploration where you tackle bigger problems and drive your own learning.</p>
+                        
+                        <div style="background: rgba(255, 107, 53, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0; border-left: 3px solid var(--accent-orange);">
+                            <h4 style="color: var(--accent-orange); margin-bottom: var(--spacing-sm);">🔬 Research Focus</h4>
+                            <p style="color: var(--text-secondary); font-style: italic; margin-bottom: var(--spacing-xs);">
+                                "Tackle a big idea — explore an unsolved or applied AI problem. Show curiosity, not perfection. Depth and initiative matter more than results."
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(78, 205, 196, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0;">
+                            <h4 style="color: var(--accent-green); margin-bottom: var(--spacing-sm);">✨ Key Benefits</h4>
+                            <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary);">
+                                <li>You only complete <strong>1 project</strong> in this course</li>
+                                <li><strong>YOU decide</strong> what you work on and what you learn</li>
+                                <li>Potential for <strong>publishable research</strong> or impressive portfolio work</li>
+                                <li>Much more <strong>in-depth exploration</strong> of topics that interest you</li>
+                            </ul>
+                        </div>
+
+                        <ul class="bullets">
+                            <li><strong>Total:</strong> 40 points (single project)</li>
+                            <li><strong>Best for:</strong> Self-motivated students who want research experience</li>
+                            <li><strong>Expectations:</strong> Higher standards, more independent work</li>
+                            <li><strong>Outcome:</strong> Impressive project + comprehensive research report</li>
+                        </ul>
+                        <a class="jump" href="#rubric-track2">See Track 2 Rubric</a> ·
+                        <a class="jump" href="#track2-examples">See Project Examples</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Track 1 Project Examples -->
+            <section id="track1-examples" aria-labelledby="track1-examples-title" style="margin-bottom: var(--spacing-xl);">
+                <h2 id="track1-examples-title">Track 1: Project Examples</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--spacing-lg); text-align: center;">
+                    Structured progression from shallow learning methods to deep learning techniques.
+                </p>
+
+                <div class="grid grid-2" style="margin-bottom: var(--spacing-lg);">
+                    <!-- Midterm Project Examples -->
+                    <div class="accordion">
+                        <h3>
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-track1-midterm-examples" id="track1-midterm-examples">
+                                📊 Midterm Project Examples
+                            </button>
+                        </h3>
+                        <div id="panel-track1-midterm-examples" class="accordion-panel" role="region" aria-labelledby="track1-midterm-examples" hidden>
+                            <div class="card" style="margin-top: var(--spacing-md);">
+                                <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">Shallow Learning Focus</h4>
+                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">"Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Classification:</strong> Binary or multi-class problems using logistic regression, SVM, or decision trees
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Regression:</strong> Predict continuous values using linear regression or polynomial features
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Clustering:</strong> Unsupervised learning with K-means, hierarchical clustering
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Feature Engineering:</strong> Data preprocessing, feature selection, and dimensionality reduction
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Model Comparison:</strong> Evaluate multiple algorithms and choose the best performing one
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Project Examples -->
+                    <div class="accordion">
+                        <h3>
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-track1-final-examples" id="track1-final-examples">
+                                🎯 Final Project Examples
+                            </button>
+                        </h3>
+                        <div id="panel-track1-final-examples" class="accordion-panel" role="region" aria-labelledby="track1-final-examples" hidden>
+                            <div class="card" style="margin-top: var(--spacing-md);">
+                                <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-md);">Deep Learning Focus</h4>
+                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">"Go deeper. Build upon your midterm work with neural networks and advanced techniques."</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
+                                        <strong>Neural Networks:</strong> Feedforward networks, backpropagation, activation functions
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
+                                        <strong>Computer Vision:</strong> CNNs for image classification, object detection, image segmentation
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
+                                        <strong>Natural Language Processing:</strong> RNNs, LSTMs, transformer models for text analysis
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
+                                        <strong>Transfer Learning:</strong> Fine-tune pre-trained models for specific tasks
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-secondary);">•</span>
+                                        <strong>Generative Models:</strong> GANs, VAEs, or diffusion models for creative applications
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Track 2 Project Examples -->
+            <section id="track2-examples" aria-labelledby="track2-examples-title" style="margin-bottom: var(--spacing-xl);">
+                <h2 id="track2-examples-title">Track 2: Project Inspiration</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--spacing-lg); text-align: center;">
+                    Goal: Tackle a bigger, semi-open problem — exploratory, with either a research bent or applied AI innovation.
+                </p>
+
+                <div class="grid grid-1" style="margin-bottom: var(--spacing-lg);">
+                    <!-- Unsolved/Open-Ended Problems Accordion -->
+                    <div class="accordion">
+                        <h3>
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-track2-unsolved" id="track2-unsolved">
+                                🔬 Unsolved/Open-Ended Problems
+                            </button>
+                        </h3>
+                        <div id="panel-track2-unsolved" class="accordion-panel" role="region" aria-labelledby="track2-unsolved" hidden>
+                            <div class="card" style="margin-top: var(--spacing-md);">
+                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Student-friendly scale explorations</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>RL Exploration:</strong> Train an agent to play a new game or adapt an environment
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Bias & Fairness Study:</strong> Analyze bias in datasets like COMPAS with multiple models
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Energy Forecasting:</strong> Predict demand using temporal models + deep learning
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Climate/Environmental AI:</strong> Classify land use or track deforestation with CNNs
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Multi-modal Learning:</strong> Combine text + images for fake news detection
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-primary);">•</span>
+                                        <strong>Human-in-the-Loop:</strong> Build systems where human feedback improves predictions
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Applied AI to Other Fields Accordion -->
+                    <div class="accordion">
+                        <h3>
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-track2-applied" id="track2-applied">
+                                🌍 Applied AI to Other Fields
+                            </button>
+                        </h3>
+                        <div id="panel-track2-applied" class="accordion-panel" role="region" aria-labelledby="track2-applied" hidden>
+                            <div class="card" style="margin-top: var(--spacing-md);">
+                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Cross-disciplinary innovation</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                        <strong>Biology:</strong> Classify satellite imagery to track coral reef bleaching over time
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                        <strong>Sports:</strong> Predict swimming race outcomes using training/physiology data
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                        <strong>Education:</strong> Design quiz-recommendation system using performance logs
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-orange);">•</span>
+                                        <strong>Business:</strong> Customer churn prediction with imbalanced classification
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Research-Adjacent Explorations Accordion -->
+                    <div class="accordion">
+                        <h3>
+                            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-track2-research" id="track2-research">
+                                🔬 Research-Adjacent Explorations
+                            </button>
+                        </h3>
+                        <div id="panel-track2-research" class="accordion-panel" role="region" aria-labelledby="track2-research" hidden>
+                            <div class="card" style="margin-top: var(--spacing-md);">
+                                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-style: italic;">Academic-style investigations</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-green);">•</span>
+                                        <strong>Architecture Comparison:</strong> Compare transformer vs RNN on small NLP tasks
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-green);">•</span>
+                                        <strong>ML vs DL Benchmark:</strong> Shallow ML vs Deep Learning on tabular datasets
+                                    </li>
+                                    <li style="padding: var(--spacing-xs) 0; color: var(--text-secondary); position: relative; padding-left: 1.5rem;">
+                                        <span style="position: absolute; left: 0; color: var(--accent-green);">•</span>
+                                        <strong>Active Learning:</strong> Experiment with label efficiency techniques
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 1px solid var(--accent-primary);">
+                    <h3 style="color: var(--accent-primary); text-align: center; margin-bottom: var(--spacing-md);">💡 Remember: Initiative Matters Most</h3>
+                    <p style="color: var(--text-secondary); text-align: center; font-size: 1.1rem;">
+                        Students show initiative by designing their dataset pipeline, tackling harder tasks, and/or proposing innovative AI-for-X projects. 
+                        The goal is ambitious exploration, not perfect results.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rubrics -->
+            <section id="rubrics" aria-labelledby="rubrics-title">
+                <h2 id="rubrics-title">Rubrics</h2>
+
+                <!-- Accordion: Track 1 Midterm -->
+                <div class="accordion">
+                    <h3>
+                        <button class="accordion-trigger" aria-expanded="false"
+                                aria-controls="panel-track1-midterm" id="rubric-track1-midterm">
+                            Track 1 — Midterm (10 pts)
+                        </button>
+                    </h3>
+                    <div id="panel-track1-midterm" class="accordion-panel" role="region" aria-labelledby="rubric-track1-midterm" hidden>
+                        <table class="rubric-table">
+                            <caption>Track 1 Midterm Rubric (10 pts)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rubric-t1m-body">
+                                <!-- populated by JSON -->
+                            </tbody>
+                        </table>
+                        <div class="deliverables">
+                            <h4>Deliverables</h4>
+                            <ul id="deliverables-t1m">
+                                <!-- populated by JSON -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Track 1 Final -->
+                <div class="accordion">
+                    <h3>
+                        <button class="accordion-trigger" aria-expanded="false"
+                                aria-controls="panel-track1-final" id="rubric-track1-final">
+                            Track 1 — Final (30 pts)
+                        </button>
+                    </h3>
+                    <div id="panel-track1-final" class="accordion-panel" role="region" aria-labelledby="rubric-track1-final" hidden>
+                        <table class="rubric-table">
+                            <caption>Track 1 Final Rubric (30 pts)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rubric-t1f-body">
+                                <!-- populated by JSON -->
+                            </tbody>
+                        </table>
+                        <div class="deliverables">
+                            <h4>Deliverables</h4>
+                            <ul id="deliverables-t1f">
+                                <!-- populated by JSON -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Track 2 -->
+                <div class="accordion">
+                    <h3>
+                        <button class="accordion-trigger" aria-expanded="false"
+                                aria-controls="panel-track2" id="rubric-track2">
+                            Track 2 — Semester-Long (40 pts)
+                        </button>
+                    </h3>
+                    <div id="panel-track2" class="accordion-panel" role="region" aria-labelledby="rubric-track2" hidden>
+                        <table class="rubric-table">
+                            <caption>Track 2 Rubric (40 pts)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Criteria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rubric-t2-body">
+                                <!-- populated by JSON -->
+                            </tbody>
+                        </table>
+                        <div class="deliverables">
+                            <h4>Deliverables</h4>
+                            <ul id="deliverables-t2">
+                                <!-- populated by JSON -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline" aria-labelledby="timeline-title" style="margin-bottom: var(--spacing-xl);">
+                <h2 id="timeline-title">Project Timeline</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--spacing-lg); text-align: center;">
+                    Estimated timeline for both tracks with key milestones and deliverables
+                </p>
+
+                <div class="grid grid-2" style="gap: var(--spacing-xl);">
+                    <!-- Track 1 Timeline -->
+                    <div class="card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);">
+                        <h3 style="color: var(--accent-primary); text-align: center; margin-bottom: var(--spacing-md);">📊 Track 1: Structured Timeline</h3>
+                        
+                        <div style="position: relative; padding-left: var(--spacing-md);">
+                            <!-- Timeline Line -->
+                            <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));"></div>
+                            
+                            <!-- Week 8-10: Midterm -->
+                            <div style="position: relative; margin-bottom: var(--spacing-lg);">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-primary); margin-bottom: var(--spacing-xs);">Weeks 8-10: Midterm Project</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Get hands dirty with datasets and shallow models</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Dataset selection and EDA</li>
+                                        <li>Baseline model implementation</li>
+                                        <li>5-10 minute video deliverable</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Week 11-14: Final -->
+                            <div style="position: relative;">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-secondary); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-secondary); margin-bottom: var(--spacing-xs);">Weeks 11-14: Final Project</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Go deeper with advanced models and complex problems</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Deep learning or transfer learning</li>
+                                        <li>Comprehensive 6-8 page report</li>
+                                        <li>Final presentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Track 2 Timeline -->
+                    <div class="card" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);">
+                        <h3 style="color: var(--accent-orange); text-align: center; margin-bottom: var(--spacing-md);">🔬 Track 2: Research Timeline</h3>
+                        
+                        <div style="position: relative; padding-left: var(--spacing-md);">
+                            <!-- Timeline Line -->
+                            <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent-orange), var(--accent-green));"></div>
+                            
+                            <!-- Week 8-10: Midterm Update -->
+                            <div style="position: relative; margin-bottom: var(--spacing-lg);">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-orange); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-orange); margin-bottom: var(--spacing-xs);">Weeks 8-10: Progress Update</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Comprehensive write-up in place of midterm points</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Research progress documentation</li>
+                                        <li>Early results and pipeline demo</li>
+                                        <li>Challenge identification and solutions</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Week 11-14: Final Deliverables -->
+                            <div style="position: relative;">
+                                <div style="position: absolute; left: -6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-green); border: 2px solid var(--bg-card);"></div>
+                                <div style="margin-left: var(--spacing-md);">
+                                    <h4 style="color: var(--accent-green); margin-bottom: var(--spacing-xs);">Weeks 11-14: Final Research</h4>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xs);">Ambitious project with potential for publication</p>
+                                    <ul style="color: var(--text-muted); font-size: 0.95rem; margin: 0; padding-left: 1rem;">
+                                        <li>Complete research implementation</li>
+                                        <li>8-10 page research-quality report</li>
+                                        <li>Impressive final presentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: var(--spacing-lg); background: rgba(102, 126, 234, 0.05); border-left: 3px solid var(--accent-primary);">
+                    <h3 style="color: var(--accent-primary); margin-bottom: var(--spacing-md);">🗓️ Key Dates</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md);">
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Week 8</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Track selection deadline</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Week 10</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Midterm deliverables due</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Week 14</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Final projects due</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-xs);">Finals Week</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Research presentations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes -->
+            <section id="notes" aria-labelledby="notes-title">
+                <h2 id="notes-title">Important Notes</h2>
+                <ul id="global-notes">
+                    <!-- populated by JSON -->
+                </ul>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <nav class="footer-links">
+                <a href="/">Course Home</a>
+                <a href="/assignments.html">All Assignments</a>
+                <a href="mailto:rmoseley@calbaptist.edu">Contact Instructor</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        // Final Project Data Model - Single Source of Truth
+        window.FINAL_PAGE_DATA = {
+            "tracks": {
+                "track1": {
+                    "label": "Track 1",
+                    "summary": "Midterm (10 pts) + Final (30 pts); scaffolded, structured.",
+                    "points_total": 40,
+                    "midterm": {
+                        "points_total": 10,
+                        "deliverables": [
+                            "Code repository (clean, runnable, with README)",
+                            "5–10 minute recorded video explaining problem, methods, results, and reflections"
+                        ],
+                        "rubric": [
+                            { "category": "Problem Statement & Dataset", "points": 2, "criteria": "Clear research question, motivation, and appropriate dataset selection." },
+                            { "category": "Data Exploration & Preprocessing", "points": 2, "criteria": "Thorough EDA with visualizations, justified preprocessing steps and data splits." },
+                            { "category": "Model & Baseline", "points": 2, "criteria": "At least one baseline model plus one shallow ML model implementation." },
+                            { "category": "Evaluation & Results", "points": 2, "criteria": "Appropriate evaluation metrics with clear, interpretable results." },
+                            { "category": "Code Quality & Reproducibility", "points": 2, "criteria": "Code runs from clean clone, includes basic README, and has clean structure." }
+                        ]
+                    },
+                    "final": {
+                        "points_total": 30,
+                        "deliverables": [
+                            "Complete code repository (baselines + advanced models, README, configurations)",
+                            "Comprehensive 6–8 page written report (abstract, background, methods, results, discussion, ethics/limitations, references)"
+                        ],
+                        "rubric": [
+                            { "category": "Problem Framing & Context", "points": 5, "criteria": "Well-defined research question, clear motivation, and ≥5 relevant sources." },
+                            { "category": "Data & Documentation", "points": 3, "criteria": "Clear data provenance, thorough EDA, justified splits, and complete data dictionary." },
+                            { "category": "Modeling & Technical Depth", "points": 7, "criteria": "Strong baseline + advanced models, hyperparameter tuning/ablation studies, complete pipeline." },
+                            { "category": "Evaluation & Error Analysis", "points": 5, "criteria": "Task-appropriate metrics, comprehensive error analysis, and failure case investigation." },
+                            { "category": "Code Quality & Reproducibility", "points": 3, "criteria": "Well-organized repository, fully reproducible execution, and clear configuration management." },
+                            { "category": "Results Interpretation & Storytelling", "points": 4, "criteria": "Insightful narrative connecting results to research question, effective visualizations." },
+                            { "category": "Ethics & Limitations", "points": 3, "criteria": "Thoughtful discussion of biases, risks, limitations, and responsible AI considerations." }
+                        ]
+                    }
+                },
+                "track2": {
+                    "label": "Track 2",
+                    "summary": "Semester-long exploration (40 pts total).",
+                    "points_total": 40,
+                    "deliverables": [
+                        "Complete code repository (baselines + advanced models, configurations, full reproducibility)",
+                        "Comprehensive research report (8–10 pages, research-paper style with abstract, related work, methodology)",
+                        "Midterm progress update (short written progress report + repository checkpoint)"
+                    ],
+                    "rubric": [
+                        { "category": "Research Progress Update (Midterm Checkpoint)", "points": 5, "criteria": "Clear progress documentation, early results/pipeline demonstration, identified challenges and solutions." },
+                        { "category": "Implementation & Technical Depth", "points": 20, "criteria": "Strong baseline + advanced models, technical novelty/creativity, rigorous experimentation and ablation studies." },
+                        { "category": "Comprehensive Research Report", "points": 10, "criteria": "Research-quality writing: abstract, background/related work, methodology, results, discussion, conclusion, references." },
+                        { "category": "Project Initiative & Excellence", "points": 5, "criteria": "Consistent progress management, ambitious scope, originality, and effective collaboration (if team project)." }
+                    ]
+                }
+            },
+            "global_notes": [
+                "All students deliver an end-of-semester research presentation (10% of course grade) — graded separately from project tracks.",
+                "Both tracks must include a strong baseline model, rigorous evaluation methodology, and fully reproducible code repository.",
+                "Ethical considerations are required: identify potential biases, risks of misuse, privacy concerns, and limitations.",
+                "Code repositories must be clean, well-documented, and runnable from a fresh clone with clear setup instructions.",
+                "Final presentations will be scheduled during finals week — format and timing details will be announced mid-semester."
+            ]
+        };
+
+        // Render page content from JSON data
+        (function() {
+            const data = window.FINAL_PAGE_DATA;
+            if (!data) {
+                console.error('Final page data not loaded');
+                return;
+            }
+
+            // Helper functions
+            function createTableRows(rubric) {
+                return rubric.map(item => `
+                    <tr>
+                        <th scope="row">${item.category}</th>
+                        <td><strong>${item.points}</strong></td>
+                        <td>${item.criteria}</td>
+                    </tr>
+                `).join('');
+            }
+
+            function createListItems(items) {
+                return items.map(item => `<li>${item}</li>`).join('');
+            }
+
+            // Populate Track 1 Midterm
+            const t1 = data.tracks.track1;
+            document.getElementById('rubric-t1m-body').innerHTML = createTableRows(t1.midterm.rubric);
+            document.getElementById('deliverables-t1m').innerHTML = createListItems(t1.midterm.deliverables);
+
+            // Populate Track 1 Final
+            document.getElementById('rubric-t1f-body').innerHTML = createTableRows(t1.final.rubric);
+            document.getElementById('deliverables-t1f').innerHTML = createListItems(t1.final.deliverables);
+
+            // Populate Track 2
+            const t2 = data.tracks.track2;
+            document.getElementById('rubric-t2-body').innerHTML = createTableRows(t2.rubric);
+            document.getElementById('deliverables-t2').innerHTML = createListItems(t2.deliverables);
+
+            // Populate Global Notes
+            document.getElementById('global-notes').innerHTML = createListItems(data.global_notes);
+
+            // Setup accordions with accessibility
+            document.querySelectorAll('.accordion-trigger').forEach(button => {
+                button.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    const panel = document.getElementById(this.getAttribute('aria-controls'));
+                    
+                    // Toggle this accordion
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    panel.hidden = expanded;
+                    
+                    // Optional: Close other accordions (comment out for multiple open)
+                    // document.querySelectorAll('.accordion-trigger').forEach(otherButton => {
+                    //     if (otherButton !== this) {
+                    //         otherButton.setAttribute('aria-expanded', 'false');
+                    //         document.getElementById(otherButton.getAttribute('aria-controls')).hidden = true;
+                    //     }
+                    // });
+                });
+            });
+
+            // Keyboard navigation for accordions
+            document.querySelectorAll('.accordion-trigger').forEach(button => {
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Optional: Open first accordion by default
+            const firstAccordion = document.querySelector('.accordion-trigger');
+            if (firstAccordion) {
+                firstAccordion.click();
+            }
+
+            // Update timestamp
+            const now = new Date();
+            const timeElement = document.querySelector('#last-updated time');
+            if (timeElement) {
+                timeElement.setAttribute('datetime', now.toISOString().split('T')[0]);
+                timeElement.textContent = now.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+        })();
+
+        // Mobile Navigation Functions
+        function toggleMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function closeMobileNav() {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            mobileMenu.style.display = 'none';
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const toggleButton = document.getElementById('mobile-nav-toggle');
+            
+            if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                mobileMenu.style.display = 'none';
+            }
+        });
+
+        // Mobile responsive navigation
+        function checkMobileNav() {
+            const navDesktop = document.querySelector('.nav-links-desktop');
+            const mobileToggle = document.getElementById('mobile-nav-toggle');
+            
+            if (window.innerWidth <= 768) {
+                navDesktop.style.display = 'none';
+                mobileToggle.style.display = 'block';
+            } else {
+                navDesktop.style.display = 'flex';
+                mobileToggle.style.display = 'none';
+                closeMobileNav();
+            }
+        }
+
+        // Check on load and resize
+        window.addEventListener('load', checkMobileNav);
+        window.addEventListener('resize', checkMobileNav);
+    </script>
+</body>
+</html>
