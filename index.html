@@ -1509,7 +1509,7 @@
                     <a href="index.html" class="nav-link" style="color: var(--accent-primary);">Home</a>
                     <a href="assignments.html" class="nav-link">Assignments</a>
                     <a href="course-calendar.html" class="nav-link">Course Calendar</a>
-                    <a href="final.html" class="nav-link">Final Project</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank">Syllabus</a>
                 </div>
                 <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰</button>
@@ -1519,7 +1519,7 @@
                     <a href="index.html" class="nav-link" onclick="closeMobileNav()" style="color: var(--accent-primary);">Home</a>
                     <a href="assignments.html" class="nav-link" onclick="closeMobileNav()">Assignments</a>
                     <a href="course-calendar.html" class="nav-link" onclick="closeMobileNav()">Course Calendar</a>
-                    <a href="final.html" class="nav-link" onclick="closeMobileNav()">Final Project</a>
+                    <a href="projects.html" class="nav-link" onclick="closeMobileNav()">Projects</a>
                     <a href="CSC 422 - Machine & Deep Learning - Syllabus.pdf" class="nav-link" target="_blank" onclick="closeMobileNav()">Syllabus</a>
                 </div>
             </div>
@@ -1553,9 +1553,9 @@
                 <div class="nav-dot"></div>
                 <span class="nav-label">Assessment</span>
             </a>
-            <a href="#project" class="vertical-nav-item" data-section="project" title="Final Project">
+            <a href="#project" class="vertical-nav-item" data-section="project" title="Projects">
                 <div class="nav-dot"></div>
-                <span class="nav-label">Final Project</span>
+                <span class="nav-label">Projects</span>
             </a>
         </div>
     </div>
@@ -1977,199 +1977,72 @@
         </div>
     </section>
 
-    <!-- Final Project Section -->
+    <!-- Projects Section -->
     <section id="project" class="section">
         <div class="container">
-            <h2 class="text-center">Final Research Project</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">Your Capstone Achievement: Advanced ML Research</p>
+            <h2 class="text-center">Course Projects</h2>
+            <p class="text-large text-center" style="margin-bottom: 3rem;">Choose Your Path: Two Distinct Approaches to Machine Learning Mastery</p>
             
-            <div class="grid grid-3">
-                <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">Method Extension</h3>
-                    <p><strong>Modify & Improve</strong></p>
-                    <p>Extend an existing ML method with novel ideas and improvements</p>
-                    <ul style="margin-top: 1rem;">
-                        <li>Enhanced GAN architectures</li>
-                        <li>Custom attention mechanisms</li>
-                        <li>Novel regularization techniques</li>
+            <!-- Philosophy Quote -->
+            <div class="card animate-on-scroll" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 1px solid var(--accent-primary); margin-bottom: 3rem;">
+                <h3 style="color: var(--accent-primary); text-align: center; margin-bottom: 1rem;">💡 Course Philosophy</h3>
+                <p style="color: var(--text-secondary); text-align: center; font-size: 1.2rem; font-style: italic;">
+                    "Enable students to do cool things with machine learning."
+                </p>
+            </div>
+            
+            <div class="grid grid-2" style="margin-bottom: 3rem;">
+                <!-- Track 1: Structured Learning -->
+                <div class="card animate-on-scroll" style="border: 2px solid var(--accent-primary);">
+                    <h3 class="text-gradient">Track 1: Structured Learning Path</h3>
+                    <p><strong>Two Connected Projects</strong></p>
+                    <div style="background: rgba(102, 126, 234, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">📊 Midterm Project (10 pts)</h4>
+                        <p style="font-style: italic; color: var(--text-secondary);">
+                            "Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."
+                        </p>
+                    </div>
+                    <div style="background: rgba(118, 75, 162, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                        <h4 style="color: var(--accent-secondary); margin-bottom: 0.5rem;">🎯 Final Project (30 pts)</h4>
+                        <p style="font-style: italic; color: var(--text-secondary);">
+                            "Go deeper. Build upon your midterm work with neural networks and advanced techniques."
+                        </p>
+                    </div>
+                    <ul style="margin: 1rem 0;">
+                        <li><strong>Total:</strong> 40 points (10 + 30)</li>
+                        <li><strong>Best for:</strong> Students who prefer guided structure</li>
+                        <li><strong>Timeline:</strong> Progressive complexity with clear milestones</li>
                     </ul>
                 </div>
-                
-                <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">Open Challenge</h3>
-                    <p><strong>Tackle the Unknown</strong></p>
-                    <p>Address challenging, unsolved problems in ML/AI</p>
-                    <ul style="margin-top: 1rem;">
-                        <li>Robustness & fairness research</li>
-                        <li>Interpretability challenges</li>
-                        <li>Novel RL environments</li>
-                    </ul>
-                </div>
-                
-                <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">Research Replication</h3>
-                    <p><strong>Reproduce & Analyze</strong></p>
-                    <p>Implement and extend recent research papers</p>
-                    <ul style="margin-top: 1rem;">
-                        <li>Transformer variants</li>
-                        <li>State-of-the-art CV models</li>
-                        <li>Novel training techniques</li>
+
+                <!-- Track 2: Independent Research -->
+                <div class="card animate-on-scroll" style="border: 2px solid var(--accent-green);">
+                    <h3 class="text-gradient">Track 2: Independent Research</h3>
+                    <p><strong>Single Comprehensive Project</strong></p>
+                    <div style="background: rgba(78, 205, 196, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 0.5rem;">🔬 Research Project (40 pts)</h4>
+                        <p style="font-style: italic; color: var(--text-secondary);">
+                            Tackle a bigger, semi-open problem — exploratory, with either a research bent or applied AI innovation.
+                        </p>
+                    </div>
+                    <ul style="margin: 1rem 0;">
+                        <li><strong>Total:</strong> 40 points (single project)</li>
+                        <li><strong>Best for:</strong> Self-motivated students seeking research experience</li>
+                        <li><strong>Timeline:</strong> Full semester for in-depth exploration</li>
+                        <li><strong>Expectations:</strong> Higher standards, more independent work</li>
                     </ul>
                 </div>
             </div>
             
-            <!-- Enhanced Project Timeline -->
-            <div class="card animate-on-scroll" style="margin-top: 2rem;">
-                <h3 style="text-align: center; margin-bottom: 2rem;">Project Timeline & Milestones</h3>
-                
-                <div class="timeline-container">
-                    <!-- Phase 1: Research & Planning -->
-                    <div class="timeline-phase collapsed">
-                        <div class="timeline-header" onclick="togglePhase(this)">
-                            <div class="timeline-phase-number">1</div>
-                            <div class="timeline-phase-info">
-                                <h4>Research & Planning Phase</h4>
-                                <span class="timeline-dates">Weeks 10-11</span>
-                            </div>
-                            <div class="timeline-toggle">
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-milestones">
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Literature Review</h5>
-                                        <p>Deep dive into existing research, identify gaps and opportunities</p>
-                                        <span class="milestone-deadline">Week 10</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Project Proposal</h5>
-                                        <p>Detailed research plan, methodology, and expected outcomes</p>
-                                        <span class="milestone-deadline">Week 11</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Proposal Presentation</h5>
-                                        <p>8-10 minute presentation defending your research approach</p>
-                                        <span class="milestone-deadline">Week 11</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Phase 2: Implementation & Development -->
-                    <div class="timeline-phase collapsed">
-                        <div class="timeline-header" onclick="togglePhase(this)">
-                            <div class="timeline-phase-number">2</div>
-                            <div class="timeline-phase-info">
-                                <h4>Implementation & Development</h4>
-                                <span class="timeline-dates">Weeks 12-13</span>
-                            </div>
-                            <div class="timeline-toggle">
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-milestones">
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Initial Implementation</h5>
-                                        <p>Core algorithm development and baseline experiments</p>
-                                        <span class="milestone-deadline">Week 12</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Progress Video #1</h5>
-                                        <p>Demo of working prototype and preliminary results</p>
-                                        <span class="milestone-deadline">Week 12</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Experimental Results</h5>
-                                        <p>Comprehensive testing, ablation studies, and analysis</p>
-                                        <span class="milestone-deadline">Week 13</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Progress Video #2</h5>
-                                        <p>Final results demonstration and insights</p>
-                                        <span class="milestone-deadline">Week 13</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Phase 3: Final Deliverables -->
-                    <div class="timeline-phase collapsed">
-                        <div class="timeline-header" onclick="togglePhase(this)">
-                            <div class="timeline-phase-number">3</div>
-                            <div class="timeline-phase-info">
-                                <h4>Final Deliverables</h4>
-                                <span class="timeline-dates">Week 14</span>
-                            </div>
-                            <div class="timeline-toggle">
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-milestones">
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Research Report</h5>
-                                        <p>6-12 page academic paper with methodology, results, and analysis</p>
-                                        <span class="milestone-deadline">Week 14</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Complete Codebase</h5>
-                                        <p>Well-documented, reproducible code with README and requirements</p>
-                                        <span class="milestone-deadline">Week 14</span>
-                                    </div>
-                                </div>
-                                <div class="milestone">
-                                    <div class="milestone-details">
-                                        <h5>Final Presentation</h5>
-                                        <p>15-20 minute research presentation with Q&A session</p>
-                                        <span class="milestone-deadline">Week 14</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Legend -->
-                <div class="timeline-legend">
-                    <h5>Grading Breakdown</h5>
-                    <div class="grading-items">
-                        <div class="grading-item">
-                            <span class="grade-weight">25%</span>
-                            <span>Research Quality & Innovation</span>
-                        </div>
-                        <div class="grading-item">
-                            <span class="grade-weight">25%</span>
-                            <span>Implementation & Technical Excellence</span>
-                        </div>
-                        <div class="grading-item">
-                            <span class="grade-weight">25%</span>
-                            <span>Experimental Rigor & Analysis</span>
-                        </div>
-                        <div class="grading-item">
-                            <span class="grade-weight">25%</span>
-                            <span>Presentation & Communication</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Call to Action -->
+            <div class="card animate-on-scroll" style="text-align: center; background: var(--bg-gradient);">
+                <h3 style="margin-bottom: 1rem;">Ready to Explore Your Options?</h3>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">
+                    Discover detailed examples, rubrics, timelines, and more for both tracks.
+                </p>
+                <a href="projects.html" class="cta-button" style="background: white; color: var(--accent-primary); font-weight: 600;">
+                    View Complete Projects Guide →
+                </a>
             </div>
         </div>
     </section>
