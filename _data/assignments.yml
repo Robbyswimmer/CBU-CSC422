@@ -482,3 +482,21 @@
     - "Feature Selection"
   deliverables:
     - "100% on Zybooks Reading"
+
+- date: "2025-10-10"
+  title: "Midterm Project"
+  type: "project"
+  points: 10
+  module: "Midterm"
+  module_number: 5
+  description: "Midterm Project"
+  detailed_description: "Students will complete the midterm project based on the assignment in GitHub."
+  estimated_hours: 1
+  difficulty: "Intermediate"
+  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Midterm"
+  skills:
+    - "Dimensionality Reduction"
+    - "Principal Component Analysis"
+    - "Feature Selection"
+  deliverables:
+    - "100% on Zybooks Reading"
