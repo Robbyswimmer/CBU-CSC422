@@ -48,41 +48,74 @@ def time_it(func, *args, **kwargs):
 **Goal: Show why performance matters for ML with real timing comparisons**
 
 ```python
-# Demo: Simple but convincing performance comparison
-# Task: Apply ReLU activation (max(0, x)) to 50,000 values
+# Demo: When comprehensions ACTUALLY matter - list building tasks
+# ML scenario: Feature preprocessing on 50,000 samples
 
-data = list(range(-25000, 25000))  # Mix of positive/negative numbers
+data = list(range(50000))
 
-# Method 1: Traditional loops
-def traditional_relu(values):
+print("=== SCENARIO 1: Building New Lists (Comprehensions Win) ===")
+
+# Task: Create scaled and filtered feature list
+def loop_with_append(values):
+    """Traditional loop with .append() - slower due to method lookups"""
     result = []
     for x in values:
-        if x > 0:
-            result.append(x)
-        else:
-            result.append(0)
+        if x % 3 == 0:  # Filter condition
+            result.append(x * 2.5)  # Transform
     return result
 
-# Method 2: List comprehension
-def comprehension_relu(values):
-    return [max(0, x) for x in values]
+def list_comprehension(values):
+    """List comprehension - faster due to LIST_APPEND bytecode optimization"""
+    return [x * 2.5 for x in values if x % 3 == 0]
 
-# Method 3: NumPy (the ML standard)
-def numpy_relu(values):
+def numpy_vectorized(values):
+    """NumPy - fastest for numerical operations"""
     arr = np.array(values)
-    return np.maximum(0, arr)
+    mask = arr % 3 == 0
+    return arr[mask] * 2.5
 
-# LIVE TIMING DEMO
-print("ReLU activation on 50,000 values:")
-_, trad_time = time_it(traditional_relu, data)
-_, comp_time = time_it(comprehension_relu, data)
-_, numpy_time = time_it(numpy_relu, data)
+# Time the list-building operations
+_, loop_time = time_it(loop_with_append, data)
+_, comp_time = time_it(list_comprehension, data)
+_, numpy_time = time_it(numpy_vectorized, data)
 
-print(f"Traditional loops: {trad_time:.1f}ms")
-print(f"List comprehension: {comp_time:.1f}ms ({trad_time/comp_time:.1f}x faster)")
-print(f"NumPy: {numpy_time:.1f}ms ({trad_time/numpy_time:.0f}x FASTER!)")
-print(f"\nFor 1M neurons: NumPy finishes in {numpy_time*20:.0f}ms vs {trad_time*20:.0f}ms")
-print("This is why we use optimized Python for ML!")
+print(f"Loop + append(): {loop_time:.2f}ms")
+print(f"List comprehension: {comp_time:.2f}ms ({loop_time/comp_time:.1f}x faster!)")
+print(f"NumPy vectorized: {numpy_time:.2f}ms ({loop_time/numpy_time:.1f}x faster!)")
+
+print("\n=== SCENARIO 2: Aggregation Tasks (Loops Can Win) ===")
+
+# Task: Calculate sum without building intermediate list
+def loop_aggregation(values):
+    """Direct aggregation - no list building overhead"""
+    total = 0
+    for x in values:
+        if x % 3 == 0:
+            total += x * 2.5
+    return total
+
+def comprehension_aggregation(values):
+    """Comprehension creates list first, then sums - wasteful!"""
+    return sum([x * 2.5 for x in values if x % 3 == 0])
+
+def generator_aggregation(values):
+    """Generator expression - best of both worlds"""
+    return sum(x * 2.5 for x in values if x % 3 == 0)
+
+# Time the aggregation operations  
+_, loop_agg_time = time_it(loop_aggregation, data)
+_, comp_agg_time = time_it(comprehension_aggregation, data)
+_, gen_agg_time = time_it(generator_aggregation, data)
+
+print(f"Direct loop aggregation: {loop_agg_time:.2f}ms")
+print(f"List comp + sum(): {comp_agg_time:.2f}ms ({comp_agg_time/loop_agg_time:.1f}x slower)")
+print(f"Generator expression: {gen_agg_time:.2f}ms ({loop_agg_time/gen_agg_time:.1f}x faster!)")
+
+print("\n=== KEY TAKEAWAYS ===")
+print("✓ Use list comprehensions when BUILDING new collections")
+print("✓ Use generator expressions for aggregations (sum, max, etc.)")
+print("✓ Use NumPy for numerical computations on large datasets")
+print("✓ Use regular loops for complex logic with multiple statements")
 ```
 
 ---
