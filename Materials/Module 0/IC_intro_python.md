@@ -48,46 +48,41 @@ def time_it(func, *args, **kwargs):
 **Goal: Show why performance matters for ML with real timing comparisons**
 
 ```python
-# Challenge: Process 1 million data points - which approach is faster?
-# Simulate ML preprocessing: square all even numbers, filter > 100
+# Demo: Simple but convincing performance comparison
+# Task: Apply ReLU activation (max(0, x)) to 50,000 values
 
-data_size = 1_000_000  # Typical ML dataset size
-data = list(range(data_size))
+data = list(range(-25000, 25000))  # Mix of positive/negative numbers
 
 # Method 1: Traditional loops
-def slow_method(data):
+def traditional_relu(values):
     result = []
-    for i in data:
-        if i % 2 == 0:  # Even numbers only
-            squared = i ** 2
-            if squared > 100:
-                result.append(squared)
+    for x in values:
+        if x > 0:
+            result.append(x)
+        else:
+            result.append(0)
     return result
 
 # Method 2: List comprehension
-def fast_method(data):
-    return [i**2 for i in data if i % 2 == 0 and i**2 > 100]
+def comprehension_relu(values):
+    return [max(0, x) for x in values]
 
-# Method 3: NumPy (preview)
-def numpy_method(data):
-    arr = np.array(data)
-    even_mask = arr % 2 == 0
-    squared = arr[even_mask] ** 2
-    return squared[squared > 100]
+# Method 3: NumPy (the ML standard)
+def numpy_relu(values):
+    arr = np.array(values)
+    return np.maximum(0, arr)
 
-# TIME COMPARISON
-print("Processing 1M data points:")
-_, slow_time = time_it(slow_method, data[:10000])  # Use smaller sample for demo
-_, fast_time = time_it(fast_method, data[:10000])
-_, numpy_time = time_it(numpy_method, data[:10000])
+# LIVE TIMING DEMO
+print("ReLU activation on 50,000 values:")
+_, trad_time = time_it(traditional_relu, data)
+_, comp_time = time_it(comprehension_relu, data)
+_, numpy_time = time_it(numpy_relu, data)
 
-print(f"Traditional loops: {slow_time:.2f}ms")
-print(f"List comprehension: {fast_time:.2f}ms ({slow_time/fast_time:.1f}x faster)")
-print(f"NumPy: {numpy_time:.2f}ms ({slow_time/numpy_time:.1f}x faster)")
-
-# WHY THIS MATTERS
-print(f"\nFor 1M samples: {(slow_time/1000) * 100:.1f}s vs {(numpy_time/1000) * 100:.1f}s")
-print("This is why we optimize Python for ML!")
+print(f"Traditional loops: {trad_time:.1f}ms")
+print(f"List comprehension: {comp_time:.1f}ms ({trad_time/comp_time:.1f}x faster)")
+print(f"NumPy: {numpy_time:.1f}ms ({trad_time/numpy_time:.0f}x FASTER!)")
+print(f"\nFor 1M neurons: NumPy finishes in {numpy_time*20:.0f}ms vs {trad_time*20:.0f}ms")
+print("This is why we use optimized Python for ML!")
 ```
 
 ---
@@ -100,38 +95,41 @@ print("This is why we optimize Python for ML!")
 ## The Comprehension Performance Test
 
 ```python
-# ML scenario: Clean and transform survey data (10,000 responses)
-survey_data = [f"response_{i},score_{i%100},valid" if i % 7 != 0 else f"response_{i},,invalid" 
-               for i in range(10000)]
+# ML scenario: Process 100,000 feature values (common in ML preprocessing)
+raw_features = list(range(100_000))
 
-# Task: Extract valid responses with scores > 50
+# Task: Square positive numbers, filter > 1000
 
 # Method 1: Traditional loops
 def traditional_processing(data):
     result = []
-    for item in data:
-        parts = item.split(',')
-        if parts[2] == 'valid' and parts[1]:
-            score = int(parts[1].split('_')[1])
-            if score > 50:
-                result.append((parts[0], score))
+    for x in data:
+        if x > 0:
+            squared = x * x
+            if squared > 1000:
+                result.append(squared)
     return result
 
-# Method 2: List comprehension  
+# Method 2: List comprehension
 def comprehension_processing(data):
-    return [(item.split(',')[0], int(item.split(',')[1].split('_')[1])) 
-            for item in data 
-            if item.split(',')[2] == 'valid' 
-            and item.split(',')[1] 
-            and int(item.split(',')[1].split('_')[1]) > 50]
+    return [x * x for x in data if x > 0 and x * x > 1000]
+
+# Method 3: NumPy (for comparison)
+def numpy_processing(data):
+    arr = np.array(data)
+    positive = arr[arr > 0]
+    squared = positive ** 2
+    return squared[squared > 1000]
 
 # SPEED TEST
-_, trad_time = time_it(traditional_processing, survey_data)
-_, comp_time = time_it(comprehension_processing, survey_data)
+_, trad_time = time_it(traditional_processing, raw_features)
+_, comp_time = time_it(comprehension_processing, raw_features)  
+_, numpy_time = time_it(numpy_processing, raw_features)
 
 print(f"Traditional loops: {trad_time:.2f}ms")
 print(f"List comprehension: {comp_time:.2f}ms ({trad_time/comp_time:.1f}x faster!)")
-print(f"Code length: {len('traditional_processing(data)')} vs {len('comprehension_processing(data)')} characters")
+print(f"NumPy: {numpy_time:.2f}ms ({trad_time/numpy_time:.1f}x faster!)")
+print(f"Comprehension is {numpy_time/comp_time:.1f}x slower than NumPy (but much more readable)")
 ```
 
 ## Essential Comprehension Patterns

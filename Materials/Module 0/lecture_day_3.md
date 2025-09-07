@@ -6,8 +6,7 @@
 - Recap Intro to ML Slides 
 - Track Sign up Sheet
 - [7 Steps of Machine Learning Video](https://www.youtube.com/watch?v=nKW8Ndu7Mjw)
-- Intro to Python for machine learning and best practices
-- Module 0 -> IC Intro Python
+- [Intro to Python for machine learning and best practices](../../Materials/Module%200/IC_intro_python.md)
 
 - First assignments due Friday, Week 2
 
