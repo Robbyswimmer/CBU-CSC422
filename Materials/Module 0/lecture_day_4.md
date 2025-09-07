@@ -11,7 +11,7 @@
 - Module 0 Code Along
 
 ### Assignment
-
+- CA.00 Due Friday
 - Finish Zybook reading
 
 ### Overview of Week 2

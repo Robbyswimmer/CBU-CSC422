@@ -2,11 +2,13 @@
 
 ### Overview of Week 2
 
+- Attendance
 - Recap Intro to ML Slides 
+- Track Sign up Sheet
+- [7 Steps of Machine Learning Video](https://www.youtube.com/watch?v=nKW8Ndu7Mjw)
 - Intro to Python for machine learning and best practices
 - Module 0 -> IC Intro Python
-- Module 0 -> IC Background Mathematics
-- [Linear Regressions Intro](https://www.youtube.com/watch?v=3dhcmeOTZ_Q&t=35s)
+
 - First assignments due Friday, Week 2
 
 ### Previously Covered
@@ -19,5 +21,5 @@
 - Intro to Python for Machine Learning Code Along (Module 0 CA)
  
 ### Assignment
-
+- CA.00 Due Friday
 - Begin Zybook reading
