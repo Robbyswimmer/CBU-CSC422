@@ -201,7 +201,7 @@ print(f"Output shape: {output.shape}")
 print(f"Output:\n{output}")
 ```
 
-## Broadcasting & Indexing
+## Broadcasting & Matrix Operations
 
 ```python
 # Broadcasting - different shapes work together
@@ -212,10 +212,27 @@ result = data + [10, 20, 30]  # Add to each column
 print(f"Original:\n{data}")
 print(f"Broadcasted:\n{result}")
 
+# More matrix operations for ML
+A = np.array([[1, 2], 
+              [3, 4]])
+B = np.array([[5, 6], 
+              [7, 8]])
+
+# Element-wise operations
+print(f"A * B (element-wise):\n{A * B}")
+print(f"A @ B (matrix multiply):\n{A @ B}")
+
+# Transpose (crucial for ML)
+print(f"A transpose:\n{A.T}")
+
 # Boolean indexing
 scores = np.array([85, 92, 78, 96, 88, 91, 73])
 high_scores = scores[scores >= 90]
 print(f"High scores: {high_scores}")
+
+# Matrix norms (distance calculations)
+vector = np.array([3, 4])
+print(f"Vector magnitude: {np.linalg.norm(vector)}")  # 5.0
 ```
 
 ## Mini Check-in (2 minutes)
