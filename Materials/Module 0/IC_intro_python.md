@@ -1,4 +1,4 @@
-# 📝 Advanced Python Crash Course (CSC 422)
+# Advanced Python Crash Course (CSC 422)
 
 **Duration:** 45 minutes  
 **Format:** Live coding with student participation  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🎯 Learning Goals
+## Learning Goals
 
 By the end of class, students will:
 - Use Python comprehensions to clean/transform data elegantly
@@ -16,7 +16,7 @@ By the end of class, students will:
 
 ---
 
-## ⏱️ Timeline
+## ⏱Timeline
 
 - **0–5 min** — Hook: Clean Python vs. Verbose Python
 - **5–15 min** — Comprehensions for Data Cleaning
@@ -35,7 +35,7 @@ from collections import defaultdict, Counter
 
 ---
 
-# 🚀 0–5 min: Hook - Clean Python vs. Verbose Python
+# 0–5 min: Hook - Clean Python vs. Verbose Python
 
 **Goal:** Set tone that Python elegance = productivity
 
@@ -46,7 +46,7 @@ raw_data = [
     "David,78,Math", "Eve,94,CS"
 ]
 
-# ❌ VERBOSE APPROACH (what many students write)
+# VERBOSE APPROACH (what many students write)
 students = []
 for line in raw_data:
     parts = line.split(',')
@@ -60,7 +60,7 @@ for line in raw_data:
 
 print(f"Verbose approach: {len(students)} students")
 
-# ✅ CLEAN PYTHON APPROACH (what we'll learn today)
+# CLEAN PYTHON APPROACH (what we'll learn today)
 students = [
     {'name': p[0], 'score': int(p[1]), 'major': p[2]}
     for line in raw_data
@@ -76,7 +76,7 @@ print(f"First student: {students[0]}")
 
 ---
 
-# 📊 5–15 min: Comprehensions for Data Cleaning
+# 5–15 min: Comprehensions for Data Cleaning
 
 **Goal:** Master Python's most elegant data transformation patterns
 
@@ -124,7 +124,7 @@ print(f"Gradebook: {gradebook}")
 print(f"High achievers: {high_achievers}")
 ```
 
-## 🏃‍♂️ Mini Exercise (2 minutes)
+## Mini Exercise (2 minutes)
 **Challenge:** Write a one-liner to square only even numbers from this list:
 ```python
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -141,7 +141,7 @@ print(squared_evens)  # [4, 16, 36, 64, 100]
 
 ---
 
-# 🔢 15–30 min: NumPy Essentials
+# 15–30 min: NumPy Essentials
 
 **Goal:** Understand vectorization and ML-ready operations
 
@@ -218,7 +218,7 @@ high_scores = scores[scores >= 90]
 print(f"High scores: {high_scores}")
 ```
 
-## 🏃‍♂️ Mini Check-in (2 minutes)
+## Mini Check-in (2 minutes)
 **Challenge:** Slice out all values > 90 from this NumPy array:
 ```python
 values = np.array([85, 92, 78, 96, 88, 91, 73])
@@ -233,7 +233,7 @@ print(high_values)  # [92 96 91]
 
 ---
 
-# 🔄 30–42 min: Mini ML-Style Pipeline
+# 30–42 min: Mini ML-Style Pipeline
 
 **Goal:** Build end-to-end data processing workflow
 
@@ -312,7 +312,7 @@ print(f"Older (30+) satisfaction: {satisfied[~young_mask].mean():.1%}")
 
 ---
 
-# ✅ 42–45 min: Recap & Next Steps
+# 42–45 min: Recap & Next Steps
 
 ## Checklist - What You've Mastered
 
@@ -340,20 +340,4 @@ For students who want to go deeper:
 - **Advanced comprehensions** - Nested comprehensions and generator expressions
 - **NumPy documentation** - Broadcasting rules and advanced indexing
 
----
-
-# 🚦 Pacing Tips
-
-**Keep coding examples minimal but meaningful** - students will copy everything
-
-**Use quick "write this in 60 seconds" micro-exercises** to keep engagement high
-
-**If time runs short:** Skip broadcasting demo (less critical right away)
-
-**If ahead of schedule:** Add more student exercises or dive deeper into the @ operator
-
-**Energy check:** After NumPy section, ask "Questions so far?" before pipeline
-
----
-
-*🎓 Remember: Python elegance = ML productivity!*
+* Remember: Python elegance = ML productivity!*
