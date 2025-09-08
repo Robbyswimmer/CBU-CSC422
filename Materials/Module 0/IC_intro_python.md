@@ -1,33 +1,33 @@
-# Module 0: Clean Python for Machine Learning
-## 35-Minute Code-Along
+# 📝 Advanced Python Crash Course (CSC 422)
 
-**Course:** CSC 422 - Machine and Deep Learning  
-**Duration:** 35 minutes  
-**Format:** Live coding with elegant examples
-
----
-
-## Learning Objectives
-
-By the end of this session, students will:
-- Write clean, concise Python using comprehensions and modern patterns
-- Master NumPy fundamentals for ML computations
-- Organize data processing code with simple classes
-- Build readable, maintainable ML workflows
+**Duration:** 45 minutes  
+**Format:** Live coding with student participation  
+**Course:** CSC 422 - Machine and Deep Learning
 
 ---
 
-## Session Timeline
+## 🎯 Learning Goals
 
-- **0-3 min:** Python Elegance Hook
-- **3-11 min:** List/Dict Comprehensions
-- **11-21 min:** NumPy Essentials
-- **21-26 min:** Simple OOP for Data
-- **26-35 min:** Clean ML Pipeline
+By the end of class, students will:
+- Use Python comprehensions to clean/transform data elegantly
+- Understand NumPy arrays vs. Python lists
+- Apply vectorization, broadcasting, and the @ operator for ML-style computations
+- Build a mini end-to-end pipeline that parses, cleans, and analyzes data
+
+---
+
+## ⏱️ Timeline
+
+- **0–5 min** — Hook: Clean Python vs. Verbose Python
+- **5–15 min** — Comprehensions for Data Cleaning
+- **15–30 min** — NumPy Essentials
+- **30–42 min** — Mini ML-Style Pipeline
+- **42–45 min** — Recap & Next Steps
 
 ---
 
 ## Setup
+
 ```python
 import numpy as np
 from collections import defaultdict, Counter
@@ -35,50 +35,55 @@ from collections import defaultdict, Counter
 
 ---
 
-# Phase 1: Python Elegance Hook (3 minutes)
-**Goal: Show the beauty of clean, concise Python**
+# 🚀 0–5 min: Hook - Clean Python vs. Verbose Python
+
+**Goal:** Set tone that Python elegance = productivity
 
 ```python
-# Challenge: Clean messy student data
+# Challenge: Parse student data from messy strings
 raw_data = [
     "Alice,85,Math", "Bob,92,CS", "Carol,,Physics", 
-    "David,78,Math", "Eve,94,CS", "Frank,88,Physics"
+    "David,78,Math", "Eve,94,CS"
 ]
 
-# Verbose approach (what many students write)
+# ❌ VERBOSE APPROACH (what many students write)
 students = []
 for line in raw_data:
     parts = line.split(',')
-    if len(parts) == 3 and parts[1]:  # Valid and has score
-        student = {}
-        student['name'] = parts[0]
-        student['score'] = int(parts[1])
-        student['major'] = parts[2]
-        students.append(student)
+    if len(parts) == 3:
+        if parts[1] != '':  # Has score
+            student = {}
+            student['name'] = parts[0]
+            student['score'] = int(parts[1])
+            student['major'] = parts[2]
+            students.append(student)
 
-# Clean Python approach (what we'll learn)
+print(f"Verbose approach: {len(students)} students")
+
+# ✅ CLEAN PYTHON APPROACH (what we'll learn today)
 students = [
-    {'name': parts[0], 'score': int(parts[1]), 'major': parts[2]}
+    {'name': p[0], 'score': int(p[1]), 'major': p[2]}
     for line in raw_data
-    for parts in [line.split(',')]
-    if len(parts) == 3 and parts[1]
+    for p in [line.split(',')]
+    if len(p) == 3 and p[1]
 ]
 
-print(f"Parsed {len(students)} students")
+print(f"Clean approach: {len(students)} students")
 print(f"First student: {students[0]}")
 ```
 
----
+**Ask students:** *"Which one would you rather maintain in a real ML pipeline?"*
 
 ---
 
-# Phase 2: List/Dict Comprehensions (8 minutes)
-**Goal: Master Python's most elegant data transformation patterns**
+# 📊 5–15 min: Comprehensions for Data Cleaning
 
-## List Comprehensions - The Essential Pattern
+**Goal:** Master Python's most elegant data transformation patterns
+
+## List Comprehensions - Transform & Filter
 
 ```python
-# Transform and filter in one line
+# Sample data
 scores = [78, 85, 92, 67, 88, 95, 73]
 
 # Basic transformations
@@ -88,103 +93,102 @@ percentages = [score / 100 for score in scores]
 # Filtering
 passing = [score for score in scores if score >= 80]
 
-# Combined transform + filter
-grade_points = [4.0 if s >= 90 else 3.0 if s >= 80 else 2.0 
+# Combined logic
+letter_grades = ['A' if s >= 90 else 'B' if s >= 80 else 'C' 
                 for s in scores if s >= 70]
 
-print(f"Curved: {curved}")
+print(f"Original: {scores}")
 print(f"Passing: {passing}")
-print(f"Grade points: {grade_points}")
+print(f"Letter grades: {letter_grades}")
 ```
 
 ## Dictionary Comprehensions
 
 ```python
-# Create dictionaries elegantly
-names = ['Alice', 'Bob', 'Carol']
-scores = [85, 92, 78]
+# Create elegant mappings
+names = ['Alice', 'Bob', 'Carol', 'David']
+scores = [85, 92, 78, 96]
 
-# Name -> score mapping
-grade_book = {name: score for name, score in zip(names, scores)}
+# Name → score mapping
+gradebook = {name: score for name, score in zip(names, scores)}
 
-# Filter and transform
-high_achievers = {name: f"{score}% (A)" 
-                 for name, score in grade_book.items() 
+# Filter high achievers
+high_achievers = {name: score for name, score in gradebook.items() 
                  if score >= 90}
 
-# Count by category
-data = ['apple', 'banana', 'apple', 'cherry', 'banana', 'apple']
-counts = {item: data.count(item) for item in set(data)}
+# Transform values
+grade_labels = {name: f"{score}% ({'A' if score >= 90 else 'B'})" 
+               for name, score in gradebook.items()}
 
-print(f"Grade book: {grade_book}")
+print(f"Gradebook: {gradebook}")
 print(f"High achievers: {high_achievers}")
-print(f"Counts: {counts}")
 ```
 
-## Advanced Patterns
-
+## 🏃‍♂️ Mini Exercise (2 minutes)
+**Challenge:** Write a one-liner to square only even numbers from this list:
 ```python
-# Flatten nested lists
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-flat = [num for row in matrix for num in row]
-
-# Parse structured data
-log_lines = ["ERROR:404", "INFO:200", "ERROR:500", "INFO:200"]
-errors = [line.split(':')[1] for line in log_lines if line.startswith('ERROR')]
-
-# ML preprocessing example
-features = [1.5, -0.8, 2.1, -1.2, 0.9]
-# Apply ReLU activation: max(0, x)
-activated = [max(0, x) for x in features]
-# Normalize to [0, 1]
-max_val = max(features)
-normalized = [x / max_val for x in features if x > 0]
-
-print(f"Flat matrix: {flat}")
-print(f"Error codes: {errors}")
-print(f"ReLU: {activated}")
-print(f"Normalized: {normalized}")
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# Your code here: squared_evens = ???
 ```
+
+**Solution:**
+```python
+squared_evens = [n**2 for n in numbers if n % 2 == 0]
+print(squared_evens)  # [4, 16, 36, 64, 100]
+```
+
+**Key takeaway:** *"Comprehensions let you build data transformations that are short, readable, and ML-ready."*
 
 ---
 
-# Phase 3: NumPy Essentials (10 minutes)
-**Goal: Master the core NumPy operations for ML**
+# 🔢 15–30 min: NumPy Essentials
 
-## Arrays vs Lists - The Foundation
+**Goal:** Understand vectorization and ML-ready operations
+
+## Arrays vs Lists
 
 ```python
-# Create arrays
+# Python lists vs NumPy arrays
 data = [1, 2, 3, 4, 5]
 arr = np.array(data)
 
-# Element-wise operations (vectorization)
-python_way = [x * 2 for x in data]  # Loops
-numpy_way = arr * 2                  # Vectorized
+# The difference
+python_doubled = [x * 2 for x in data]  # Loop required
+numpy_doubled = arr * 2                 # Vectorized!
 
-print(f"Python: {python_way}")
-print(f"NumPy:  {numpy_way}")
+print(f"Python way: {python_doubled}")
+print(f"NumPy way: {numpy_doubled}")
 
-# Useful array creation
-zeros = np.zeros(5)           # [0. 0. 0. 0. 0.]
-ones = np.ones(3)             # [1. 1. 1.]
+# Element-wise operations
+print(f"Add 10: {arr + 10}")
+print(f"Square: {arr ** 2}")
+print(f"Boolean: {arr > 3}")
+```
+
+## Useful Array Creators
+
+```python
+# Essential for ML initialization
+zeros = np.zeros(5)              # [0. 0. 0. 0. 0.]
+ones = np.ones(3)                # [1. 1. 1.]
 range_arr = np.arange(0, 10, 2)  # [0 2 4 6 8]
 linspace = np.linspace(0, 1, 5)  # [0.0 0.25 0.5 0.75 1.0]
 
 print(f"Zeros: {zeros}")
 print(f"Range: {range_arr}")
+print(f"Linspace: {linspace}")
 ```
 
 ## The @ Operator - Matrix Magic
 
 ```python
-# Neural network example
+# Mini neural network forward pass
 # Input: 3 samples, 2 features
 X = np.array([[1, 2],
               [3, 4], 
               [5, 6]])
 
-# Weights: 2 features -> 3 outputs
+# Weights: 2 features → 3 outputs  
 W = np.array([[0.1, 0.2, 0.3],
               [0.4, 0.5, 0.6]])
 
@@ -195,172 +199,161 @@ print(f"Weights shape: {W.shape}")
 output = X @ W  # (3,2) @ (2,3) = (3,3)
 print(f"Output shape: {output.shape}")
 print(f"Output:\n{output}")
-
-# Common ML operations
-scores = np.array([85, 92, 78, 96, 88])
-print(f"Mean: {scores.mean():.1f}")
-print(f"Std: {scores.std():.1f}")
-print(f"Max: {scores.max()}")
 ```
-
-
 
 ## Broadcasting & Indexing
 
 ```python
-# Sample dataset
+# Broadcasting - different shapes work together
 data = np.array([[1, 2, 3],
-                 [4, 5, 6],
-                 [7, 8, 9]])
+                 [4, 5, 6]])
 
-# Broadcasting - operations with different shapes
-result = data + 10        # Add scalar to all elements
-row_add = data + [1, 2, 3]  # Add to each column
-
+result = data + [10, 20, 30]  # Add to each column
 print(f"Original:\n{data}")
-print(f"Add 10:\n{result}")
-print(f"Add [1,2,3]:\n{row_add}")
+print(f"Broadcasted:\n{result}")
 
-# Boolean indexing - filter data
+# Boolean indexing
 scores = np.array([85, 92, 78, 96, 88, 91, 73])
 high_scores = scores[scores >= 90]
 print(f"High scores: {high_scores}")
+```
 
-# Fancy indexing
-indices = [0, 2, 4]  # Select specific elements
-selected = scores[indices]
-print(f"Selected scores: {selected}")
+## 🏃‍♂️ Mini Check-in (2 minutes)
+**Challenge:** Slice out all values > 90 from this NumPy array:
+```python
+values = np.array([85, 92, 78, 96, 88, 91, 73])
+# Your code here: high_values = ???
+```
+
+**Solution:**
+```python
+high_values = values[values > 90]
+print(high_values)  # [92 96 91]
 ```
 
 ---
 
-# Phase 4: Simple OOP for Data (5 minutes)
-**Goal: Organize data with clean classes**
+# 🔄 30–42 min: Mini ML-Style Pipeline
 
-## Data Container Class
+**Goal:** Build end-to-end data processing workflow
 
-```python
-class Student:
-    """Simple data container with methods"""
-    def __init__(self, name, scores):
-        self.name = name
-        self.scores = scores
-    
-    def average(self):
-        return sum(self.scores) / len(self.scores)
-    
-    def letter_grade(self):
-        avg = self.average()
-        if avg >= 90: return 'A'
-        elif avg >= 80: return 'B'
-        elif avg >= 70: return 'C'
-        else: return 'F'
-    
-    def __str__(self):
-        return f"{self.name}: {self.average():.1f} ({self.letter_grade()})"
-
-# Usage
-students = [
-    Student("Alice", [85, 90, 88]),
-    Student("Bob", [92, 87, 94]),
-    Student("Carol", [78, 82, 76])
-]
-
-for student in students:
-    print(student)
-
-# Find top performers
-top_students = [s for s in students if s.average() >= 85]
-print(f"\nTop performers: {[s.name for s in top_students]}")
-```
-
-
-
----
-
-# Phase 5: Clean ML Pipeline (9 minutes)
-**Goal: Combine all techniques in a clean data processing workflow**
-
-## Mini ML Pipeline Example
+## Start with Raw Data
 
 ```python
-# Raw survey data
-responses = [
+# Simulate CSV-style survey responses
+raw_responses = [
     "Alice,25,5,Yes", "Bob,35,3,No", "Carol,45,4,Yes",
-    "David,30,5,Yes", "Eve,28,2,No", "Frank,,4,Yes"  # Missing age
+    "David,30,5,Yes", "Eve,28,2,No", "Frank,,4,Yes",  # Missing age
+    "Grace,22,1,No", "Henry,40,5,Yes"
 ]
 
-print("Raw data:", responses[0])
+print("Raw data sample:", raw_responses[0])
 ```
 
-## Clean Processing Pipeline
+## Step 1: Parse into Dicts (with comprehensions!)
 
 ```python
-# Step 1: Parse with comprehensions
-clean_data = [
-    {'name': parts[0], 'age': int(parts[1]) if parts[1] else None, 
-     'rating': int(parts[2]), 'satisfied': parts[3] == 'Yes'}
-    for line in responses
-    for parts in [line.split(',')]
-    if len(parts) == 4
+# Parse with comprehensions
+parsed_data = [
+    {'name': p[0], 'age': int(p[1]) if p[1] else None, 
+     'rating': int(p[2]), 'satisfied': p[3] == 'Yes'}
+    for response in raw_responses
+    for p in [response.split(',')]
+    if len(p) == 4
 ]
 
-# Step 2: Filter complete records
-complete_data = [record for record in clean_data if record['age'] is not None]
+print(f"Parsed {len(parsed_data)} responses")
+print(f"Sample: {parsed_data[0]}")
+```
 
-print(f"Parsed: {len(clean_data)} records")
-print(f"Complete: {len(complete_data)} records")
-print(f"Sample: {complete_data[0]}")
+## Step 2: Filter Complete Records
 
-# Step 3: Create NumPy arrays
+```python
+# Remove records with missing data
+complete_data = [record for record in parsed_data if record['age'] is not None]
+
+print(f"Complete records: {len(complete_data)}")
+```
+
+## Step 3: Convert to NumPy Arrays
+
+```python
+# Extract features for analysis
 ages = np.array([record['age'] for record in complete_data])
 ratings = np.array([record['rating'] for record in complete_data])
 satisfied = np.array([record['satisfied'] for record in complete_data])
 
-# Step 4: Analysis with NumPy
-print(f"\nAnalysis:")
+print(f"Ages shape: {ages.shape}")
+print(f"Ratings shape: {ratings.shape}")
+print(f"Satisfied shape: {satisfied.shape}")
+```
+
+## Step 4: Run Quick Analysis
+
+```python
+# Statistical analysis
+print("\n📊 ANALYSIS RESULTS:")
 print(f"Average age: {ages.mean():.1f}")
 print(f"Average rating: {ratings.mean():.1f}")
-print(f"Satisfaction rate: {satisfied.mean():.1%}")
+print(f"Overall satisfaction: {satisfied.mean():.1%}")
 
-# Step 5: Group analysis
-high_rating = ratings >= 4
-print(f"High ratings satisfaction: {satisfied[high_rating].mean():.1%}")
-print(f"Low ratings satisfaction: {satisfied[~high_rating].mean():.1%}")
+# Segmented analysis
+high_rating_mask = ratings >= 4
+print(f"High ratings (4-5) satisfaction: {satisfied[high_rating_mask].mean():.1%}")
+print(f"Low ratings (1-3) satisfaction: {satisfied[~high_rating_mask].mean():.1%}")
+
+# Age groups
+young_mask = ages < 30
+print(f"Young (<30) satisfaction: {satisfied[young_mask].mean():.1%}")
+print(f"Older (30+) satisfaction: {satisfied[~young_mask].mean():.1%}")
 ```
+
+**Ask students:** *"Where did comprehensions help? Where did NumPy help?"*
 
 ---
 
-## What We've Learned
+# ✅ 42–45 min: Recap & Next Steps
+
+## Checklist - What You've Mastered
 
 ```python
-print("=== MODERN PYTHON TECHNIQUES ===")
-print("✓ Comprehensions: Clean data transformations")
-print("✓ NumPy arrays: Vectorized mathematical operations")
-print("✓ @ operator: Matrix multiplication for ML")
-print("✓ Classes: Organize data and behavior")
-print("✓ Clean pipelines: Readable, maintainable code")
-
-print("\n=== YOU'RE READY FOR ===")
-print("• Pandas DataFrames")
-print("• Scikit-learn ML models")
-print("• Neural networks (TensorFlow/PyTorch)")
-print("• Professional data science workflows")
+print("=== TODAY'S PYTHON SKILLS ✅ ===")
+print("✓ List/Dict Comprehensions - elegant data transformations")
+print("✓ NumPy arrays - vectorized operations vs Python loops")  
+print("✓ Broadcasting - operations on different-shaped arrays")
+print("✓ @ operator - matrix multiplication for ML")
+print("✓ End-to-end pipeline - parse → clean → analyze")
 ```
+
+## Connect Forward
+
+**Next week:** We'll move to Pandas and Scikit-learn — today's tools are the building blocks.
+
+- **Pandas DataFrames** will extend what we learned about data cleaning
+- **Scikit-learn models** will use the NumPy arrays we created
+- **Neural networks** will rely heavily on the @ operator
+
+## Optional Reading
+
+For students who want to go deeper:
+- **OOP in Python** - Classes and methods for organizing ML code
+- **Advanced comprehensions** - Nested comprehensions and generator expressions
+- **NumPy documentation** - Broadcasting rules and advanced indexing
 
 ---
 
+# 🚦 Pacing Tips
+
+**Keep coding examples minimal but meaningful** - students will copy everything
+
+**Use quick "write this in 60 seconds" micro-exercises** to keep engagement high
+
+**If time runs short:** Skip broadcasting demo (less critical right away)
+
+**If ahead of schedule:** Add more student exercises or dive deeper into the @ operator
+
+**Energy check:** After NumPy section, ask "Questions so far?" before pipeline
+
 ---
 
-## Quick Reference
-
-```python
-# Essential patterns for ML
-data = [process(x) for x in raw_data if valid(x)]  # Clean & filter
-X = np.array(features)  # Convert to NumPy
-y_pred = X @ weights    # Matrix multiplication
-normalized = (X - X.mean(axis=0)) / X.std(axis=0)  # Normalize
-class MLModel: pass     # Organize complex workflows
-```
-
-*Questions? Office hours: Monday/Wednesday 10:30am-12:00pm, 1:00pm–3:00pm (EGR333)*
+*🎓 Remember: Python elegance = ML productivity!*
