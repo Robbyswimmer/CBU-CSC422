@@ -55,6 +55,18 @@ By the end of this module, you will be able to:
 **Points:** 1
 **Estimated Time:** 2 hours
 
+### Zybooks Labs: Chapter 3
+**Points:** 1
+**Estimated Time:** 2 hours
+
+### Zybooks Reading: Chapter 3
+**Points:** 1
+**Estimated Time:** 2 hours
+
+### CA.02: Classification Models
+**Points:** 3  
+**Estimated Time:** 2 hours
+
 ## 📊 Required Tools & Libraries
 
 - **Python 3.11+**

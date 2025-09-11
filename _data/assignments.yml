@@ -114,16 +114,16 @@
   deliverables:
     - "100% on Zybooks Reading"
 
-# Module 2 Zybooks Assignments - Regression Models
+# Module 1 Additional Assignments
 - date: "2025-09-26"
   title: "Zybooks Labs: Chapter 3"
   type: "lab"
   points: 1
-  module: "Module 2"
-  module_number: 2
+  module: "Module 1"
+  module_number: 1
   description: "Chapter 3 Labs from Zybooks - Regression Models"
   detailed_description: "Students will complete the labs from Chapter 3 of the Zybooks textbook covering regression models."
-  estimated_hours: 1
+  estimated_hours: 2
   difficulty: "Beginner"
   github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/3/section/7"
   skills:
@@ -137,11 +137,11 @@
   title: "Zybooks Reading: Chapter 3"
   type: "reading"
   points: 1
-  module: "Module 2"
-  module_number: 2
+  module: "Module 1"
+  module_number: 1
   description: "Chapter 3 Reading from Zybooks - Regression Models"
   detailed_description: "Students will complete the reading from Chapter 3 of the Zybooks textbook covering regression models."
-  estimated_hours: 1
+  estimated_hours: 2
   difficulty: "Beginner"
   github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/3/section/1"
   skills:
@@ -150,6 +150,30 @@
     - "Statistical Analysis"
   deliverables:
     - "100% on Zybooks Reading"
+
+- date: "2025-09-26"
+  title: "CA.02: Classification Models"
+  type: "assignment"
+  points: 3
+  module: "Module 1"
+  module_number: 1
+  description: "Implementation of classification algorithms and model comparison"
+  detailed_description: "Students will implement various classification models including logistic regression, decision trees, and compare their performance on real datasets. This assignment covers data preprocessing, model training, evaluation metrics, and performance analysis."
+  estimated_hours: 2
+  difficulty: "Beginner"
+  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Module%201"
+  skills:
+    - "Classification Models"
+    - "Logistic Regression"
+    - "Decision Trees"
+    - "Model Evaluation"
+    - "Performance Metrics"
+  deliverables:
+    - "Python implementation (.ipynb file)"
+    - "Model comparison analysis"
+    - "Performance evaluation report"
+
+# Module 2 Zybooks Assignments - Model Evaluation & Validation
 
 # Module 3 Zybooks Assignments - Model Evaluation & Validation (Chapters 4 & 5)
 - date: "2025-10-03"
