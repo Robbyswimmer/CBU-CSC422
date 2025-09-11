@@ -1,4 +1,4 @@
-# Track 2 Project Proposal Assignment
+# Track 2: Project Proposal 
 
 ## Assignment Overview
 This assignment requires you to submit a comprehensive 2-3 page project proposal for your semester-long independent research project. The proposal serves as your roadmap for the next 10 weeks and demonstrates your ability to plan, design, and execute a substantial machine learning or AI project.
@@ -79,6 +79,6 @@ This assignment is worth **2 points** and will be evaluated based on:
 - **Focus on Learning**: Remember that the goal is to learn and grow, not necessarily to solve the world's problems.
 
 ## Questions?
-If you have questions about the assignment requirements or need clarification on any aspect of the proposal, please reach out during office hours or post in the course forum.
+If you have questions about the assignment requirements or need clarification on any aspect of the proposal, please reach out during office hours or via email.
 
 Good luck with your project planning!
