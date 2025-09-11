@@ -483,6 +483,27 @@
   deliverables:
     - "100% on Zybooks Reading"
 
+- date: "2025-09-19"
+  title: "Track 2 Project Proposal"
+  type: "project"
+  points: 2
+  module: "Final Project"
+  module_number: 2
+  description: "Comprehensive project proposal for Track 2 independent research"
+  detailed_description: "Students will submit a detailed 2-3 page project proposal outlining their semester-long research project, including project concept, relevant resources, 10-week execution plan, technical approach, and technology stack."
+  estimated_hours: 4
+  difficulty: "Intermediate"
+  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Final%20Project/Track%202/Project%20Proposal"
+  skills:
+    - "Project Planning"
+    - "Technical Design"
+    - "Research Methodology"
+    - "Resource Evaluation"
+  deliverables:
+    - "2-3 page PDF project proposal"
+    - "10-week execution timeline"
+    - "Technical approach and technology stack"
+
 - date: "2025-10-10"
   title: "Midterm Project"
   type: "project"

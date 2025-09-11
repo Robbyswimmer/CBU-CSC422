@@ -1399,8 +1399,10 @@ function updateStatistics() {
     
     // Calculate upcoming assignments (not overdue)
     const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to start of day
     const upcomingAssignments = assignmentsData.filter(assignment => {
-        const dueDate = new Date(assignment.date);
+        const dueDate = new Date(assignment.date + 'T00:00:00');
+        dueDate.setHours(0, 0, 0, 0); // Set to start of day
         return dueDate >= today;
     }).length;
     
@@ -1501,9 +1503,14 @@ function createAssignmentCard(assignment) {
 
 function getNextDueAssignment(assignments) {
     const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to start of day
     const upcoming = assignments
-        .filter(a => new Date(a.date) >= today)
-        .sort((a, b) => new Date(a.date) - new Date(b.date));
+        .filter(a => {
+            const dueDate = new Date(a.date + 'T00:00:00');
+            dueDate.setHours(0, 0, 0, 0);
+            return dueDate >= today;
+        })
+        .sort((a, b) => new Date(a.date + 'T00:00:00') - new Date(b.date + 'T00:00:00'));
     
     if (upcoming.length > 0) {
         const days = getDaysUntil(upcoming[0].date);
@@ -1622,9 +1629,13 @@ function applyFilters() {
 // Utility functions
 function getDaysUntil(dateString) {
     const today = new Date();
-    const targetDate = new Date(dateString);
+    today.setHours(0, 0, 0, 0); // Set to start of day
+    
+    const targetDate = new Date(dateString + 'T00:00:00'); // Ensure local timezone
+    targetDate.setHours(0, 0, 0, 0); // Set to start of day
+    
     const diffTime = targetDate - today;
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return Math.floor(diffTime / (1000 * 60 * 60 * 24)); // Use floor instead of ceil
 }
 
 function getStatusClass(daysUntil) {
@@ -1634,7 +1645,7 @@ function getStatusClass(daysUntil) {
 }
 
 function formatDate(dateString) {
-    const date = new Date(dateString);
+    const date = new Date(dateString + 'T00:00:00'); // Ensure local timezone
     return date.toLocaleDateString('en-US', {
         weekday: 'short',
         month: 'short',
