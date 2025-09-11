@@ -203,10 +203,12 @@ For students who finish early or want extra challenge:
 
 ## Submission Instructions
 
-1. **Complete the notebook** with all cells executed
-2. **Save as HTML** in addition to .ipynb format
-3. **Upload both files** to the course management system
-4. **Include your name** and student ID in the notebook header
+1. **Complete all TODO sections** in the notebook
+2. **Answer all written questions** with thoughtful responses
+3. **Ensure notebook runs completely** without errors
+4. **Save as HTML** in addition to .ipynb format
+5. **Upload both files** to the course management system
+6. **Include your name and student ID** in the notebook header
 
 ## Academic Integrity
 

@@ -3,7 +3,8 @@
 [Asynchronous Lecture Day]
 
 ### Today
-- IC Background Mathematics Notebook
+
+- Finish covering IC Intro Python
 
 ### Previously Covered
 
