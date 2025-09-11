@@ -65,4 +65,4 @@ The final project component of CSC 422 offers two distinct paths to accommodate 
 - **No switching allowed** after the deadline
 - Track 2 requires a project proposal (worth 2 points) due September 19, 2025
 
-For detailed information about project examples, rubrics, and timelines, see the [course projects page](../../projects.html).
+For detailed information about project examples, rubrics, and timelines, see the [course projects page](https://robbyswimmer.github.io/CBU-CSC422/projects.html#rubric-track2).
