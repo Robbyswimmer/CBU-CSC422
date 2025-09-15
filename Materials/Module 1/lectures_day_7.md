@@ -3,9 +3,8 @@
 ### Today
 - Attendance
 - Discuss HW and Readings Due -> Submit notebooks as PDFs, discuss track 2 project proposal
-- Recap PPT [here](../../../../FA25/CSC422/Module%201%20-%20Intro/ml_overview_linear_regressions.pptx)
-- IC 2 Linear Regressions and Optimizations
-- Simple Implementations in Python
+- Gradient Descent Theory / Discussion
+- IC 2 Linear Regressions and Optimizations -> Gradient Descent + Improvements
 
 ### Overview of Week 3
 
