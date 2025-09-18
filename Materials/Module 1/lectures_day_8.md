@@ -3,18 +3,11 @@
 ### Today
 - Attendance
 - Discuss HW and Readings Due -> Submit notebooks as PDFs, discuss track 2 project proposal
-- Gradient Descent Theory / Discussion
-- IC 2 Linear Regressions and Optimizations -> Gradient Descent + Improvements
-
-### Overview of Week 3a
-
-- Intro to Python for machine learning and best practices
-- IC 2 Linear Regressions and Optimizations
-- CA.01 Due
-- Project Proposal for Track 2 due
+- IC 3 Regression and Classification
 
 ### Previously Covered
 
+- IC 2 Linear Regressions and Optimizations -> Gradient Descent + Improvements
 - [PPT](https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/edit?slide=id.g18ade992fa_6_757#slide=id.g18ade992fa_6_757)
 - Module 0 Code Along
 - CA.00 Submitted
