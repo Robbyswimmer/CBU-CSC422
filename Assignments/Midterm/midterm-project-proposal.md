@@ -1,7 +1,7 @@
 # Midterm Project Proposal
 
 **Assignment Weight**: 2 points  
-**Due Date**: Week 3 (before implementation begins)  
+**Due Date**: 10/03
 **Length**: 2-3 pages  
 **Format**: Professional written document
 
