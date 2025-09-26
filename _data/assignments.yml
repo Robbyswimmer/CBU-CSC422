@@ -248,6 +248,26 @@
   deliverables:
     - "100% on Zybooks Reading"
 
+- date: "2025-10-03"
+  title: "Midterm Project Proposal"
+  type: "assignment"
+  points: 2
+  module: "Module 2"
+  module_number: 2
+  description: "Midterm Project Proposal"
+  detailed_description: "Students will complete a midterm project proposal."
+  estimated_hours: 2
+  difficulty: "Beginner"
+  github_url: "https://learn.zybooks.com/zybook/CALBAPTISTCSC422MoseleyFall2025/chapter/3/section/1"
+  skills:
+    - "Regression Models"
+    - "Linear Regression"
+    - "Shallow Learning Models"
+    - "Statistical Analysis"
+  deliverables:
+    - "Midterm Project Proposal"
+
+
 # Module 4 Zybooks Assignments - Model Improvement
 - date: "2025-10-10"
   title: "Zybooks Labs: Chapter 6"
