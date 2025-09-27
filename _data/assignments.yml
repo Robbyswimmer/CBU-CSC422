@@ -115,7 +115,7 @@
     - "100% on Zybooks Reading"
 
 # Module 1 Additional Assignments
-- date: "2025-09-26"
+- date: "2025-09-30"
   title: "Zybooks Labs: Chapter 3"
   type: "lab"
   points: 1
@@ -133,7 +133,7 @@
   deliverables:
     - "100% on Zybooks Labs"
 
-- date: "2025-09-29"
+- date: "2025-09-30"
   title: "Zybooks Reading: Chapter 3"
   type: "reading"
   points: 1
@@ -176,7 +176,7 @@
 # Module 2 Zybooks Assignments - Model Evaluation & Validation
 
 # Module 3 Zybooks Assignments - Model Evaluation & Validation (Chapters 4 & 5)
-- date: "2025-10-03"
+- date: "2025-10-10"
   title: "Zybooks Labs: Chapter 4"
   type: "lab"
   points: 1
@@ -194,7 +194,7 @@
   deliverables:
     - "100% on Zybooks Labs"
 
-- date: "2025-10-03"
+- date: "2025-10-10"
   title: "Zybooks Reading: Chapter 4"
   type: "reading"
   points: 1
