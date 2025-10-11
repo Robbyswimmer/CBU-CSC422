@@ -267,6 +267,31 @@
   deliverables:
     - "Midterm Project Proposal"
 
+- date: "2025-10-19"
+  title: "CA.03: Neural Networks"
+  type: "assignment"
+  points: 3
+  module: "Module 2"
+  module_number: 2
+  description: "Implementation of multi-layer perceptrons from scratch and with PyTorch"
+  detailed_description: "Students will implement neural networks from scratch using NumPy, covering forward propagation, backpropagation, and gradient descent. The assignment concludes with implementing the same network using PyTorch for comparison and understanding of modern deep learning frameworks."
+  estimated_hours: 2
+  difficulty: "Intermediate"
+  github_url: "https://github.com/Robbyswimmer/CBU-CSC422/blob/main/Assignments/Module%202%3A%20Neural%20Networks/CA3/ca3.ipynb"
+  skills:
+    - "Neural Networks"
+    - "Multi-Layer Perceptrons"
+    - "Backpropagation"
+    - "PyTorch"
+    - "NumPy"
+    - "Gradient Descent"
+    - "Deep Learning Fundamentals"
+  deliverables:
+    - "Python implementation (.ipynb file)"
+    - "From-scratch MLP implementation"
+    - "PyTorch neural network comparison"
+    - "Performance analysis and reflection"
+
 
 # Module 4 Zybooks Assignments - Model Improvement
 - date: "2025-10-10"
