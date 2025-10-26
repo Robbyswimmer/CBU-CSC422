@@ -40,7 +40,7 @@ By completing this checkpoint, you will:
 - **Format**: PDF document, 1-2 pages (excluding references and appendices)
 - **Font**: 12pt Times New Roman or similar, single-spaced
 - **Margins**: 1-inch margins on all sides
-- **File Naming**: `<LastName>_Track2_Checkpoint.pdf`
+- **File Naming**: `<LastNames>_Track2_Checkpoint.pdf`
 - **Due Date**: Week 7 (specific date on course calendar)
 - **Submission Platform**: Upload to course management system
 
