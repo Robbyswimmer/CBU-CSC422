@@ -97,7 +97,7 @@
 
 ---
 
-### Video Presentation (8 points total)
+### In-Person Presentation (8 points total)
 
 #### Content Quality (3 points)
 
@@ -171,11 +171,11 @@ Before submitting, ensure you have:
 - [ ] High-quality figures and visualizations
 
 ### Presentation Requirements ✓
-- [ ] 8-10 minute video presentation
-- [ ] Clear audio and visual quality
-- [ ] Professional slides and demonstrations
+- [ ] 8-10 minute in-person presentation
+- [ ] Professional slides and live demonstrations
+- [ ] Clear delivery and visual aids
 - [ ] All technical concepts explained clearly
-- [ ] Video uploaded or link provided
+- [ ] Prepared for Q&A and audience interaction
 
 ### Technical Requirements ✓
 - [ ] Advanced ML/DL technique implemented correctly

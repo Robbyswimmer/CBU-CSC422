@@ -14,7 +14,7 @@ By completing this final project, you will:
 - Apply advanced machine learning and deep learning techniques to solve complex problems
 - Demonstrate proficiency in neural network architectures and modern ML frameworks
 - Conduct comprehensive model evaluation and performance analysis
-- Communicate technical results through professional documentation and video presentation
+- Communicate technical results through professional documentation and in-person presentation
 - Build a portfolio-quality project suitable for graduate school or industry applications
 
 ## Project Requirements
@@ -75,8 +75,8 @@ final-project-name/
 │   └── metrics/              # Performance results
 ├── docs/                      # Documentation
 │   └── technical_report.pdf  # Final report
-└── presentation/              # Video presentation
-    └── presentation_video.[mp4/link]
+└── presentation/              # Presentation materials
+    └── presentation_slides.pdf
 ```
 
 #### Repository Quality Criteria
@@ -127,9 +127,9 @@ Submit a **3-4 page technical report** (PDF format) with the following structure
 - **References**: IEEE or ACM format for technical citations
 - **Figures**: High-quality, properly labeled figures and tables
 
-### 3. Video Presentation (8 points)
+### 3. In-Person Presentation (8 points)
 
-Create an **8-10 minute video presentation** demonstrating your project:
+Deliver an **8-10 minute in-person presentation** to the class demonstrating your project:
 
 #### Presentation Structure
 **Introduction (1-2 minutes)**
@@ -153,7 +153,7 @@ Create an **8-10 minute video presentation** demonstrating your project:
 #### Technical Requirements
 - **Duration**: 8-10 minutes (strict limit)
 - **Quality**: Clear audio, readable slides/screen recordings
-- **Format**: MP4, MOV, or hosted link (YouTube, Vimeo, etc.)
+- **Equipment**: Laptop/projector setup for live demonstration
 - **Content**: Live demonstration of working system preferred
 - **Professionalism**: Appropriate for academic/industry presentation
 
@@ -162,7 +162,7 @@ Create an **8-10 minute video presentation** demonstrating your project:
 - **Visuals**: Use clear diagrams, charts, and demonstrations
 - **Pace**: Speak clearly and maintain appropriate pacing
 - **Focus**: Emphasize technical contributions and results
-- **Engagement**: Maintain viewer interest throughout
+- **Engagement**: Maintain audience interest and interaction throughout
 
 ## Evaluation Criteria
 
@@ -221,7 +221,7 @@ This is a **portfolio-quality project** that should demonstrate:
 
 ### Week 13: Documentation & Presentation
 - Technical report writing and revision
-- Video presentation creation and editing
+- In-person presentation preparation and practice
 - Repository organization and documentation
 - **Checkpoint**: All deliverables completed and polished
 
@@ -260,7 +260,7 @@ This is a **portfolio-quality project** that should demonstrate:
 
 ### Presentation Skills
 - **Academic Presentation Guidelines**: University presentation resources
-- **Video Creation Tools**: OBS Studio, Camtasia, or similar screen recording software
+- **Live Demonstration Tips**: Best practices for technical demonstrations
 - **Slide Design**: Principles of effective academic presentation design
 
 ## Getting Help
