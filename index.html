@@ -8,7 +8,7 @@ stylesheet: /assets/css/page-index.css
     <section id="home" class="hero section">
         <div class="container">
             <div class="hero-content">
-                <h1>CSC 422: Machine and Deep Learning</h1>
+                <h1>{{ site.data.course.number }}: {{ site.data.course.name }}</h1>
                 <p class="hero-subtitle">Unlock the Power of AI and Transform Data into Intelligence</p>
                 
                 <div class="hero-badges">
@@ -19,7 +19,7 @@ stylesheet: /assets/css/page-index.css
                 </div>
                 
                 <div style="margin-top: 2rem;">
-                    <p class="text-large">California Baptist University • Fall 2025</p>
+                    <p class="text-large">{{ site.data.course.university }} • {{ site.data.course.semester.name }}</p>
                 </div>
             </div>
         </div>
@@ -272,12 +272,12 @@ stylesheet: /assets/css/page-index.css
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Coding Assignments</td><td><strong>30%</strong></td></tr>
-                            <tr><td>Final Research Project</td><td><strong>30%</strong></td></tr>
-                            <tr><td>Midterm Project</td><td><strong>10%</strong></td></tr>
-                            <tr><td>Homework (zyLabs/Blackboard)</td><td><strong>10%</strong></td></tr>
-                            <tr><td>Participation & Activities</td><td><strong>10%</strong></td></tr>
-                            <tr><td>Research Presentation</td><td><strong>10%</strong></td></tr>
+                            {%- for w in site.data.grading.weights %}
+                            <tr><td>{{ w.category }}</td><td><strong>{{ w.weight }}%</strong></td></tr>
+                            {%- endfor %}
+                            {%- assign total = 0 %}
+                            {%- for w in site.data.grading.weights %}{% assign total = total | plus: w.weight %}{% endfor %}
+                            <tr><td><strong>Total</strong></td><td><strong>{{ total }}%</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -285,37 +285,12 @@ stylesheet: /assets/css/page-index.css
                 <div class="animate-on-scroll">
                     <h3>Grade Scale</h3>
                     <div class="grade-scale">
+                        {%- for g in site.data.grading.scale %}
                         <div class="grade-item">
-                            <div class="grade-letter">A</div>
-                            <div>93-100%</div>
+                            <div class="grade-letter">{{ g.letter }}</div>
+                            <div>{{ g.range }}</div>
                         </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">A-</div>
-                            <div>90-92.9%</div>
-                        </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">B+</div>
-                            <div>87-89.9%</div>
-                        </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">B</div>
-                            <div>83-86.9%</div>
-                        </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">B-</div>
-                            <div>80-82.9%</div>
-                        </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">C+</div>
-                            <div>77-79.9%</div>
-                        </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">C</div>
-                            <div>73-76.9%</div>
-                        </div>
-                        <div class="grade-item">
-                            <div class="grade-letter">C-</div>
-                            <div>70-72.9%</div>
+                        {%- endfor %}</div>
                         </div>
                     </div>
                 </div>
@@ -354,9 +329,11 @@ stylesheet: /assets/css/page-index.css
                 <h3>📚 Required Materials</h3>
                 <div class="grid grid-2">
                     <div>
-                        <h4>Zybook Access</h4>
-                        <p><strong>Platform:</strong> learn.zybooks.com/library</p>
-                        <p><strong>Code:</strong> <code style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">CALBAPTISTCSC422MoseleyFall2025</code></p>
+                        <h4>Course Materials</h4>
+                        <p>No textbook purchase this term. The course runs on
+                        <strong>lectures plus coding assignments</strong>.</p>
+                        <p>Lecture notebooks and assignment starters are published in the
+                        <a href="https://github.com/{{ site.repository }}">course repository</a>.</p>
                     </div>
                     <div>
                         <h4>Development Environment</h4>

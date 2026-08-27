@@ -1,26 +1,34 @@
 {%- comment -%}
-  Every assignment is rendered here, sorted by date, with data-date on each row.
+  Every assignment renders here, sorted by date, with data-date on each row.
   assets/js/site.js adds the status class and the "in N days" countdown at view
-  time and hides items far in the past. Without JS the full list still reads
-  correctly — it just has no countdown.
+  time. Without JS the list still reads correctly, just without a countdown.
+
+  Inner elements are block-level <div>s (valid inside <a> in HTML5) so the card
+  stacks the same way the original markup did.
 {%- endcomment -%}
 {%- assign items = site.data.assignments | sort: "date" -%}
 {%- for a in items -%}
-  {%- assign fallback = a.module | default: "Module 1" | uri_escape -%}
-  {%- assign url = a.github_url | default: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/" | append: fallback -%}
+  {%- comment -%} Use the explicit link when present; otherwise fall back to the module folder.
+      (A `default | append` chain appends to BOTH branches, which corrupts real URLs.) {%- endcomment -%}
+  {%- if a.github_url and a.github_url != "" -%}
+    {%- assign url = a.github_url -%}
+  {%- else -%}
+    {%- assign fallback = a.module | default: "Module 1" | uri_escape -%}
+    {%- assign url = "https://github.com/" | append: site.repository | append: "/tree/main/Assignments/" | append: fallback -%}
+  {%- endif -%}
   <a class="assignment-item" href="{{ url }}" target="_blank" rel="noopener"
      data-date="{{ a.date }}">
-    <span class="assignment-title">{{ a.title }}</span>
-    <span class="assignment-date">
+    <div class="assignment-title">{{ a.title }}</div>
+    <div class="assignment-date">
       Due: {{ a.date | date: "%a, %b %-d" }}<span class="countdown" hidden></span>
-    </span>
+    </div>
     {%- if a.description %}
-    <span class="assignment-description">{{ a.description }}</span>
+    <div class="assignment-description">{{ a.description }}</div>
     {%- endif %}
-    <span class="assignment-meta">
+    <div class="assignment-meta">
       {%- if a.points %}<span class="badge">{{ a.points }} pts</span>{% endif %}
       {%- if a.difficulty %}<span class="badge">{{ a.difficulty }}</span>{% endif %}
       {%- if a.estimated_hours %}<span class="badge">~{{ a.estimated_hours }} hrs</span>{% endif %}
-    </span>
+    </div>
   </a>
 {%- endfor -%}

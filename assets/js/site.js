@@ -1,50 +1,58 @@
 /* CSC 422 — interaction only.
  *
- * All course content is rendered by Jekyll at build time. This file exists
- * purely for UI behaviour, so there is no data fetching and nothing here can
- * leave the page in a broken/loading state.
+ * All course content is rendered by Jekyll at build time, so nothing here
+ * fetches data and no failure can leave the page empty or stuck loading.
  */
 (function () {
   'use strict';
 
   // --- Mobile navigation -------------------------------------------------
-  var toggle = document.getElementById('nav-toggle');
-  var links = document.getElementById('nav-links');
+  var navToggle = document.getElementById('mobile-nav-toggle');
+  var navMenu = document.getElementById('mobile-nav-menu');
 
-  if (toggle && links) {
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function () {
+      var open = navMenu.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    // Close after following a link on small screens.
-    links.addEventListener('click', function (e) {
+    navMenu.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
-        links.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
 
-  // --- Collapsible phase cards on the home page --------------------------
-  document.querySelectorAll('[data-toggle="phase"]').forEach(function (header) {
-    header.addEventListener('click', function () {
-      var card = header.closest('.phase-card');
-      if (!card) return;
-      var open = card.classList.toggle('is-open');
-      header.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
+  // --- Reveal on scroll ---------------------------------------------------
+  // The opacity:0 start state is scoped to `.js` in CSS, so if this script
+  // never runs the content is simply visible rather than invisible.
+  var revealable = document.querySelectorAll('.animate-on-scroll');
 
-  // --- Relative countdowns ----------------------------------------------
-  // Dates and titles are already in the HTML from Jekyll. The only thing that
-  // cannot be baked in at build time is "how far away is this from *now*",
-  // so that alone is computed here.
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealable.forEach(function (el) { observer.observe(el); });
+  } else {
+    // No IntersectionObserver: show everything immediately.
+    revealable.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // --- Relative countdowns ------------------------------------------------
+  // Dates and titles are already in the HTML. The only thing that cannot be
+  // baked in at build time is distance from *now*, so that alone is computed.
   var MS_PER_DAY = 24 * 60 * 60 * 1000;
 
   function daysUntil(iso) {
     var target = new Date(iso + 'T00:00:00');
-    if (isNaN(target)) return null;
+    if (isNaN(target.getTime())) return null;
     var today = new Date();
     today.setHours(0, 0, 0, 0);
     return Math.round((target - today) / MS_PER_DAY);

@@ -1,9 +1,9 @@
-# Jekyll configuration — CSC 422 course site
+# Jekyll configuration — CSCI 4220 course site
 #
 # Everything the pages display comes from _data/*.yml. To change course
 # content you should not need to open an HTML file.
 
-title: "CSC 422: Machine and Deep Learning"
+title: "CSCI 4220: Machine and Deep Learning"
 description: "Unlock the Power of AI and Transform Data into Intelligence"
 
 # Published at https://robbyswimmer.github.io/CBU-CSC422/

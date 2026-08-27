@@ -1,9 +1,13 @@
 # Site navigation. Order here is the order shown.
+# `external: true` opens in a new tab (used for the syllabus PDF).
 - label: "Home"
   url: "/index.html"
 - label: "Assignments"
   url: "/assignments.html"
+- label: "Course Calendar"
+  url: "/course-calendar.html"
 - label: "Projects"
   url: "/projects.html"
-- label: "Calendar"
-  url: "/course-calendar.html"
+- label: "Syllabus"
+  url: "/CSC 422 - Machine & Deep Learning - Syllabus.pdf"
+  external: true

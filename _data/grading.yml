@@ -1,0 +1,52 @@
+# Grade distribution — CSCI 4220, Fall 2026
+#
+# Fall 2025 weighting had two zyBooks-dependent lines totalling 20%:
+#   Homework (zyLabs / Blackboard-based labs) ....... 10%
+#   Participation (Presentations / zyBooks activities) 10%
+#
+# zyBooks is dropped for Fall 2026, so the Homework line is gone and its 10%
+# moved to Coding Assignments. Participation stays at 10% but now means
+# in-class/lecture participation rather than zyBooks activity.
+#
+# PROPOSED — confirm the split before the syllabus goes out. Weights must
+# total 100; the site prints the total so a mistake here is visible.
+
+weights:
+  - category: "Coding Assignments"
+    weight: 40
+    note: "was 30% — absorbed the retired zyLabs homework line"
+  - category: "Final Research Project"
+    weight: 30
+  - category: "Midterm Project"
+    weight: 10
+  - category: "Participation & Activities"
+    weight: 10
+    note: "in-class participation; no longer zyBooks activities"
+  - category: "Research Presentation"
+    weight: 10
+
+scale:
+  - letter: "A"
+    range: "93-100%"
+  - letter: "A-"
+    range: "90-92.9%"
+  - letter: "B+"
+    range: "87-89.9%"
+  - letter: "B"
+    range: "83-86.9%"
+  - letter: "B-"
+    range: "80-82.9%"
+  - letter: "C+"
+    range: "77-79.9%"
+  - letter: "C"
+    range: "73-76.9%"
+  - letter: "C-"
+    range: "70-72.9%"
+  - letter: "D+"
+    range: "67-69.9%"
+  - letter: "D"
+    range: "63-66.9%"
+  - letter: "D-"
+    range: "60-62.9%"
+  - letter: "F"
+    range: "< 59.95%"

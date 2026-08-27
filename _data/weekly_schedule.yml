@@ -1,24 +1,24 @@
-# Weekly Schedule - CSC 422: Machine and Deep Learning
-# Fall 2025
+# Weekly meeting pattern — CSCI 4220, Fall 2026
+# Source: CBU "Course Schedule by Department FINAL (08-14-26)" — CSCI4220.A,
+# Moseley, MWF 0930-1030, TEGR 104.
 
-# Regular weekly schedule (starts after first week)
 - day: "Monday"
-  time: "8:15 AM - 9:15 AM"
-  location: "EGR 104"
+  time: "9:30 AM - 10:30 AM"
+  location: "TEGR 104"
   type: "lecture"
   duration: 60
   description: "Main lecture covering theory and concepts"
 
 - day: "Wednesday"
-  time: "8:15 AM - 9:15 AM"
-  location: "EGR 104"
+  time: "9:30 AM - 10:30 AM"
+  location: "TEGR 104"
   type: "lecture"
   duration: 60
   description: "Continued lecture and concept reinforcement"
 
 - day: "Friday"
-  time: "8:15 AM - 9:15 AM"
-  location: "EGR 104"
+  time: "9:30 AM - 10:30 AM"
+  location: "TEGR 104"
   type: "lecture"
   duration: 60
   description: "Lab work, coding assignments, and practical application"

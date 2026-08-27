@@ -73,3 +73,97 @@ body {
             margin: 0 auto;
             padding: 0 var(--spacing-md);
         }
+
+/* --- Site footer -------------------------------------------------------
+   The original pages had no footer; this one is new, so it gets its own
+   styles here rather than depending on page-level CSS. */
+.site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: space-between;
+}
+
+.site-footer p {
+    margin: 0 0 0.35rem;
+}
+
+.site-footer__title {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.site-footer a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- Utilities and small components -----------------------------------
+   These replace inline style="" attributes that used to be baked into the
+   JavaScript template strings. .text-center was used in the original markup
+   but never actually defined. */
+.text-center {
+    text-align: center;
+}
+
+.instructor-tagline {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.instructor-bio {
+    margin-top: var(--spacing-md);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* Relative time appended by assets/js/site.js; hidden until filled in. */
+.countdown {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* --- Assignment card as a link ----------------------------------------
+   The original made these clickable <div>s with an inline onclick. They are
+   real <a> elements now, so reset the anchor styling and let the inner
+   blocks stack. */
+a.assignment-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+a.assignment-item:hover {
+    transform: translateX(4px);
+}
+
+.assignment-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+}
+
+/* Contact links inside the instructor card kept their accent colour via an
+   inline style in the old JS template. */
+.instructor-details a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.instructor-details a:hover {
+    text-decoration: underline;
+}

@@ -1,18 +1,19 @@
 # Course identity and term dates.
 # This is the single place to update when the course rolls to a new semester.
 
-number: "CSC 422"
+number: "CSCI 4220"
 name: "Machine and Deep Learning"
 university: "California Baptist University"
 tagline: "Unlock the Power of AI and Transform Data into Intelligence"
 
+# Renumbered from CSC 422 in the new catalog.
+former_number: "CSC 422"
+
 semester:
-  name: "Fall 2025"
-  academic_year: "2025-2026"
-  start_date: "2025-09-03"
-  end_date: "2025-12-15"
+  name: "Fall 2026"
+  academic_year: "2026-2027"
+  start_date: "2026-09-08"   # term begins Tue; this MWF section first meets Wed 09-09
+  end_date: "2026-12-15"
   weeks: 14
-  final_exam_week: "2025-12-09"
-  last_day_to_withdraw: "2025-11-01"
 
 syllabus_pdf: "CSC 422 - Machine & Deep Learning - Syllabus.pdf"
