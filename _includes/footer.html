@@ -1,0 +1,15 @@
+{% assign c = site.data.course %}
+{% assign i = site.data.instructor %}
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <p class="site-footer__title">{{ c.number }}: {{ c.name }}</p>
+      <p>{{ c.university }} &middot; {{ c.semester }}</p>
+    </div>
+    <div>
+      <p>{{ i.name }}</p>
+      <p><a href="mailto:{{ i.email }}">{{ i.email }}</a> &middot; {{ i.office }}</p>
+      <p>Office hours: {{ i.office_hours }}</p>
+    </div>
+  </div>
+</footer>

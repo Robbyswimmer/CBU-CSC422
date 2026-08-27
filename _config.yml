@@ -1,39 +1,34 @@
-# Jekyll Configuration for CSC 422 Course Site
+# Jekyll configuration — CSC 422 course site
+#
+# Everything the pages display comes from _data/*.yml. To change course
+# content you should not need to open an HTML file.
+
 title: "CSC 422: Machine and Deep Learning"
 description: "Unlock the Power of AI and Transform Data into Intelligence"
+
+# Published at https://robbyswimmer.github.io/CBU-CSC422/
+# baseurl must match the repository name or every asset 404s.
 baseurl: "/CBU-CSC422"
-url: "https://robbyswimmer.github.io/CBU-CSC422"
+url: "https://robbyswimmer.github.io"
+repository: "Robbyswimmer/CBU-CSC422"
 
-# Course Information
-course:
-  number: "CSC 422"
-  name: "Machine and Deep Learning"
-  semester: "Fall 2025"
-  university: "California Baptist University"
-
-# Instructor Information
-instructor:
-  name: "Professor Robert Moseley, MS"
-  email: "rmoseley@calbaptist.edu"
-  office: "EGR333"
-  phone: "(951) 552–8851"
-  office_hours: "Monday/Wednesday 10:30am-12:00pm, 1:00pm–3:00pm"
-  image: "/Materials/Art/professor.png"
-
-# Build settings
 markdown: kramdown
 highlighter: rouge
-theme: minima
 
-# Plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# Exclude from processing
+# Keep the syllabus PDF, Materials/Art images and the notebooks under
+# Assignments/ — they are linked from the site. Only the raw datasets
+# are excluded; they are large and regenerable.
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
   - vendor
+  - data
+  - "Materials/Module 3: CNNs/data"
+
+# NOTE: default permalinks on purpose. Existing links and bookmarks point at
+# /assignments.html etc.; switching to pretty URLs would break them.

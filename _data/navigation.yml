@@ -1,0 +1,9 @@
+# Site navigation. Order here is the order shown.
+- label: "Home"
+  url: "/index.html"
+- label: "Assignments"
+  url: "/assignments.html"
+- label: "Projects"
+  url: "/projects.html"
+- label: "Calendar"
+  url: "/course-calendar.html"

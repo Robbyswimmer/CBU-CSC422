@@ -1,0 +1,22 @@
+{%- assign i = site.data.instructor -%}
+<div class="instructor-image">
+  <img src="{{ i.image | default: '/Materials/Art/professor.png' | relative_url }}" alt="{{ i.name }}">
+</div>
+
+<div class="instructor-info">
+  <h3>{{ i.name }}</h3>
+  {%- if i.tagline %}
+  <p class="instructor-tagline">{{ i.tagline }}</p>
+  {%- endif %}
+
+  <div class="instructor-details">
+    <p><strong>📧 Email:</strong> <a href="mailto:{{ i.email }}">{{ i.email }}</a></p>
+    <p><strong>🏢 Office:</strong> {{ i.office }}</p>
+    <p><strong>📞 Phone:</strong> {{ i.phone }}</p>
+    <p><strong>⏰ Office Hours:</strong> {{ i.office_hours }}</p>
+  </div>
+
+  {%- if i.bio %}
+  <p class="instructor-bio">{{ i.bio }}</p>
+  {%- endif %}
+</div>

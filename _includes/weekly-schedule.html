@@ -1,0 +1,18 @@
+{%- assign days = "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday" | split: "," -%}
+{%- for day in days -%}
+  {%- assign match = site.data.weekly_schedule | where: "day", day | first -%}
+  <div class="day-column {% if match %}active{% else %}inactive{% endif %}">
+    <div class="day-header">{{ day }}</div>
+    <div class="day-content">
+      {%- if match %}
+      <div class="class-block {% if match.type == 'lab' %}lab{% else %}lecture{% endif %}">
+        <div class="class-time">{{ match.time }}</div>
+        <div class="class-type">{{ match.type | capitalize }}</div>
+        <div class="class-location">{{ match.location }}</div>
+      </div>
+      {%- else %}
+      <div class="no-class">—</div>
+      {%- endif %}
+    </div>
+  </div>
+{%- endfor -%}

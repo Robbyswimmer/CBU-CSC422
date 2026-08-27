@@ -1,0 +1,26 @@
+{%- comment -%}
+  Every assignment is rendered here, sorted by date, with data-date on each row.
+  assets/js/site.js adds the status class and the "in N days" countdown at view
+  time and hides items far in the past. Without JS the full list still reads
+  correctly — it just has no countdown.
+{%- endcomment -%}
+{%- assign items = site.data.assignments | sort: "date" -%}
+{%- for a in items -%}
+  {%- assign fallback = a.module | default: "Module 1" | uri_escape -%}
+  {%- assign url = a.github_url | default: "https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/" | append: fallback -%}
+  <a class="assignment-item" href="{{ url }}" target="_blank" rel="noopener"
+     data-date="{{ a.date }}">
+    <span class="assignment-title">{{ a.title }}</span>
+    <span class="assignment-date">
+      Due: {{ a.date | date: "%a, %b %-d" }}<span class="countdown" hidden></span>
+    </span>
+    {%- if a.description %}
+    <span class="assignment-description">{{ a.description }}</span>
+    {%- endif %}
+    <span class="assignment-meta">
+      {%- if a.points %}<span class="badge">{{ a.points }} pts</span>{% endif %}
+      {%- if a.difficulty %}<span class="badge">{{ a.difficulty }}</span>{% endif %}
+      {%- if a.estimated_hours %}<span class="badge">~{{ a.estimated_hours }} hrs</span>{% endif %}
+    </span>
+  </a>
+{%- endfor -%}

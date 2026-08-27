@@ -1,0 +1,15 @@
+{%- assign items = site.data.important_dates | sort: "date" -%}
+{%- for d in items -%}
+  <div class="date-item" data-date="{{ d.date }}">
+    <div class="date-title">{% if d.icon %}{{ d.icon }} {% endif %}{{ d.title }}</div>
+    <div class="date-date">
+      {{ d.date | date: "%a, %b %-d" }}<span class="countdown" hidden></span>
+    </div>
+    {%- if d.description %}
+    <div class="date-description">{{ d.description }}</div>
+    {%- endif %}
+    {%- if d.type %}
+    <div class="date-meta"><span class="badge">{{ d.type }}</span></div>
+    {%- endif %}
+  </div>
+{%- endfor -%}

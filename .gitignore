@@ -1,0 +1,19 @@
+# Jekyll build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+
+# Datasets — regenerate locally, do not commit (45MB+ each)
+data/
+**/data/MNIST/
+**/data/cifar-10-batches-py/
+*.tar.gz
+*-ubyte
+*-ubyte.gz
+
+# Notebook + OS cruft
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+~$*
