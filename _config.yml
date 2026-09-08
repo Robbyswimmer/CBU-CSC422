@@ -19,16 +19,16 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# Keep the syllabus PDF, Materials/Art images and the notebooks under
-# Assignments/ — they are linked from the site. Only the raw datasets
-# are excluded; they are large and regenerable.
+# Keep the syllabus PDF, assets/art images and the notebooks under
+# FA26/ — they are linked from the site. Only the raw datasets are
+# excluded; they are large and regenerable.
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
   - vendor
   - data
-  - "Materials/Module 3: CNNs/data"
+  - "FA26/week11/materials/data"
 
 # NOTE: default permalinks on purpose. Existing links and bookmarks point at
 # /assignments.html etc.; switching to pretty URLs would break them.

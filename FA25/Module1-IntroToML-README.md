@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/Materials/Art/module_1.png" alt="Module 1 Cover" width="400">
+<img src="https://raw.githubusercontent.com/Robbyswimmer/CBU-CSC422/main/assets/art/module_1.png" alt="Module 1 Cover" width="400">
 
 # Module 1: Introduction to Machine Learning
 

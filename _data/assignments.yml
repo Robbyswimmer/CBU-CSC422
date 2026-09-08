@@ -17,7 +17,7 @@
     needed for this course. '
   estimated_hours: 0.5
   difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/Assignments/Module%200%3A%20Intro%20to%20ML%20and%20Python/ca0.ipynb
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week01/CA00-python-fundamentals/ca0.ipynb
   skills:
   - Python Programming
   - NumPy
@@ -37,7 +37,7 @@
     results.
   estimated_hours: 2
   difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/Assignments/Module%201%3A%20ML%20/CA1/ca1.ipynb
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week03/CA01-linear-regression/ca1.ipynb
   skills:
   - Python Programming
   - NumPy
@@ -57,7 +57,7 @@
     approach, and technology stack.
   estimated_hours: 4
   difficulty: Intermediate
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Final%20Project/Track%202/Project%20Proposal
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/final-project/Track%202/Project%20Proposal
   skills:
   - Project Planning
   - Technical Design
@@ -79,7 +79,7 @@
     model training, evaluation metrics, and performance analysis.
   estimated_hours: 2
   difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Module%201
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week05/CA02-classification-models
   skills:
   - Classification Models
   - Logistic Regression
@@ -100,7 +100,7 @@
   detailed_description: Students will complete a midterm project proposal.
   estimated_hours: 2
   difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Midterm
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/midterm
   skills:
   - Regression Models
   - Linear Regression
@@ -118,7 +118,7 @@
   detailed_description: Students will complete the midterm project based on the assignment in GitHub.
   estimated_hours: 1
   difficulty: Intermediate
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/Assignments/Midterm
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/midterm
   skills:
   - Dimensionality Reduction
   - Principal Component Analysis
@@ -137,7 +137,7 @@
     same network using PyTorch for comparison and understanding of modern deep learning frameworks.
   estimated_hours: 2
   difficulty: Intermediate
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/Assignments/Module%202%3A%20Neural%20Networks/CA3/ca3.ipynb
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week07/CA03-neural-networks/ca3.ipynb
   skills:
   - Neural Networks
   - Multi-Layer Perceptrons

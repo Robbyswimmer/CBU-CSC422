@@ -1,0 +1,863 @@
+{
+ "course": "CSCI4220",
+ "term": "FA26",
+ "generated": "2026-09-08",
+ "weeks": [
+  {
+   "week": 1,
+   "dates": [
+    "2026-09-09",
+    "2026-09-11"
+   ],
+   "topic": "Course intro \u00b7 What is ML \u00b7 Supervised vs unsupervised \u00b7 Python + math setup",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/CSC422_Moseley_Introduction.pptx",
+     "s": "have",
+     "note": "needs FA26 update"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/module_0_supervised_vs_unsupervised.pptx",
+     "s": "have"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_02_Supervised.pptx",
+     "s": "sourced",
+     "note": "optional framing supplement"
+    }
+   ],
+   "notes": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/lecture_day_1.md",
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/lecture_day_2.md"
+   ],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/IC_intro_python.md",
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/IC_background_mathematics.ipynb"
+   ],
+   "due": {
+    "id": "CA.00",
+    "kind": "notebook",
+    "title": "Python Fundamentals & Mathematical Foundations",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/CA00-python-fundamentals/ca0.ipynb",
+    "s": "have",
+    "hrs": 0.5
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/CSC422_Moseley_Introduction.pptx",
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/module_0_supervised_vs_unsupervised.pptx",
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_02_Supervised.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/IC_intro_python.md",
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/IC_background_mathematics.ipynb"
+     ],
+     "status": "have"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 0
+    }
+   }
+  },
+  {
+   "week": 2,
+   "dates": [
+    "2026-09-14",
+    "2026-09-16",
+    "2026-09-18"
+   ],
+   "topic": "Linear regression: model, loss, fitting",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 1 - Intro/ml_overview_linear_regressions.pptx",
+     "s": "have"
+    }
+   ],
+   "notes": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/lecture_day_3.md",
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/lectures_day_5.md"
+   ],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/IC_2_linear_regression.ipynb"
+   ],
+   "due": {
+    "id": "PS1",
+    "kind": "pset",
+    "title": "Linear Regression Foundations",
+    "s": "AUTHOR",
+    "spec": "Derive the normal equations; MSE and its gradient by hand; closed-form fit on 3 toy points; when does X^T X fail to invert",
+    "covers": "W2 lecture",
+    "items": [
+     "Derive the normal equations from the MSE objective",
+     "By hand: fit y = b0 + b1x to 3 given points; solve for b-hat",
+     "Show the MSE gradient is -2X^T(y - Xb)",
+     "When is X^T X singular? Give a concrete collinear example",
+     "Short answer: why squared error rather than absolute error?"
+    ]
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 1 - Intro/ml_overview_linear_regressions.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/IC_2_linear_regression.ipynb"
+     ],
+     "status": "have"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 3,
+   "dates": [
+    "2026-09-21",
+    "2026-09-23",
+    "2026-09-25"
+   ],
+   "topic": "Logistic regression \u00b7 gradient descent (intuition, not derivation)",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 2 - ML:SL/Lecture15_LogisticRegression.pptx",
+     "s": "have"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/In Class Coding/Module 1 - ML/Lecture_3_Gradient_Descent.pptx",
+     "s": "have"
+    }
+   ],
+   "notes": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/lectures_day_6.md",
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/materials/lectures_day_7.md"
+   ],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/IC_2_linear_regression.ipynb"
+   ],
+   "due": {
+    "id": "CA.01",
+    "kind": "notebook",
+    "title": "Linear Regression",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/CA01-linear-regression/ca1.ipynb",
+    "s": "have",
+    "hrs": 2,
+    "also": "Track 2 Project Proposal due"
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 2 - ML:SL/Lecture15_LogisticRegression.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/In Class Coding/Module 1 - ML/Lecture_3_Gradient_Descent.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/materials/IC_3_regression_classification_instructor.ipynb"
+     ],
+     "status": "have",
+     "note": "scratch -> scikit-learn bridge"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 4,
+   "dates": [
+    "2026-09-28",
+    "2026-09-30",
+    "2026-10-02"
+   ],
+   "topic": "Classification \u00b7 model evaluation, metrics, cross-validation",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch4_Classification.pdf",
+     "s": "sourced",
+     "note": "use p1-28 + p56-58 (ROC); skim LDA/QDA; skip p91-101"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch5_Resampling_Methods.pdf",
+     "s": "sourced",
+     "note": "use nearly all; p25-32 is the highlight"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 2 - ML:SL/Classification_Notes.pdf",
+     "s": "have"
+    }
+   ],
+   "notes": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/materials/lectures_day_8.md"
+   ],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/materials/IC_3_regression_classification_instructor.ipynb",
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week04/materials/IC_4_data_collection_student.ipynb"
+   ],
+   "due": {
+    "id": "PS2",
+    "kind": "pset",
+    "title": "Classification & Model Evaluation",
+    "s": "AUTHOR",
+    "spec": "Confusion matrix + precision/recall/F1 by hand; Bayes rule for Naive Bayes; KNN decision boundary sketch; bias-variance decomposition",
+    "covers": "W4 lecture (ISLR Ch4 + Ch5)",
+    "items": [
+     "From a given 2x2 confusion matrix compute accuracy, precision, recall, F1 by hand",
+     "Construct a 99%-accurate classifier that is useless (class imbalance)",
+     "Naive Bayes prediction on a small categorical table using Bayes rule",
+     "Sketch the KNN decision boundary for k=1 vs k=5 on 8 labelled points",
+     "Explain the WRONG way to cross-validate (ISLR Ch5 p25-32) and why it inflates accuracy",
+     "Compute 5-fold CV error from per-fold errors"
+    ]
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch4_Classification.pdf",
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch5_Resampling_Methods.pdf",
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 2 - ML:SL/Classification_Notes.pdf"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week04/materials/IC_4_data_collection_student.ipynb"
+     ],
+     "status": "partial",
+     "gap": "IC on evaluation: confusion matrix, ROC and k-fold CV coded by hand. IC_4 covers data quality but not metrics."
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 5,
+   "dates": [
+    "2026-10-05",
+    "2026-10-07",
+    "2026-10-09"
+   ],
+   "topic": "Tree-based methods and ensembles",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch8_Tree_Based_Methods.pdf",
+     "s": "sourced",
+     "note": "STOP at p55 \u2014 p56-79 is BART, out of scope"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": {
+    "id": "CA.02",
+    "kind": "notebook",
+    "title": "Classification Models (KNN, LogReg, Naive Bayes)",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week05/CA02-classification-models/ca2.ipynb",
+    "s": "have",
+    "hrs": 2,
+    "note": "consider extending with a decision-tree / random-forest section to match the week"
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch8_Tree_Based_Methods.pdf"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "GAP",
+     "gap": "IC: decision tree from scratch \u2014 entropy/Gini split search, then sklearn RandomForest / boosting comparison"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 6,
+   "dates": [
+    "2026-10-12",
+    "2026-10-14",
+    "2026-10-16"
+   ],
+   "topic": "Unsupervised structure: k-means, PCA   [MIDTERM PROJECT DUE]",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch12_Unsupervised_Learning.pdf",
+     "s": "sourced",
+     "note": "p1-58 core; p59-76 optional"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": {
+    "id": "PS3",
+    "kind": "pset",
+    "title": "Trees, Ensembles & Unsupervised Structure",
+    "s": "AUTHOR",
+    "spec": "k-means by hand on 6 toy points; PCA on a 2x2 covariance matrix; interpret principal components",
+    "also": "Midterm Project due 10/16 (spec + rubric already written)",
+    "covers": "W5 + W6 lectures",
+    "items": [
+     "Compute entropy and Gini impurity for a node; pick the better of two candidate splits",
+     "Information-gain calculation, shown step by step",
+     "Short answer: why does bagging reduce variance but not bias?",
+     "Why do random forests subsample FEATURES, not just rows?",
+     "k-means by hand: 6 points, k=2, two full iterations, show centroids each step",
+     "PCA on a given 2x2 covariance matrix: eigenvalues, PC1, proportion of variance explained"
+    ]
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/ISLR2-Hastie-Tibshirani/Ch12_Unsupervised_Learning.pdf"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "GAP",
+     "gap": "IC: k-means from scratch (assign/update loop, animate centroids) + PCA via numpy.linalg.eig on a real dataset"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 7,
+   "dates": [
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-23"
+   ],
+   "topic": "Neural networks: shallow to deep",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 3 - Neural Networks/Deep_Learning_Intro.pptx",
+     "s": "have"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_03_Shallow.pptx",
+     "s": "have",
+     "note": "UDL ch.3"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_04_Deep.pptx",
+     "s": "have",
+     "note": "UDL ch.4"
+    }
+   ],
+   "notes": [],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week07/materials/IC_1_shallow_neural_network_instructor.ipynb"
+   ],
+   "due": {
+    "id": "CA.03",
+    "kind": "notebook",
+    "title": "Neural Networks (MLP from scratch + PyTorch)",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week07/CA03-neural-networks/ca3.ipynb",
+    "s": "have",
+    "hrs": 2
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 3 - Neural Networks/Deep_Learning_Intro.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_03_Shallow.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_04_Deep.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week07/materials/IC_1_shallow_neural_network_instructor.ipynb"
+     ],
+     "status": "have"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 8,
+   "dates": [
+    "2026-10-26",
+    "2026-10-28",
+    "2026-10-30"
+   ],
+   "topic": "Training neural nets: loss functions, backprop intuition, optimizers",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 3 - Neural Networks/CM20315_05_Loss.pptx",
+     "s": "have",
+     "note": "UDL ch.5"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_07_Gradients.pptx",
+     "s": "sourced",
+     "note": "CONCEPTUAL BACKPROP ONLY \u2014 slides ~31-57. Skip 58-99 (expectation/init math)."
+    }
+   ],
+   "notes": [],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week08/materials/IC_2_backpropagation_mlp_instructor.ipynb"
+   ],
+   "due": {
+    "id": "PS4",
+    "kind": "pset",
+    "title": "Training Neural Networks (conceptual)",
+    "s": "AUTHOR",
+    "spec": "Forward + backward pass on a 2-layer net with 2 inputs; chain rule derivation; derive cross-entropy gradient",
+    "covers": "W7 + W8 lectures",
+    "items": [
+     "Trace a forward pass through a 2-input, 2-hidden-unit ReLU network with given weights",
+     "Explain in words what backprop computes and why the chain rule makes it efficient (no full derivation)",
+     "Given a loss curve, identify whether the learning rate is too high, too low, or about right",
+     "Compare SGD, momentum and Adam: one sentence each on what problem it solves",
+     "What is the dead-ReLU problem and how would you notice it?"
+    ]
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 3 - Neural Networks/CM20315_05_Loss.pptx",
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_07_Gradients.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week08/materials/IC_2_backpropagation_mlp_instructor.ipynb"
+     ],
+     "status": "have"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 9,
+   "dates": [
+    "2026-11-02",
+    "2026-11-04",
+    "2026-11-06"
+   ],
+   "topic": "Performance, regularization, practical training   [FINAL PROJECT KICKOFF]",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 3 - Neural Networks/CM20315_06_Fitting.pptx",
+     "s": "have",
+     "note": "UDL ch.6"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_08_Performance.pptx",
+     "s": "have",
+     "note": "UDL ch.8"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_09_Regularization.pptx",
+     "s": "have",
+     "note": "UDL ch.9"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": null,
+   "note": "No CA/PS \u2014 final project kickoff and proposal work",
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 3 - Neural Networks/CM20315_06_Fitting.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_08_Performance.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_09_Regularization.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "GAP",
+     "gap": "IC: optimizers head-to-head \u2014 hand-rolled SGD vs momentum vs Adam on one loss surface; He vs zero vs large init"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 10,
+   "dates": [
+    "2026-11-09",
+    "2026-11-11",
+    "2026-11-13"
+   ],
+   "topic": "Convolutional neural networks",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 4 - CNNs/CM20315_10_Convolutional.pptx",
+     "s": "have",
+     "note": "UDL ch.10"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": {
+    "id": "PS5",
+    "kind": "pset",
+    "title": "Generalization & Regularization",
+    "s": "AUTHOR",
+    "spec": "Bias-variance decomposition on a worked example; L1 vs L2 geometry; why dropout approximates an ensemble",
+    "covers": "W9 + W10 lectures",
+    "items": [
+     "Derive the bias-variance decomposition of expected squared error",
+     "Given train/validation curves, diagnose overfitting vs underfitting and justify",
+     "L1 vs L2: draw the constraint regions and explain why L1 yields sparsity",
+     "Compute the ridge solution for a toy 1-D problem; show the shrinkage",
+     "Short answer: in what sense is dropout an ensemble?",
+     "Compare early stopping and weight decay as regularizers"
+    ]
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 4 - CNNs/CM20315_10_Convolutional.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "GAP",
+     "gap": "IC: regularization \u2014 overfit a small net, then add L2 / dropout / early stopping and watch the val curve"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 11,
+   "dates": [
+    "2026-11-16",
+    "2026-11-18",
+    "2026-11-20"
+   ],
+   "topic": "CNNs in practice: transfer learning, applications",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/Module 4 - CNNs/CM20315_10_Convolutional.pptx",
+     "s": "have",
+     "note": "part 2 \u2014 applications"
+    }
+   ],
+   "notes": [],
+   "inclass": [
+    "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week11/materials/IC_1_cnn_mnist_instructor.ipynb"
+   ],
+   "due": {
+    "id": "CA.04",
+    "kind": "notebook",
+    "title": "Advanced Computer Vision with CNNs",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week11/CA04-cnns/ca4.ipynb",
+    "s": "have",
+    "hrs": 3.5
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/Module 4 - CNNs/CM20315_10_Convolutional.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week11/materials/IC_1_cnn_mnist_instructor.ipynb"
+     ],
+     "status": "have"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 12,
+   "dates": [
+    "2026-11-23",
+    "2026-11-25",
+    "2026-11-27"
+   ],
+   "topic": "Sequence models and attention (Thanksgiving week \u2014 light)",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_12_Transformers.pptx",
+     "s": "have",
+     "note": "part 1 \u2014 attention intro"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": null,
+   "warn": "Only Thu 11-26 is recorded as a no-class day, taken from a TR syllabus. Wed 11-25 and Fri 11-27 are UNVERIFIED.",
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_12_Transformers.pptx"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "none",
+     "note": "Thanksgiving week"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 0
+    }
+   }
+  },
+  {
+   "week": 13,
+   "dates": [
+    "2026-11-30",
+    "2026-12-02",
+    "2026-12-04"
+   ],
+   "topic": "Transformers and large language models",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_12_Transformers.pptx",
+     "s": "have"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/lec19.transformers.pdf",
+     "s": "have"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/lec19.transformersLLMs.pdf",
+     "s": "have"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": {
+    "id": "CA.05",
+    "kind": "notebook",
+    "title": "Transformer Architecture Fundamentals",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week13/CA05-transformers/ca5.ipynb",
+    "s": "have",
+    "hrs": 2
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/FA25/CM20315_12_Transformers.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/lec19.transformers.pdf",
+      "courses/CSCI4220-MachineDeepLearning/FA25/lec19.transformersLLMs.pdf"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "GAP",
+     "gap": "IC: scaled dot-product attention from scratch on toy tokens, then a HuggingFace pretrained model"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 14,
+   "dates": [
+    "2026-12-07",
+    "2026-12-09",
+    "2026-12-11"
+   ],
+   "topic": "Frontiers: generative models (GANs, VAEs, diffusion, flow matching) \u00b7 reinforcement learning \u00b7 ethics",
+   "slides": [
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_13_Unsupervised.pptx",
+     "s": "sourced",
+     "note": "13-slide survey of generative families \u2014 GANs, VAEs, diffusion, flow. High-level, exactly right here."
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/FA25/cs231n_2017_lecture14.pdf",
+     "s": "have",
+     "note": "Stanford CS231n Deep RL, 103 slides \u2014 survey a subset"
+    },
+    {
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/lectures/Ethics-Harvard-EmbeddedEthiCS/CS181_Bias_in_ML_Design_Pope_2022-23.pdf",
+     "s": "sourced",
+     "note": "lesson plan, not slides"
+    }
+   ],
+   "notes": [],
+   "inclass": [],
+   "due": {
+    "id": "PS6",
+    "kind": "pset",
+    "title": "Ethics Analysis",
+    "s": "AUTHOR",
+    "spec": "Long-answer analysis tied to the student's own final project: bias sources, failure modes, deployment harms",
+    "covers": "W14 lecture",
+    "items": [
+     "Obermeyer healthcare case: identify the label-choice error and propose two alternatives",
+     "Map the bias sources in YOUR OWN final-project data pipeline",
+     "Distinguish disparate treatment from disparate impact with an ML example",
+     "Pick ONE frontier model family (GAN, VAE, diffusion, flow matching, or RL) and explain in half a page what problem it solves and one risk it introduces",
+     "Articulate a Christian-worldview response to one tradeoff in your project (CoE PO 7)"
+    ],
+    "note": "CLO 6 maps to program objectives 4 (Ethics) AND 7 (Christian World View) \u2014 the worldview part is required, not optional."
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": [
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_13_Unsupervised.pptx",
+      "courses/CSCI4220-MachineDeepLearning/FA25/cs231n_2017_lecture14.pdf",
+      "courses/CSCI4220-MachineDeepLearning/shared/lectures/Ethics-Harvard-EmbeddedEthiCS/CS181_Bias_in_ML_Design_Pope_2022-23.pdf"
+     ]
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "none",
+     "note": "Ethics discussion + final project work"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 3
+    }
+   }
+  },
+  {
+   "week": 15,
+   "dates": [
+    "2026-12-14"
+   ],
+   "topic": "Final project presentations",
+   "slides": [],
+   "notes": [],
+   "inclass": [],
+   "due": {
+    "id": "FINAL",
+    "kind": "project",
+    "title": "Final Project + Presentation",
+    "s": "have",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/final-project/"
+   },
+   "sessions": {
+    "mon": {
+     "type": "theory",
+     "slides": []
+    },
+    "wed": {
+     "type": "coding",
+     "ic": [],
+     "status": "none",
+     "note": "Final presentations"
+    },
+    "fri": {
+     "type": "lecture+presentations",
+     "presentations": 0
+    }
+   }
+  }
+ ],
+ "sources": {
+  "ISLR2": {
+   "who": "Hastie & Tibshirani, An Introduction to Statistical Learning (2nd ed)",
+   "url": "https://www.statlearning.com/resources-second-edition",
+   "license": "All rights reserved; may be used and modified for NON-PROFIT EDUCATIONAL purposes. CBU qualifies."
+  },
+  "UDL": {
+   "who": "Simon J.D. Prince, Understanding Deep Learning",
+   "url": "https://github.com/udlbook/udlbook/tree/main/Slides",
+   "license": "CC BY-NC-ND 4.0 \u2014 use and share with attribution, NO MODIFICATION.",
+   "note": "Slide series stops at ch.13. There is NO ethics deck and no ch.21 deck."
+  },
+  "EmbeddedEthiCS": {
+   "who": "Harvard SEAS Embedded EthiCS",
+   "url": "https://embeddedethics.seas.harvard.edu/modules/",
+   "license": "CC BY 4.0 \u2014 attribution only, modification permitted."
+  }
+ },
+ "structure": {
+  "exams": "NONE",
+  "coding_assignments": 6,
+  "problem_sets": 6,
+  "cadence": "strictly alternating: CA in weeks 1,3,5,7,11,13 \u00b7 PS in weeks 2,4,6,8,10,14",
+  "other": "AI Research Paper Presentation 10% \u00b7 Project I Midterm 10% \u00b7 Project II Final 30% \u00b7 Participation 10%",
+  "homework_weight": "40% split across 6 CA + 6 PS = 3.33% each"
+ },
+ "deck_notes": {
+  "ISLR2 Ch4_Classification": "Core p1-70. LDA/QDA (p29-63) is heavier than your syllabus needs \u2014 skim. Evaluation content you actually want is p56-58 (types of errors, varying the threshold, ROC). SKIP p91-101 (GLM/Poisson, out of scope).",
+  "ISLR2 Ch5_Resampling": "Use nearly all of it. p25-32 ('Cross-validation: right and wrong' / the 'NO!' sequence) is the single best thing in this pack \u2014 it teaches the feature-selection-before-CV mistake that students make constantly.",
+  "ISLR2 Ch8_Tree_Based_Methods": "STOP AT p55 ('Summary'). p56-79 is BART (Bayesian Additive Regression Trees) \u2014 graduate-level and out of scope.",
+  "ISLR2 Ch12_Unsupervised": "Core p1-58 (PCA p1-24, k-means p25-39, hierarchical p40-58). p59-76 is matrix completion / recommender systems \u2014 good enrichment, not required.",
+  "UDL CM20315_07_Gradients": "Core is slides 1-57 (backprop, forward/backward pass, ReLU derivative, autodiff) and 100 (PyTorch). Slides 58-99 are a long expectation/variance refresher building to He initialization \u2014 compress hard if students have had the stats prereq.",
+  "Harvard EmbeddedEthiCS CS181": "WARNING: 3 pages, and it is a module WRITE-UP (lesson plan), not a slide deck. Describes a healthcare racial-bias case (Obermeyer et al., Science 2019) and discussion structure. Usable as a session plan; you supply the delivery."
+ },
+ "teaching_pattern": {
+  "monday": "Theory lecture (slide deck)",
+  "wednesday": "Coding lecture \u2014 implement by hand, live (IC notebook)",
+  "friday": "~33 min lecture + 3 student research-paper presentations (8-10 min each)",
+  "presentations": "35 students / 12 usable Fridays (W2-W11, W13-W14) = 3 per Friday. W1 is course intro; W12 is Thanksgiving.",
+  "ic_format": "Learning Goals -> timed blocks (Hook / build from scratch / move to library) -> instructor+student variants, student version carries more TODO blanks"
+ },
+ "depth_policy": {
+  "level": "Upper-level UNDERGRADUATE \u2014 breadth over depth.",
+  "rule": "Teach intuition and 'what it's for'. Do NOT derive backprop, initialization variance, or optimizer convergence. Students should leave able to recognise, choose and apply \u2014 not to re-derive.",
+  "consequence": "UDL ch.7 (102 slides) is now used ONLY for the conceptual BackProp section (~slides 31-57). Slides 58-99 (expectation algebra -> He initialization) are OUT OF SCOPE.",
+  "goal": "Cover the full modern landscape: classical ML, NNs, CNNs, transformers/LLMs, generative models, RL \u2014 with diffusion/flow matching if time allows."
+ },
+ "gaps_remaining": {
+  "ic_notebooks": [
+   4,
+   5,
+   6,
+   9,
+   10,
+   13
+  ],
+  "diffusion_flow_matching": "UDL_13 names them but does not teach them. If you want real coverage, a dedicated deck must be sourced. Currently scoped as a high-level survey only.",
+  "final_presentations": "~17-18 pairs x 9 min = ~160 min = 3 sessions. Budget W14 Wed+Fri and W15 Mon."
+ }
+}
