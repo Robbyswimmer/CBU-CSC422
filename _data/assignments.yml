@@ -1,63 +1,24 @@
-# Assignments — CSCI 4220: Machine and Deep Learning
-# Fall 2026
-#
-# This file drives the assignment list on the home page and the calendar.
-# Add an entry here and it appears on the site; nothing else to edit.
-# zyBooks readings/labs were removed for Fall 2026 — the course now runs
-# on lectures plus coding assignments.
-
-- date: '2026-09-18'
-  title: 'CA.00: Math & Python Fundamentals'
+# GENERATED from Canvas (course 13604) — the live gradebook is the source of
+# truth for dates and points. Regenerate after changing Canvas.
+- date: '2026-09-16'
+  title: 'CA.00: Python Fundamentals & Mathematical Foundations'
   type: assignment
-  points: 3
-  module: Module 0
-  module_number: 0
-  description: Introduction to Python and mathematical framework
-  detailed_description: 'Students will implement advanced python functions and implement basic mathematics
-    needed for this course. '
-  estimated_hours: 0.5
-  difficulty: Beginner
+  points: 100
+  description: 'CA.00: Python Fundamentals & Mathematical Foundations'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week01/CA00-python-fundamentals/ca0.ipynb
-  skills:
-  - Python Programming
-  - NumPy
-  - Data Preprocessing
-  - Linear Algebra
-  deliverables:
-  - Python implementation (.ipynb file)
-- date: '2026-09-25'
-  title: 'CA.01: Linear Regression'
-  type: assignment
-  points: 3
-  module: Module 1
-  module_number: 1
-  description: Introduction to ML fundamentals and linear regression implementation
-  detailed_description: Students will implement linear regression from scratch using Python and NumPy.
-    This assignment covers data preprocessing, model training, evaluation metrics, and visualization of
-    results.
-  estimated_hours: 2
-  difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week03/CA01-linear-regression/ca1.ipynb
-  skills:
-  - Python Programming
-  - NumPy
-  - Data Preprocessing
-  - Linear Algebra
-  deliverables:
-  - Python implementation (.ipynb file)
-- date: '2026-09-25'
-  title: Track 2 Project Proposal
+  published: true
+- date: '2026-09-18'
+  title: Project Proposal
   type: project
-  points: 2
-  module: Final Project
-  module_number: 2
-  description: Comprehensive project proposal for Track 2 independent research
-  detailed_description: Students will submit a detailed 2-3 page project proposal outlining their semester-long
-    research project, including project concept, relevant resources, 10-week execution plan, technical
-    approach, and technology stack.
+  points: 20
+  description: Proposal for your semester-long independent research project
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/final-project/proposal
+  published: true
+  detailed_description: 'Every student submits a 2-3 page proposal for their semester-long independent
+    research project: concept and motivation, relevant prior work, and a 10-week execution plan with concrete
+    milestones. Pairs allowed; small groups with instructor approval.'
   estimated_hours: 4
   difficulty: Intermediate
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/final-project/Track%202/Project%20Proposal
   skills:
   - Project Planning
   - Technical Design
@@ -67,87 +28,116 @@
   - 2-3 page PDF project proposal
   - 10-week execution timeline
   - Technical approach and technology stack
-- date: '2026-10-06'
-  title: 'CA.02: Classification Models'
+- date: '2026-09-25'
+  title: 'CA.01: Linear Regression'
   type: assignment
-  points: 3
-  module: Module 1
-  module_number: 1
-  description: Implementation of classification algorithms and model comparison
-  detailed_description: Students will implement various classification models including logistic regression,
-    decision trees, and compare their performance on real datasets. This assignment covers data preprocessing,
-    model training, evaluation metrics, and performance analysis.
+  points: 100
+  description: Introduction to ML fundamentals and linear regression implementation
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week03/CA01-linear-regression/ca1.ipynb
+  published: false
+  detailed_description: Students will implement linear regression from scratch using Python and NumPy.
+    This assignment covers data preprocessing, model training, evaluation metrics, and visualization of
+    results.
   estimated_hours: 2
   difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week05/CA02-classification-models
   skills:
-  - Classification Models
-  - Logistic Regression
-  - Decision Trees
-  - Model Evaluation
-  - Performance Metrics
+  - Python Programming
+  - NumPy
+  - Data Preprocessing
+  - Linear Algebra
   deliverables:
   - Python implementation (.ipynb file)
-  - Model comparison analysis
-  - Performance evaluation report
+- date: '2026-10-02'
+  title: 'PS2: Classification & Model Evaluation'
+  type: problem set
+  points: 100
+  description: 'PS2: Classification & Model Evaluation'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week04/PS2-classification-evaluation
+  published: false
 - date: '2026-10-09'
-  title: Midterm Project Proposal
+  title: 'CA.02: Classification Models (KNN, LogReg, Naive Bayes)'
   type: assignment
-  points: 2
-  module: Module 2
-  module_number: 2
-  description: Midterm Project Proposal
-  detailed_description: Students will complete a midterm project proposal.
-  estimated_hours: 2
-  difficulty: Beginner
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/midterm
-  skills:
-  - Regression Models
-  - Linear Regression
-  - Shallow Learning Models
-  - Statistical Analysis
-  deliverables:
-  - Midterm Project Proposal
+  points: 100
+  description: 'CA.02: Classification Models (KNN, LogReg, Naive Bayes)'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week05/CA02-classification-models
+  published: false
 - date: '2026-10-16'
-  title: Midterm Project
+  title: Midterm Checkpoint
   type: project
-  points: 10
-  module: Midterm
-  module_number: 5
-  description: Midterm Project
-  detailed_description: Students will complete the midterm project based on the assignment in GitHub.
+  points: 100
+  description: Mid-semester checkpoint on your research project
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/final-project/midterm-checkpoint-assignment.md
+  published: false
+  detailed_description: 'Progress against the plan in your proposal: what is working, what changed, and
+    what remains for the second half of the term.'
   estimated_hours: 1
   difficulty: Intermediate
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/midterm
   skills:
   - Dimensionality Reduction
   - Principal Component Analysis
   - Feature Selection
   deliverables:
   - 100% on Zybooks Reading
-- date: '2026-10-25'
-  title: 'CA.03: Neural Networks'
+- date: '2026-10-16'
+  title: 'PS3: Trees, Ensembles & Unsupervised Structure'
+  type: problem set
+  points: 100
+  description: 'PS3: Trees, Ensembles & Unsupervised Structure'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week06/PS3-trees-unsupervised
+  published: false
+- date: '2026-10-23'
+  title: 'CA.03: Neural Networks (MLP from scratch + PyTorch)'
   type: assignment
-  points: 3
-  module: Module 2
-  module_number: 2
-  description: Implementation of multi-layer perceptrons from scratch and with PyTorch
-  detailed_description: Students will implement neural networks from scratch using NumPy, covering forward
-    propagation, backpropagation, and gradient descent. The assignment concludes with implementing the
-    same network using PyTorch for comparison and understanding of modern deep learning frameworks.
-  estimated_hours: 2
-  difficulty: Intermediate
+  points: 100
+  description: 'CA.03: Neural Networks (MLP from scratch + PyTorch)'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week07/CA03-neural-networks/ca3.ipynb
-  skills:
-  - Neural Networks
-  - Multi-Layer Perceptrons
-  - Backpropagation
-  - PyTorch
-  - NumPy
-  - Gradient Descent
-  - Deep Learning Fundamentals
-  deliverables:
-  - Python implementation (.ipynb file)
-  - From-scratch MLP implementation
-  - PyTorch neural network comparison
-  - Performance analysis and reflection
+  published: false
+- date: '2026-10-30'
+  title: 'PS4: Training Neural Networks (conceptual)'
+  type: problem set
+  points: 100
+  description: 'PS4: Training Neural Networks (conceptual)'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week08/PS4-training-nns
+  published: false
+- date: '2026-11-13'
+  title: 'PS5: Generalization & Regularization'
+  type: problem set
+  points: 100
+  description: 'PS5: Generalization & Regularization'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week10/PS5-generalization
+  published: false
+- date: '2026-11-20'
+  title: 'CA.04: Advanced Computer Vision with CNNs'
+  type: assignment
+  points: 100
+  description: 'CA.04: Advanced Computer Vision with CNNs'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week11/CA04-cnns
+  published: false
+- date: '2026-12-04'
+  title: 'CA.05: Transformer Architecture Fundamentals'
+  type: assignment
+  points: 100
+  description: 'CA.05: Transformer Architecture Fundamentals'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week13/CA05-transformers
+  published: false
+- date: '2026-12-11'
+  title: 'PS6: Ethics Analysis'
+  type: problem set
+  points: 100
+  description: 'PS6: Ethics Analysis'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week14/PS6-ethics
+  published: false
+- date: '2026-12-14'
+  title: Final Presentation
+  type: project
+  points: 60
+  description: Final Presentation
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/final-project
+  published: false
+- date: '2026-12-14'
+  title: Final Project Report
+  type: project
+  points: 100
+  description: Final Project Report
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/final-project
+  published: false
