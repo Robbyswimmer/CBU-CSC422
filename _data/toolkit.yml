@@ -1,0 +1,10 @@
+# What students will actually have open on their laptop.
+
+- group: "Languages & Libraries"
+  items: ["Python 3.11+", "NumPy", "Pandas", "Matplotlib", "Seaborn"]
+
+- group: "ML / DL Frameworks"
+  items: ["PyTorch", "TensorFlow", "Scikit-learn", "Keras"]
+
+- group: "Tools"
+  items: ["VS Code", "Jupyter", "Google Colab", "Git"]

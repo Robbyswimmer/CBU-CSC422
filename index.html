@@ -46,6 +46,36 @@ stylesheet: /assets/css/site.css
   </div>
 </section>
 
+<section id="who">
+  <div class="wrap">
+    <span class="eyebrow">Who you&rsquo;re learning from</span>
+    <h2 class="section-title">Meet your instructor</h2>
+
+    <div class="prof">
+      <div class="prof__portrait">
+        <img src="{{ i.image | relative_url }}" alt="{{ i.name }}" width="240" height="240">
+      </div>
+      <div class="prof__body">
+        <h3>{{ i.name }}</h3>
+        <p class="prof__tagline">{{ i.tagline }}</p>
+        {%- if i.bio %}
+        <blockquote class="prof__quote">{{ i.bio }}</blockquote>
+        {%- endif %}
+        <dl class="prof__facts">
+          <div><dt>Office</dt><dd>{{ i.office }}</dd></div>
+          <div><dt>Hours</dt><dd>{{ i.office_hours }}</dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:{{ i.email }}">{{ i.email }}</a></dd></div>
+        </dl>
+        {%- if i.specializations %}
+        <div class="chips">
+          {%- for s in i.specializations %}<span class="chip">{{ s }}</span>{% endfor %}
+        </div>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
     <span class="eyebrow">The work</span>
@@ -66,6 +96,24 @@ stylesheet: /assets/css/site.css
         <p>Jupyter notebooks implementing the week&rsquo;s result from scratch before reaching for a
           library &mdash; so you know what the library is doing when you finally use it.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="wrap">
+    <span class="eyebrow">What you&rsquo;ll have open</span>
+    <h2 class="section-title">The toolkit</h2>
+    <p class="measure">Everything free, everything you keep after the course ends.</p>
+    <div class="stacks">
+      {%- for g in site.data.toolkit %}
+      <div class="stack">
+        <h3>{{ g.group }}</h3>
+        <div class="chips">
+          {%- for t in g.items %}<span class="chip chip--tool">{{ t }}</span>{% endfor %}
+        </div>
+      </div>
+      {%- endfor %}
     </div>
   </div>
 </section>
