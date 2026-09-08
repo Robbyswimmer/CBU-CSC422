@@ -1,0 +1,37 @@
+# The arc of the course. This is the one thing the site explains better than
+# Canvas — everything else (due dates, submissions, grades) lives there.
+
+- id: "00"
+  title: "Foundations"
+  blurb: "What it means to learn from data. Linear regression, least squares, and the maximum-likelihood view underneath it."
+  weeks: "1–2"
+
+- id: "01"
+  title: "Classical Learning"
+  blurb: "Classification, nearest neighbours, margins and kernels, trees and ensembles. The algorithms that still win on tabular data."
+  weeks: "3–5"
+
+- id: "02"
+  title: "Structure Without Labels"
+  blurb: "k-means and principal components — and the eigendecomposition that makes them work."
+  weeks: "6"
+
+- id: "03"
+  title: "Neural Networks"
+  blurb: "Shallow nets as piecewise-linear functions, then depth, then backpropagation derived by hand before you implement it."
+  weeks: "7–9"
+
+- id: "04"
+  title: "Seeing"
+  blurb: "Convolution as constrained matrix multiplication. Receptive fields, residual connections, and why depth stopped hurting."
+  weeks: "10–12"
+
+- id: "05"
+  title: "Attention"
+  blurb: "Queries, keys and values. Transformers, tokenization, and what actually happens inside a language model."
+  weeks: "13"
+
+- id: "06"
+  title: "Consequences"
+  blurb: "Bias, explainability, and a Christian worldview on systems that make decisions about people."
+  weeks: "14"

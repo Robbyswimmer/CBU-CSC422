@@ -1,473 +1,194 @@
 ---
 layout: default
 title: Home
-stylesheet: /assets/css/page-index.css
+stylesheet: /assets/css/site.css
 ---
+{%- assign c = site.data.course -%}
+{%- assign i = site.data.instructor -%}
 
-<!-- Hero Section -->
-    <section id="home" class="hero section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>{{ site.data.course.number }}: {{ site.data.course.name }}</h1>
-                <p class="hero-subtitle">Unlock the Power of AI and Transform Data into Intelligence</p>
-                
-                <div class="hero-badges">
-                    <span class="badge ml">Machine Learning</span>
-                    <span class="badge dl">Deep Learning</span>
-                    <span class="badge python">Python</span>
-                    <span class="badge ai">Artificial Intelligence</span>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <p class="text-large">{{ site.data.course.university }} • {{ site.data.course.semester.name }}</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instructor Section -->
-    <section id="instructor" class="section">
-        <div class="container">
-            <h2 class="text-center">Meet Your Instructor</h2>
-            
-            <div id="instructor-content" class="instructor-card animate-on-scroll">
-      {% include instructor-card.html %}
+<header class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow">{{ c.number }} &middot; {{ c.university }}</span>
+      <h1>Machine &amp;<br><em>Deep Learning</em></h1>
+      <p class="hero__sub">{{ i.tagline }} Seven modules, from least squares to attention &mdash;
+        derived on paper, then built in code.</p>
+      <div class="hero__meta">
+        <span><b>{{ c.semester.name }}</b></span>
+        <span>MWF <b>9:30&ndash;10:30am</b></span>
+        <span><b>TEGR 104</b></span>
+      </div>
     </div>
-        </div>
-    </section>
+    <canvas id="net" width="300" height="260" aria-hidden="true"></canvas>
+  </div>
+</header>
 
-    <!-- Course Calendar Section -->
-    <section id="calendar" class="section">
-        <div class="container">
-            <h2 class="text-center">📅 Course Calendar</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">Stay on track with upcoming assignments and important dates</p>
-            
-            <!-- Weekly Schedule Bar -->
-            <div class="weekly-schedule-bar animate-on-scroll">
-                <h3 class="calendar-title" style="text-align: center; margin-bottom: var(--spacing-md);">📚 Weekly Schedule</h3>
-                <div id="weekly-schedule" class="week-calendar">
-      {% include weekly-schedule.html %}
+<section id="arc">
+  <div class="wrap">
+    <span class="eyebrow">The arc</span>
+    <h2 class="section-title">Where this goes</h2>
+    <p class="measure">Each module earns the next one. You will not meet a transformer until you have
+      built backpropagation by hand, and you will not build backpropagation until you know why a
+      squared loss falls out of a Gaussian.</p>
+
+    <div class="modules">
+      {%- for m in site.data.modules %}
+      <article class="module">
+        <div class="module__id">{{ m.id }}</div>
+        <div>
+          <h3>{{ m.title }}</h3>
+          <p>{{ m.blurb }}</p>
+        </div>
+        <div class="module__weeks">wk {{ m.weeks }}</div>
+      </article>
+      {%- endfor %}
     </div>
-            </div>
+  </div>
+</section>
 
-            <div class="calendar-container">
-                <!-- Upcoming Assignments -->
-                <div class="calendar-section animate-on-scroll">
-                    <h3 class="calendar-title">🎯 Upcoming Assignments</h3>
-                    <div class="assignment-list" id="upcoming-assignments">
-      {% include upcoming-assignments.html %}
+<section id="work">
+  <div class="wrap">
+    <span class="eyebrow">The work</span>
+    <h2 class="section-title">Two kinds of assignment, alternating</h2>
+    <p class="measure">One deliverable a week. They trade off, and the pairing is the point &mdash;
+      you derive a result on paper, then implement the thing you just derived.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card__tag">Problem sets</span>
+        <h3>Derive it</h3>
+        <p>Small, hand-worked problems: a derivation, an algorithm traced on numbers small enough
+          for paper, and one question you answer in plain words with no equations allowed.</p>
+      </div>
+      <div class="card card--accent">
+        <span class="card__tag">Coding assignments</span>
+        <h3>Build it</h3>
+        <p>Jupyter notebooks implementing the week&rsquo;s result from scratch before reaching for a
+          library &mdash; so you know what the library is doing when you finally use it.</p>
+      </div>
     </div>
-</div>
-                
-                <!-- Important Dates -->
-                <div class="calendar-section animate-on-scroll">
-                    <h3 class="calendar-title">📌 Important Dates</h3>
-                    <div class="dates-list" id="important-dates">
-      {% include important-dates.html %}
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <span class="eyebrow">The project</span>
+    <h2 class="section-title">Pick your track</h2>
+    <p class="measure">The last stretch of the course is a research project, run one of two ways.
+      Both end in a paper-style report and a talk.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card__tag">Track 1</span>
+        <h3>Structured</h3>
+        <p>A scaffolded path with a midterm checkpoint. Clear milestones, known scope, steady
+          feedback. Choose this if you want the guardrails.</p>
+      </div>
+      <div class="card card--accent">
+        <span class="card__tag">Track 2</span>
+        <h3>Independent research</h3>
+        <p>Replicate a paper, extend a method, or take on something genuinely unsolved. More rope.
+          Choose this if you want to find out what research feels like.</p>
+      </div>
     </div>
-</div>
-            </div>
-        </div>
-    </section>
+  </div>
+</section>
 
-    <!-- What You'll Master Section -->
-    <section id="overview" class="section">
-        <div class="container">
-            <h2 class="text-center">What You'll Master</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">Transform from coding novice to AI practitioner in one semester!</p>
-            
-            <div class="grid grid-3">
-                <div class="card animate-on-scroll">
-                    <div class="mastery-icon">🧠</div>
-                    <h3 class="text-gradient">Core Machine Learning</h3>
-                    <div class="mastery-skills">
-                        <div class="skill-item">
-                            <strong>Supervised Learning</strong>
-                            <span>Linear & Logistic Regression, SVMs</span>
-                        </div>
-                        <div class="skill-item">
-                            <strong>Unsupervised Learning</strong>
-                            <span>Clustering, PCA, Dimensionality Reduction</span>
-                        </div>
-                        <div class="skill-item">
-                            <strong>Model Validation</strong>
-                            <span>Cross-validation, Bias-Variance Tradeoffs</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card animate-on-scroll">
-                    <div class="mastery-icon">⚡</div>
-                    <h3 class="text-gradient">Deep Learning Revolution</h3>
-                    <div class="mastery-skills">
-                        <div class="skill-item">
-                            <strong>Neural Networks</strong>
-                            <span>MLPs, CNNs, RNNs</span>
-                        </div>
-                        <div class="skill-item">
-                            <strong>Advanced Architectures</strong>
-                            <span>GANs, Transformers, LLMs</span>
-                        </div>
-                        <div class="skill-item">
-                            <strong>Modern Frameworks</strong>
-                            <span>TensorFlow, PyTorch</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card animate-on-scroll">
-                    <div class="mastery-icon">🚀</div>
-                    <h3 class="text-gradient">Real-World Application</h3>
-                    <div class="mastery-skills">
-                        <div class="skill-item">
-                            <strong>Data Wrangling</strong>
-                            <span>Clean and prepare real datasets</span>
-                        </div>
-                        <div class="skill-item">
-                            <strong>Research Projects</strong>
-                            <span>Tackle novel AI problems</span>
-                        </div>
-                        <div class="skill-item">
-                            <strong>Ethics in AI</strong>
-                            <span>Navigate the moral landscape of AI</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="where">
+  <div class="wrap">
+    <span class="eyebrow">Where things live</span>
+    <h2 class="section-title">This site explains. Canvas runs the course.</h2>
+    <p class="measure">Nothing here is authoritative about a date or a grade &mdash; Canvas always
+      wins. This page is for understanding the shape of the term.</p>
 
-    <!-- Learning Journey Section -->
-    <section id="journey" class="section">
-        <div class="container">
-            <h2 class="text-center">🗺️ Your Learning Journey</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">Transform from curious beginner to confident AI practitioner in 14 weeks!</p>
-            
-            <div class="phase-grid">
-                <div class="card phase-card phase-1 animate-on-scroll">
-                    <div class="phase-header">
-                        <h3>Phase 1: Foundation Building</h3>
-                        <span class="phase-weeks">Weeks 1-3</span>
-                    </div>
-                    <p><strong>Core Skills:</strong></p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
-                        <li>• Linear Regression</li>
-                        <li>• Classification Models</li>
-                        <li>• ML Fundamentals</li>
-                    </ul>
-                    <p><strong>Achievement:</strong> <em>ML Foundations Unlocked</em></p>
-                </div>
-                
-                <div class="card phase-card phase-2 animate-on-scroll">
-                    <div class="phase-header">
-                        <h3>Phase 2: Advanced Techniques</h3>
-                        <span class="phase-weeks">Weeks 4-6</span>
-                    </div>
-                    <p><strong>Core Skills:</strong></p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
-                        <li>• Cross-Validation</li>
-                        <li>• Clustering & PCA</li>
-                        <li>• Neural Networks</li>
-                    </ul>
-                    <p><strong>Achievement:</strong> <em>Advanced ML Mastery</em></p>
-                </div>
-                
-                <div class="card phase-card phase-3 animate-on-scroll">
-                    <div class="phase-header">
-                        <h3>Phase 3: Deep Learning</h3>
-                        <span class="phase-weeks">Weeks 7-9</span>
-                    </div>
-                    <p><strong>Core Skills:</strong></p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
-                        <li>• CNNs & Computer Vision</li>
-                        <li>• RNNs & Sequential Data</li>
-                        <li>• GANs & Generation</li>
-                    </ul>
-                    <p><strong>Achievement:</strong> <em>Deep Learning Expert</em></p>
-                </div>
-                
-                <div class="card phase-card phase-4 animate-on-scroll">
-                    <div class="phase-header">
-                        <h3>Phase 4: AI Mastery</h3>
-                        <span class="phase-weeks">Weeks 10-14</span>
-                    </div>
-                    <p><strong>Core Skills:</strong></p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
-                        <li>• Transformers & LLMs</li>
-                        <li>• Reinforcement Learning</li>
-                        <li>• Research Projects</li>
-                    </ul>
-                    <p><strong>Achievement:</strong> <em>AI Practitioner</em></p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="hub">
+      <a href="https://calbaptist.instructure.com/courses/13604">
+        <span class="hub__label">Canvas</span>
+        <span class="hub__name">Assignments &amp; grades</span>
+        <span class="hub__note">Due dates, submissions, the syllabus, everything graded.</span>
+      </a>
+      <a href="https://github.com/{{ site.repository }}">
+        <span class="hub__label">GitHub</span>
+        <span class="hub__name">Notebooks &amp; starters</span>
+        <span class="hub__note">Every coding assignment and the in-class notebooks.</span>
+      </a>
+      <a href="{{ c.syllabus_pdf | uri_escape | relative_url }}">
+        <span class="hub__label">PDF</span>
+        <span class="hub__name">Syllabus</span>
+        <span class="hub__note">Policies, grading breakdown, the official version.</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- Tech Stack Section -->
-    <section id="tech" class="section">
-        <div class="container">
-            <h2 class="text-center">🛠️ Tech Stack You'll Master</h2>
-            
-            <div class="card animate-on-scroll">
-                <div class="tech-grid">
-                    <div class="tech-category">
-                        <h4>Languages & Libraries</h4>
-                        <div class="tech-list">
-                            <span class="tech-item">Python 3.11+</span>
-                            <span class="tech-item">NumPy</span>
-                            <span class="tech-item">Pandas</span>
-                            <span class="tech-item">Matplotlib</span>
-                            <span class="tech-item">Seaborn</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h4>ML/DL Frameworks</h4>
-                        <div class="tech-list">
-                            <span class="tech-item">TensorFlow</span>
-                            <span class="tech-item">PyTorch</span>
-                            <span class="tech-item">Scikit-learn</span>
-                            <span class="tech-item">Keras</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h4>Development Tools</h4>
-                        <div class="tech-list">
-                            <span class="tech-item">VS Code</span>
-                            <span class="tech-item">Jupyter Notebook</span>
-                            <span class="tech-item">Google Colab</span>
-                            <span class="tech-item">Git</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h4>Core Concepts</h4>
-                        <div class="tech-list">
-                            <span class="tech-item">Machine Learning</span>
-                            <span class="tech-item">Deep Learning</span>
-                            <span class="tech-item">Neural Networks</span>
-                            <span class="tech-item">Computer Vision</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+  <div class="wrap cols">
+    <div>
+      <b>{{ i.name }}</b><br>
+      <a href="mailto:{{ i.email }}">{{ i.email }}</a><br>
+      {{ i.office }}
+    </div>
+    <div>
+      <b>Office hours</b><br>
+      {{ i.office_hours }}
+    </div>
+    <div>
+      <b>{{ c.number }}</b><br>
+      {{ c.university }}<br>
+      {{ c.semester.name }}
+    </div>
+  </div>
+</footer>
 
-    <!-- Assessment Section -->
-    <section id="assessment" class="section">
-        <div class="container">
-            <h2 class="text-center">📊 Assessment & Grading</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">Excellence is achieved through consistent effort and meaningful engagement</p>
-            
-            <div class="grid grid-2">
-                <div class="animate-on-scroll">
-                    <h3>Grade Distribution</h3>
-                    <table class="assessment-table">
-                        <thead>
-                            <tr>
-                                <th>Assessment Category</th>
-                                <th>Weight</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {%- for w in site.data.grading.weights %}
-                            <tr><td>{{ w.category }}</td><td><strong>{{ w.weight }}%</strong></td></tr>
-                            {%- endfor %}
-                            {%- assign total = 0 %}
-                            {%- for w in site.data.grading.weights %}{% assign total = total | plus: w.weight %}{% endfor %}
-                            <tr><td><strong>Total</strong></td><td><strong>{{ total }}%</strong></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="animate-on-scroll">
-                    <h3>Grade Scale</h3>
-                    <div class="grade-scale">
-                        {%- for g in site.data.grading.scale %}
-                        <div class="grade-item">
-                            <div class="grade-letter">{{ g.letter }}</div>
-                            <div>{{ g.range }}</div>
-                        </div>
-                        {%- endfor %}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+/* A small feed-forward net, drawn once and left to breathe.
+   Decorative, but it is the actual subject of the course. */
+(function () {
+  var cv = document.getElementById('net');
+  if (!cv || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = cv.getContext('2d');
+  var layers = [4, 6, 6, 3], nodes = [], W = cv.width, H = cv.height;
 
-    <!-- Prerequisites Section -->
-    <section id="prerequisites" class="section">
-        <div class="container">
-            <h2 class="text-center">📋 Prerequisites & Resources</h2>
-            
-            <div class="prereq-grid">
-                <div class="prereq-category animate-on-scroll">
-                    <h3>🖥️ Programming Foundation</h3>
-                    <p><strong>Required (choose one):</strong></p>
-                    <ul>
-                        <li>EGR121 (Intro to Computer Programming in C++)</li>
-                        <li>EGR120 (Computer Programming Languages - Python)</li>
-                    </ul>
-                </div>
-                
-                <div class="prereq-category animate-on-scroll">
-                    <h3>🔢 Mathematical Foundation</h3>
-                    <p><strong>Required (choose one):</strong></p>
-                    <ul>
-                        <li>EGR130 (Mathematical Statistics I)</li>
-                        <li>EGR305 (Engineering Stats)</li>
-                        <li>MAT353 (Probability & Statistics)</li>
-                        <li>STA144 (Intro to Statistics)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card animate-on-scroll" style="margin-top: 2rem;">
-                <h3>📚 Required Materials</h3>
-                <div class="grid grid-2">
-                    <div>
-                        <h4>Course Materials</h4>
-                        <p>No textbook purchase this term. The course runs on
-                        <strong>lectures plus coding assignments</strong>.</p>
-                        <p>Lecture notebooks and assignment starters are published in the
-                        <a href="https://github.com/{{ site.repository }}">course repository</a>.</p>
-                    </div>
-                    <div>
-                        <h4>Development Environment</h4>
-                        <ul>
-                            <li>VS Code IDE</li>
-                            <li>Python 3.11+</li>
-                            <li>Jupyter Notebook/Lab</li>
-                            <li>Git for version control</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  layers.forEach(function (n, li) {
+    var col = [];
+    for (var i = 0; i < n; i++) {
+      col.push({
+        x: 34 + li * ((W - 68) / (layers.length - 1)),
+        y: H / 2 + (i - (n - 1) / 2) * 34,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+    nodes.push(col);
+  });
 
-    <!-- AI Tools Policy Section -->
-    <section id="ai-policy" class="section">
-        <div class="container">
-            <h2 class="text-center">AI Tools Policy</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">AI tools are not just welcome—they're encouraged!</p>
-            
-            <div class="grid grid-2">
-                <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">✅ Encouraged Uses</h3>
-                    <ul>
-                        <li>Brainstorm creative project ideas</li>
-                        <li>Debug and optimize your code</li>
-                        <li>Explain complex ML concepts</li>
-                        <li>Generate test data and examples</li>
-                        <li>Code completion and suggestions</li>
-                        <li>Architecture planning and design</li>
-                    </ul>
-                </div>
-                
-                <div class="card animate-on-scroll">
-                    <h3 class="text-gradient">📋 Your Responsibility</h3>
-                    <ul>
-                        <li>Verify all AI-generated solutions</li>
-                        <li>Understand every line of code you submit</li>
-                        <li>Test and validate AI recommendations</li>
-                        <li>Demonstrate deep understanding</li>
-                        <li>Explain your implementation choices</li>
-                        <li>Show genuine learning growth</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card animate-on-scroll" style="margin-top: 2rem; text-align: center;">
-                <h3>The Golden Rule</h3>
-                <p class="text-large">Think of AI as your brilliant research partner—not your replacement.</p>
-            </div>
-        </div>
-    </section>
+  function ink(a) {
+    var dark = getComputedStyle(document.body).backgroundColor;
+    var isDark = /^rgb\((1[0-9]|[0-9]),/.test(dark.replace(/\s/g, ''));
+    return (isDark ? 'rgba(237,238,240,' : 'rgba(22,24,29,') + a + ')';
+  }
 
-    <!-- Projects Section -->
-    <section id="project" class="section">
-        <div class="container">
-            <h2 class="text-center">Course Projects</h2>
-            <p class="text-large text-center" style="margin-bottom: 3rem;">Choose Your Path: Two Distinct Approaches to Machine Learning Mastery</p>
-            
-            <!-- Philosophy Quote -->
-            <div class="card animate-on-scroll" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 1px solid var(--accent-primary); margin-bottom: 3rem;">
-                <h3 style="color: var(--accent-primary); text-align: center; margin-bottom: 1rem;">💡 Course Philosophy</h3>
-                <p style="color: var(--text-secondary); text-align: center; font-size: 1.2rem; font-style: italic;">
-                    "Enable students to do cool things with machine learning."
-                </p>
-            </div>
-            
-            <div class="grid grid-2" style="margin-bottom: 3rem;">
-                <!-- Track 1: Structured Learning -->
-                <div class="card animate-on-scroll" style="border: 2px solid var(--accent-primary);">
-                    <h3 class="text-gradient">Track 1: Structured Learning Path</h3>
-                    <p><strong>Two Connected Projects</strong></p>
-                    <div style="background: rgba(102, 126, 234, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
-                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">📊 Midterm Project (10 pts)</h4>
-                        <p style="font-style: italic; color: var(--text-secondary);">
-                            "Get your hands dirty with a dataset. Apply what you've learned in class with shallow models."
-                        </p>
-                    </div>
-                    <div style="background: rgba(118, 75, 162, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
-                        <h4 style="color: var(--accent-secondary); margin-bottom: 0.5rem;">🎯 Final Project (30 pts)</h4>
-                        <p style="font-style: italic; color: var(--text-secondary);">
-                            "Go deeper. Build upon your midterm work with neural networks and advanced techniques."
-                        </p>
-                    </div>
-                    <ul style="margin: 1rem 0;">
-                        <li><strong>Total:</strong> 40 points (10 + 30)</li>
-                        <li><strong>Best for:</strong> Students who prefer guided structure</li>
-                        <li><strong>Timeline:</strong> Progressive complexity with clear milestones</li>
-                    </ul>
-                </div>
-
-                <!-- Track 2: Independent Research -->
-                <div class="card animate-on-scroll" style="border: 2px solid var(--accent-green);">
-                    <h3 class="text-gradient">Track 2: Independent Research</h3>
-                    <p><strong>Single Comprehensive Project</strong></p>
-                    <div style="background: rgba(78, 205, 196, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
-                        <h4 style="color: var(--accent-green); margin-bottom: 0.5rem;">🔬 Research Project (40 pts)</h4>
-                        <p style="font-style: italic; color: var(--text-secondary);">
-                            Tackle a bigger, semi-open problem — exploratory, with either a research bent or applied AI innovation.
-                        </p>
-                    </div>
-                    <ul style="margin: 1rem 0;">
-                        <li><strong>Total:</strong> 40 points (single project)</li>
-                        <li><strong>Best for:</strong> Self-motivated students seeking research experience</li>
-                        <li><strong>Timeline:</strong> Full semester for in-depth exploration</li>
-                        <li><strong>Expectations:</strong> Higher standards, more independent work</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Call to Action -->
-            <div class="card animate-on-scroll" style="text-align: center; background: var(--bg-gradient);">
-                <h3 style="margin-bottom: 1rem;">Ready to Explore Your Options?</h3>
-                <p style="margin-bottom: 2rem; font-size: 1.1rem;">
-                    Discover detailed examples, rubrics, timelines, and more for both tracks.
-                </p>
-                <a href="projects.html" class="cta-button" style="background: white; color: var(--accent-primary); font-weight: 600;">
-                    View Complete Projects Guide →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section id="cta" class="section" style="text-align: center;">
-        <div class="container">
-            <h2>Ready to Begin Your AI Journey?</h2>
-            <p class="text-large" style="margin-bottom: 2rem;">The best time to plant a tree was 20 years ago. The second best time is now.</p>
-            <p class="text-large" style="margin-bottom: 3rem;">Let's build the future together, one algorithm at a time!</p>
-            
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:rmoseley@calbaptist.edu" class="cta-button">Contact Professor</a>
-                <a href="#journey" class="cta-button">Explore Journey</a>
-            </div>
-        </div>
-    </section>
+  function frame(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (var l = 0; l < nodes.length - 1; l++) {
+      for (var a = 0; a < nodes[l].length; a++) {
+        for (var b = 0; b < nodes[l + 1].length; b++) {
+          var p = nodes[l][a], q = nodes[l + 1][b];
+          var pulse = 0.5 + 0.5 * Math.sin(t / 1400 + p.phase + b);
+          ctx.strokeStyle = ink(0.05 + pulse * 0.09);
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(function (col) {
+      col.forEach(function (n) {
+        var pulse = 0.5 + 0.5 * Math.sin(t / 1400 + n.phase);
+        ctx.fillStyle = ink(0.35 + pulse * 0.35);
+        ctx.beginPath(); ctx.arc(n.x, n.y, 3.2, 0, Math.PI * 2); ctx.fill();
+      });
+    });
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>

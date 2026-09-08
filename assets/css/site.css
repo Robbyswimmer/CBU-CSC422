@@ -1,169 +1,174 @@
-/* CSC 422 - shared design system.
+/* CSCI 4220 — one stylesheet, one page.
+   Change a token here and the whole site follows. */
 
-   Edit a token here and every page follows. */
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
 
 :root {
-            
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --accent-primary: #667eea;
-            --accent-secondary: #764ba2;
-            --accent-orange: #ff6b35;
-            --accent-green: #4ecdc4;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --text-muted: #666666;
-            --border: #333333;
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
-            
-            
-            --phase-1: #ff6b6b;
-            --phase-2: #4ecdc4;
-            --phase-3: #45b7d1;
-            --phase-4: #96ceb4;
-            
-            
-            --container-max: 1200px;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 3rem;
-            --spacing-xl: 4rem;
-            --border-radius: 12px;
-            --border-radius-lg: 20px;
-            
-            
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  --paper:   #FBFAF7;
+  --raised:  #FFFFFF;
+  --ink:     #16181D;
+  --muted:   #5D6470;
+  --faint:   #949AA5;
+  --rule:    #E4E1DA;
+  --accent:  #E2513A;   /* used sparingly — one voice, not a theme */
+  --deep:    #14655C;
+  --accent-wash: #FDEEEA;
+  --deep-wash:   #E7F2F0;
 
+  --measure: 62ch;
+  --s1: .5rem; --s2: 1rem; --s3: 1.75rem; --s4: 3rem; --s5: 5rem; --s6: 8rem;
+}
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:  #101216;
+    --raised: #171A20;
+    --ink:    #EDEEF0;
+    --muted:  #A2A9B5;
+    --faint:  #6D7481;
+    --rule:   #262A32;
+    --accent: #FF7358;
+    --deep:   #4FBFB0;
+    --accent-wash: #2A1712;
+    --deep-wash:   #10241F;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#101216; --raised:#171A20; --ink:#EDEEF0; --muted:#A2A9B5;
+  --faint:#6D7481; --rule:#262A32; --accent:#FF7358; --deep:#4FBFB0;
+  --accent-wash:#2A1712; --deep-wash:#10241F;
+}
 
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+* { box-sizing: border-box; }
 
 body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: 80px;
-        }
-
-.container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-/* --- Site footer -------------------------------------------------------
-   The original pages had no footer; this one is new, so it gets its own
-   styles here rather than depending on page-level CSS. */
-.site-footer {
-    border-top: 1px solid var(--border);
-    background: var(--bg-secondary);
-    padding: var(--spacing-lg) 0;
-    margin-top: var(--spacing-xl);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-.site-footer__inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    justify-content: space-between;
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--s3); }
+.measure { max-width: var(--measure); }
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  margin: 0; text-wrap: balance; letter-spacing: -.02em;
+}
+p { margin: 0 0 var(--s2); }
+a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.eyebrow {
+  font-family: "JetBrains Mono", monospace; font-size: .72rem; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--faint);
 }
 
-.site-footer p {
-    margin: 0 0 0.35rem;
+/* ── hero ─────────────────────────────────────────────── */
+.hero { padding: var(--s5) 0 var(--s4); position: relative; overflow: hidden; }
+.hero__grid { display: grid; grid-template-columns: 1fr auto; gap: var(--s4); align-items: center; }
+.hero h1 {
+  font-size: clamp(2.9rem, 8vw, 5.4rem); font-weight: 800; line-height: .95;
+  margin: var(--s2) 0 var(--s2);
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero__sub { font-size: 1.2rem; color: var(--muted); max-width: 46ch; margin-bottom: var(--s3); }
+.hero__meta { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3);
+  font-family: "JetBrains Mono", monospace; font-size: .8rem; color: var(--muted); }
+.hero__meta b { color: var(--ink); font-weight: 600; }
+#net { display: block; }
+
+/* ── sections ─────────────────────────────────────────── */
+section { padding: var(--s5) 0; border-top: 1px solid var(--rule); scroll-margin-top: 70px; }
+section > .wrap > .eyebrow { display: block; margin-bottom: var(--s2); }
+.section-title { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; margin-bottom: var(--s2); }
+
+/* ── module list ──────────────────────────────────────── */
+.modules { margin-top: var(--s4); border-top: 1px solid var(--rule); }
+.module {
+  display: grid; grid-template-columns: 5rem 1fr 6rem; gap: var(--s3);
+  padding: var(--s3) 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+  transition: background .18s ease;
+}
+.module:hover { background: var(--accent-wash); }
+.module__id {
+  font-family: "JetBrains Mono", monospace; font-size: 1.6rem; font-weight: 600;
+  color: var(--accent); line-height: 1;
+}
+.module h3 { font-size: 1.22rem; font-weight: 700; margin-bottom: .25rem; }
+.module p { margin: 0; color: var(--muted); font-size: .95rem; }
+.module__weeks {
+  font-family: "JetBrains Mono", monospace; font-size: .78rem; color: var(--faint);
+  text-align: right; white-space: nowrap;
 }
 
-.site-footer__title {
-    color: var(--text-primary);
-    font-weight: 600;
+/* ── two-up cards ─────────────────────────────────────── */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s3); margin-top: var(--s3); }
+.card {
+  background: var(--raised); border: 1px solid var(--rule); border-radius: 10px;
+  padding: var(--s3);
+}
+.card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--s1); }
+.card p:last-child { margin-bottom: 0; }
+.card__tag {
+  display: inline-block; font-family: "JetBrains Mono", monospace; font-size: .68rem;
+  font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  padding: .2rem .5rem; border-radius: 3px; margin-bottom: var(--s1);
+  background: var(--deep-wash); color: var(--deep);
+}
+.card--accent .card__tag { background: var(--accent-wash); color: var(--accent); }
+
+/* ── the "where things live" strip ────────────────────── */
+.hub { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; margin-top: var(--s3); }
+.hub > a { background: var(--raised); padding: var(--s3); text-decoration: none; display: block; transition: background .18s ease; }
+.hub > a:hover { background: var(--accent-wash); }
+.hub__label { font-family: "JetBrains Mono", monospace; font-size: .7rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--faint); display: block; margin-bottom: .35rem; }
+.hub__name { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.15rem; display: block; margin-bottom: .2rem; }
+.hub__note { font-size: .88rem; color: var(--muted); }
+
+/* ── footer ───────────────────────────────────────────── */
+footer { padding: var(--s4) 0 var(--s5); border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+footer .cols { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); }
+footer b { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 720px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  #net { display: none; }
+  .module { grid-template-columns: 3.2rem 1fr; }
+  .module__weeks { grid-column: 2; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
-.site-footer a {
-    color: var(--accent-primary);
-    text-decoration: none;
+/* ── top bar ──────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
 }
-
-.site-footer a:hover {
-    text-decoration: underline;
+.topbar__inner { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+.topbar__mark {
+  font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: .85rem;
+  letter-spacing: .1em; text-decoration: none; color: var(--ink);
 }
-
-/* --- Utilities and small components -----------------------------------
-   These replace inline style="" attributes that used to be baked into the
-   JavaScript template strings. .text-center was used in the original markup
-   but never actually defined. */
-.text-center {
-    text-align: center;
+.topbar__links { display: flex; align-items: center; gap: var(--s3); }
+.topbar__links a {
+  font-size: .9rem; text-decoration: none; color: var(--muted);
 }
-
-.instructor-tagline {
-    font-style: italic;
-    color: var(--text-secondary);
+.topbar__links a:hover { color: var(--ink); }
+.topbar__cta {
+  font-family: "JetBrains Mono", monospace; font-size: .78rem !important; font-weight: 600;
+  padding: .4rem .7rem; border-radius: 5px;
+  background: var(--accent); color: #fff !important;
 }
-
-.instructor-bio {
-    margin-top: var(--spacing-md);
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-}
-
-/* Relative time appended by assets/js/site.js; hidden until filled in. */
-.countdown {
-    color: var(--text-muted);
-    font-weight: 400;
-}
-
-/* --- Assignment card as a link ----------------------------------------
-   The original made these clickable <div>s with an inline onclick. They are
-   real <a> elements now, so reset the anchor styling and let the inner
-   blocks stack. */
-a.assignment-item {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-a.assignment-item:hover {
-    transform: translateX(4px);
-}
-
-.assignment-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-xs);
-}
-
-/* Contact links inside the instructor card kept their accent colour via an
-   inline style in the old JS template. */
-.instructor-details a {
-    color: var(--accent-primary);
-    text-decoration: none;
-}
-
-.instructor-details a:hover {
-    text-decoration: underline;
+.topbar__cta:hover { filter: brightness(.93); color: #fff !important; }
+@media (max-width: 560px) {
+  .topbar__links a:not(.topbar__cta) { display: none; }
 }

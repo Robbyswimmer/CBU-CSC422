@@ -3,11 +3,11 @@
 name: "Professor Robert Moseley, MS"
 title: "Professor"
 image: "/Materials/Art/professor.png"
-tagline: "Ready to guide you through the fascinating world of AI and machine learning!"
+tagline: "Machine learning, from the math up."
 email: "rmoseley@calbaptist.edu"
 office: "TEGR 333"
 phone: "(951) 552–8851"
-office_hours: "Tuesday/Thursday 7:30am–8:45am, or by appointment"
+office_hours: "Monday/Wednesday 7:15am–8:15am, or by appointment"
 
 # Additional instructor details
 department: "Engineering"

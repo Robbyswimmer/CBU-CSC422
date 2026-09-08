@@ -1,33 +1,11 @@
-{%- comment -%}
-  Uses the site's existing .header/.nav/.nav-link classes so it inherits the
-  original styling. Links come from _data/navigation.yml.
-{%- endcomment -%}
-<header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a href="{{ '/index.html' | relative_url }}" class="nav-logo">{{ site.data.course.number }}</a>
-
-      <div class="nav-links">
-        {%- for item in site.data.navigation %}
-        <a href="{{ item.url | relative_url }}"
-           class="nav-link"
-           {% if item.external %}target="_blank" rel="noopener"{% endif %}
-           {% if page.url == item.url %}style="color: var(--accent-primary);" aria-current="page"{% endif %}>{{ item.label }}</a>
-        {%- endfor %}
-      </div>
-
-      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-controls="mobile-nav-menu" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-    </nav>
-
-    <div class="mobile-nav-menu" id="mobile-nav-menu">
-      <div class="mobile-nav-links">
-        {%- for item in site.data.navigation %}
-        <a href="{{ item.url | relative_url }}"
-           class="nav-link"
-           {% if item.external %}target="_blank" rel="noopener"{% endif %}
-           {% if page.url == item.url %}style="color: var(--accent-primary);"{% endif %}>{{ item.label }}</a>
-        {%- endfor %}
-      </div>
+<nav class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="topbar__mark" href="#top">{{ site.data.course.number }}</a>
+    <div class="topbar__links">
+      <a href="#arc">Arc</a>
+      <a href="#work">Work</a>
+      <a href="#project">Project</a>
+      <a href="https://calbaptist.instructure.com/courses/13604" class="topbar__cta">Canvas &rarr;</a>
     </div>
   </div>
-</header>
+</nav>
