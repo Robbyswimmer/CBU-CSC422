@@ -113,27 +113,6 @@ print(f"MSE with true parameters: {true_loss:.4f}")
 
 **Goal:** Implement exhaustive search to understand the problem, then see why it doesn't scale
 
-## The Naive Approach: Try Everything
-
-**Concept:** Instead of being smart about optimization, let's just try every possible combination of parameters and pick the best one.
-
-Think of it like finding the lowest point in a landscape:
-- **Brute force approach:** Visit every single spot on a grid and measure the elevation
-- **Smart approach (coming later):** Use the slope to walk downhill efficiently
-
-```python
-# Conceptual analogy
-print("🗺️  PARAMETER SPACE EXPLORATION:")
-print("   Our goal: Find the best (a, b) values for y = ax + b")
-print("   Naive method: Test every combination in a grid")
-print("   - Try a = -1.0, -0.97, -0.94, ..., 4.97, 5.0")
-print("   - Try b = -3.0, -2.97, -2.94, ..., 1.97, 2.0")
-print("   - For each (a, b) pair: compute loss, remember the best")
-print("   ⚠️  This requires testing 40,401 combinations!")
-```
-
-**Ask students:** *"How would you find the lowest point in a mountainous area if you had unlimited time but were blindfolded to gradients?"*
-
 ## Grid Search Implementation
 
 ```python
@@ -163,7 +142,7 @@ a_best = a_grid[min_idx[1]]
 b_best = b_grid[min_idx[0]]
 best_loss = loss_grid[min_idx]
 
-print(f"🎯 GRID SEARCH RESULTS:")
+print(f"   GRID SEARCH RESULTS:")
 print(f"   Best (a, b): ({a_best:.3f}, {b_best:.3f})")
 print(f"   Train loss: {best_loss:.4f}")
 print(f"   Test loss: {mse_loss(a_best, b_best, x_test, y_test):.4f}")

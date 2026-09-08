@@ -12,10 +12,8 @@ The video presentation is a critical component of your midterm project, allowing
 - **Optimal**: 7-8 minutes
 
 ### Technical Requirements
-- **Resolution**: 1080p (1920x1080) minimum
 - **Format**: MP4, MOV, or similar standard video format
 - **Audio**: Clear, audible narration throughout
-- **File Size**: Under 500MB (use compression if needed)
 
 ### Recording Options
 - **Screen Recording**: Preferred for technical content (OBS Studio, Camtasia, QuickTime)

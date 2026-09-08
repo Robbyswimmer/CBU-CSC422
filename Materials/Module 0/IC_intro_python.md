@@ -4,7 +4,7 @@
 **Format:** Live coding with student participation  
 **Course:** CSC 422 - Machine and Deep Learning
 
----
+--- 
 
 ## Learning Goals
 
