@@ -1,5 +1,5 @@
-# GENERATED from Canvas (course 13604) — the live gradebook is the source of
-# truth for dates and points. Regenerate after changing Canvas.
+# GENERATED from Canvas (course 13604). The live gradebook is the source of
+# truth for dates, points and published state. Regenerate after changing Canvas.
 - date: '2026-09-16'
   title: 'CA.00: Python Fundamentals & Mathematical Foundations'
   type: assignment
@@ -29,6 +29,13 @@
   - 10-week execution timeline
   - Technical approach and technology stack
 - date: '2026-09-25'
+  title: 'PS1: Linear Regression Foundations'
+  type: problem set
+  points: 100
+  description: 'PS1: Linear Regression Foundations'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week02/PS1-linear-regression
+  published: false
+- date: '2026-10-02'
   title: 'CA.01: Linear Regression'
   type: assignment
   points: 100
@@ -47,14 +54,14 @@
   - Linear Algebra
   deliverables:
   - Python implementation (.ipynb file)
-- date: '2026-10-02'
+- date: '2026-10-09'
   title: 'PS2: Classification & Model Evaluation'
   type: problem set
   points: 100
   description: 'PS2: Classification & Model Evaluation'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week04/PS2-classification-evaluation
   published: false
-- date: '2026-10-09'
+- date: '2026-10-16'
   title: 'CA.02: Classification Models (KNN, LogReg, Naive Bayes)'
   type: assignment
   points: 100
@@ -78,21 +85,21 @@
   - Feature Selection
   deliverables:
   - 100% on Zybooks Reading
-- date: '2026-10-16'
+- date: '2026-10-23'
   title: 'PS3: Trees, Ensembles & Unsupervised Structure'
   type: problem set
   points: 100
   description: 'PS3: Trees, Ensembles & Unsupervised Structure'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week06/PS3-trees-unsupervised
   published: false
-- date: '2026-10-23'
+- date: '2026-10-30'
   title: 'CA.03: Neural Networks (MLP from scratch + PyTorch)'
   type: assignment
   points: 100
   description: 'CA.03: Neural Networks (MLP from scratch + PyTorch)'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week07/CA03-neural-networks/ca3.ipynb
   published: false
-- date: '2026-10-30'
+- date: '2026-11-06'
   title: 'PS4: Training Neural Networks (conceptual)'
   type: problem set
   points: 100
