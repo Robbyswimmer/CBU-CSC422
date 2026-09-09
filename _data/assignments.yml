@@ -134,6 +134,13 @@
   description: 'PS6: Ethics Analysis'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week14/PS6-ethics
   published: false
+- date: '2026-12-11'
+  title: Research Paper Presentation
+  type: project
+  points: 100
+  description: Research Paper Presentation
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/research-presentation
+  published: false
 - date: '2026-12-14'
   title: Final Presentation
   type: project
