@@ -91,3 +91,5 @@ those are the two things a listener cannot get from reading the abstract themsel
 - **Paper choice is your responsibility.** A paper too far beyond the course will show up
   as weak scores in Technical Explanation. Ask me if you are unsure.
 - Post your paper title and link on the sign-up sheet **one week before** your slot.
+- Upload the **paper PDF and your slides** to Canvas by the day you present. The assignment
+  is open all semester; your real deadline is your own presentation date.

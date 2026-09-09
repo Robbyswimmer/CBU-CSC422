@@ -4,6 +4,17 @@
 **Format:** PowerPoint (or Google Slides), presented live on a Friday
 **Sign-up:** claim a Friday slot on the course sign-up sheet
 
+## Submitting
+
+The Canvas assignment is **open all semester**. Upload **two files by the day you present**:
+
+1. the **paper PDF**
+2. your **slides** (`.pptx`, `.pdf`, or `.key`)
+
+You present on the Friday you claimed on the sign-up sheet, so your effective deadline is
+your own slot — not the date Canvas shows. The Canvas due date is the last presentation
+Friday of the term, which exists only so the gradebook has something to sort by.
+
 ## The assignment
 
 Choose one recent research paper in machine learning or AI, read it properly, and
