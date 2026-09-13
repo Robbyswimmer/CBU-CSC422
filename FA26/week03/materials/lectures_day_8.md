@@ -5,6 +5,11 @@
 - Discuss HW and Readings Due -> Submit notebooks as PDFs, discuss track 2 project proposal
 - IC 3 Regression and Classification
 
+### Next session (Day 9)
+
+- IC 3b: The Perceptron and k-Means -- both are on PS1 and neither is covered
+  anywhere else in weeks 1-3
+
 ### Previously Covered
 
 - IC 2 Linear Regressions and Optimizations -> Gradient Descent + Improvements
