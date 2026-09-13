@@ -72,7 +72,7 @@ This assignment is divided into six progressive parts, designed to build your un
 ### Software Requirements
 - Python 3.11+
 - Jupyter Notebook or Google Colab
-- Required libraries: `torch`, `numpy`, `matplotlib`, `seaborn`, `pandas`, `scikit-learn`, `tqdm`
+- Required libraries: `torch`, `numpy`, `matplotlib`, `scikit-learn`, `tqdm` (`seaborn` optional — only sets the plot palette)
 - Optional: `transformers` (for comparison), `tensorboard` (for visualization)
 
 ### Dataset

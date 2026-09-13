@@ -72,7 +72,7 @@ This assignment is divided into six progressive parts, designed to challenge you
 ### Software Requirements
 - Python 3.11+
 - Jupyter Notebook or Google Colab
-- Required libraries: `torch`, `torchvision`, `numpy`, `matplotlib`, `seaborn`, `sklearn`, `opencv-python`, `tqdm`
+- Required libraries: `torch`, `torchvision`, `numpy`, `matplotlib`, `scikit-learn`, `pillow`, `tqdm` (`seaborn` optional — only sets the plot palette)
 - Optional: `tensorboard` for advanced visualization
 
 ### Dataset

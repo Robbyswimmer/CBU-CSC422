@@ -65,7 +65,7 @@ This assignment is divided into five progressive parts, designed to build your u
 ### Software Requirements
 - Python 3.11+
 - Jupyter Notebook or Google Colab
-- Required libraries: `numpy`, `matplotlib`, `pandas`, `scikit-learn`, `torch`
+- Required libraries: `numpy`, `matplotlib`, `scikit-learn`, `torch`
 
 ### Dataset
 You will work with the **Wine Classification Dataset**, which includes:
