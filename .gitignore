@@ -17,3 +17,12 @@ data/
 __pycache__/
 .DS_Store
 ~$*
+
+# Problem-set sources and answer keys NEVER go in this repo -- it is public.
+# ps1.tex and friends carry the worked solutions inline; only the compiled
+# student PDF is safe to publish.
+*-key.pdf
+*-solutions.pdf
+psets/
+ps?.tex
+cbupset.cls
