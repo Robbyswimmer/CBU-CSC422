@@ -34,14 +34,6 @@
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/IC_intro_python.md",
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/materials/IC_background_mathematics.ipynb"
    ],
-   "due": {
-    "id": "CA.00",
-    "kind": "notebook",
-    "title": "Python Fundamentals & Mathematical Foundations",
-    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/CA00-python-fundamentals/ca0.ipynb",
-    "s": "have",
-    "hrs": 0.5
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -86,21 +78,6 @@
    "inclass": [
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/IC_2_linear_regression.ipynb"
    ],
-   "due": {
-    "id": "PS1",
-    "kind": "pset",
-    "title": "Linear Regression Foundations",
-    "s": "AUTHOR",
-    "spec": "Derive the normal equations; MSE and its gradient by hand; closed-form fit on 3 toy points; when does X^T X fail to invert",
-    "covers": "W2 lecture",
-    "items": [
-     "Derive the normal equations from the MSE objective",
-     "By hand: fit y = b0 + b1x to 3 given points; solve for b-hat",
-     "Show the MSE gradient is -2X^T(y - Xb)",
-     "When is X^T X singular? Give a concrete collinear example",
-     "Short answer: why squared error rather than absolute error?"
-    ]
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -119,6 +96,15 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "CA.00",
+    "kind": "notebook",
+    "title": "Python Fundamentals & Mathematical Foundations",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week01/CA00-python-fundamentals/ca0.ipynb",
+    "s": "have",
+    "hrs": 0.5,
+    "due_date": "2026-09-16"
    }
   },
   {
@@ -146,15 +132,6 @@
    "inclass": [
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week02/materials/IC_2_linear_regression.ipynb"
    ],
-   "due": {
-    "id": "CA.01",
-    "kind": "notebook",
-    "title": "Linear Regression",
-    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/CA01-linear-regression/ca1.ipynb",
-    "s": "have",
-    "hrs": 2,
-    "also": "Track 2 Project Proposal due"
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -175,6 +152,24 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "PS1",
+    "kind": "pset",
+    "title": "Robby's Saturday",
+    "spec": "Seven short by-hand problems across weeks 1-3: framing a task, loss of a candidate line, gradient descent and learning rate, perceptron, k-NN, naive Bayes, k-means",
+    "covers": "W1-W3 lecture + IC_2 + IC_3 + IC_3b",
+    "items": [
+     "Supervised vs unsupervised, regression vs classification, and what plays the role of y",
+     "Score two candidate lines by squared-error loss and pick the better one",
+     "Gradient descent by hand at two learning rates; why the large one diverges",
+     "Perceptron update rule by hand over one pass, plus the boundary it lands on",
+     "k-NN by hand: squared distances, k=1 vs k=3, and what rescaling a feature does",
+     "Naive Bayes from counts: priors, likelihoods, and the independence assumption",
+     "k-means by hand: one round of Lloyd's algorithm and how you know it converged"
+    ],
+    "source": "FA26/psets/ps1.tex (local draft)",
+    "due_date": "2026-09-23"
    }
   },
   {
@@ -208,22 +203,6 @@
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/materials/IC_3_regression_classification_instructor.ipynb",
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week04/materials/IC_4_data_collection_student.ipynb"
    ],
-   "due": {
-    "id": "PS2",
-    "kind": "pset",
-    "title": "Classification & Model Evaluation",
-    "s": "AUTHOR",
-    "spec": "Confusion matrix + precision/recall/F1 by hand; Bayes rule for Naive Bayes; KNN decision boundary sketch; bias-variance decomposition",
-    "covers": "W4 lecture (ISLR Ch4 + Ch5)",
-    "items": [
-     "From a given 2x2 confusion matrix compute accuracy, precision, recall, F1 by hand",
-     "Construct a 99%-accurate classifier that is useless (class imbalance)",
-     "Naive Bayes prediction on a small categorical table using Bayes rule",
-     "Sketch the KNN decision boundary for k=1 vs k=5 on 8 labelled points",
-     "Explain the WRONG way to cross-validate (ISLR Ch5 p25-32) and why it inflates accuracy",
-     "Compute 5-fold CV error from per-fold errors"
-    ]
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -245,6 +224,16 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "CA.01",
+    "kind": "notebook",
+    "title": "Linear Regression",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week03/CA01-linear-regression/ca1.ipynb",
+    "s": "have",
+    "hrs": 2,
+    "also": "Track 2 Project Proposal due",
+    "due_date": "2026-10-02"
    }
   },
   {
@@ -264,15 +253,6 @@
    ],
    "notes": [],
    "inclass": [],
-   "due": {
-    "id": "CA.02",
-    "kind": "notebook",
-    "title": "Classification Models (KNN, LogReg, Naive Bayes)",
-    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week05/CA02-classification-models/ca2.ipynb",
-    "s": "have",
-    "hrs": 2,
-    "note": "consider extending with a decision-tree / random-forest section to match the week"
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -290,6 +270,23 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "PS2",
+    "kind": "pset",
+    "title": "Classification & Model Evaluation",
+    "s": "AUTHOR",
+    "spec": "Confusion matrix + precision/recall/F1 by hand; Bayes rule for Naive Bayes; KNN decision boundary sketch; bias-variance decomposition",
+    "covers": "W4 lecture (ISLR Ch4 + Ch5)",
+    "items": [
+     "From a given 2x2 confusion matrix compute accuracy, precision, recall, F1 by hand",
+     "Construct a 99%-accurate classifier that is useless (class imbalance)",
+     "Naive Bayes prediction on a small categorical table using Bayes rule",
+     "Sketch the KNN decision boundary for k=1 vs k=5 on 8 labelled points",
+     "Explain the WRONG way to cross-validate (ISLR Ch5 p25-32) and why it inflates accuracy",
+     "Compute 5-fold CV error from per-fold errors"
+    ],
+    "due_date": "2026-10-09"
    }
   },
   {
@@ -309,23 +306,6 @@
    ],
    "notes": [],
    "inclass": [],
-   "due": {
-    "id": "PS3",
-    "kind": "pset",
-    "title": "Trees, Ensembles & Unsupervised Structure",
-    "s": "AUTHOR",
-    "spec": "k-means by hand on 6 toy points; PCA on a 2x2 covariance matrix; interpret principal components",
-    "also": "Midterm Project due 10/16 (spec + rubric already written)",
-    "covers": "W5 + W6 lectures",
-    "items": [
-     "Compute entropy and Gini impurity for a node; pick the better of two candidate splits",
-     "Information-gain calculation, shown step by step",
-     "Short answer: why does bagging reduce variance but not bias?",
-     "Why do random forests subsample FEATURES, not just rows?",
-     "k-means by hand: 6 points, k=2, two full iterations, show centroids each step",
-     "PCA on a given 2x2 covariance matrix: eigenvalues, PC1, proportion of variance explained"
-    ]
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -343,6 +323,16 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "CA.02",
+    "kind": "notebook",
+    "title": "Classification Models (KNN, LogReg, Naive Bayes)",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week05/CA02-classification-models/ca2.ipynb",
+    "s": "have",
+    "hrs": 2,
+    "note": "consider extending with a decision-tree / random-forest section to match the week",
+    "due_date": "2026-10-16"
    }
   },
   {
@@ -373,14 +363,6 @@
    "inclass": [
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week07/materials/IC_1_shallow_neural_network_instructor.ipynb"
    ],
-   "due": {
-    "id": "CA.03",
-    "kind": "notebook",
-    "title": "Neural Networks (MLP from scratch + PyTorch)",
-    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week07/CA03-neural-networks/ca3.ipynb",
-    "s": "have",
-    "hrs": 2
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -401,6 +383,24 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "PS3",
+    "kind": "pset",
+    "title": "Trees, Ensembles & Unsupervised Structure",
+    "s": "AUTHOR",
+    "spec": "k-means by hand on 6 toy points; PCA on a 2x2 covariance matrix; interpret principal components",
+    "also": "Midterm Project due 10/16 (spec + rubric already written)",
+    "covers": "W5 + W6 lectures",
+    "items": [
+     "Compute entropy and Gini impurity for a node; pick the better of two candidate splits",
+     "Information-gain calculation, shown step by step",
+     "Short answer: why does bagging reduce variance but not bias?",
+     "Why do random forests subsample FEATURES, not just rows?",
+     "k-means by hand: 6 points, k=2, two full iterations, show centroids each step",
+     "PCA on a given 2x2 covariance matrix: eigenvalues, PC1, proportion of variance explained"
+    ],
+    "due_date": "2026-10-23"
    }
   },
   {
@@ -427,21 +427,6 @@
    "inclass": [
     "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week08/materials/IC_2_backpropagation_mlp_instructor.ipynb"
    ],
-   "due": {
-    "id": "PS4",
-    "kind": "pset",
-    "title": "Training Neural Networks (conceptual)",
-    "s": "AUTHOR",
-    "spec": "Forward + backward pass on a 2-layer net with 2 inputs; chain rule derivation; derive cross-entropy gradient",
-    "covers": "W7 + W8 lectures",
-    "items": [
-     "Trace a forward pass through a 2-input, 2-hidden-unit ReLU network with given weights",
-     "Explain in words what backprop computes and why the chain rule makes it efficient (no full derivation)",
-     "Given a loss curve, identify whether the learning rate is too high, too low, or about right",
-     "Compare SGD, momentum and Adam: one sentence each on what problem it solves",
-     "What is the dead-ReLU problem and how would you notice it?"
-    ]
-   },
    "sessions": {
     "mon": {
      "type": "theory",
@@ -461,6 +446,15 @@
      "type": "lecture+presentations",
      "presentations": 3
     }
+   },
+   "due": {
+    "id": "CA.03",
+    "kind": "notebook",
+    "title": "Neural Networks (MLP from scratch + PyTorch)",
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week07/CA03-neural-networks/ca3.ipynb",
+    "s": "have",
+    "hrs": 2,
+    "due_date": "2026-10-30"
    }
   },
   {
@@ -490,7 +484,22 @@
    ],
    "notes": [],
    "inclass": [],
-   "due": null,
+   "due": {
+    "id": "PS4",
+    "kind": "pset",
+    "title": "Training Neural Networks (conceptual)",
+    "s": "AUTHOR",
+    "spec": "Forward + backward pass on a 2-layer net with 2 inputs; chain rule derivation; derive cross-entropy gradient",
+    "covers": "W7 + W8 lectures",
+    "items": [
+     "Trace a forward pass through a 2-input, 2-hidden-unit ReLU network with given weights",
+     "Explain in words what backprop computes and why the chain rule makes it efficient (no full derivation)",
+     "Given a loss curve, identify whether the learning rate is too high, too low, or about right",
+     "Compare SGD, momentum and Adam: one sentence each on what problem it solves",
+     "What is the dead-ReLU problem and how would you notice it?"
+    ],
+    "due_date": "2026-11-06"
+   },
    "note": "No CA/PS \u2014 final project kickoff and proposal work",
    "sessions": {
     "mon": {
@@ -544,7 +553,8 @@
      "Compute the ridge solution for a toy 1-D problem; show the shrinkage",
      "Short answer: in what sense is dropout an ensemble?",
      "Compare early stopping and weight decay as regularizers"
-    ]
+    ],
+    "due_date": "2026-11-13"
    },
    "sessions": {
     "mon": {
@@ -590,7 +600,8 @@
     "title": "Advanced Computer Vision with CNNs",
     "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week11/CA04-cnns/ca4.ipynb",
     "s": "have",
-    "hrs": 3.5
+    "hrs": 3.5,
+    "due_date": "2026-11-20"
    },
    "sessions": {
     "mon": {
@@ -680,7 +691,8 @@
     "title": "Transformer Architecture Fundamentals",
     "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/week13/CA05-transformers/ca5.ipynb",
     "s": "have",
-    "hrs": 2
+    "hrs": 2,
+    "due_date": "2026-12-04"
    },
    "sessions": {
     "mon": {
@@ -744,7 +756,8 @@
      "Pick ONE frontier model family (GAN, VAE, diffusion, flow matching, or RL) and explain in half a page what problem it solves and one risk it introduces",
      "Articulate a Christian-worldview response to one tradeoff in your project (CoE PO 7)"
     ],
-    "note": "CLO 6 maps to program objectives 4 (Ethics) AND 7 (Christian World View) \u2014 the worldview part is required, not optional."
+    "note": "CLO 6 maps to program objectives 4 (Ethics) AND 7 (Christian World View) \u2014 the worldview part is required, not optional.",
+    "due_date": "2026-12-11"
    },
    "sessions": {
     "mon": {
@@ -781,7 +794,8 @@
     "kind": "project",
     "title": "Final Project + Presentation",
     "s": "have",
-    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/final-project/"
+    "src": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/final-project/",
+    "due_date": "2026-12-14"
    },
    "sessions": {
     "mon": {
@@ -859,5 +873,6 @@
   ],
   "diffusion_flow_matching": "UDL_13 names them but does not teach them. If you want real coverage, a dedicated deck must be sourced. Currently scoped as a high-level survey only.",
   "final_presentations": "~17-18 pairs x 9 min = ~160 min = 3 sessions. Budget W14 Wed+Fri and W15 Mon."
- }
+ },
+ "due_date_authority": "Canvas course 13604. Verified 2026-09-13. assignments.yml agrees; this file previously ran one week early for weeks 1-8."
 }
