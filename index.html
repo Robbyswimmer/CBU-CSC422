@@ -149,6 +149,27 @@ stylesheet: /assets/css/site.css
   </div>
 </section>
 
+<section id="slides">
+  <div class="wrap">
+    <span class="eyebrow">Lecture slides</span>
+    <h2 class="section-title">Every deck, in the order we teach it</h2>
+    <p class="measure">Click any deck to download it (PowerPoint). Most come from Simon Prince&rsquo;s
+      <a href="https://udlbook.github.io/udlbook/"><em>Understanding Deep Learning</em></a>
+      (MIT Press, 2023) &mdash; the book, its slides and its notebooks are free online, and it is the
+      best companion reading for this course.</p>
+
+    <div class="hub">
+      {%- for d in site.data.slides %}
+      <a href="{{ d.file | relative_url }}" download>
+        <span class="hub__label">{{ d.when }}{% if d.udl %} &middot; UDL{% endif %}</span>
+        <span class="hub__name">{{ d.title }}</span>
+        <span class="hub__note">{{ d.note }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
 <section id="where">
   <div class="wrap">
     <span class="eyebrow">Where things live</span>

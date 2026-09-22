@@ -1,0 +1,31 @@
+# Lecture decks, in teaching order. Rendered as the "Slides" section on the home page.
+# Add a deck: drop the .pptx in FA26/slides/ and add an entry here.
+# `udl: true` marks decks from Simon Prince's Understanding Deep Learning (udlbook.github.io).
+- when: Week 1
+  title: Course introduction
+  file: FA26/slides/CSC422_Moseley_Introduction.pptx
+  note: What ML is, how the course runs, the research project
+- when: Week 1
+  title: Supervised vs. unsupervised learning
+  file: FA26/slides/module_0_supervised_vs_unsupervised.pptx
+  note: The two big families of machine learning
+- when: Week 1
+  title: Supervised learning
+  file: FA26/slides/CM20315_02_Supervised.pptx
+  note: UDL chapter 2 · models, loss, training, testing
+  udl: true
+- when: Week 2
+  title: Linear regression
+  file: FA26/slides/ml_overview_linear_regressions.pptx
+  note: Adapted from UDL chapter 2 · least squares, first look at gradient descent
+  udl: true
+- when: Week 2
+  title: Fitting models · gradient descent
+  file: FA26/slides/CM20315_06_Fitting.pptx
+  note: UDL chapter 6 · gradient descent now; SGD, momentum and Adam come back later
+  udl: true
+- when: Weeks 2–3
+  title: Shallow neural networks
+  file: FA26/slides/CM20315_03_Shallow.pptx
+  note: UDL chapter 3 · hidden units, ReLU, universal approximation
+  udl: true

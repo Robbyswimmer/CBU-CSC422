@@ -12,12 +12,12 @@
    "topic": "Course intro \u00b7 What is ML \u00b7 Supervised vs unsupervised \u00b7 Python + math setup",
    "slides": [
     {
-     "f": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/CSC422_Moseley_Introduction.pptx",
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/slides/CSC422_Moseley_Introduction.pptx",
      "s": "have",
      "note": "needs FA26 update"
     },
     {
-     "f": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/module_0_supervised_vs_unsupervised.pptx",
+     "f": "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/slides/module_0_supervised_vs_unsupervised.pptx",
      "s": "have"
     },
     {
@@ -38,8 +38,8 @@
     "mon": {
      "type": "theory",
      "slides": [
-      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/CSC422_Moseley_Introduction.pptx",
-      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/shared/module_0_supervised_vs_unsupervised.pptx",
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/slides/CSC422_Moseley_Introduction.pptx",
+      "courses/CSCI4220-MachineDeepLearning/shared/website/FA26/slides/module_0_supervised_vs_unsupervised.pptx",
       "courses/CSCI4220-MachineDeepLearning/shared/lectures/UDL-Prince/CM20315_02_Supervised.pptx"
      ]
     },

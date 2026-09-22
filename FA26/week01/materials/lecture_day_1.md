@@ -2,7 +2,7 @@
 
 ### Course Introduction
 
-- [Introductions PPT](../PPT/CSC422_Moseley_Introduction.pptx)
+- [Introductions PPT](../../slides/CSC422_Moseley_Introduction.pptx)
 - Talk about Final / Midterm (track 1 vs track 2)
 - [Course Overview](https://robbyswimmer.github.io/CBU-CSC422/index.html)
 
