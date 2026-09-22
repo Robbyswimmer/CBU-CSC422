@@ -1,11 +1,13 @@
 # GENERATED from Canvas (course 13604). The live gradebook is the source of
 # truth for dates, points and published state. Regenerate after changing Canvas.
+# canvas_url lines: run tools/canvas/sync_canvas_links.py after publishing an assignment.
 - date: '2026-09-16'
   title: 'CA.00: Python Fundamentals & Mathematical Foundations'
   type: assignment
   points: 100
   description: 'CA.00: Python Fundamentals & Mathematical Foundations'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week01/CA00-python-fundamentals/ca0.ipynb
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318503
   published: true
 - date: '2026-09-18'
   title: Project Proposal
@@ -13,6 +15,7 @@
   points: 20
   description: Proposal for your semester-long independent research project
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/final-project/proposal
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318592
   published: true
   detailed_description: 'Every student submits a 2-3 page proposal for their semester-long independent
     research project: concept and motivation, relevant prior work, and a 10-week execution plan with concrete
@@ -34,6 +37,7 @@
   points: 100
   description: 'Seven short by-hand problems across weeks 1-3: framing, loss, gradient descent, perceptron, k-NN, naive Bayes, k-means'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week02/PS1-linear-regression
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318608
   published: false
 - date: '2026-10-02'
   title: 'CA.01: Linear Regression'
@@ -41,6 +45,7 @@
   points: 100
   description: Introduction to ML fundamentals and linear regression implementation
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/week03/CA01-linear-regression/ca1.ipynb
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318505
   published: false
   detailed_description: Students will implement linear regression from scratch using Python and NumPy.
     This assignment covers data preprocessing, model training, evaluation metrics, and visualization of
@@ -140,6 +145,7 @@
   points: 100
   description: Research Paper Presentation
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/research-presentation
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/319377
   published: false
 - date: '2026-12-14'
   title: Final Presentation

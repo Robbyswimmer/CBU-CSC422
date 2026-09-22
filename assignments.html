@@ -1093,6 +1093,17 @@
     font-weight: 500;
 }
 
+.canvas-link {
+    background: #4f5fcf;            /* site accent, darkened: white text 5.4:1 (AA) */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.canvas-link:hover, .canvas-link:focus-visible {
+    filter: brightness(0.9);
+    text-decoration: underline;
+}
+
 .points-badge {
     background: rgba(102, 126, 234, 0.1);
     color: var(--accent-primary);
@@ -1496,6 +1507,7 @@ function createAssignmentCard(assignment) {
                 <span class="detail-badge points-badge">${assignment.points || 0} points</span>
                 ${assignment.difficulty ? `<span class="detail-badge difficulty-badge difficulty-${assignment.difficulty.toLowerCase()}">${assignment.difficulty}</span>` : ''}
                 ${assignment.estimated_hours ? `<span class="detail-badge time-badge">~${assignment.estimated_hours}h</span>` : ''}
+                ${assignment.canvas_url ? `<a class="detail-badge canvas-link" href="${assignment.canvas_url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Submit on Canvas &#8599;</a>` : ''}
             </div>
         </div>
     `;
