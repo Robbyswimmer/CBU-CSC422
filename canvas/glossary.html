@@ -36,6 +36,27 @@
   .brainrot .normal { display: none; }
   .brainrot .rot { display: block; }
   .brainrot input { background: #24004a; color: #fff; border-color: #ff2fd0; }
+
+  /* chaos: loud, never a strobe; off for prefers-reduced-motion */
+  .brainrot h1 { display: inline-block; transform-origin: 10% 60%;
+    background: linear-gradient(90deg, #ff2fd0, #ffe600, #00e5ff, #b6ff00, #ff2fd0); background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: rainbow 2.2s linear infinite, wobble 1.2s ease-in-out infinite; }
+  @keyframes rainbow { to { background-position: 300% 0; } }
+  @keyframes wobble { 0%,100% { transform: rotate(-2deg) scale(1); } 50% { transform: rotate(2deg) scale(1.05); } }
+  .brainrot .card { animation: float 3s ease-in-out infinite, hue 5s linear infinite; }
+  .brainrot .card:nth-child(odd)  { animation-delay: -1.4s, -2s; }
+  .brainrot .card:nth-child(3n)   { animation-duration: 2.3s, 5s; }
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1.3deg); } }
+  @keyframes hue { to { filter: hue-rotate(360deg); } }
+  .brainrot .card:hover { animation: jiggle .35s ease-in-out infinite; }
+  @keyframes jiggle { 0%,100% { transform: rotate(-2deg) scale(1.03); } 50% { transform: rotate(2deg) scale(1.05); } }
+  .brainrot .card.boom { animation: cardboom .7s cubic-bezier(.2,1.6,.4,1); }
+  @keyframes cardboom { 0%{transform:scale(1)} 20%{transform:scale(1.18) rotate(-4deg)} 45%{transform:scale(1.1) rotate(4deg)} 100%{transform:scale(1)} }
+  .bubble { position: fixed; bottom: -50px; z-index: 0; pointer-events: none; animation: rise linear forwards; }
+  @keyframes rise { to { transform: translateY(-115vh) rotate(540deg); } }
+  .brainrot .grid, .brainrot header { position: relative; z-index: 1; }
+  @media (prefers-reduced-motion: reduce) { .brainrot h1, .brainrot .card { animation: none !important; } .bubble { display: none; } }
 </style>
 </head>
 <body>
@@ -114,7 +135,35 @@ function header() {
   q.placeholder = BrainRot.on ? "search the lore…" : "Search terms…";
 }
 q.addEventListener("input", draw);
-BrainRot.onChange(header);
+
+// chaos loop: only while brain rot mode is on
+var calm = matchMedia("(prefers-reduced-motion: reduce)").matches, chaos = [];
+var EMO = ["🧠", "💀", "🔥", "🗿", "✨", "🥶", "💅", "🍟", "😭", "🤯"];
+var LINES = ["search the lore…", "type a term, no cap…", "what's the aura of…", "ask the glossary fr fr…"];
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function startChaos() {
+  if (calm || chaos.length) return;
+  chaos.push(setInterval(function () {
+    var b = document.createElement("span"); b.className = "bubble"; b.textContent = pick(EMO);
+    var d = 5 + Math.random() * 5;
+    b.style.left = (Math.random() * 96) + "%"; b.style.fontSize = (20 + Math.random() * 26) + "px";
+    b.style.animationDuration = d + "s"; document.body.appendChild(b);
+    setTimeout(function () { b.remove(); }, d * 1000);
+  }, 380));
+  chaos.push(setInterval(function () {
+    var cards = document.querySelectorAll(".card"); if (!cards.length) return;
+    var c = cards[Math.floor(Math.random() * cards.length)];
+    c.classList.add("boom"); setTimeout(function () { c.classList.remove("boom"); }, 750);
+  }, 1600));
+  var li = 0;
+  chaos.push(setInterval(function () { li = (li + 1) % LINES.length; q.placeholder = LINES[li]; }, 2200));
+}
+function stopChaos() {
+  chaos.forEach(clearInterval); chaos = [];
+  document.querySelectorAll(".bubble").forEach(function (n) { n.remove(); });
+}
+BrainRot.onChange(function (on) { header(); if (on) startChaos(); else stopChaos(); });
+if (BrainRot.on) startChaos();
 BrainRot.tapTarget(document.getElementById("h"));
 header(); draw();
 </script>
