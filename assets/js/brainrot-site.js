@@ -12,14 +12,6 @@
   var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var pick = function (a) { return a[Math.floor(Math.random() * a.length)]; };
 
-  // For whoever opens the console. Curiosity gets a clue.
-  try {
-    console.log("%c CSCI 4220 %c hidden layer detected ",
-      "background:#4a3aa7;color:#fff;font:700 12px monospace;padding:3px 6px;border-radius:4px 0 0 4px",
-      "background:#15123a;color:#b6ff00;font:700 12px monospace;padding:3px 6px;border-radius:0 4px 4px 0");
-    console.log("Some inputs are older than you.  ↑ ↑ ↓ ↓ … you know the rest.");
-  } catch (e) {}
-
   // ── styles ───────────────────────────────────────────────────────────────────
   var COMIC = '"Comic Sans MS", "Comic Neue", "Chalkboard SE", cursive';
   var IMPACT = 'Impact, "Arial Black", "Helvetica Neue", sans-serif';

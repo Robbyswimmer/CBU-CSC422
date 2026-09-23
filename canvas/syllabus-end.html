@@ -17,6 +17,8 @@
   p { margin: 0 0 8px; color: var(--dim); font-size: 15px; line-height: 1.45; max-width: 560px; }
   .hint { margin-top: 14px; padding-left: 12px; border-left: 3px solid #4a3aa7; color: var(--ink); font-style: italic; }
   .normal { height: 100%; display: flex; flex-direction: column; justify-content: center; }
+  .ink { margin: 6px 0 0 15px; color: #141840; font: 600 15px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .ink::selection { background: #b6ff00; color: #0b0e28; }
   .rot, .ach { display: none; }
 
   /* ── brain rot mode ─────────────────────────────────────────────────────────── */
@@ -74,7 +76,8 @@
     <div class="eyebrow">End of syllabus</div>
     <h2 id="title">You read the whole thing.</h2>
     <p>Most people stop at the grading scale. For making it all the way down here:</p>
-    <p class="hint">Every network has hidden layers. So does this course.</p>
+    <p class="hint" id="hint">Every network has hidden layers. So does this course.</p>
+    <p class="ink">w₁ = 3</p>
   </div>
   <div class="rot">
     <div class="eyebrow">syllabus speedrun · any% · new world record</div>
@@ -138,6 +141,11 @@
   BrainRot.onChange(function (on, how) { if (on) start(how !== "sync"); else stop(); });
   BrainRot.tapTarget($("title")); BrainRot.tapTarget($("rtitle"));
   if (BrainRot.on) start(false);
+
+  // once someone has found the door, this card admits it is hiding something
+  function nudge() { try { if (localStorage.getItem("cs4220-hl-door") === "1")
+    $("hint").textContent = "Every network has hidden layers. So does this card."; } catch (e) {} }
+  nudge(); addEventListener("storage", nudge); setInterval(nudge, 3000);
 })();
 </script>
 </body>
