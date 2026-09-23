@@ -105,7 +105,7 @@
     [/\bInstructor\b/g, "Main Character"], [/\bMidterm\b/g, "Mid-Boss"], [/\bProposal\b/g, "Pitch"],
     [/\bPresentations?\b/g, "Yap Session"], [/\bResearch\b/g, "Deep Lore"],
     [/\bOffice hours\b/gi, "Rizz hours"], [/\bDue\b/g, "Cooked by"], [/\bdue\b/g, "cooked by"],
-    [/^Arc$/, "Lore"], [/^Work$/, "Grind"], [/\bWeek\b/g, "Grind week"], [/\bCanvas\b/g, "Canvas 💀"]
+    [/^Arc$/, "Story Mode"], [/^Work$/, "Grind"], [/\bWeek\b/g, "Grind week"], [/\bCanvas\b/g, "Canvas 💀"]
   ];
   var LABELS = "nav a, h1, h2, h3, .eyebrow, .section-title, .nav-link, .nav-logo, .topbar__mark, button, th," +
                "[class*='badge'], [class*='due'], [class*='title']";
