@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSCI 4220 · ML Glossary</title>
+<style>
+  :root { --bg:#f6f5ff; --card:#fff; --ink:#15123a; --dim:#565378; --rule:#e2e0f5; --accent:#4a3aa7; --tag:#ecebfb; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; padding: 18px 20px 14px; background: var(--bg);
+    border-bottom: 1px solid var(--rule); }
+  h1 { margin: 0 0 4px; font-size: 22px; letter-spacing: -.01em; }
+  .sub { margin: 0 0 12px; color: var(--dim); font-size: 14px; }
+  input { width: 100%; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 10px; font-size: 15px;
+    background: #fff; color: var(--ink); }
+  input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; padding: 16px 20px 28px; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 16px; }
+  .term { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .term b { font-size: 16px; }
+  .when { font: 600 10px/1 ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); background: var(--tag); padding: 4px 7px; border-radius: 999px; white-space: nowrap; }
+  .def { margin: 0; font-size: 14px; line-height: 1.5; color: var(--dim); }
+  .math { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: var(--ink); }
+  .rot { display: none; }
+  .empty { padding: 30px 20px; color: var(--dim); }
+
+  /* ── brain rot mode ─────────────────────────────────────────── */
+  .brainrot { --bg:#15002b; --card:#24004a; --ink:#fff; --dim:#f3d9ff; --rule:#ff2fd066; --accent:#b6ff00; --tag:#ff2fd033; }
+  .brainrot .card { border-width: 2px; }
+  .brainrot .card:nth-child(3n+1) { border-color: #ff2fd0; }
+  .brainrot .card:nth-child(3n+2) { border-color: #00c2ff; }
+  .brainrot .card:nth-child(3n)   { border-color: #b6ff00; }
+  .brainrot .normal { display: none; }
+  .brainrot .rot { display: block; }
+  .brainrot input { background: #24004a; color: #fff; border-color: #ff2fd0; }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="h">ML Glossary</h1>
+  <p class="sub" id="sub">Every term from CSCI 4220, in plain words. Type to filter.</p>
+  <input id="q" type="search" placeholder="Search terms…" aria-label="Search the glossary">
+</header>
+<main class="grid" id="grid"></main>
+<script src="brainrot.js"></script>
+<script>
+// [term, when, plain definition, brain rot definition]  — both must be correct.
+var TERMS = [
+ ["Linear regression", "wk 2", "Fit a straight line <span class='math'>y = φ₀ + φ₁x</span> to data. Two parameters, no bends.",
+  "a line. just a line. mid, but it's the baseline everyone gets compared to."],
+ ["Loss function", "wk 2", "One number that scores how wrong the model is. Training means making it small.",
+  "the L counter. every wrong prediction racks up Ls. minimize the Ls."],
+ ["Least squares", "wk 2", "Choose the parameters that minimize the sum of squared errors, so big misses cost much more than small ones.",
+  "square every miss so the big Ls hurt extra, then minimize. that's it. that's the whole loss."],
+ ["Gradient descent", "wk 2", "Repeatedly nudge every parameter a small step in the direction that lowers the loss.",
+  "rolling down the loss hill one smol step at a time fr fr."],
+ ["Learning rate", "wk 2", "How big each gradient step is. Too large and the loss blows up; too small and training crawls.",
+  "step size. too big = chaotic Ohio energy, loss goes to the moon. too small = NPC walking at 0.1x speed."],
+ ["Activation function", "wk 3", "The bend added after each line. Without it, stacking lines just gives another line.",
+  "the vibe filter every neuron passes through. no filter = the whole network is secretly just one line. L."],
+ ["ReLU", "wk 3", "<span class='math'>a[z] = max(0, z)</span> — zero for negatives, unchanged otherwise. One corner at 0.",
+  "no negativity allowed 💅 negatives → 0, positives pass through unbothered."],
+ ["Pre-activation", "wk 3", "The line inside a hidden unit, <span class='math'>θ₀ + θ₁x</span>, before the activation function.",
+  "the neuron's raw thoughts before the vibe filter."],
+ ["Hidden unit", "wk 3", "One activation applied to a line of the inputs: <span class='math'>h = a[θ₀ + θ₁x]</span>. Its corner sits at <span class='math'>x = −θ₀/θ₁</span>.",
+  "one neuron with main character energy: does nothing until its moment, then goes off."],
+ ["Bias (θ₀)", "wk 3", "Shifts where a hidden unit's corner sits — for Robby, when the event happens.",
+  "decides when the neuron starts cooking. θ₀ = −7.5 → cooking starts at 7:30 a.m."],
+ ["Weight (φ)", "wk 3", "How strongly a hidden unit counts toward the output, and in which direction.",
+  "how much aura each neuron gets. negative weight = certified hater."],
+ ["Shallow network", "wk 3", "One hidden layer: <span class='math'>y = φ₀ + Σ φ_d h_d</span>. With ReLU it is piecewise linear.",
+  "one layer of neurons in a group chat, each dropping a corner. add them up = the output."],
+ ["Activation pattern", "wk 3", "Which hidden units are on for a given input. Inside one pattern the network is just a straight line.",
+  "who's actually online in the group chat right now."],
+ ["Universal approximation", "wk 3", "With enough hidden units, a shallow network can approximate any continuous function as closely as you like.",
+  "a shallow network can rizz up ANY function if you give it enough neurons. no cap, it's a theorem."],
+ ["Parameters", "wk 3", "The numbers learned from data (all the θ and φ). A shallow net with 1 input has <span class='math'>3D + 1</span>.",
+  "the knobs. more knobs = more rizz, until overfitting ratios you."],
+ ["Overfitting", "wk 3", "Fitting the noise in the training data instead of the pattern: great on training data, poor on new data.",
+  "memorized the answer key, zero aura on the real test. delulu model behavior."],
+ ["Epoch", "later", "One full pass through the training data.",
+  "one full sigma grindset lap through the dataset."],
+ ["Backpropagation", "later", "The chain rule applied layer by layer to get every parameter's gradient efficiently.",
+  "the blame game, but make it calculus. every weight finds out exactly how much it's the problem."],
+ ["Regularization", "later", "A penalty added to the loss (e.g. on weight size) to discourage overfitting.",
+  "the touch-grass penalty for weights that are doing way too much."],
+ ["Dropout", "later", "Randomly switching off hidden units during training so no unit can rely on another.",
+  "fanum tax 🍟 every step, some neurons get taxed out of the group project."],
+ ["Train / validation / test", "later", "Fit on training data, tune choices on validation data, report on test data — once.",
+  "the test set is the final boss. one attempt. peeking = instant L."],
+ ["Convolution", "later", "Slide a small learned filter across an image, applying the same weights everywhere.",
+  "a lil window that vibe-checks every patch of the image with the same energy."],
+ ["Attention", "later", "Each token weights every other token by relevance and mixes their information.",
+  "every word checks who in the sentence has the most aura, then listens to them."]
+];
+
+var grid = document.getElementById("grid"), q = document.getElementById("q");
+function draw() {
+  var s = q.value.trim().toLowerCase();
+  var rows = TERMS.filter(function (t) { return !s || (t[0] + " " + t[2] + " " + t[3]).toLowerCase().indexOf(s) >= 0; });
+  grid.innerHTML = rows.length ? rows.map(function (t) {
+    return "<article class='card'><div class='term'><b>" + t[0] + "</b><span class='when'>" + t[1] + "</span></div>" +
+           "<p class='def normal'>" + t[2] + "</p><p class='def rot'>" + t[3] + "</p></article>";
+  }).join("") : "<p class='empty'>No terms match “" + s + "”.</p>";
+}
+function header() {
+  document.getElementById("h").textContent = BrainRot.on ? "ML Glossary (brainrot edition) 🧠" : "ML Glossary";
+  document.getElementById("sub").textContent = BrainRot.on
+    ? "same concepts, zero aura lost. every definition is still correct fr fr."
+    : "Every term from CSCI 4220, in plain words. Type to filter.";
+  q.placeholder = BrainRot.on ? "search the lore…" : "Search terms…";
+}
+q.addEventListener("input", draw);
+BrainRot.onChange(header);
+BrainRot.tapTarget(document.getElementById("h"));
+header(); draw();
+</script>
+</body>
+</html>

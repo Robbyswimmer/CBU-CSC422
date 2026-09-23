@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSCI 4220 · Machine &amp; Deep Learning</title>
+<style>
+  :root { --ink:#eef0ff; --dim:#aab0e6; --faint:#6f76b8; --accent:#7de2ff; --bar:#8fa2ff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); }
+  .banner { position: relative; height: 100%; min-height: 240px; border-radius: 16px; overflow: hidden;
+    background: radial-gradient(120% 140% at 85% 30%, #2d2170 0%, #151a45 45%, #0b0e28 100%); }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .copy { position: relative; z-index: 2; padding: 26px 30px; max-width: 60%; }
+  .eyebrow { font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 10px 0 8px; font-size: clamp(24px, 3.4vw, 38px); line-height: 1.05; letter-spacing: -.02em;
+    cursor: default; user-select: none; }
+  .tag { margin: 0; min-height: 2.6em; color: var(--dim); font-size: 15px; line-height: 1.35;
+    transition: opacity .35s; }
+  .tag.fade { opacity: 0; }
+  .train { margin-top: 16px; display: flex; gap: 22px; align-items: flex-end; flex-wrap: wrap;
+    font: 600 11px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--faint); }
+  .train b { display: block; margin-top: 4px; font-size: 18px; color: var(--ink); letter-spacing: 0; }
+  .progress { width: 160px; }
+  .progress i { display: block; height: 6px; margin-top: 8px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+  .progress i::after { content: ""; display: block; height: 100%; width: var(--p, 0%); border-radius: 99px;
+    background: linear-gradient(90deg, var(--bar), var(--accent)); }
+  .hint { position: absolute; right: 14px; bottom: 10px; z-index: 2; font-size: 14px; opacity: .35;
+    cursor: help; transition: opacity .2s; }
+  .hint:hover { opacity: .9; }
+  .toast { position: absolute; left: 50%; top: 16px; z-index: 4; transform: translate(-50%, -140%);
+    padding: 10px 16px; border-radius: 999px; font: 700 13px/1 ui-sans-serif, system-ui; white-space: nowrap;
+    background: #fff; color: #140c33; opacity: 0; visibility: hidden;
+    transition: transform .45s cubic-bezier(.2,1.4,.4,1), opacity .25s, visibility 0s .45s; }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; visibility: visible;
+    transition: transform .45s cubic-bezier(.2,1.4,.4,1), opacity .15s; }
+  .rain { position: absolute; top: -40px; z-index: 3; font-size: 26px; pointer-events: none;
+    animation: fall linear forwards; }
+  @keyframes fall { to { transform: translateY(330px) rotate(var(--r)); opacity: .2; } }
+
+  /* ── brain rot mode ─────────────────────────────────────────── */
+  .brainrot { --ink:#fff; --dim:#fff7; --faint:#ffffffb3; --accent:#b6ff00; --bar:#ff2fd0; }
+  .brainrot .banner { background: linear-gradient(120deg, #ff2fd0, #7b2cff, #00c2ff, #b6ff00, #ff2fd0);
+    background-size: 400% 400%; animation: drip 9s ease infinite; }
+  .brainrot .tag { color: #fff; font-weight: 700; }
+  .brainrot .copy { margin: 12px; padding: 16px 20px; border-radius: 14px; background: rgba(18, 4, 44, .64); max-width: 53%; }
+  .brainrot h1 { text-shadow: 3px 3px 0 #7b2cff, -2px -2px 0 #00c2ff; }
+  @keyframes drip { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+  @media (max-width: 640px) { .copy { max-width: 100%; padding: 20px; } .progress { width: 120px; } }
+  @media (prefers-reduced-motion: reduce) { .brainrot .banner { animation: none; } .rain { display: none; } }
+</style>
+</head>
+<body>
+<main class="banner" aria-label="CSCI 4220 course banner">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="copy">
+    <div class="eyebrow" id="eyebrow">CSCI 4220 · Fall 2026 · CBU</div>
+    <h1 id="title">Machine &amp; Deep Learning</h1>
+    <p class="tag" id="tag" aria-live="polite"></p>
+    <div class="train">
+      <div class="progress"><span id="k1">Epoch</span><b id="epoch">1 / 15</b><i id="bar"></i></div>
+      <div><span id="k2">Training loss</span><b id="loss">—</b></div>
+    </div>
+  </div>
+  <span class="hint" title="Some networks respond to very old-school inputs…">🎮</span>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</main>
+<script src="brainrot.js"></script>
+<script>
+(function () {
+  // ── the semester as a training run: week = epoch ──────────────────────────────
+  var START = new Date(2026, 8, 7), WEEKS = 15;          // week 1 = Mon 7 Sep 2026
+  var week = Math.max(1, Math.min(WEEKS, Math.floor((Date.now() - START) / 6048e5) + 1));
+  var loss = (2.2 * Math.exp(-week / 4.5) + 0.08).toFixed(2);
+
+  var COPY = {
+    normal: {
+      eyebrow: "CSCI 4220 · Fall 2026 · CBU", title: "Machine &amp; Deep Learning",
+      k1: "Epoch", k2: "Training loss", loss: loss + " ↓",
+      tags: ["Training in progress. Loss decreasing.",
+             "Every network is built out of corners.",
+             "Gradient descent: a small step downhill, then repeat.",
+             "Robby's energy at midnight: 1.6. Model converged.",
+             "Universal approximation: enough hidden units, any shape.",
+             "Rule one: the test set is looked at exactly once."]
+    },
+    rot: {
+      eyebrow: "CSCI 4220 · no cap · fall 2026", title: "Machine &amp; Deep Brainrot 🧠",
+      k1: "Grindset epoch", k2: "Aura", loss: "+" + (week * 1000) + " 🔥",
+      tags: ["gradient descent = rolling downhill one smol step at a time fr fr",
+             "ReLU said no negativity allowed 💅 negatives → 0",
+             "overfitting = memorized the answer key, zero aura on the real test",
+             "a shallow network can rizz up ANY function. it's literally a theorem",
+             "learning rate too big? you're cooked 🔥",
+             "backprop: the blame game, but make it calculus",
+             "dropout = fanum tax on your neurons 🍟",
+             "the test set is the final boss. one attempt. no peeking. no cap"]
+    }
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var tagI = 0, tagTimer;
+  function render() {
+    var c = BrainRot.on ? COPY.rot : COPY.normal;
+    $("eyebrow").textContent = c.eyebrow; $("title").innerHTML = c.title;
+    $("k1").textContent = c.k1; $("k2").textContent = c.k2; $("loss").textContent = c.loss;
+    $("epoch").textContent = week + " / " + WEEKS;
+    $("bar").style.setProperty("--p", (100 * week / WEEKS) + "%");
+    tagI = 0; showTag(true);
+  }
+  function showTag(now) {
+    var tags = (BrainRot.on ? COPY.rot : COPY.normal).tags, el = $("tag");
+    if (now) { el.textContent = tags[0]; return; }
+    el.classList.add("fade");
+    setTimeout(function () { tagI = (tagI + 1) % tags.length; el.textContent = tags[tagI]; el.classList.remove("fade"); }, 350);
+  }
+  clearInterval(tagTimer); tagTimer = setInterval(function () { showTag(false); }, 4200);
+
+  function toast(msg) {
+    var t = $("toast"); t.textContent = msg; t.classList.add("show");
+    setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+  var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function rain() {
+    if (calm) return;
+    var set = ["🧠", "💀", "🔥", "🗿", "✨", "🥶", "💅", "🍟"];
+    for (var i = 0; i < 34; i++) {
+      var s = document.createElement("span"); s.className = "rain";
+      s.textContent = set[i % set.length];
+      s.style.left = (Math.random() * 100) + "%";
+      s.style.animationDuration = (1.1 + Math.random() * 1.2) + "s";
+      s.style.animationDelay = (Math.random() * .5) + "s";
+      s.style.setProperty("--r", (Math.random() * 720 - 360) + "deg");
+      document.querySelector(".banner").appendChild(s);
+      setTimeout(function (n) { n.remove(); }, 2600, s);
+    }
+  }
+  BrainRot.onChange(function (on, how) {
+    render();
+    if (how === "sync") return;
+    if (on) { rain(); toast("🧠 BRAIN ROT MODE ACTIVATED · same code again to touch grass"); }
+    else toast("🌱 touched grass. welcome back.");
+  });
+  BrainRot.tapTarget($("title"));
+  render();
+
+  // ── the network: pulses flow left → right; neurons flash when a pulse lands ───
+  var cv = $("net"), ctx = cv.getContext("2d"), W, H, nodes = [], edges = [], pulses = [], t0 = performance.now();
+  var LAYERS = [3, 5, 6, 5, 2];
+  var EMOJI = ["🧠", "💀", "🔥", "🗿", "✨", "🥶", "💅", "🍟"];
+  function layout() {
+    var dpr = window.devicePixelRatio || 1;
+    W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    nodes = []; edges = [];
+    var x0 = W < 640 ? W * .08 : W * .57, x1 = W * .95;
+    LAYERS.forEach(function (n, L) {
+      var x = x0 + (x1 - x0) * L / (LAYERS.length - 1);
+      for (var i = 0; i < n; i++) nodes.push({ L: L, x: x, y: H * (i + 1) / (n + 1), glow: 0, e: EMOJI[(L * 3 + i) % EMOJI.length] });
+    });
+    nodes.forEach(function (a, ia) { nodes.forEach(function (b, ib) { if (b.L === a.L + 1) edges.push([ia, ib]); }); });
+  }
+  function spawn() {
+    var starts = edges.filter(function (e) { return nodes[e[0]].L === 0; });
+    var e = starts[Math.floor(Math.random() * starts.length)];
+    pulses.push({ e: e, s: 0, hue: Math.random() * 360 });
+  }
+  function frame(now) {
+    var rot = BrainRot.on, t = (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineWidth = 1;
+    edges.forEach(function (e) {
+      var a = nodes[e[0]], b = nodes[e[1]];
+      ctx.strokeStyle = rot ? "rgba(255,255,255,.18)" : "rgba(160,172,255,.14)";
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+    });
+    if (!calm && Math.random() < (rot ? .22 : .08)) spawn();
+    pulses = pulses.filter(function (p) {
+      p.s += rot ? .028 : .016;
+      var a = nodes[p.e[0]], b = nodes[p.e[1]];
+      if (p.s >= 1) {
+        b.glow = 1;
+        var next = edges.filter(function (e) { return e[0] === p.e[1]; });
+        if (next.length && Math.random() < .8) { p.e = next[Math.floor(Math.random() * next.length)]; p.s = 0; return true; }
+        return false;
+      }
+      var x = a.x + (b.x - a.x) * p.s, y = a.y + (b.y - a.y) * p.s;
+      ctx.fillStyle = rot ? "hsl(" + ((p.hue + t * 240) % 360) + ",100%,60%)" : "#7de2ff";
+      ctx.shadowColor = ctx.fillStyle; ctx.shadowBlur = 12;
+      ctx.beginPath(); ctx.arc(x, y, rot ? 3.6 : 2.6, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
+      return true;
+    });
+    nodes.forEach(function (n) {
+      n.glow *= .93;
+      if (rot) {
+        var s = 18 + 10 * n.glow;
+        ctx.font = s + "px serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(n.e, n.x, n.y + Math.sin(t * 3 + n.x) * 2);
+      } else {
+        ctx.fillStyle = "rgba(143,162,255," + (.55 + .45 * n.glow) + ")";
+        ctx.shadowColor = "#8fa2ff"; ctx.shadowBlur = 6 + 18 * n.glow;
+        ctx.beginPath(); ctx.arc(n.x, n.y, 5.5 + 2.5 * n.glow, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
+      }
+    });
+    requestAnimationFrame(frame);
+  }
+  addEventListener("resize", layout); layout(); requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
