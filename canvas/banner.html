@@ -72,7 +72,8 @@
   @keyframes fall { to { transform: translateY(330px) rotate(var(--r)); opacity: .2; } }
   .dvd { position: absolute; left: 0; top: 0; z-index: 4; font-size: 46px; pointer-events: none; will-change: transform; }
 
-  @media (max-width: 640px) { .copy { max-width: 100%; padding: 20px; } .brainrot .copy { max-width: 100%; } .progress { width: 120px; } }
+  @media (max-width: 700px) { .brainrot .copy { max-width: 62%; } .progress { width: 120px; } }
+  @media (max-width: 480px) { .copy { max-width: 100%; padding: 20px; } .brainrot .copy { max-width: 100%; } .progress { width: 120px; } }
   @media (prefers-reduced-motion: reduce) {
     .brainrot .banner, .brainrot h1, .brainrot .tag, .brainrot .train b { animation: none; }
     .pop, .fly, .rain, .dvd { display: none; }
@@ -215,7 +216,7 @@
   }
 
   BrainRot.onChange(function (on, how) {
-    render();
+    render(); layout();                         // the text box changes width between modes
     if (on) { startChaos(); if (how !== "sync" && !calm) { rain(); pulse("shake", 600); } }
     else stopChaos();
     if (how === "sync") return;
@@ -225,13 +226,17 @@
   render(); if (BrainRot.on) startChaos();
 
   // ── the network: pulses flow left → right; neurons flash when a pulse lands ───
-  var cv = $("net"), ctx = cv.getContext("2d"), W, H, nodes = [], edges = [], pulses = [], t0 = performance.now();
+  var cv = $("net"), ctx = cv.getContext("2d"), W, H, dim = false, nodes = [], edges = [], pulses = [], t0 = performance.now();
   var LAYERS = [3, 5, 6, 5, 2];
   function layout() {
     var dpr = window.devicePixelRatio || 1;
     W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     nodes = []; edges = [];
-    var x0 = W < 640 ? W * .08 : W * .57, x1 = W * .95;
+    // The network starts where the text box ends, so neurons never sit on the words.
+    // Too narrow for both side by side (phones): full width behind the text, faded.
+    var textEnd = document.querySelector(".copy").getBoundingClientRect().right - cv.getBoundingClientRect().left;
+    dim = W - textEnd < 180;
+    var x0 = dim ? W * .08 : textEnd + 14, x1 = dim ? W * .95 : W - 28;
     LAYERS.forEach(function (n, L) {
       var x = x0 + (x1 - x0) * L / (LAYERS.length - 1);
       for (var i = 0; i < n; i++) nodes.push({ L: L, x: x, y: H * (i + 1) / (n + 1), glow: 0, e: EMO[(L * 3 + i) % EMO.length] });
@@ -244,7 +249,7 @@
   }
   function frame(now) {
     var rot = BrainRot.on && !calm, t = (now - t0) / 1000;
-    ctx.clearRect(0, 0, W, H); ctx.lineWidth = rot ? 1.4 : 1;
+    ctx.clearRect(0, 0, W, H); ctx.globalAlpha = dim ? .3 : 1; ctx.lineWidth = rot ? 1.4 : 1;
     edges.forEach(function (e) {
       var a = nodes[e[0]], b = nodes[e[1]];
       ctx.strokeStyle = rot ? "hsla(" + ((t * 90 + a.y + b.x) % 360) + ",100%,75%,.32)" : "rgba(160,172,255,.14)";
