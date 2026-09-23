@@ -197,6 +197,7 @@ stylesheet: /assets/css/site.css
   </div>
 </section>
 
+<!-- hidden layer: the title is ticklish. old gamers know another way in. -->
 <footer>
   <div class="wrap cols">
     <div>
@@ -211,7 +212,8 @@ stylesheet: /assets/css/site.css
     <div>
       <b>{{ c.number }}</b><br>
       {{ c.university }}<br>
-      {{ c.semester.name }}
+      {{ c.semester.name }}<br>
+      <span aria-hidden="true" title="hidden layer" style="opacity:.3;font-size:10px;letter-spacing:.35em">&#9650;&#9650;</span>
     </div>
   </div>
 </footer>

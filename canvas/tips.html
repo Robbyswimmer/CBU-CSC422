@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loading screen tips</title>
+<!-- Embedded at the bottom of the Canvas "Tools for Getting Started" page.
+     A video-game loading screen: the bar is the semester, the tips rotate. A few tips are clues. -->
+<style>
+  :root { --ink:#fff; --dim:#c9c6f2; --faint:#8e8ab8; --accent:#7de2ff; --bar:#8fa2ff; }
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); }
+  .bar { position: relative; height: 100%; box-sizing: border-box; padding: 14px 20px; border-radius: 14px; overflow: hidden;
+    background: linear-gradient(100deg, #0b0e28, #151a45 55%, #2d2170); }
+  .top { display: flex; align-items: baseline; gap: 12px; font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+  .label { color: var(--accent); cursor: default; user-select: none; }
+  .pct { margin-left: auto; color: var(--ink); letter-spacing: .04em; }
+  .track { height: 6px; margin: 10px 0 12px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+  .track i { display: block; height: 100%; width: var(--p, 0%); border-radius: 99px; background: linear-gradient(90deg, var(--bar), var(--accent)); }
+  .tip { margin: 0; font-size: 15px; line-height: 1.35; color: var(--dim); transition: opacity .35s; }
+  .tip b { color: var(--ink); margin-right: 6px; }
+  .tip.fade { opacity: 0; }
+  .skip { display: none; }
+
+  /* ── brain rot mode ─────────────────────────────────────────────────────────── */
+  .brainrot { --ink:#fff; --dim:#fff; --faint:#ffffffcc; --accent:#b6ff00; --bar:#ff2fd0; }
+  .brainrot .bar { background: linear-gradient(120deg, #ff2fd0, #7b2cff, #00c2ff, #b6ff00, #ff2fd0); background-size: 400% 400%; }
+  .brainrot .top, .brainrot .tip { text-shadow: 0 2px 0 rgba(0,0,0,.45); }
+  .brainrot .top > span { padding: 3px 7px; border-radius: 6px; background: rgba(18, 4, 44, .7); }
+  .brainrot .tip { display: inline-block; font-weight: 800; padding: 4px 10px; border-radius: 8px; background: rgba(18, 4, 44, .7); }
+  .brainrot .track i { background: linear-gradient(90deg, #ff2fd0, #ffe600, #00e5ff, #b6ff00, #ff2fd0); background-size: 300% 100%; }
+  .brainrot .skip { display: block; position: absolute; right: 14px; bottom: 10px;
+    font: 900 12px/1 Impact, "Arial Black", sans-serif; letter-spacing: .06em; color: #fff; -webkit-text-stroke: .5px #000; }
+  .fly { position: absolute; left: 0; z-index: 3; font-size: 24px; pointer-events: none; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .brainrot .bar { animation: drip 4s ease infinite; }
+    @keyframes drip { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    .brainrot .track i { animation: rainbow 1.6s linear infinite; }
+    @keyframes rainbow { to { background-position: 300% 0; } }
+    .brainrot .pct { display: inline-block; animation: bump .5s ease-in-out infinite alternate; }
+    @keyframes bump { to { transform: scale(1.25) rotate(-5deg); } }
+    .brainrot .skip { animation: blink 1.2s steps(2) infinite; }
+    @keyframes blink { 50% { opacity: .25; } }
+    .fly { animation: fly linear forwards; }
+    @keyframes fly { from { transform: translateX(-50px) rotate(0); } to { transform: translateX(var(--w)) rotate(720deg); } }
+  }
+</style>
+</head>
+<body>
+<main class="bar" id="bar">
+  <div class="top"><span class="label" id="label">CSCI 4220</span><span id="load">Loading semester</span><span class="pct" id="pct"></span></div>
+  <div class="track"><i id="fill"></i></div>
+  <p class="tip" id="tipLine"><b id="tipKey">Tip</b><span id="tip"></span></p>
+  <div class="skip">PRESS A TO SKIP (you can't)</div>
+</main>
+<script src="brainrot.js"></script>
+<script>
+(function () {
+  var START = new Date(2026, 8, 7), WEEKS = 15;          // week 1 = Mon 7 Sep 2026, same clock as the banner
+  var week = Math.max(1, Math.min(WEEKS, Math.floor((Date.now() - START) / 6048e5) + 1));
+  var pct = Math.round(100 * week / WEEKS);
+
+  // Real tips, with a few clues mixed in. The clues never say what they're clues to.
+  var NORMAL = ["The lecture slides live on GitHub, in the order we teach them.",
+                "Wednesdays we write code together. Bring a laptop.",
+                "Office hours: Monday and Wednesday, 7:15–8:15 am in TEGR 333, or by appointment.",
+                "Some inputs are older than you.",
+                "Stuck on a term? The ML Glossary explains it in plain words.",
+                "The course title is ticklish.",
+                "Due dates and grades always live in Canvas.",
+                "Your little brother knows the password."];
+  var ROT = ["touching grass restores 10 HP 🌱",
+             "office hours = free XP. the professor does not bite (probably)",
+             "loss going up? you're cooked. lower the learning rate 🔥",
+             "reading the ENTIRE syllabus gives +5000 aura. it's at the bottom 👀",
+             "never peek at the test set. that's how you lose your aura forever 💀",
+             "AI tools are allowed. vibe-coding stuff you can't explain is not 🧠",
+             "the glossary has a secret mode too. wait. you already knew that",
+             "6️⃣7️⃣ (that's it. that's the tip)"];
+  var EMO = ["🧠", "💀", "🔥", "🗿", "✨", "🌱", "🎮", "😭"];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var bar = $("bar"), calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var i = 0, fadeTimer, chaos = [];
+  function tips() { return BrainRot.on ? ROT : NORMAL; }
+  function showTip(now) {
+    var line = $("tipLine");
+    clearTimeout(fadeTimer);
+    if (now) { line.classList.remove("fade"); $("tip").textContent = tips()[i % tips().length]; return; }
+    line.classList.add("fade");
+    fadeTimer = setTimeout(function () { i++; $("tip").textContent = tips()[i % tips().length]; line.classList.remove("fade"); }, 350);
+  }
+  function render() {
+    var rot = BrainRot.on;
+    $("label").textContent = rot ? "CSCI 4220 · cooked edition" : "CSCI 4220";
+    $("load").textContent = rot ? "loading aura" : "Loading semester · week " + week + " of " + WEEKS;
+    $("tipKey").textContent = rot ? "PRO TIP:" : "Tip";
+    $("pct").textContent = rot ? "67%" : pct + "%";
+    $("fill").style.setProperty("--p", (rot ? 67 : pct) + "%");
+    showTip(true);
+  }
+  setInterval(function () { showTip(false); }, 5200);
+
+  function startChaos() {
+    if (calm || chaos.length) return;
+    var GLITCH = ["67%", "99%", "9000%", "-3%", "∞%", "6 7%", "100%", "1%"];
+    chaos.push(setInterval(function () { $("pct").textContent = GLITCH[Math.floor(Math.random() * GLITCH.length)]; }, 900));
+    chaos.push(setInterval(function () {
+      var s = document.createElement("span"), d = 2 + Math.random() * 2;
+      s.className = "fly"; s.textContent = EMO[Math.floor(Math.random() * EMO.length)];
+      s.style.top = (Math.random() * 70) + "%"; s.style.setProperty("--w", (bar.clientWidth + 100) + "px");
+      s.style.animationDuration = d + "s"; bar.appendChild(s); setTimeout(function () { s.remove(); }, d * 1000);
+    }, 700));
+  }
+  function stopChaos() { chaos.forEach(clearInterval); chaos = []; bar.querySelectorAll(".fly").forEach(function (n) { n.remove(); }); }
+
+  BrainRot.onChange(function (on) { i = 0; render(); if (on) startChaos(); else stopChaos(); });
+  BrainRot.tapTarget($("label"));
+  render(); if (BrainRot.on) startChaos();
+})();
+</script>
+</body>
+</html>
