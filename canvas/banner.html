@@ -103,7 +103,7 @@
   };
 
   var $ = function (id) { return document.getElementById(id); };
-  var tagI = 0, tagTimer;
+  var tagI = 0, tagTimer, fadeTimer;
   function render() {
     var c = BrainRot.on ? COPY.rot : COPY.normal;
     $("eyebrow").textContent = c.eyebrow; $("title").innerHTML = c.title;
@@ -112,11 +112,15 @@
     $("bar").style.setProperty("--p", (100 * week / WEEKS) + "%");
     tagI = 0; showTag(true);
   }
+  function currentTags() { return (BrainRot.on ? COPY.rot : COPY.normal).tags; }
   function showTag(now) {
-    var tags = (BrainRot.on ? COPY.rot : COPY.normal).tags, el = $("tag");
-    if (now) { el.textContent = tags[0]; return; }
+    var el = $("tag");
+    clearTimeout(fadeTimer);                 // a toggle mid-fade must not finish with the old mode's line
+    if (now) { el.classList.remove("fade"); el.textContent = currentTags()[0]; return; }
     el.classList.add("fade");
-    setTimeout(function () { tagI = (tagI + 1) % tags.length; el.textContent = tags[tagI]; el.classList.remove("fade"); }, 350);
+    fadeTimer = setTimeout(function () {
+      var tags = currentTags(); tagI = (tagI + 1) % tags.length; el.textContent = tags[tagI]; el.classList.remove("fade");
+    }, 350);
   }
   clearInterval(tagTimer); tagTimer = setInterval(function () { showTag(false); }, 4200);
 
