@@ -11,6 +11,7 @@ GitHub can't preview PowerPoint in the browser.
 | Week 2 | Linear regression — adapted from UDL ch. 2 | `ml_overview_linear_regressions.pptx` |
 | Week 2 | Fitting models · gradient descent — UDL ch. 6 | `CM20315_06_Fitting.pptx` |
 | Weeks 2–3 | Shallow neural networks — UDL ch. 3 | `CM20315_03_Shallow.pptx` |
+| Weeks 3–4 | Deep neural networks — UDL ch. 4 | `CM20315_04_Deep.pptx` |
 
 The `CM20315_*` decks are Simon J. D. Prince's slides for *Understanding Deep Learning*
 (MIT Press, 2023). The book, its slides and its notebooks are free at

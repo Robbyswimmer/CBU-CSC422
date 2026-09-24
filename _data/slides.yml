@@ -29,3 +29,8 @@
   file: FA26/slides/CM20315_03_Shallow.pptx
   note: UDL chapter 3 · hidden units, ReLU, universal approximation
   udl: true
+- when: Weeks 3–4
+  title: Deep neural networks
+  file: FA26/slides/CM20315_04_Deep.pptx
+  note: UDL chapter 4 · composing networks, folding, why depth beats width
+  udl: true
