@@ -60,11 +60,12 @@
   deliverables:
   - Python implementation (.ipynb file)
 - date: '2026-10-09'
-  title: 'PS2: Classification & Model Evaluation'
+  title: 'PS2: The Cat Detector'
   type: problem set
   points: 100
-  description: 'PS2: Classification & Model Evaluation'
+  description: 'Eight short problems from one week with Robby''s cat: a deep network by hand, the training loop, cross-entropy, precision and recall, loss curves, validation vs. test, a quiz, and a free response'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week04/PS2-classification-evaluation
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318506
   published: false
 - date: '2026-10-16'
   title: 'CA.02: Classification Models (KNN, LogReg, Naive Bayes)'
