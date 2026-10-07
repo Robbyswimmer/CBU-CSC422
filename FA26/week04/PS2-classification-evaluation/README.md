@@ -7,7 +7,7 @@ description: "Eight short problems from one week with Robby's cat"
 
 **Covers weeks 3–5** · deep networks · the training loop · cross-entropy ·
 accuracy, precision and recall · loss curves · validation vs. test
-**Due:** Fri 9 Oct 2026 · 11:59pm · 100 points
+**Due:** Sun 11 Oct 2026 · 11:59pm · 100 points
 
 **[Download the problem set (PDF)](./PS2-The-Cat-Detector.pdf)** — also posted on Canvas.
 

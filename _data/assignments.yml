@@ -59,7 +59,7 @@
   - Linear Algebra
   deliverables:
   - Python implementation (.ipynb file)
-- date: '2026-10-09'
+- date: '2026-10-11'
   title: 'PS2: The Cat Detector'
   type: problem set
   points: 100
