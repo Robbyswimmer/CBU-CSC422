@@ -67,22 +67,21 @@
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week04/PS2-classification-evaluation
   canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318506
   published: false
-- date: '2026-10-16'
-  title: 'CA.02: Classification Models (KNN, LogReg, Naive Bayes)'
+- date: '2026-10-23'
+  title: 'CA.02: First Contact'
   type: assignment
   points: 100
-  description: 'CA.02: Classification Models (KNN, LogReg, Naive Bayes)'
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week05/CA02-classification-models
+  description: 'Crack an alien arithmetic language, then teach it to a transformer five ways: base, system and chain-of-thought prompting, in-context learning, and LoRA fine-tuning'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week06/CA02-first-contact
   published: false
-- date: '2026-10-16'
-  title: Midterm Checkpoint
+- date: '2026-10-25'
+  title: 'Midterm Project: 3-Minute Demo Video'
   type: project
   points: 100
-  description: Mid-semester checkpoint on your research project
-  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/final-project/midterm-checkpoint-assignment.md
+  description: 'A 3-minute screen-recorded demo of your project: the idea, the data, your current progress running, and what is next'
+  github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/final-project/midterm-demo-video-assignment.md
   published: false
-  detailed_description: 'Progress against the plan in your proposal: what is working, what changed, and
-    what remains for the second half of the term.'
+  detailed_description: 'One video per team; every teammate submits the same link.'
   estimated_hours: 1
   difficulty: Intermediate
   skills:
