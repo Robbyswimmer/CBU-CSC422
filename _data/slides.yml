@@ -34,3 +34,13 @@
   file: FA26/slides/CM20315_04_Deep.pptx
   note: UDL chapter 4 · composing networks, folding, why depth beats width
   udl: true
+- when: Week 5
+  title: Convolutional neural networks
+  file: FA26/slides/CM20315_10_Convolutional.pptx
+  note: UDL chapter 10 · convolution, weight sharing, pooling, receptive fields
+  udl: true
+- when: Week 6
+  title: Transformers
+  file: FA26/slides/CM20315_12_Transformers.pptx
+  note: UDL chapter 12 · self-attention, positional encoding, GPT and masked attention
+  udl: true
