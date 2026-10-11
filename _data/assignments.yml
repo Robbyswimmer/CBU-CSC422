@@ -73,6 +73,7 @@
   points: 100
   description: 'Crack an alien arithmetic language, then teach it to a transformer five ways: base, system and chain-of-thought prompting, in-context learning, and LoRA fine-tuning'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/tree/main/FA26/week06/CA02-first-contact
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318507
   published: false
 - date: '2026-10-25'
   title: 'Midterm Project: 3-Minute Demo Video'
@@ -80,6 +81,7 @@
   points: 100
   description: 'A 3-minute screen-recorded demo of your project: the idea, the data, your current progress running, and what is next'
   github_url: https://github.com/Robbyswimmer/CBU-CSC422/blob/main/FA26/final-project/midterm-demo-video-assignment.md
+  canvas_url: https://calbaptist.instructure.com/courses/13604/assignments/318593
   published: false
   detailed_description: 'One video per team; every teammate submits the same link.'
   estimated_hours: 1
