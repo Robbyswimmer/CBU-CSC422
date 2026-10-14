@@ -1,6 +1,6 @@
 # CA.02: First Contact
 
-**Due:** Fri Oct 23, 11:59 pm · **100 points** (+5 bonus)
+**Due:** Sun Oct 18, 11:59 pm · **100 points** (+5 bonus)
 
 Crack an alien arithmetic language yourself, then teach it to a 494-million-parameter transformer five ways:
 base prompting, system prompting, chain-of-thought, in-context learning, and LoRA fine-tuning.
